@@ -1,316 +1,261 @@
-<!doctype html>
-<html lang='en'>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset='UTF-8' />
-  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-  <title>ColdPackPro | Cold Chain Packaging Factory</title>
-  <meta name='description' content='ColdPackPro manufactures rigid cold/frozen packs, gel ice packs, and self-absorbing ice pack sheets for temperature-controlled shipping.' />
-  <meta name='theme-color' content='#0f2a55' />
-  <script src='https://cdn.tailwindcss.com'></script>
-  <style>
-    html{scroll-behavior:smooth}
-    body{background:radial-gradient(circle at top left, rgba(41,198,220,.10), transparent 26%),radial-gradient(circle at 85% 10%, rgba(37,99,235,.10), transparent 22%),linear-gradient(180deg,#f8fbff 0%,#eef5fb 48%,#e8eef6 100%);color:#10233f}
-    .shadow-soft{box-shadow:0 20px 60px rgba(13,35,71,.14)}
-    .shadow-strong{box-shadow:0 24px 80px rgba(13,35,71,.18)}
-    .field{width:100%;border:1px solid #cbd5e1;background:#fff;border-radius:1rem;padding:.8rem .95rem;outline:none}
-    .field:focus{border-color:#2563eb;box-shadow:0 0 0 4px rgba(37,99,235,.09)}
-    .label{display:block;font-size:.875rem;font-weight:600;color:#334155}
-    .kicker{letter-spacing:.24em;text-transform:uppercase;font-weight:700;font-size:.78rem}
-    .chip{border:1px solid rgba(15,42,85,.12);background:rgba(255,255,255,.72)}
-    .navlink{display:inline-flex;align-items:center;gap:.4rem}
-    .navlink:hover{color:#1d4ed8}
-    .fade-in{animation:fadeIn .5s ease both}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-  </style>
-</head>
-<body class='antialiased'>
-  <header class='sticky top-0 z-50 border-b border-slate-200/70 bg-white/85 backdrop-blur-xl'>
-    <div class='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-      <div class='flex h-20 items-center justify-between gap-4'>
-        <a href='#home' class='shrink-0' aria-label='ColdPackPro home'><img src='69c89f72d0d2ebc7427df8b1' alt='ColdPackPro logo' class='h-14 w-auto sm:h-16' /></a>
-        <nav class='hidden items-center gap-6 text-sm font-medium text-slate-700 md:flex'>
-          <div class='group relative'>
-            <a class='navlink' href='#about-us'>About <span class='text-slate-400'>▾</span></a>
-            <div class='invisible absolute left-0 top-full z-20 pt-3 opacity-0 transition group-hover:visible group-hover:opacity-100'>
-              <div class='w-56 rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl'>
-                <a href='#about-us' class='block rounded-xl px-4 py-3 text-sm hover:bg-slate-50'>Company Profile</a>
-                <a href='#company-profile' class='block rounded-xl px-4 py-3 text-sm hover:bg-slate-50'>Our Expertise</a>
-                <a href='#factory-strength' class='block rounded-xl px-4 py-3 text-sm hover:bg-slate-50'>Factory Strength</a>
-              </div>
-            </div>
-          </div>
-          <div class='group relative'>
-            <a class='navlink' href='#products'>Products <span class='text-slate-400'>▾</span></a>
-            <div class='invisible absolute left-0 top-full z-20 pt-3 opacity-0 transition group-hover:visible group-hover:opacity-100'>
-              <div class='w-72 rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl'>
-                <a href='#rigid-series' class='block rounded-xl px-4 py-3 text-sm hover:bg-slate-50'>Rigid Series</a>
-                <a href='#gel-series' class='block rounded-xl px-4 py-3 text-sm hover:bg-slate-50'>Gel Series</a>
-                <a href='#sheet-series' class='block rounded-xl px-4 py-3 text-sm hover:bg-slate-50'>Self-Absorbing Series</a>
-              </div>
-            </div>
-          </div>
-          <div class='group relative'>
-            <a class='navlink' href='#faq'>FAQ <span class='text-slate-400'>▾</span></a>
-            <div class='invisible absolute left-0 top-full z-20 pt-3 opacity-0 transition group-hover:visible group-hover:opacity-100'>
-              <div class='w-56 rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl'>
-                <a href='#faq-lead-time' class='block rounded-xl px-4 py-3 text-sm hover:bg-slate-50'>Lead Time</a>
-                <a href='#faq-customization' class='block rounded-xl px-4 py-3 text-sm hover:bg-slate-50'>Customization</a>
-                <a href='#faq-samples' class='block rounded-xl px-4 py-3 text-sm hover:bg-slate-50'>Samples & Cycle</a>
-                <a href='#faq-files' class='block rounded-xl px-4 py-3 text-sm hover:bg-slate-50'>File Requirements</a>
-                <a href='#faq-packaging' class='block rounded-xl px-4 py-3 text-sm hover:bg-slate-50'>Mold & Packaging</a>
-                <a href='#faq-certificates' class='block rounded-xl px-4 py-3 text-sm hover:bg-slate-50'>Certificates & MOQ</a>
-              </div>
-            </div>
-          </div>
-          <div class='group relative'>
-            <a class='navlink' href='#'>Blog <span class='text-slate-400'>▾</span></a>
-            <div class='invisible absolute left-0 top-full z-20 pt-3 opacity-0 transition group-hover:visible group-hover:opacity-100'>
-              <div class='w-56 rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl'>
-                <a href='#' class='block rounded-xl px-4 py-3 text-sm hover:bg-slate-50'>Industry News</a>
-                <a href='#' class='block rounded-xl px-4 py-3 text-sm hover:bg-slate-50'>Product Guide</a>
-                <a href='#' class='block rounded-xl px-4 py-3 text-sm hover:bg-slate-50'>Cold Chain Tips</a>
-              </div>
-            </div>
-          </div>
-          <div class='group relative'>
-            <a class='navlink' href='#contact'>Contact <span class='text-slate-400'>▾</span></a>
-            <div class='invisible absolute left-0 top-full z-20 pt-3 opacity-0 transition group-hover:visible group-hover:opacity-100'>
-              <div class='w-56 rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl'>
-                <a href='#contact-details' class='block rounded-xl px-4 py-3 text-sm hover:bg-slate-50'>Contact Details</a>
-                <a href='#inquiry-form' class='block rounded-xl px-4 py-3 text-sm hover:bg-slate-50'>Send Inquiry</a>
-              </div>
-            </div>
-          </div>
-        </nav>
-        <a href='#inquiry-form' class='rounded-full bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700'>Inquiry Now</a>
-      </div>
-    </div>
-  </header>
-
-  <main id='home'>
-    <section class='mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-16'>
-      <div class='grid items-center gap-10 lg:grid-cols-2'>
-        <div class='fade-in'>
-          <div class='mb-4 inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-200'><span class='h-2 w-2 rounded-full bg-cyan-500'></span>Provider of cold-chain transport solutions, focused on lightweight and efficient cooling products.</div>
-          <h1 class='max-w-xl text-4xl font-black tracking-tight text-slate-950 sm:text-5xl lg:text-6xl'>ColdPackPro for Reliable Temperature-Controlled Shipping.</h1>
-          <p class='mt-5 max-w-xl text-lg leading-8 text-slate-600'>Focused on rigid cold/frozen packs, gel ice packs, and self-absorbing ice pack sheets for seafood, meal kits, dairy, pharma, and e-commerce cold chain logistics.</p>
-          <div class='mt-8 flex flex-wrap gap-3'><a href='#products' class='rounded-full bg-blue-700 px-6 py-3 font-semibold text-white shadow-lg shadow-blue-700/20 hover:bg-blue-800'>Explore Products</a><a href='#catalog' class='rounded-full border border-slate-200 bg-white px-6 py-3 font-semibold text-slate-900 hover:bg-slate-50'>Open Catalog</a></div>
-        </div>
-        <div class='shadow-strong overflow-hidden rounded-[2rem] border border-white/70 bg-white/70 p-4'>
-          <div class='rounded-[1.6rem] bg-[linear-gradient(135deg,#16243f_0%,#2c73d2_46%,#22d8d2_100%)] p-5 sm:p-6'>
-            <div class='flex items-center justify-between gap-4 text-white/90'><div class='text-xs font-semibold uppercase tracking-[0.35em]'>ColdPackPro Factory Presentation</div><div class='rounded-full border border-white/25 px-3 py-1 text-[11px]'>Factory Direct</div></div>
-            <p class='mt-4 max-w-xl text-sm leading-7 text-white/85'>A focused cold-chain factory brand for export buyers who need consistent products, clear communication, and business-ready support.</p>
-            <div class='mt-5 rounded-[1.4rem] bg-white/10 p-3 ring-1 ring-white/15'><img src='69cbf17e585e02c9936c3e54' alt='Factory, equipment, and certification showcase' class='h-auto w-full rounded-[1rem] object-cover' /></div>
-            <div class='mt-4 grid gap-3 sm:grid-cols-3'>
-              <div class='rounded-[1.2rem] bg-white/10 p-3 text-center ring-1 ring-white/15 text-white'><div class='text-sm font-semibold'>Factory</div><div class='mt-1 text-xs text-white/70'>Production strength</div></div>
-              <div class='rounded-[1.2rem] bg-white/10 p-3 text-center ring-1 ring-white/15 text-white'><div class='text-sm font-semibold'>Equipment</div><div class='mt-1 text-xs text-white/70'>Stable output</div></div>
-              <div class='rounded-[1.2rem] bg-white/10 p-3 text-center ring-1 ring-white/15 text-white'><div class='text-sm font-semibold'>Certification</div><div class='mt-1 text-xs text-white/70'>Quality control</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id='about-us' class='mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-14'>
-      <div class='grid gap-6 lg:grid-cols-[.95fr_1.05fr] lg:items-start'>
-        <div class='rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm'>
-          <div class='kicker text-blue-700'>About Us</div>
-          <h2 class='mt-2 text-3xl font-black tracking-tight text-slate-950'>Cold-chain transport solutions for export buyers</h2>
-          <p class='mt-4 text-sm leading-7 text-slate-600'>A Guangzhou, China-based cold-chain factory with over 15 years of industry expertise. We focus on R&D and manufacturing lightweight, efficient cooling products for temperature-sensitive logistics, wholesale sourcing, and private label projects.</p>
-          <div class='mt-6 grid gap-3 sm:grid-cols-2'>
-            <div id='company-profile' class='rounded-2xl bg-slate-50 p-4'><div class='text-sm font-semibold text-slate-950'>Company Profile</div><p class='mt-1 text-sm leading-6 text-slate-600'>A factory-led B2B site built for clear product sourcing and fast inquiry handling.</p></div>
-            <div id='factory-strength' class='rounded-2xl bg-slate-50 p-4'><div class='text-sm font-semibold text-slate-950'>Factory Strength</div><p class='mt-1 text-sm leading-6 text-slate-600'>Consistent output, stable supply, and practical export communication.</p></div>
-            <div id='oem-odm' class='rounded-2xl bg-slate-50 p-4'><div class='text-sm font-semibold text-slate-950'>OEM / ODM Service</div><p class='mt-1 text-sm leading-6 text-slate-600'>Logo, size, color, freeze point, and packaging customization.</p></div>
-            <div id='quality-control' class='rounded-2xl bg-slate-50 p-4'><div class='text-sm font-semibold text-slate-950'>Quality Control</div><p class='mt-1 text-sm leading-6 text-slate-600'>Built for inspection, repeatability, and export-oriented documentation.</p></div>
-          </div>
-        </div>
-        <div class='grid gap-4 md:grid-cols-3'>
-          <figure class='overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white shadow-sm'><img src='69cbf17e585e02c9936c3e54' alt='Factory showcase' class='h-72 w-full object-cover' style='object-position:left center;' /><figcaption class='border-t border-slate-200 px-4 py-3 text-sm font-semibold text-slate-800'>Factory</figcaption></figure>
-          <figure class='overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white shadow-sm'><img src='69cbf17e585e02c9936c3e54' alt='Equipment showcase' class='h-72 w-full object-cover' style='object-position:center center;' /><figcaption class='border-t border-slate-200 px-4 py-3 text-sm font-semibold text-slate-800'>Equipment</figcaption></figure>
-          <figure class='overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white shadow-sm'><img src='69cbf17e585e02c9936c3e54' alt='Certification showcase' class='h-72 w-full object-cover' style='object-position:right center;' /><figcaption class='border-t border-slate-200 px-4 py-3 text-sm font-semibold text-slate-800'>Certification</figcaption></figure>
-        </div>
-      </div>
-    </section>
-
-    <section id='products' class='mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-14'>
-      <div class='mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'><div><div class='kicker text-blue-700'>Product Series</div><h2 class='mt-2 text-3xl font-black tracking-tight text-slate-950'>Main Products</h2></div><p class='max-w-2xl text-sm leading-7 text-slate-600'>Focused cold-pack portfolio for reusable shipping, frozen distribution, and last-mile temperature holding.</p></div>
-      <div class='grid gap-6 lg:grid-cols-3'>
-        <article id='custom-products' class='overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft'>
-          <div class='h-56 overflow-hidden bg-slate-100'><img src='69cbf17e585e02c9936c3e54' alt='Custom product category' class='h-full w-full object-cover' style='object-position:center top;' /></div>
-          <div class='bg-gradient-to-br from-slate-900 via-blue-800 to-cyan-500 p-5 text-white'>
-            <div class='mb-3 inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em]'>Custom</div>
-            <h3 class='text-2xl font-black'>Custom Cooling Solutions</h3>
-            <p class='mt-2 text-sm text-white/85'>Tailored size, formula, structure, branding, and packaging for specific market needs.</p>
-          </div>
-        </article>
-        <article id='rigid-series' class='overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft'>
-          <div class='h-56 overflow-hidden bg-slate-100'><img src='69ccda1950d36b119fb4ecee' alt='Rigid series family photo' class='h-full w-full object-cover' /></div>
-          <div class='bg-gradient-to-br from-slate-900 via-blue-800 to-cyan-500 p-5 text-white'>
-            <div class='mb-3 inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em]'>Rigid Series</div>
-            <h3 class='text-2xl font-black'>Rigid Cold / Frozen Pack</h3>
-            <p class='mt-2 text-sm text-white/85'>High rigidity, strong stacking, stable shape for frozen food and pharma shipments.</p>
-          </div>
-          <div class='p-5'>
-            <div class='flex items-center justify-between text-sm text-slate-600'><span>Usage</span><span>Frozen shipments</span></div>
-            <div class='mt-3 flex flex-wrap gap-2'><span class='chip rounded-full px-3 py-1 text-xs'>OEM</span><span class='chip rounded-full px-3 py-1 text-xs'>Logo Print</span><span class='chip rounded-full px-3 py-1 text-xs'>Reusable</span></div>
-          </div>
-        </article>
-        <article id='gel-series' class='overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft'>
-          <div class='h-56 overflow-hidden bg-slate-100'><img src='69cbf17e585e02c9936c3e54' alt='Gel series family photo' class='h-full w-full object-cover' style='object-position:center center;' /></div>
-          <div class='bg-gradient-to-br from-cyan-500 via-blue-600 to-slate-900 p-5 text-white'>
-            <div class='mb-3 inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em]'>Gel Series</div>
-            <h3 class='text-2xl font-black'>Gel Ice Pack</h3>
-            <p class='mt-2 text-sm text-white/85'>Flexible cold retention for seafood, meal kits, dairy, and insulated bags.</p>
-          </div>
-          <div class='p-5'>
-            <div class='flex items-center justify-between text-sm text-slate-600'><span>Performance</span><span>Long hold</span></div>
-            <div class='mt-3 flex flex-wrap gap-2'><span class='chip rounded-full px-3 py-1 text-xs'>Soft-touch</span><span class='chip rounded-full px-3 py-1 text-xs'>Leak-resistant</span><span class='chip rounded-full px-3 py-1 text-xs'>Custom mix</span></div>
-          </div>
-        </article>
-        <article id='sheet-series' class='overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft'>
-          <div class='h-56 overflow-hidden bg-slate-100'><img src='69cbf17e585e02c9936c3e54' alt='Self-absorbing sheet family photo' class='h-full w-full object-cover' style='object-position:right center;' /></div>
-          <div class='bg-gradient-to-br from-white via-sky-100 to-cyan-200 p-5 text-slate-950'>
-            <div class='mb-3 inline-flex rounded-full bg-slate-950 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white'>Sheet Series</div>
-            <h3 class='text-2xl font-black'>Self-Absorbing Series</h3>
-            <p class='mt-2 text-sm text-slate-700'>Flexible sheet format for fast packing, easy cutting, and compact storage.</p>
-          </div>
-          <div class='p-5'>
-            <div class='flex items-center justify-between text-sm text-slate-600'><span>Format</span><span>Roll / Sheet</span></div>
-            <div class='mt-3 flex flex-wrap gap-2'><span class='chip rounded-full px-3 py-1 text-xs'>Absorbent</span><span class='chip rounded-full px-3 py-1 text-xs'>Easy cut</span><span class='chip rounded-full px-3 py-1 text-xs'>Bulk packing</span></div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id='catalog' class='mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-14'>
-      <div class='rounded-[2rem] border border-slate-200 bg-[linear-gradient(135deg,rgba(15,35,71,.96),rgba(37,99,235,.94),rgba(41,198,220,.88))] p-6 text-white shadow-2xl'>
-        <div class='grid gap-8 lg:grid-cols-2 lg:items-center'>
-          <div>
-            <div class='kicker text-white/75'>Download Catalog</div>
-            <h2 class='mt-2 text-3xl font-black tracking-tight'>Download Catalog</h2>
-          </div>
-          <div class='rounded-[1.5rem] bg-white p-5 text-slate-900 shadow-xl'>
-            <label class='label' for='emailInput'>Business email</label>
-            <input id='emailInput' type='email' placeholder='name@company.com' class='field' />
-            <p class='mt-2 text-xs text-slate-500'>Free domains are blocked.</p>
-            <button id='unlockBtn' class='mt-4 rounded-2xl bg-slate-950 px-5 py-3 font-semibold text-white hover:bg-blue-700'>Unlock PDF</button>
-            <p id='unlockMsg' class='mt-3 text-sm text-slate-500'>Catalog file: <code>assets/ColdPackPro-Catalog.pdf</code></p>
-            <a id='downloadLink' href='assets/ColdPackPro-Catalog.pdf' target='_blank' rel='noopener' class='mt-4 hidden inline-flex rounded-2xl bg-blue-700 px-5 py-3 font-semibold text-white hover:bg-blue-800'>Download Catalog PDF</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id='contact' class='mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-14'>
-      <div class='grid gap-6 lg:grid-cols-[1.05fr_.95fr]'>
-        <div class='rounded-[1.8rem] border border-slate-200 bg-white p-6 shadow-sm'>
-          <div id='inquiry-form'>
-            <div class='kicker text-blue-700'>Inquiry Form</div>
-            <h2 class='mt-2 text-3xl font-black tracking-tight'>Send an Online Inquiry</h2>
-            <form id='inquiryForm' class='mt-6 overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-50'>
-              <div class='grid md:grid-cols-[180px_1fr]'>
-                <div class='border-b border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 md:border-b md:border-r md:px-5'>Company Name *</div><div class='border-b border-slate-200 px-4 py-3 md:border-b md:px-5'><input id='companyName' class='field' type='text' placeholder='Your company name' required /></div>
-                <div class='border-b border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 md:border-b md:border-r md:px-5'>Name *</div><div class='border-b border-slate-200 px-4 py-3 md:border-b md:px-5'><input id='personName' class='field' type='text' placeholder='Your name' required /></div>
-                <div class='border-b border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 md:border-b md:border-r md:px-5'>Email *</div><div class='border-b border-slate-200 px-4 py-3 md:border-b md:px-5'><input id='bizEmail' class='field' type='email' placeholder='name@example.com' required /></div>
-                <div class='border-b border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 md:border-b md:border-r md:px-5'>Product Series</div><div class='border-b border-slate-200 px-4 py-3 md:border-b md:px-5'><select id='interest' class='field'><option value=''>Optional</option><option>Custom</option><option>Rigid Series</option><option>Gel Series</option><option>Self-Absorbing Sheet</option><option>Mixed Inquiry</option></select></div>
-                <div class='px-4 py-3 text-sm font-semibold text-slate-700 md:border-r md:px-5'>Message</div><div class='px-4 py-3 md:px-5'><textarea id='message' class='field min-h-[120px]' placeholder='Optional: size, target temperature, quantity, shipping requirement.'></textarea></div>
-              </div>
-              <div class='flex flex-wrap items-center gap-3 border-t border-slate-200 bg-white px-4 py-4 md:px-5'><button type='submit' class='rounded-2xl bg-blue-700 px-6 py-3 font-semibold text-white hover:bg-blue-800'>Send Inquiry</button><a href='https://wa.me/8613925109703' target='_blank' rel='noopener' class='rounded-2xl bg-slate-100 px-6 py-3 font-semibold text-slate-800 hover:bg-slate-200'>WhatsApp</a><span id='formNote' class='text-sm text-slate-500'></span></div>
-            </form>
-          </div>
-
-          <div id='quick-note' class='mt-6 rounded-[1.5rem] bg-[linear-gradient(135deg,#0f2347,#2d63ef,#22d8d2)] p-5 text-white'>
-            <div class='kicker text-white/70'>Quick Note</div>
-            <p class='mt-2 text-sm leading-7 text-white/88'>Inquiry accepts any valid email. Catalog download stays business-only to protect the brochure.</p>
-          </div>
-
-          <div id='faq' class='mt-6'>
-            <div class='kicker text-blue-700 text-2xl sm:text-3xl'>FAQ</div>
-            <div class='mt-4 grid gap-4'>
-              <details id='faq-lead-time' class='rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-sm'><summary class='cursor-pointer list-none text-lg font-bold text-slate-950'>What is your production lead time?</summary><p class='mt-3 text-sm leading-7 text-slate-600'>Standard orders are usually 10-20 days depending on product type, quantity, and packaging. Custom projects may need extra time for confirmation and sampling.</p></details>
-              <details id='faq-customization' class='rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-sm'><summary class='cursor-pointer list-none text-lg font-bold text-slate-950'>Can you customize the products?</summary><p class='mt-3 text-sm leading-7 text-slate-600'>Yes. We support size, color, logo, material structure, cooling medium, weight, freezing point, and packaging customization.</p></details>
-              <details id='faq-samples' class='rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-sm'><summary class='cursor-pointer list-none text-lg font-bold text-slate-950'>What is the customization cycle and can I get samples?</summary><p class='mt-3 text-sm leading-7 text-slate-600'>Simple logo or packaging changes can be confirmed quickly. New structure or formula development usually takes 7-15 days for sampling and approval. Standard samples can usually be arranged in 3-7 days.</p></details>
-              <details id='faq-files' class='rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-sm'><summary class='cursor-pointer list-none text-lg font-bold text-slate-950'>What files and formats do you need?</summary><p class='mt-3 text-sm leading-7 text-slate-600'>For artwork, AI, PDF, EPS, or SVG is preferred. For dielines or carton design, AI/PDF works best. A clear logo, size reference, and usage description are enough to start.</p></details>
-              <details id='faq-packaging' class='rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-sm'><summary class='cursor-pointer list-none text-lg font-bold text-slate-950'>Do you support mold opening and packaging customization?</summary><p class='mt-3 text-sm leading-7 text-slate-600'>Yes, mold opening is available for projects that need a new shape or special structure. Inner bag, carton, label, master pack, and retail packaging can be customized for your brand and market requirements.</p></details>
-              <details id='faq-certificates' class='rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-sm'><summary class='cursor-pointer list-none text-lg font-bold text-slate-950'>What certificates and MOQ do you offer?</summary><p class='mt-3 text-sm leading-7 text-slate-600'>Available documents may include MSDS, material declarations, food-contact related documents, test reports, and export files. MOQ depends on the model and customization level; contact us for the best quotation.</p></details>
-            </div>
-          </div>
-        </div>
-
-        <div class='grid gap-4'>
-
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer id='contact-details' class='mt-6 border-t border-slate-200 bg-slate-100 text-slate-900'>
-    <div class='mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8'>
-      <div class='grid gap-8 lg:grid-cols-[1.2fr_.8fr] lg:items-center'>
-        <div>
-          <img src='69c89f72d0d2ebc7427df8b1' alt='ColdPackPro logo' class='h-12 w-auto' />
-          <h2 class='mt-6 text-3xl font-black text-slate-900'>ColdPackPro</h2>
-          <p class='mt-4 max-w-2xl text-sm leading-7 text-slate-600'>Factory direct cold-chain transport solutions for B2B sourcing, OEM projects, and export orders.</p>
-        </div>
-        <div class='rounded-[1.5rem] border border-slate-300 bg-gradient-to-br from-blue-50 to-slate-100 p-5 text-sm text-slate-600 shadow-sm'>
-          <p class='font-semibold text-slate-900'>Contact Details</p>
-          <div class='mt-4 grid gap-4 sm:grid-cols-2'>
-            <div class='rounded-2xl bg-slate-50 p-4 border border-slate-200'><div class='text-sm text-slate-500'>WhatsApp</div><a class='mt-1 block font-semibold text-blue-700' href='https://wa.me/8613925109703'>+86 139 2510 9703</a></div>
-            <div class='rounded-2xl bg-slate-50 p-4 border border-slate-200'><div class='text-sm text-slate-500'>Email</div><a class='mt-1 block font-semibold text-blue-700' href='mailto:info@coldpackpro.com'>info@coldpackpro.com</a></div>
-            <div class='rounded-2xl bg-slate-50 p-4 sm:col-span-2 border border-slate-200'><div class='text-sm text-slate-500'>Factory Address</div><div class='mt-1 font-semibold text-slate-900'>Caohe Industrial Zone, Panyu District, Guangzhou City, China.</div></div>
-          </div>
-        </div>
-      </div>
-      <div class='mt-8 flex flex-col gap-4 border-t border-slate-300 pt-6 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between'>
-        <div>© 2026 ColdPackPro. All rights reserved.</div>
-        <div class='flex flex-wrap gap-4'><a href='#about-us' class='hover:text-slate-900'>About</a><a href='#products' class='hover:text-slate-900'>Products</a><a href='#faq' class='hover:text-slate-900'>FAQ</a><a href='#' class='hover:text-slate-900'>Blog</a><a href='#contact-details' class='hover:text-slate-900'>Contact</a></div>
-      </div>
-      <div class='mt-6 flex justify-center'>
-        <a href='#home' class='inline-flex items-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-100'>Back to Top</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const freeDomains=['gmail.com','yahoo.com','hotmail.com','outlook.com','icloud.com','aol.com','proton.me','protonmail.com','qq.com','163.com','126.com','sina.com','msn.com'];
-    function isBusinessEmail(email){if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return false; return !freeDomains.includes(email.split('@')[1].toLowerCase())}
-
-    const emailInput=document.getElementById('emailInput');
-    const unlockBtn=document.getElementById('unlockBtn');
-    const unlockMsg=document.getElementById('unlockMsg');
-    const downloadLink=document.getElementById('downloadLink');
-    emailInput.addEventListener('input',e=>{unlockMsg.textContent=`Catalog file: assets/ColdPackPro-Catalog.pdf — ${isBusinessEmail(e.target.value.trim()) ? 'Business email detected.' : 'Enter a company email to unlock the PDF catalog.'}`})
-    unlockBtn.addEventListener('click',()=>{const email=emailInput.value.trim(); if(isBusinessEmail(email)){downloadLink.classList.remove('hidden'); unlockMsg.textContent='Access granted. You can now download the PDF catalog.'}else{downloadLink.classList.add('hidden'); unlockMsg.textContent='Please enter a company email to unlock the PDF catalog.'}})
-
-    const bizEmail=document.getElementById('bizEmail');
-    bizEmail.addEventListener('input',()=>{bizEmail.setCustomValidity('')});
-    bizEmail.addEventListener('blur',()=>{bizEmail.setCustomValidity('')});
-
-    document.getElementById('inquiryForm').addEventListener('submit',e=>{e.preventDefault(); if(!e.target.checkValidity()){e.target.reportValidity(); document.getElementById('formNote').textContent='Please complete all required fields.'; document.getElementById('formNote').className='text-sm text-red-600'; return} const company=document.getElementById('companyName').value.trim(); const name=document.getElementById('personName').value.trim(); const email=bizEmail.value.trim(); const interest=document.getElementById('interest').value||'N/A'; const msg=document.getElementById('message').value.trim()||'N/A'; const body=encodeURIComponent(`Company: ${company}\nName: ${name}\nEmail: ${email}\nProduct Series: ${interest}\n\nMessage:\n${msg}`); window.location.href=`mailto:info@coldpackpro.com?subject=${encodeURIComponent('ColdPackPro Inquiry - ' + company)}&body=${body}`; document.getElementById('formNote').textContent='Opening your email client...'; document.getElementById('formNote').className='text-sm text-emerald-600'})
-  </script>
-<script>window.parent.postMessage({ action: "ready" }, "*"); 
- 
-window.console = new Proxy(console, {
-  get(target, prop) {
-    if (['log', 'warn', 'error'].includes(prop)) {
-      return new Proxy(target[prop], {
-        apply(fn, thisArg, args) {
-          fn.apply(thisArg, args);
-          window.parent.postMessage({ action: 'console', 
-            type: prop, 
-            args: args.map((arg) => {
-              try {
-                return JSON.stringify(arg).replace(/^["']|["']$/g, '');
-              } catch (e) {
-                return arg;
-              }
-            }) 
-          }, '*');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColdPackPro - Cold-Chain Transport Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-      });
-    }
-    return target[prop];
-  }
-});
-</script></body>
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: white;
+            border-bottom: 3px solid #ff6b35;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        nav button {
+            background: #000;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        nav button:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e8f1f8 0%, #f0f4f9 100%);
+            padding: 80px 50px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #e8f1f8;
+            padding: 12px 20px;
+            border-radius: 20px;
+            color: #0066cc;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .hero-tag::before {
+            content: "●";
+            margin-right: 10px;
+            color: #0066cc;
+        }
+
+        h1 {
+            font-size: 56px;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            color: #000;
+            font-weight: 900;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #0052cc;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #003d99;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 82, 204, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #000;
+            border: 2px solid #ddd;
+        }
+
+        .btn-secondary:hover {
+            background: #f5f5f5;
+            border-color: #999;
+        }
+
+        /* Factory Section */
+        .factory-section {
+            background: linear-gradient(135deg, #0052cc 0%, #0099ff 100%);
+            color: white;
+            padding: 60px 50px;
+            margin-top: 40px;
+            border-radius: 20px;
+        }
+
+        .factory-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 30px;
+        }
+
+        .factory-title {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            opacity: 0.9;
+        }
+
+        .factory-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .factory-badge:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .factory-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .factory-section p {
+            font-size: 16px;
+            opacity: 0.95;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .hero {
+                padding: 50px 20px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .factory-section {
+                padding: 40px 20px;
+            }
+
+            .factory-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <img src="logo.png" alt="ColdPackPro Logo" style="height: 50px; width: auto;">
+        </div>
+        <button>Inquiry Now</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-tag">Provider of cold-chain transport solutions, focused on lightweight and efficient cooling products.</div>
+        
+        <h1>ColdPackPro for Reliable Temperature-Controlled Shipping.</h1>
+        
+        <p class="hero-description">
+            Focused on rigid cold/frozen packs, gel ice packs, and self-absorbing ice pack sheets for seafood, meal kits, dairy, pharma, and e-commerce cold chain logistics.
+        </p>
+
+        <div class="button-group">
+            <button class="btn btn-primary">Explore Products</button>
+            <button class="btn btn-secondary">Open Catalog</button>
+        </div>
+    </div>
+
+    <!-- Factory Section -->
+    <div class="hero">
+        <div class="factory-section">
+            <div class="factory-header">
+                <div class="factory-title">COLDPACKPRO FACTORY PRESENTATION</div>
+                <div class="factory-badge">Factory Direct</div>
+            </div>
+            
+            <h2>Manufacturing Excellence for Global Cold-Chain Logistics</h2>
+            
+            <p>
+                A focused cold-chain factory brand for export buyers who need consistent products, clear communication, and business-ready support. We specialize in custom solutions for temperature-sensitive shipments worldwide.
+            </p>
+        </div>
+    </div>
+</body>
 </html>
