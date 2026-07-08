@@ -1,0 +1,62 @@
+<svg viewBox="0 0 1024 403" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">Cold Pack Pro logo</title>
+  <desc id="logoDesc">Transparent SVG closely preserving the original Cold Pack Pro logo style, spacing, contrast, and subtitle balance for header use.</desc>
+
+  <defs>
+    <linearGradient id="proBlock" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#256FDC"/>
+      <stop offset="52%" stop-color="#3383EE"/>
+      <stop offset="100%" stop-color="#4694F7"/>
+    </linearGradient>
+    <linearGradient id="proText" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#29F4FF"/>
+      <stop offset="100%" stop-color="#00DCFF"/>
+    </linearGradient>
+    <linearGradient id="lineLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#94A3B8" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#7B8798" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="lineRight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7B8798" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#94A3B8" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-20%" width="120%" height="180%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#142033" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <path d="M123 106 H622 C645 106 664 124 664 147 V167 C664 190 645 208 622 208 H123 C106 208 92 194 92 177 V137 C92 120 106 106 123 106 Z" fill="#101826"/>
+    <path d="M650 106 H876 C901 106 922 127 922 152 V162 C922 187 901 208 876 208 H650 C665 197 674 180 674 157 C674 134 665 117 650 106 Z" fill="url(#proBlock)"/>
+
+    <text x="123" y="176"
+      font-family="Eurostile Extended, Microgramma D Extended, Bank Gothic, Arial Black, Helvetica, sans-serif"
+      font-size="66"
+      font-weight="600"
+      letter-spacing="0.35"
+      fill="#FFFFFF"
+      lengthAdjust="spacingAndGlyphs"
+      textLength="491">COLD PACK</text>
+
+    <text x="686" y="176"
+      font-family="Eurostile Extended, Microgramma D Extended, Bank Gothic, Arial Black, Helvetica, sans-serif"
+      font-size="66"
+      font-weight="600"
+      letter-spacing="0.1"
+      fill="url(#proText)"
+      lengthAdjust="spacingAndGlyphs"
+      textLength="204">PRO</text>
+  </g>
+
+  <g>
+    <rect x="106" y="279" width="161" height="3" rx="2" fill="url(#lineLeft)"/>
+    <rect x="759" y="279" width="161" height="3" rx="2" fill="url(#lineRight)"/>
+    <text x="512" y="294"
+      text-anchor="middle"
+      font-family="Avenir Next, Helvetica Neue, Arial, sans-serif"
+      font-size="32"
+      font-weight="400"
+      letter-spacing="0.5"
+      fill="#66768A">Cold Chain Solutions</text>
+  </g>
+</svg>
