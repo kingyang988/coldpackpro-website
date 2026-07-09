@@ -29,15 +29,31 @@
     .footer-logo{display:block;width:220px;max-width:60vw;margin-top:1.5rem}
     .footer-logo svg{display:block;width:100%;height:auto}
     .mobile-anchor{white-space:nowrap}
+
+    .media-fit{display:flex;align-items:center;justify-content:center;overflow:hidden;background:#f8fafc}
+    .media-fit img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+    .about-media{height:18rem;padding:.75rem}
+    .product-banner-media{min-height:320px;padding:0;background:#eaf2fb}
+    .product-card-media{height:14rem;padding:.75rem}
+    .certification-media{padding:1rem;background:#f8fafc}
+
     @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
     @media (max-width:1023px){
       .site-logo{width:300px;max-width:46vw}
       .footer-logo{width:200px;max-width:56vw}
+      .product-banner-media{min-height:280px}
+      .about-media{height:16rem}
     }
+
     @media (max-width:767px){
       :root{--header-offset:178px}
       .site-logo{width:252px;max-width:72vw}
       .footer-logo{width:180px;max-width:52vw}
+      .about-media{height:14rem;padding:.65rem}
+      .product-banner-media{min-height:220px}
+      .product-card-media{height:12rem;padding:.65rem}
+      .certification-media{padding:.75rem}
     }
   </style>
 </head>
@@ -154,9 +170,18 @@
           </div>
         </div>
         <div class="grid gap-4 md:grid-cols-3">
-          <figure class="overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white shadow-sm"><img src="./images/1.cold-chain-packaging-factory-guangzhou-china.webp" alt="Cold chain packaging factory in Guangzhou China" class="h-72 w-full object-cover" style="object-position:left center;"><figcaption class="border-t border-slate-200 px-4 py-3 text-sm font-semibold text-slate-800">Factory</figcaption></figure>
-          <figure class="overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white shadow-sm"><img src="./images/2.custom-cold-chain-packaging-oem-manufacturer.webp" alt="Custom cold chain packaging OEM manufacturer production line in China" class="h-72 w-full object-cover" style="object-position:center center;"><figcaption class="border-t border-slate-200 px-4 py-3 text-sm font-semibold text-slate-800">Equipment</figcaption></figure>
-          <figure class="overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white shadow-sm"><img src="./images/3.cnas-transport-safety-certification-cold-chain-packaging-china.webp" alt="CNAS transport safety certification for cold chain packaging products in China" class="h-72 w-full object-cover" style="object-position:right center;"><figcaption class="border-t border-slate-200 px-4 py-3 text-sm font-semibold text-slate-800">Certification</figcaption></figure>
+          <figure class="overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white shadow-sm">
+            <div class="media-fit about-media"><img src="./images/1.cold-chain-packaging-factory-guangzhou-china.webp" alt="Cold chain packaging factory in Guangzhou China"></div>
+            <figcaption class="border-t border-slate-200 px-4 py-3 text-sm font-semibold text-slate-800">Factory</figcaption>
+          </figure>
+          <figure class="overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white shadow-sm">
+            <div class="media-fit about-media"><img src="./images/2.custom-cold-chain-packaging-oem-manufacturer.webp" alt="Custom cold chain packaging OEM manufacturer production line in China"></div>
+            <figcaption class="border-t border-slate-200 px-4 py-3 text-sm font-semibold text-slate-800">Equipment</figcaption>
+          </figure>
+          <figure class="overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white shadow-sm">
+            <div class="media-fit about-media certification-media"><img src="./images/3.cnas-transport-safety-certification-cold-chain-packaging-china.webp" alt="CNAS transport safety certification for cold chain packaging products in China"></div>
+            <figcaption class="border-t border-slate-200 px-4 py-3 text-sm font-semibold text-slate-800">Certification</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -166,18 +191,19 @@
         <div><div class="kicker text-blue-700">Product Series</div><h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950">Main Products</h2></div>
         <p class="max-w-2xl text-sm leading-7 text-slate-600">Focused cold-pack portfolio for reusable shipping, frozen distribution, and last-mile temperature holding.</p>
       </div>
+
       <div class="grid gap-6 lg:grid-cols-3">
-        <article id="custom-products" class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
-          <div class="h-56 overflow-hidden bg-slate-100"><img src="./images/4.custom-cold-chain-packaging-ice-bricks.webp" alt="Custom cold chain packaging ice bricks product category" class="h-full w-full object-cover" style="object-position:center top;"></div>
-          <div class="bg-gradient-to-br from-slate-900 via-blue-800 to-cyan-500 p-5 text-white">
+        <article id="custom-products" class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft lg:col-span-3">
+          <div class="media-fit product-banner-media"><img src="./images/4.custom-cold-chain-packaging-ice-bricks.webp" alt="Custom cold chain packaging ice bricks product category"></div>
+          <div class="bg-gradient-to-br from-slate-900 via-blue-800 to-cyan-500 p-5 text-white sm:p-6">
             <div class="mb-3 inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em]">Custom</div>
-            <h3 class="text-2xl font-black">Custom Cooling Solutions</h3>
-            <p class="mt-2 text-sm text-white/85">Tailored size, formula, structure, branding, and packaging for specific market needs.</p>
+            <h3 class="text-2xl font-black sm:text-3xl">Custom Cooling Solutions</h3>
+            <p class="mt-2 max-w-3xl text-sm text-white/85">Tailored size, formula, structure, branding, and packaging for specific market needs.</p>
           </div>
         </article>
 
         <article id="rigid-series" class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
-          <div class="h-56 overflow-hidden bg-slate-100"><img src="./images/5.custom-cold-chain-rigid-series-family.webp" alt="Custom cold chain rigid series family products" class="h-full w-full object-cover"></div>
+          <div class="media-fit product-card-media"><img src="./images/5.custom-cold-chain-rigid-series-family.webp" alt="Custom cold chain rigid series family products"></div>
           <div class="bg-gradient-to-br from-slate-900 via-blue-800 to-cyan-500 p-5 text-white">
             <div class="mb-3 inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em]">Rigid Series</div>
             <h3 class="text-2xl font-black">Rigid Cold / Frozen Pack</h3>
@@ -190,7 +216,7 @@
         </article>
 
         <article id="gel-series" class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
-          <div class="h-56 overflow-hidden bg-slate-100"><img src="./images/6.gel-ice-pack-supplier-cold-chain-shipping.webp" alt="Gel ice pack supplier product for cold chain shipping" class="h-full w-full object-cover" style="object-position:center center;"></div>
+          <div class="media-fit product-card-media"><img src="./images/6.gel-ice-pack-supplier-cold-chain-shipping.webp" alt="Gel ice pack supplier product for cold chain shipping"></div>
           <div class="bg-gradient-to-br from-cyan-500 via-blue-600 to-slate-900 p-5 text-white">
             <div class="mb-3 inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em]">Gel Series</div>
             <h3 class="text-2xl font-black">Gel Ice Pack</h3>
@@ -202,8 +228,8 @@
           </div>
         </article>
 
-        <article id="sheet-series" class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft lg:col-span-3 xl:col-span-1">
-          <div class="h-56 overflow-hidden bg-slate-100"><img src="./images/7.self-absorbing-ice-pack-sheet-manufacturer.webp" alt="Self-absorbing ice pack sheet manufacturer product" class="h-full w-full object-cover" style="object-position:right center;"></div>
+        <article id="sheet-series" class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+          <div class="media-fit product-card-media"><img src="./images/7.self-absorbing-ice-pack-sheet-manufacturer.webp" alt="Self-absorbing ice pack sheet manufacturer product"></div>
           <div class="bg-gradient-to-br from-white via-sky-100 to-cyan-200 p-5 text-slate-950">
             <div class="mb-3 inline-flex rounded-full bg-slate-950 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white">Sheet Series</div>
             <h3 class="text-2xl font-black">Self-Absorbing Series</h3>
