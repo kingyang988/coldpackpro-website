@@ -30,12 +30,19 @@
     .footer-logo svg{display:block;width:100%;height:auto}
     .mobile-anchor{white-space:nowrap}
 
-    .media-fit{display:flex;align-items:center;justify-content:center;overflow:hidden;background:#f8fafc}
-    .media-fit img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
-    .about-media{height:18rem;padding:.75rem}
+    .media-fit{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#f8fafc}
+    .media-fit img{display:block;width:100%;height:100%;object-position:center}
+    .about-media{height:18rem;padding:0;background:#fff}
+    .about-photo img{object-fit:cover}
     .product-banner-media{min-height:320px;padding:0;background:#eaf2fb}
-    .product-card-media{height:14rem;padding:.75rem}
-    .certification-media{padding:1rem;background:#f8fafc}
+    .product-banner-media img{object-fit:cover}
+    .product-card-media{height:17rem;padding:1rem 1.25rem .35rem;background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%)}
+    .product-card-media img{width:auto;height:100%;max-width:none;object-fit:contain}
+    .product-media-rigid img{transform:scale(1.34);transform-origin:center}
+    .product-media-gel img{transform:scale(1.28);transform-origin:center}
+    .product-media-sheet img{transform:scale(1.24);transform-origin:center}
+    .certification-media{padding:.35rem .75rem;background:#fff}
+    .certification-media img{width:auto;height:100%;max-width:100%;object-fit:contain;transform:scale(1.28);transform-origin:center}
 
     @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
@@ -44,16 +51,25 @@
       .footer-logo{width:200px;max-width:56vw}
       .product-banner-media{min-height:280px}
       .about-media{height:16rem}
+      .product-card-media{height:15rem;padding:.85rem 1rem .25rem}
+      .product-media-rigid img{transform:scale(1.25)}
+      .product-media-gel img{transform:scale(1.2)}
+      .product-media-sheet img{transform:scale(1.16)}
+      .certification-media img{transform:scale(1.18)}
     }
 
     @media (max-width:767px){
       :root{--header-offset:178px}
       .site-logo{width:252px;max-width:72vw}
       .footer-logo{width:180px;max-width:52vw}
-      .about-media{height:14rem;padding:.65rem}
+      .about-media{height:14rem}
       .product-banner-media{min-height:220px}
-      .product-card-media{height:12rem;padding:.65rem}
-      .certification-media{padding:.75rem}
+      .product-card-media{height:13rem;padding:.65rem .85rem .15rem}
+      .product-media-rigid img{transform:scale(1.16)}
+      .product-media-gel img{transform:scale(1.13)}
+      .product-media-sheet img{transform:scale(1.1)}
+      .certification-media{padding:.25rem .6rem}
+      .certification-media img{transform:scale(1.08)}
     }
   </style>
 </head>
@@ -171,11 +187,11 @@
         </div>
         <div class="grid gap-4 md:grid-cols-3">
           <figure class="overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white shadow-sm">
-            <div class="media-fit about-media"><img src="./images/1.cold-chain-packaging-factory-guangzhou-china.webp" alt="Cold chain packaging factory in Guangzhou China"></div>
+            <div class="media-fit about-media about-photo"><img src="./images/1.cold-chain-packaging-factory-guangzhou-china.webp" alt="Cold chain packaging factory in Guangzhou China"></div>
             <figcaption class="border-t border-slate-200 px-4 py-3 text-sm font-semibold text-slate-800">Factory</figcaption>
           </figure>
           <figure class="overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white shadow-sm">
-            <div class="media-fit about-media"><img src="./images/2.custom-cold-chain-packaging-oem-manufacturer.webp" alt="Custom cold chain packaging OEM manufacturer production line in China"></div>
+            <div class="media-fit about-media about-photo"><img src="./images/2.custom-cold-chain-packaging-oem-manufacturer.webp" alt="Custom cold chain packaging OEM manufacturer production line in China"></div>
             <figcaption class="border-t border-slate-200 px-4 py-3 text-sm font-semibold text-slate-800">Equipment</figcaption>
           </figure>
           <figure class="overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white shadow-sm">
@@ -203,7 +219,7 @@
         </article>
 
         <article id="rigid-series" class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
-          <div class="media-fit product-card-media"><img src="./images/5.custom-cold-chain-rigid-series-family.webp" alt="Custom cold chain rigid series family products"></div>
+          <div class="media-fit product-card-media product-media-rigid"><img src="./images/5.custom-cold-chain-rigid-series-family.webp" alt="Custom cold chain rigid series family products"></div>
           <div class="bg-gradient-to-br from-slate-900 via-blue-800 to-cyan-500 p-5 text-white">
             <div class="mb-3 inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em]">Rigid Series</div>
             <h3 class="text-2xl font-black">Rigid Cold / Frozen Pack</h3>
@@ -216,7 +232,7 @@
         </article>
 
         <article id="gel-series" class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
-          <div class="media-fit product-card-media"><img src="./images/6.gel-ice-pack-supplier-cold-chain-shipping.webp" alt="Gel ice pack supplier product for cold chain shipping"></div>
+          <div class="media-fit product-card-media product-media-gel"><img src="./images/6.gel-ice-pack-supplier-cold-chain-shipping.webp" alt="Gel ice pack supplier product for cold chain shipping"></div>
           <div class="bg-gradient-to-br from-cyan-500 via-blue-600 to-slate-900 p-5 text-white">
             <div class="mb-3 inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em]">Gel Series</div>
             <h3 class="text-2xl font-black">Gel Ice Pack</h3>
@@ -229,7 +245,7 @@
         </article>
 
         <article id="sheet-series" class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
-          <div class="media-fit product-card-media"><img src="./images/7.self-absorbing-ice-pack-sheet-manufacturer.webp" alt="Self-absorbing ice pack sheet manufacturer product"></div>
+          <div class="media-fit product-card-media product-media-sheet"><img src="./images/7.self-absorbing-ice-pack-sheet-manufacturer.webp" alt="Self-absorbing ice pack sheet manufacturer product"></div>
           <div class="bg-gradient-to-br from-white via-sky-100 to-cyan-200 p-5 text-slate-950">
             <div class="mb-3 inline-flex rounded-full bg-slate-950 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white">Sheet Series</div>
             <h3 class="text-2xl font-black">Self-Absorbing Series</h3>
