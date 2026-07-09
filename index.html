@@ -29,15 +29,47 @@
     .footer-logo{display:block;width:220px;max-width:60vw;margin-top:1.5rem}
     .footer-logo svg{display:block;width:100%;height:auto}
     .mobile-anchor{white-space:nowrap}
+
+    .media-fit{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#f8fafc}
+    .media-fit img{display:block;width:100%;height:100%;object-position:center}
+    .about-media{height:18rem;padding:0;background:#fff}
+    .about-photo img{object-fit:cover}
+    .product-banner-media{min-height:332px;padding:0;background:#eaf2fb}
+    .product-banner-media img{object-fit:cover}
+    .product-card-media{height:19.5rem;padding:.35rem .55rem 0;background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%)}
+    .product-card-media img{width:auto;height:100%;max-width:none;object-fit:contain}
+    .product-media-rigid img{transform:scale(1.58) translateY(.18rem);transform-origin:center}
+    .product-media-gel img{transform:scale(1.48) translateY(.28rem);transform-origin:center}
+    .product-media-sheet img{transform:scale(1.42) translateY(.22rem);transform-origin:center}
+    .certification-media{padding:.35rem .75rem;background:#fff}
+    .certification-media img{width:auto;height:100%;max-width:100%;object-fit:contain;transform:scale(1.28);transform-origin:center}
+
     @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
     @media (max-width:1023px){
       .site-logo{width:300px;max-width:46vw}
       .footer-logo{width:200px;max-width:56vw}
+      .product-banner-media{min-height:290px}
+      .about-media{height:16rem}
+      .product-card-media{height:17rem;padding:.28rem .48rem 0}
+      .product-media-rigid img{transform:scale(1.46) translateY(.12rem)}
+      .product-media-gel img{transform:scale(1.38) translateY(.2rem)}
+      .product-media-sheet img{transform:scale(1.31) translateY(.18rem)}
+      .certification-media img{transform:scale(1.18)}
     }
+
     @media (max-width:767px){
       :root{--header-offset:178px}
       .site-logo{width:252px;max-width:72vw}
       .footer-logo{width:180px;max-width:52vw}
+      .about-media{height:14rem}
+      .product-banner-media{min-height:228px}
+      .product-card-media{height:14.8rem;padding:.22rem .35rem 0}
+      .product-media-rigid img{transform:scale(1.33) translateY(.08rem)}
+      .product-media-gel img{transform:scale(1.27) translateY(.14rem)}
+      .product-media-sheet img{transform:scale(1.22) translateY(.12rem)}
+      .certification-media{padding:.25rem .6rem}
+      .certification-media img{transform:scale(1.08)}
     }
   </style>
 </head>
@@ -128,7 +160,7 @@
             </div>
             <p class="mt-4 max-w-xl text-sm leading-7 text-white/85">A focused cold-chain factory brand for export buyers who need consistent products, clear communication, and business-ready support.</p>
             <div class="mt-5 rounded-[1.4rem] bg-white/10 p-3 ring-1 ring-white/15">
-              <img src="./images/0.cold-chain-packaging-factory-guangzhou-china.webp" alt="Cold chain packaging factory in Guangzhou China with production equipment and cold chain packaging products" class="h-auto w-full rounded-[1rem] object-cover">
+              <img src="./images/1.cold-chain-packaging-factory-guangzhou-china.webp" alt="Cold chain packaging factory in Guangzhou China with production equipment and cold chain packaging products" class="h-auto w-full rounded-[1rem] object-cover">
             </div>
             <div class="mt-4 grid gap-3 sm:grid-cols-3">
               <div class="rounded-[1.2rem] bg-white/10 p-3 text-center ring-1 ring-white/15 text-white"><div class="text-sm font-semibold">Factory</div><div class="mt-1 text-xs text-white/70">Production strength</div></div>
@@ -154,9 +186,18 @@
           </div>
         </div>
         <div class="grid gap-4 md:grid-cols-3">
-          <figure class="overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white shadow-sm"><img src="./images/1.cold-chain-packaging-factory-production-warehouse.webp" alt="Cold chain packaging factory production warehouse in Guangzhou China" class="h-72 w-full object-cover" style="object-position:left center;"><figcaption class="border-t border-slate-200 px-4 py-3 text-sm font-semibold text-slate-800">Factory</figcaption></figure>
-          <figure class="overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white shadow-sm"><img src="./images/2.custom-cold-chain-packaging-oem-manufacturer.webp" alt="Custom cold chain packaging OEM manufacturer production line in China" class="h-72 w-full object-cover" style="object-position:center center;"><figcaption class="border-t border-slate-200 px-4 py-3 text-sm font-semibold text-slate-800">Equipment</figcaption></figure>
-          <figure class="overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white shadow-sm"><img src="./images/3.cnas-transport-safety-certification-cold-chain-packaging-china.webp" alt="CNAS transport safety certification for cold chain packaging products in China" class="h-72 w-full object-cover" style="object-position:right center;"><figcaption class="border-t border-slate-200 px-4 py-3 text-sm font-semibold text-slate-800">Certification</figcaption></figure>
+          <figure class="overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white shadow-sm">
+            <div class="media-fit about-media about-photo"><img src="./images/1.cold-chain-packaging-factory-guangzhou-china.webp" alt="Cold chain packaging factory in Guangzhou China"></div>
+            <figcaption class="border-t border-slate-200 px-4 py-3 text-sm font-semibold text-slate-800">Factory</figcaption>
+          </figure>
+          <figure class="overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white shadow-sm">
+            <div class="media-fit about-media about-photo"><img src="./images/2.custom-cold-chain-packaging-oem-manufacturer.webp" alt="Custom cold chain packaging OEM manufacturer production line in China"></div>
+            <figcaption class="border-t border-slate-200 px-4 py-3 text-sm font-semibold text-slate-800">Equipment</figcaption>
+          </figure>
+          <figure class="overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white shadow-sm">
+            <div class="media-fit about-media certification-media"><img src="./images/3.cnas-transport-safety-certification-cold-chain-packaging-china.webp" alt="CNAS transport safety certification for cold chain packaging products in China"></div>
+            <figcaption class="border-t border-slate-200 px-4 py-3 text-sm font-semibold text-slate-800">Certification</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -166,18 +207,19 @@
         <div><div class="kicker text-blue-700">Product Series</div><h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950">Main Products</h2></div>
         <p class="max-w-2xl text-sm leading-7 text-slate-600">Focused cold-pack portfolio for reusable shipping, frozen distribution, and last-mile temperature holding.</p>
       </div>
+
       <div class="grid gap-6 lg:grid-cols-3">
-        <article id="custom-products" class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
-          <div class="flex h-64 items-center justify-center overflow-hidden bg-white p-4"><img src="./images/4.custom-cold-chain-packaging-ice-bricks.webp" alt="Custom cold chain packaging ice bricks product category" class="h-full w-full object-contain" style="object-position:center center;"></div>
-          <div class="bg-gradient-to-br from-slate-900 via-blue-800 to-cyan-500 p-5 text-white">
+        <article id="custom-products" class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft lg:col-span-3">
+          <div class="media-fit product-banner-media"><img src="./images/4.custom-cold-chain-packaging-ice-bricks.webp" alt="Custom cold chain packaging ice bricks product category"></div>
+          <div class="bg-gradient-to-br from-slate-900 via-blue-800 to-cyan-500 p-5 text-white sm:p-6">
             <div class="mb-3 inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em]">Custom</div>
-            <h3 class="text-2xl font-black">Custom Cooling Solutions</h3>
-            <p class="mt-2 text-sm text-white/85">Tailored size, formula, structure, branding, and packaging for specific market needs.</p>
+            <h3 class="text-2xl font-black sm:text-3xl">Custom Cooling Solutions</h3>
+            <p class="mt-2 max-w-3xl text-sm text-white/85">Tailored size, formula, structure, branding, and packaging for specific market needs.</p>
           </div>
         </article>
 
         <article id="rigid-series" class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
-          <div class="flex h-64 items-center justify-center overflow-hidden bg-white p-4"><img src="./images/5.custom-cold-chain-rigid-series-family.webp" alt="Custom cold chain rigid series family products" class="h-full w-full object-contain" style="object-position:center center;"></div>
+          <div class="media-fit product-card-media product-media-rigid"><img src="./images/5.custom-cold-chain-rigid-series-family.webp" alt="Custom cold chain rigid series family products"></div>
           <div class="bg-gradient-to-br from-slate-900 via-blue-800 to-cyan-500 p-5 text-white">
             <div class="mb-3 inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em]">Rigid Series</div>
             <h3 class="text-2xl font-black">Rigid Cold / Frozen Pack</h3>
@@ -190,7 +232,7 @@
         </article>
 
         <article id="gel-series" class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
-          <div class="flex h-64 items-center justify-center overflow-hidden bg-white p-4"><img src="./images/6.gel-ice-pack-supplier-cold-chain-shipping.webp" alt="Gel ice pack supplier product for cold chain shipping" class="h-full w-full object-contain" style="object-position:center center;"></div>
+          <div class="media-fit product-card-media product-media-gel"><img src="./images/6.gel-ice-pack-supplier-cold-chain-shipping.webp" alt="Gel ice pack supplier product for cold chain shipping"></div>
           <div class="bg-gradient-to-br from-cyan-500 via-blue-600 to-slate-900 p-5 text-white">
             <div class="mb-3 inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em]">Gel Series</div>
             <h3 class="text-2xl font-black">Gel Ice Pack</h3>
@@ -202,8 +244,8 @@
           </div>
         </article>
 
-        <article id="sheet-series" class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft lg:col-span-3 xl:col-span-1">
-          <div class="flex h-64 items-center justify-center overflow-hidden bg-white p-4"><img src="./images/7.self-absorbing-ice-pack-sheet-manufacturer.webp" alt="Self-absorbing ice pack sheet manufacturer product" class="h-full w-full object-contain" style="object-position:center center;"></div>
+        <article id="sheet-series" class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+          <div class="media-fit product-card-media product-media-sheet"><img src="./images/7.self-absorbing-ice-pack-sheet-manufacturer.webp" alt="Self-absorbing ice pack sheet manufacturer product"></div>
           <div class="bg-gradient-to-br from-white via-sky-100 to-cyan-200 p-5 text-slate-950">
             <div class="mb-3 inline-flex rounded-full bg-slate-950 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white">Sheet Series</div>
             <h3 class="text-2xl font-black">Self-Absorbing Series</h3>
@@ -463,5 +505,29 @@
       formNote.className = 'text-sm text-emerald-600';
     });
   </script>
-</body>
+<script>window.parent.postMessage({ action: "ready" }, "*"); 
+ 
+window.console = new Proxy(console, {
+  get(target, prop) {
+    if (['log', 'warn', 'error'].includes(prop)) {
+      return new Proxy(target[prop], {
+        apply(fn, thisArg, args) {
+          fn.apply(thisArg, args);
+          window.parent.postMessage({ action: 'console', 
+            type: prop, 
+            args: args.map((arg) => {
+              try {
+                return JSON.stringify(arg).replace(/^["']|["']$/g, '');
+              } catch (e) {
+                return arg;
+              }
+            }) 
+          }, '*');
+        }
+      });
+    }
+    return target[prop];
+  }
+});
+</script></body>
 </html>
