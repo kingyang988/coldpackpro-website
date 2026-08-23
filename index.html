@@ -541,5 +541,60 @@ window.console = new Proxy(console, {
     return target[prop];
   }
 });
-</script></body>
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.coldpackpro.com/#organization",
+      "name": "ColdPackPro",
+      "url": "https://www.coldpackpro.com/",
+      "logo": "https://www.coldpackpro.com/logo.svg",
+      "email": "info@coldpackpro.com",
+      "telephone": "+86-139-2510-9703",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Caohe Industrial Zone, Panyu District",
+        "addressLocality": "Guangzhou",
+        "addressCountry": "CN"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.coldpackpro.com/#website",
+      "url": "https://www.coldpackpro.com/",
+      "name": "ColdPackPro",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://www.coldpackpro.com/#organization" }
+    },
+    {
+      "@type": "Product",
+      "name": "Rigid Cold / Frozen Pack",
+      "description": "High rigidity, strong stacking, stable shape for frozen food and pharma shipments.",
+      "image": "https://www.coldpackpro.com/images/5.custom-cold-chain-rigid-series-family.webp",
+      "brand": { "@type": "Brand", "name": "ColdPackPro" },
+      "manufacturer": { "@id": "https://www.coldpackpro.com/#organization" }
+    },
+    {
+      "@type": "Product",
+      "name": "Gel Ice Pack",
+      "description": "Flexible cold retention for seafood, meal kits, dairy, and insulated bags.",
+      "image": "https://www.coldpackpro.com/images/6.gel-ice-pack-supplier-cold-chain-shipping.webp",
+      "brand": { "@type": "Brand", "name": "ColdPackPro" },
+      "manufacturer": { "@id": "https://www.coldpackpro.com/#organization" }
+    },
+    {
+      "@type": "Product",
+      "name": "Self-Absorbing Ice Pack Sheet",
+      "description": "Flexible sheet format for fast packing, easy cutting, and compact storage.",
+      "image": "https://www.coldpackpro.com/images/7.self-absorbing-ice-pack-sheet-manufacturer.webp",
+      "brand": { "@type": "Brand", "name": "ColdPackPro" },
+      "manufacturer": { "@id": "https://www.coldpackpro.com/#organization" }
+    }
+  ]
+}
+</script>
+</body>
 </html>
