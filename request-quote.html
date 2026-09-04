@@ -188,7 +188,7 @@
       </div>
     </div>
 
-    <p class="text-xs leading-5 text-slate-400">No spam. Your email is only used to prepare your Proforma Invoice and for our reply. Larger quantities receive better pricing — final quotation is subject to confirmation by our sales team.</p>
+    <p class="text-xs leading-5 text-slate-400">No spam. Your email is only used to prepare your Proforma Invoice and for our reply. Final quotation is subject to confirmation by our sales team.</p>
   </div>
 
   <!-- ============ RIGHT: SUMMARY / FIXED INFO ============ -->
@@ -542,19 +542,29 @@
     m.className = 'mt-3 text-sm ' + (isErr ? 'font-semibold text-red-600' : 'text-slate-500');
   }
 
-  /* ---------- PDF (built on browser) ---------- */
+  /* ---------- PDF engine: formal PI (template style) ---------- */
   var P = null, F1 = null, F2 = null, doc = null;
   var PW = 595.28, PH = 841.89, ML = 42, CW = PW - 84;
-  var pages = [], curY = 0;
+  var pages = [], curY = 0, pgCount = 0;
+  var dk, g, blue, lg;
 
-  function newPage(){
+  function newPage(cont){
     var pg = doc.addPage([PW, PH]);
-    pages.push(pg);
-    curY = PH - 58;
+    pages.push(pg); pgCount++;
+    pg.drawText('GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD   |   coldpackpro.com   |   Page ' + pgCount,
+      { x:ML, y:26, size:7, font:F1, color:g, opacity:0.75 });
+    if(cont){
+      curY = PH - 66;
+      draw(pg, 'PROFORMA INVOICE (continued)', ML, curY, 9, F2, dk);
+      draw(pg, invNo + '   |   ' + fmtDate(d0), PW - ML - 200, curY, 8, F1, g);
+      curY -= 16;
+      drawHline(pg, ML, PW - ML, curY);
+      curY -= 12;
+    }
     return pg;
   }
   function need(h){
-    if(curY - h < 60){ newPage(); }
+    if(curY - h < 80){ newPage(true); }
   }
   function wrapText(txt, font, size, maxW){
     txt = String(txt==null?'':txt);
@@ -570,142 +580,270 @@
   }
   function draw(pg, txt, x, y, size, font, color){ pg.drawText(txt, { x:x, y:y, size:size, font:font, color:color }); }
   function drawHline(pg, x1, x2, y){
-    pg.drawLine({ start:{x:x1,y:y}, end:{x:x2,y:y}, thickness:0.6, color:P.rgb(0.8,0.83,0.88) });
+    pg.drawLine({ start:{x:x1,y:y}, end:{x:x2,y:y}, thickness:0.6, color:lg });
+  }
+  function drawRight(pg, txt, xR, y, size, font, color){
+    var w = font.widthOfTextAtSize(txt, size);
+    pg.drawText(txt, { x:xR - w, y:y, size:size, font:font, color:color });
   }
 
-  function buildPages(b, rows, extras){
-    newPage();
+  /* company letterhead at top of page 1 */
+  function letterhead(){
+    var pg = pages[0];
+    var cx = PW / 2, y = PH - 74;
+    var t;
+    t = 'GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD';
+    pg.drawText(t, { x:cx - F2.widthOfTextAtSize(t,13)/2, y:y, size:13, font:F2, color:dk }); y -= 17;
+    t = 'Unit 101, No. 4, Lane 4, South of Dening Road, Caohe, Qiaonan Street, Panyu District, Guangzhou City, China';
+    pg.drawText(t, { x:cx - F1.widthOfTextAtSize(t,8)/2, y:y, size:8, font:F1, color:g }); y -= 12;
+    t = 'Tel: +86-20-39211361    |    Email: info@coldpackpro.com    |    Web: https://coldpackpro.com';
+    pg.drawText(t, { x:cx - F1.widthOfTextAtSize(t,8)/2, y:y, size:8, font:F1, color:g }); y -= 12;
+    t = 'Attention: Mr. Yang    |    WhatsApp/WeChat: +86 13925109703';
+    pg.drawText(t, { x:cx - F1.widthOfTextAtSize(t,8)/2, y:y, size:8, font:F1, color:g }); y -= 15;
+    drawHline(pg, ML, PW - ML, y); y -= 12;
+    t = 'PROFORMA INVOICE';
+    pg.drawText(t, { x:cx - F2.widthOfTextAtSize(t,17)/2, y:y, size:17, font:F2, color:blue }); y -= 10;
+    t = 'PROFORMA FOR QUOTATION - SUBJECT TO FINAL CONFIRMATION';
+    pg.drawText(t, { x:cx - F1.widthOfTextAtSize(t,7)/2, y:y, size:7, font:F1, color:g }); y -= 10;
+    drawHline(pg, ML, PW - ML, y);
+    curY = y - 16;
+  }
+
+  /* bordered info block with label/value rows (drawn on page 1) */
+  function infoBlock(x, topY, w, title, items){
+    var pad = 8, lh = 10, labW = 76, y = topY;
+    if(title){ draw(pages[0], title, x + pad, y - 10, 8, F2, dk); }
+    y = topY - 24;
+    items.forEach(function(it){
+      var label = it[0] || '', val = String(it[1] == null ? '' : it[1]), bold = !!it[2];
+      if(label){ draw(pages[0], label, x + pad, y, 8, bold ? F2 : F1, bold ? dk : g); }
+      var vx = x + pad + labW;
+      var lines = wrapText(val, F1, 8, w - pad * 2 - labW);
+      if(!lines.length) lines = [''];
+      lines.forEach(function(ln){ draw(pages[0], ln, vx, y, 8, F1, dk); y -= lh; });
+      y -= 2;
+    });
+    var bottom = y - pad;
+    pages[0].drawRectangle({ x:x, y:bottom, width:w, height:topY - bottom, borderColor:lg, borderWidth:0.8 });
+    return bottom;
+  }
+
+  /* fixed-size product thumbnail centered in a table cell */
+  function drawThumb(pg, img, cx, yTop, hRow){
+    var box = 44;
+    var ratio = Math.min(box / img.width, box / img.height, 1);
+    var dw = img.width * ratio, dh = img.height * ratio;
+    var Dc = yTop - hRow / 2 + 5;
+    pg.drawRectangle({ x:cx - box/2, y:PH - (Dc + box/2), width:box, height:box, borderColor:lg, borderWidth:0.6 });
+    pg.drawImage(img, { x:cx - dw/2, y:PH - Dc - dh/2, width:dw, height:dh });
+  }
+
+  function buildPages(b, rows, extras, embeds){
     var g = P.rgb(0.32,0.36,0.42), dk = P.rgb(0.09,0.11,0.16), blue = P.rgb(0.12,0.34,0.62);
+    var pg = newPage();
+    var cx = PW / 2;
+    var center = function(txt, y, size, font, col){ pg.drawText(txt, { x:cx - font.widthOfTextAtSize(txt,size)/2, y:y, size:size, font:font, color:col }); };
 
-    /* ---- title band ---- */
-    var pg = pages[pages.length-1];
-    draw(pg, 'PROFORMA INVOICE', ML, curY, 16, F2, blue);
-    curY -= 8;
-    draw(pg, 'GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD', ML, curY, 9.5, F2, dk); curY -= 12;
-    ['Unit 101, No. 4, Lane 4, South of Dening Road, Caohe, Qiaonan Street,','Panyu District, Guangzhou City, China','Tel: +86-20-39211361   |   Email: info@coldpackpro.com   |   Web: coldpackpro.com','Atten: Mr. Yang   |   WhatsApp/WeChat: +86 13925109703'].forEach(function(l){
-      draw(pg, l, ML, curY, 8, F1, g); curY -= 10.5;
-    });
+    /* ---- factory letterhead (centered) ---- */
+    center('GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD', PH-74, 13, F2, dk);
+    center('Unit 101, No. 4, Lane 4, South of Dening Road, Caohe, Qiaonan Street,', PH-91, 8, F1, g);
+    center('Panyu District, Guangzhou City, China', PH-102, 8, F1, g);
+    center('Tel: +86-20-39211361    |    Email: info@coldpackpro.com    |    Web: https://coldpackpro.com', PH-113, 8, F1, g);
+    center('Attention: Mr. Yang    |    WhatsApp/WeChat: +86 13925109703', PH-124, 8, F1, g);
+    drawHline(pg, ML, PW-ML, PH-136);
 
-    /* invoice no / date right block */
-    var rightX = PW - ML - 190;
-    draw(pg, 'Invoice No.:  ' + invNo, rightX, PH-86, 9, F2, dk);
-    draw(pg, 'Issue Date:  ' + fmtDate(d0), rightX, PH-98, 9, F2, dk);
+    center('PROFORMA INVOICE', PH-159, 18, F2, blue);
+    center('FOR QUOTATION ONLY - SUBJECT TO FINAL CONFIRMATION BY SELLER', PH-172, 7, F1, g);
+    drawHline(pg, ML, PW-ML, PH-182);
+    curY = PH - 206;
 
-    /* ---- buyer block ---- */
+    /* ---- invoice no. & issue date ---- */
+    draw(pg, 'Invoice No.:  ' + invNo, ML, curY, 10, F2, dk);
+    drawRight(pg, 'Issue Date:  ' + fmtDate(d0), PW-ML, curY, 10, F2, dk);
+    curY -= 18;
+
+    /* ---- two-column panels: SELLER / BUYER ---- */
+    var lw = 250, rw = 250;
+    function panel(x, w, title, rows2){
+      var y = curY - 11, lh2 = 9.5;
+      draw(pg, title, x + 7, y, 8, F2, blue);
+      y -= 13;
+      rows2.forEach(function(r0){
+        var txt = String(r0[0] || ''), bd = !!r0[1];
+        var sub = wrapText(txt, bd ? F2 : F1, 8, w - 16);
+        if(!sub.length) sub = [''];
+        sub.forEach(function(sl){ draw(pg, sl, x + 7, y, 8, bd ? F2 : F1, bd ? dk : g); y -= lh2; });
+      });
+      var bottom = y - 5;
+      pg.drawRectangle({ x:x, y:bottom, width:w, height:curY - bottom + 2, borderColor:lg, borderWidth:0.8 });
+      return bottom;
+    }
+    var sellerRows = [
+      ['GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD', true],
+      ['Unit 101, No.4, Lane 4, South of Dening Road, Caohe, Qiaonan Street, Panyu District, Guangzhou City, China', false],
+      ['Tel: +86-20-39211361    Email: info@coldpackpro.com    Web: coldpackpro.com', false],
+      ['Atten: Mr. Yang    WhatsApp / WeChat: +86 13925109703', false]
+    ];
+    var buyerRows = [
+      [b.company, true],
+      [b.address, false],
+      ['Attention: ' + b.attn, false],
+      ['Email: ' + b.email, false]
+    ];
+    if(b.tel){ buyerRows.push(['Tel: ' + b.tel, false]); }
+    buyerRows.push(['Preferred Contact: ' + b.contact, false]);
+
+    var bb = panel(ML, lw, 'BILL TO (BUYER)', buyerRows);
+    var sb = panel(ML + lw + 5, rw, 'SELLER / FACTORY', sellerRows);
+    curY = Math.min(bb, sb) - 10;
+    if(extras.mark){ draw(pg, 'Shipping Mark:  ' + extras.mark, ML, curY, 8.5, F1, g); curY -= 13; }
+    if(extras.delivery){ draw(pg, 'Delivery Address:  ' + extras.delivery, ML, curY, 8.5, F1, g); curY -= 13; }
     curY -= 6;
-    draw(pg, 'BUYER', ML, curY, 9, F2, blue); curY -= 13;
-    var bLines = [ b.company, b.address, 'Attention: ' + b.attn, 'Email: ' + b.email ];
-    if(b.tel) bLines.push('Tel: ' + b.tel);
-    bLines.push('Preferred Contact: ' + b.contact);
-    bLines.forEach(function(l){
-      var ls = wrapText(l, F1, 8.5, CW);
-      need(ls.length*10.5 + 4);
-      ls.forEach(function(sl){ var cp = pages[pages.length-1]; draw(cp, sl, ML, curY, 8.5, F1, dk); curY -= 10.5; });
-      curY -= 1;
-    });
-    curY -= 6;
-    if(extras.mark){ draw(pages[pages.length-1], 'Shipping Mark:  ' + extras.mark, ML, curY, 8.5, F1, g); curY -= 13; }
-    if(extras.delivery){ draw(pages[pages.length-1], 'Delivery Address:  ' + extras.delivery, ML, curY, 8.5, F1, g); curY -= 13; }
 
-    /* ---- items table ---- */
-    var cols = [ {k:'n',t:'#',w:20}, {k:'name',t:'Product Name',w:100}, {k:'model',t:'Model',w:56},
-                 {k:'spec',t:'Specification',w:141}, {k:'unit',t:'Unit',w:40}, {k:'qty',t:'Qty',w:38},
-                 {k:'price',t:'Unit Price (USD)',w:58}, {k:'total',t:'Total (USD)',w:58} ];
-    var rowPad = 8, lh = 10;
-    var x = ML;
-    need(20 + rows.length*26 + 40);
-    var headY = curY;
-    draw(pages[pages.length-1], 'ITEM LIST', ML, headY, 9, F2, blue); headY -= 16;
-    curY = headY;
-    cols.forEach(function(c){ draw(pages[pages.length-1], c.t, x, curY, 7, F2, g); x += c.w; });
-    curY -= 6; drawHline(pages[pages.length-1], ML, PW-ML, curY); curY -= 8;
+    /* ---- item list table with fixed-size photo thumbnails inline ---- */
+    var cols = [
+      { k:'n',    t:'No.',              w:18  },
+      { k:'img',  t:'Photo',            w:58  },
+      { k:'name', t:'Product Name',     w:92  },
+      { k:'spec', t:'Specification',    w:124 },
+      { k:'model',t:'Model No.',        w:44  },
+      { k:'unit', t:'Unit',             w:36  },
+      { k:'qty',  t:'Qty',              w:36  },
+      { k:'price',t:'Unit Price (USD)', w:53  },
+      { k:'total',t:'Amount (USD)',     w:50  }
+    ];
+    draw(pg, 'ITEM LIST', ML, curY, 9.5, F2, blue); curY -= 17;
 
-    function cellH(r){
-      var nm = wrapText(r.name, F1, 8.5, cols[1].w-4).length;
-      var sp = wrapText(r.spec, F1, 8.5, cols[3].w-4).length;
-      return Math.max(nm, sp) * lh + rowPad;
+    function tableHeader(){
+      var x3 = ML;
+      cols.forEach(function(c){ draw(pages[pages.length-1], c.t, x3, curY, 6.5, F2, g); x3 += c.w; });
+      curY -= 3;
+      drawHline(pages[pages.length-1], ML, PW-ML, curY);
+      curY -= 9;
+    }
+    tableHeader();
+    var rowLh = 9.5, rPad = 7;
+    function ensureRow(h){
+      if(curY - h < 84){ newPage(true); pg = pages[pages.length-1]; tableHeader(); }
+    }
+    function findEmb(idx){
+      var out = null;
+      if(embeds){ embeds.forEach(function(e){ if(e.idx === idx){ out = e.img; } }); }
+      return out;
     }
     rows.forEach(function(r, idx){
-      need(cellH(r) + 6);
-      var x2 = ML;
-      var lines = {
-        n: [String(idx+1)],
-        name: wrapText(r.name, F1, 8.5, cols[1].w-4),
-        model: wrapText(r.model||'—', F1, 8.5, cols[2].w-4),
-        spec: wrapText(r.spec, F1, 8.5, cols[3].w-4),
-        unit: [r.unit],
-        qty: [String(r.qty)],
-        price: [r.price!=null ? r.price.toFixed(2) : 'TBD'],
-        total: [r.price!=null && r.qty>0 ? (r.price*r.qty).toFixed(2) : '—']
-      };
-      var maxLines = Math.max.apply(null, Object.keys(lines).map(function(k){ return lines[k].length; }));
-      Object.keys(lines).forEach(function(k){
-        var c = cols.filter(function(cc){ return cc.k===k; })[0];
-        var topY = curY + (maxLines - lines[k].length) * lh;
-        lines[k].forEach(function(sl, li){ draw(pages[pages.length-1], sl, x2+2, topY + li*lh, 8.5, F1, dk); });
-        x2 += c.w;
+      var cName = wrapText(r.name, F1, 8, cols[2].w - 4);
+      var cSpec = wrapText(r.spec, F1, 8, cols[3].w - 4);
+      var cMod  = wrapText(r.model || '—', F1, 8, cols[4].w - 4);
+      var nLines = Math.max(cName.length, cSpec.length, cMod.length, 1);
+      var emb = findEmb(idx);
+      var hRow = Math.max(24, nLines * rowLh + rPad, emb ? 46 : 0);
+      ensureRow(hRow + 4);
+      var pg2 = pages[pages.length - 1];
+      var x3 = ML;
+      var base = curY - 1;
+      cols.forEach(function(c){
+        if(c.k === 'n'){
+          draw(pg2, String(idx + 1), x3 + 2, base, 8, F1, dk);
+        } else if(c.k === 'img'){
+          if(emb){ drawThumb(pg2, emb, x3 + c.w / 2, curY, hRow); }
+        } else {
+          var val = '';
+          if(c.k === 'name') val = r.name;
+          else if(c.k === 'spec') val = r.spec;
+          else if(c.k === 'model') val = r.model || '—';
+          else if(c.k === 'unit') val = r.unit;
+          else if(c.k === 'qty') val = String(r.qty);
+          else if(c.k === 'price') val = (r.price != null ? '$' + r.price.toFixed(2) : 'TBD');
+          else if(c.k === 'total') val = (r.price != null && r.qty > 0) ? '$' + (r.price * r.qty).toFixed(2) : '—';
+          var ls = wrapText(val, F1, 8, c.w - 4);
+          if(!ls.length) ls = [''];
+          var extra = Math.max(0, nLines - ls.length) * rowLh;
+          ls.forEach(function(sl, li){ draw(pg2, sl, x3 + 2, base - extra - li * rowLh, 8, F1, dk); });
+        }
+        x3 += c.w;
       });
-      curY -= maxLines*lh + rowPad - 4;
-      drawHline(pages[pages.length-1], ML, PW-ML, curY);
-      curY -= 6;
+      curY -= hRow + 2;
+      drawHline(pg2, ML, PW-ML, curY);
+      curY -= 5;
     });
-    curY -= 4;
-    need(80);
-    /* totals */
+
+    /* ---- totals ---- */
     var tAmt = 0, tQty = 0;
-    rows.forEach(function(r){ if(r.qty>0) tQty += r.qty; if(r.price!=null && r.qty>0) tAmt += r.price*r.qty; });
-    draw(pages[pages.length-1], 'Total Quantity: ' + tQty + '  pcs', PW-ML-240, curY, 9, F2, dk); curY -= 14;
-    draw(pages[pages.length-1], 'Total Amount:  ' + money(tAmt) + '  (USD)', PW-ML-240, curY, 10, F2, blue); curY -= 12;
-    draw(pages[pages.length-1], 'Larger quantity = better price. Final quotation subject to confirmation.', PW-ML-240, curY, 7, F1, g); curY -= 18;
-    drawHline(pages[pages.length-1], PW-ML-240, PW-ML, curY);
+    rows.forEach(function(r){
+      if(r.qty > 0) tQty += r.qty;
+      if(r.price != null && r.qty > 0) tAmt += r.price * r.qty;
+    });
+    curY -= 6;
+    ensureRow(44);
+    var pg3 = pages[pages.length - 1];
+    draw(pg3, 'Total Quantity:  ' + tQty + '  (' + (rows[0] && rows[0].unit ? rows[0].unit + 's' : 'pcs') + ')', ML, curY, 9.5, F2, dk);
+    drawRight(pg3, 'Total Amount (USD):  ' + money(tAmt), PW-ML, curY, 11, F2, blue);
+    curY -= 15;
+    drawRight(pg3, 'GRAND TOTAL (USD):  ' + money(tAmt), PW-ML, curY, 12, F2, dk);
+    curY -= 6;
+    drawHline(pg3, ML, PW-ML, curY);
+    curY -= 14;
 
     /* ---- terms ---- */
-    curY -= 12;
-    var terms = [
-      ['Package:', '5-layer corrugated export cartons (standard)'],
+    ensureRow(60);
+    var pg4 = pages[pages.length - 1];
+    draw(pg4, 'TERMS & CONDITIONS', ML, curY, 9, F2, blue); curY -= 14;
+    [
+      ['Package:', '5-layer corrugated export cartons (standard export packing)'],
       ['Certification:', 'ISO 9001, SDS, Non-Dangerous Goods Transport Certificate (suitable for sea/air)'],
       ['Lead Time:', 'In-stock products 7-10 days; customized production 15-45 days depending on style & quantity'],
-      ['Payment Terms:', 'T/T 30% deposit, balance to be paid before shipment']
-    ];
-    terms.forEach(function(t){
-      var ls = wrapText(t[1], F1, 8, CW-90);
-      need(ls.length*10.5 + 6);
-      draw(pages[pages.length-1], t[0], ML, curY, 8, F2, dk);
-      ls.forEach(function(sl){ draw(pages[pages.length-1], sl, ML+92, curY, 8, F1, g); curY -= 10.5; });
-      curY -= 3;
+      ['Payment Terms:', 'T/T 30% deposit; balance to be paid before shipment'],
+      ['Validity:', 'This proforma invoice is valid for 30 days from the issue date']
+    ].forEach(function(t){
+      var ls = wrapText(t[1], F1, 8, CW - 95);
+      ensureRow(ls.length * 10.5 + 6);
+      var p4 = pages[pages.length - 1];
+      draw(p4, t[0], ML, curY, 8, F2, dk);
+      ls.forEach(function(sl){ draw(p4, sl, ML + 98, curY, 8, F1, g); curY -= 10.5; });
+      curY -= 2;
     });
+    curY -= 6;
 
-    /* bank */
-    var bank = [
+    /* ---- bank ---- */
+    ensureRow(70);
+    var pg5 = pages[pages.length - 1];
+    draw(pg5, 'BANKING INFORMATION', ML, curY, 9, F2, blue); curY -= 13;
+    [
       'Beneficiary:  GuangZhou QTOP Cold Chain Sciences Co., Ltd',
       'Bank:  China Minsheng Banking Corp. Ltd, Guangzhou Branch',
       'Bank Address:  Minsheng Building, No.68 Liede Avenue, Guangzhou',
       'Swift Code:  MSBCCNBJ003        Account No.:  69524 1665'
-    ];
-    need(bank.length*11.5 + 30);
-    draw(pages[pages.length-1], 'BANKING INFORMATION', ML, curY, 8.5, F2, blue); curY -= 13;
-    bank.forEach(function(l){ draw(pages[pages.length-1], l, ML, curY, 8, F1, g); curY -= 11; });
-    curY -= 6;
+    ].forEach(function(l){
+      draw(pg5, l, ML, curY, 8, F1, g); curY -= 10.5;
+    });
+    curY -= 8;
 
-    /* remarks */
+    /* ---- remarks ---- */
     if(extras.remarks){
-      var rLines = wrapText(extras.remarks, F1, 8, CW);
-      need(rLines.length*11 + 20);
-      draw(pages[pages.length-1], 'REMARKS', ML, curY, 8.5, F2, blue); curY -= 13;
-      rLines.forEach(function(l){ draw(pages[pages.length-1], l, ML, curY, 8, F1, g); curY -= 11; });
-      curY -= 8;
+      var rLines2 = wrapText(extras.remarks, F1, 8, CW);
+      ensureRow(rLines2.length * 11 + 16);
+      var pg6 = pages[pages.length - 1];
+      draw(pg6, 'REMARKS', ML, curY, 9, F2, blue); curY -= 13;
+      rLines2.forEach(function(l){ draw(pg6, l, ML, curY, 8, F1, g); curY -= 10.5; });
+      curY -= 6;
     }
 
-    draw(pages[pages.length-1], 'Prepared by ColdPackPro sales team  |  This PI is an offer for quotation, not a commercial invoice.', ML, curY-6, 7.5, F1, g);
+    /* ---- signature area ---- */
+    ensureRow(56);
+    var pg7 = pages[pages.length - 1];
+    draw(pg7, 'For and on behalf of GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD', PW - ML - 240, curY, 8, F1, g);
+    draw(pg7, '__________________________________', PW - ML - 240, curY - 16, 8.5, F1, g);
+    draw(pg7, 'Authorized Signature / Company Stamp      Date: ______________', PW - ML - 240, curY - 30, 8, F1, g);
   }
 
-  /* embed product images on separate appendix pages - safe version */
+  /* embed uploaded product photos only (drawn inline inside item rows as small thumbnails) */
   function embedImages(rows){
     var jobs = [];
     rows.forEach(function(r, i){
-      if(r && r.file && r.name){ jobs.push({ row:r, idx:i, file:r.file }); }
+      if(r && r.file){ jobs.push({ idx:i, file:r.file }); }
     });
-    if(!jobs.length) return Promise.resolve();
+    if(!jobs.length) return Promise.resolve([]);
     var reads = jobs.map(function(j){
       return new Promise(function(res){
         try {
@@ -717,39 +855,21 @@
       });
     });
     return Promise.all(reads).then(function(imgs){
-      var chain = Promise.resolve();
+      var chain = Promise.resolve([]);
       imgs.forEach(function(im){
         var j = im.j;
         if(!im.data) return;
-        chain = chain.then(function(){
+        chain = chain.then(function(list){
           var isPng = /image\/png/.test(j.file.type) || /\.png$/i.test(j.file.name);
           var embedP = isPng ? doc.embedPng(im.data) : doc.embedJpg(im.data);
-          return embedP.catch(function(){ return null; }).then(function(img){
-            if(!img) return;
-            var pg = newPage();
-            var cap = 'PRODUCT REFERENCE IMAGE  -  Row ' + (j.idx+1) + ': ' + (j.row.name || '') + (j.row.model ? '  /  Model ' + j.row.model : '');
-            draw(pg, cap, ML, curY, 9, F2, P.rgb(0.09,0.11,0.16));
-            curY -= 16;
-            var maxW = CW, maxH = curY - 120;
-            var ratio = Math.min(maxW/img.width, maxH/img.height, 1);
-            var dw = img.width*ratio, dh = img.height*ratio;
-            pg.drawImage(img, { x:(PW-dw)/2, y:curY-dh-20, width:dw, height:dh });
+          return embedP.catch(function(){ return list; }).then(function(img){
+            if(!img) return list;
+            list.push({ idx:j.idx, img:img });
+            return list;
           });
         });
       });
       return chain;
-    });
-  }
-
-  function watermarkPages(){
-    pages.forEach(function(pg){
-      var t = 'coldpackpro.com';
-      var size = Math.max(11, Math.min(PW,PH)*0.032);
-      var w = F2.widthOfTextAtSize(t, size);
-      pg.drawText(t, { x:(PW-w)/2, y:PH*0.52, size:size, font:F2,
-        color:P.rgb(0.35,0.4,0.5), opacity:0.12, rotate:P.degrees(-30) });
-      pg.drawText('GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD  |  coldpackpro.com  |  Licensed to ' + buyer().email + '  |  ' + fmtDate(d0),
-        { x:24, y:22, size:6.5, font:F1, color:P.rgb(0.4,0.45,0.52), opacity:0.85 });
     });
   }
 
@@ -781,13 +901,15 @@
             var b = buyer();
             var rows = getRows();
             var extras = { mark:$('sMark').value.trim(), delivery:$('sAddr').value.trim(), remarks:$('sRemarks').value.trim() };
-            buildPages(b, rows, extras);
-            return embedImages(rows).then(function(){ watermarkPages(); return d.save(); });
+            return embedImages(rows).then(function(embeds){
+              buildPages(b, rows, extras, embeds || []);
+              return d.save();
+            });
           });
         });
       }).then(function(bytes){
         showPdf(bytes);
-        setMsg('✓ PDF ready. Check the preview, then click Download. Your copy is watermarked with coldpackpro.com.');
+        setMsg('✓ PDF ready. Check the preview, then click Download.');
       }).catch(function(err){
         console.error(err);
         var why = (err && err.stack) ? err.stack : (err && err.message ? err.message : String(err));
