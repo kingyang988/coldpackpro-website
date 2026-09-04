@@ -154,6 +154,34 @@
           <textarea id="sRemarks" rows="3" class="field" placeholder="Any special requirements, target price, destination port, etc."></textarea>
         </div>
       </div>
+
+      <div class="mt-5 rounded-2xl border border-slate-200 bg-slate-50/60 p-4">
+        <p class="text-xs font-bold uppercase tracking-wider text-slate-600">Terms &amp; Conditions — confirmed with our sales (optional)</p>
+        <p class="mt-1 text-[11px] leading-4 text-slate-400">Each clause below is pre-ticked with our standard wording and will appear in the PI. Untick one to leave it out of the PI, or edit the wording when different terms have been agreed with our sales team.</p>
+        <div class="mt-3 space-y-2">
+          <div class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-2">
+            <input type="checkbox" id="tPkg" checked class="termChk mt-1 h-4 w-4 shrink-0 accent-blue-700">
+            <div class="flex-1">
+              <label for="tPkg" class="block text-[11px] font-bold uppercase tracking-wide text-slate-500">Package</label>
+              <input id="tPkgTxt" class="field mt-1" value="5-layer corrugated export cartons (standard export packing)">
+            </div>
+          </div>
+          <div class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-2">
+            <input type="checkbox" id="tLT" checked class="termChk mt-1 h-4 w-4 shrink-0 accent-blue-700">
+            <div class="flex-1">
+              <label for="tLT" class="block text-[11px] font-bold uppercase tracking-wide text-slate-500">Lead Time</label>
+              <input id="tLTTxt" class="field mt-1" value="In-stock products 7-10 days; customized production 15-45 days depending on style &amp; quantity">
+            </div>
+          </div>
+          <div class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-2">
+            <input type="checkbox" id="tPay" checked class="termChk mt-1 h-4 w-4 shrink-0 accent-blue-700">
+            <div class="flex-1">
+              <label for="tPay" class="block text-[11px] font-bold uppercase tracking-wide text-slate-500">Payment Terms</label>
+              <input id="tPayTxt" class="field mt-1" value="T/T 30% deposit; balance to be paid before shipment">
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Actions -->
@@ -336,6 +364,8 @@
   function pad(n){ return (n<10?'0':'')+n; }
   function money(n){ return '$' + (isFinite(n)? Number(n).toFixed(2) : '0.00'); }
   var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function termVal(id){ var el = $(id); var v = el ? el.value.trim() : ''; return v; }
+  function termOn(id){ var el = $(id); return !!(el && el.checked); }
 
   /* invoice number: PI-YYYYMMDD-XXX */
   var seq = 0;
@@ -556,8 +586,6 @@
   function newPage(cont){
     var pg = doc.addPage([PW, PH]);
     pages.push(pg); pgCount++;
-    pg.drawText('GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD   |   coldpackpro.com   |   Page ' + pgCount,
-      { x:ML, y:26, size:7, font:F1, color:g, opacity:0.75 });
     if(cont){
       curY = PH - 66;
       draw(pg, 'PROFORMA INVOICE (continued)', ML, curY, 9, F2, dk);
@@ -601,6 +629,18 @@
     txt = safeText(txt);
     var w = font.widthOfTextAtSize(txt, size);
     pg.drawText(txt, { x:xR - w, y:y, size:size, font:font, color:color });
+  }
+  /* bottom-centered "Page X of Y" on every PDF page (run once all pages are built) */
+  function addPageNumbers(){
+    try{
+      var total = doc.getPageCount();
+      for(var i = 0; i < total; i++){
+        var pgI = doc.getPage(i);
+        var txt = 'Page ' + (i + 1) + ' of ' + total;
+        var w = F1.widthOfTextAtSize(txt, 7);
+        pgI.drawText(txt, { x:(PW - w) / 2, y:22, size:7, font:F1, color:P.rgb(0.55,0.58,0.66), opacity:0.8 });
+      }
+    }catch(e){ /* page numbering must never block generation */ }
   }
 
   /* company letterhead at top of page 1 */
@@ -813,7 +853,7 @@
     drawRight(pg3, 'Total Amount (USD):  ' + money(tAmt), PW-ML, curY, 11, F2, blue);
     curY -= 13;
     drawHline(pg3, ML, PW-ML, curY);
-    curY -= 14;
+    curY -= 26;
 
     /* ---- terms ---- */
     ensureRow(60);
@@ -822,13 +862,11 @@
     var terms = [];
     if(extras.mark) terms.push(['Shipping Mark:', extras.mark]);
     if(extras.delivery) terms.push(['Delivery Address:', extras.delivery]);
-    terms.push(
-      ['Package:', '5-layer corrugated export cartons (standard export packing)'],
-      ['Certification:', 'ISO 9001, SDS, Non-Dangerous Goods Transport Certificate (suitable for sea/air)'],
-      ['Lead Time:', 'In-stock products 7-10 days; customized production 15-45 days depending on style & quantity'],
-      ['Payment Terms:', 'T/T 30% deposit; balance to be paid before shipment'],
-      ['Validity:', 'This proforma invoice is valid for 30 days from the issue date']
-    );
+    if(termOn('tPkg') && termVal('tPkgTxt')) terms.push(['Package:', termVal('tPkgTxt')]);
+    terms.push(['Certification:', 'ISO 9001, SDS, Non-Dangerous Goods Transport Certificate (suitable for sea/air)']);
+    if(termOn('tLT') && termVal('tLTTxt')) terms.push(['Lead Time:', termVal('tLTTxt')]);
+    if(termOn('tPay') && termVal('tPayTxt')) terms.push(['Payment Terms:', termVal('tPayTxt')]);
+    terms.push(['Validity:', 'This proforma invoice is valid for 30 days from the issue date']);
     terms.forEach(function(t){
       var ls = wrapText(t[1], F1, 8, CW - 95);
       ensureRow(ls.length * 10.5 + 6);
@@ -847,7 +885,8 @@
       'Beneficiary:  GuangZhou QTOP Cold Chain Sciences Co., Ltd',
       'Bank:  China Minsheng Banking Corp. Ltd, Guangzhou Branch',
       'Bank Address:  Minsheng Building, No.68 Liede Avenue, Guangzhou',
-      'Swift Code:  MSBCCNBJ003        Account No.:  69524 1665'
+      'Swift Code:  MSBCCNBJ003',
+      'Account No.:  69524 1665'
     ].forEach(function(l){
       draw(pg5, l, ML, curY, 8, F1, g); curY -= 10.5;
     });
@@ -871,6 +910,7 @@
     draw(pg7, '______________________________________', sx, 70, 9, F1, g);
     draw(pg7, 'Authorized Signature / Company Stamp            Date: ______________', sx, 46, 8, F1, g);
     curY = 40;
+    addPageNumbers();
   }
 
   /* embed uploaded product photos only (drawn inline inside item rows as small thumbnails) */
@@ -1022,12 +1062,16 @@
     L.push('Total Qty: ' + tQty);
     L.push('Total Amount: ' + money(tAmt) + ' (USD)');
     L.push('');
-    L.push('--- STANDARD TERMS ---');
-    L.push('Package: 5-layer corrugated export cartons');
+    L.push('--- TERMS & CONDITIONS ---');
+    if(extras.mark) L.push('Shipping Mark: ' + extras.mark);
+    if(extras.delivery) L.push('Delivery Address: ' + extras.delivery);
+    if(termOn('tPkg') && termVal('tPkgTxt')) L.push('Package: ' + termVal('tPkgTxt'));
     L.push('Certification: ISO 9001, SDS, Non-Dangerous Goods Transport Certificate (sea/air)');
-    L.push('Lead Time: In-stock 7-10 days; customized 15-45 days');
-    L.push('Payment: T/T 30% deposit, balance before shipment');
-    L.push('Bank: Beneficiary GuangZhou QTOP Cold Chain Sciences Co., Ltd | China Minsheng Banking Corp. Ltd Guangzhou Branch | Swift MSBCCNBJ003 | Account 69524 1665');
+    if(termOn('tLT') && termVal('tLTTxt')) L.push('Lead Time: ' + termVal('tLTTxt'));
+    if(termOn('tPay') && termVal('tPayTxt')) L.push('Payment Terms: ' + termVal('tPayTxt'));
+    L.push('Validity: This proforma invoice is valid for 30 days from the issue date');
+    L.push('Bank: Beneficiary GuangZhou QTOP Cold Chain Sciences Co., Ltd | China Minsheng Banking Corp. Ltd Guangzhou Branch');
+    L.push('Swift Code: MSBCCNBJ003 | Account No.: 69524 1665');
     L.push('');
     L.push('--- REMARKS ---');
     L.push(extras.remarks ? extras.remarks : '—');
@@ -1092,7 +1136,18 @@
     });
   });
 
+  /* terms checkboxes: grey out the wording box when its clause is unticked */
+  function bindTermToggles(){
+    [['tPkg','tPkgTxt'],['tLT','tLTTxt'],['tPay','tPayTxt']].forEach(function(pair){
+      var c = $(pair[0]), t = $(pair[1]);
+      if(!c || !t) return;
+      function sync(){ t.disabled = !c.checked; t.classList.toggle('opacity-50', !c.checked); }
+      c.addEventListener('change', sync);
+      sync();
+    });
+  }
   /* init */
+  bindTermToggles();
   addRow();
   addRow();
 })();
