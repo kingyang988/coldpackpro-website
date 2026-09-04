@@ -664,7 +664,7 @@
     center('GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD', PH-70, 13, F2, dk);
     center('Add: Unit 101, No. 4, Lane 4, South of Dening Road, Caohe, Qiaonan Street, Panyu District, Guangzhou City, China.', PH-84, 7, F1, g);
     center('https://coldpackpro.com    |    Email: info@coldpackpro.com    |    Contact: Mr. Yang    |    WhatsApp/WeChat: +86 13925109703', PH-95, 7, F1, g);
-    drawHline(pg, ML, PW-ML, PH-106);
+    pg.drawLine({ start:{x:ML,y:PH-106}, end:{x:PW-ML,y:PH-106}, thickness:0.7, color:P.rgb(0.55,0.58,0.66) });
     center('PROFORMA INVOICE', PH-127, 17, F2, blue);
     curY = PH - 151;
 
@@ -674,13 +674,13 @@
     curY -= 18;
 
     /* ---- two-column panels: SELLER / FACTORY  &  BILL TO (BUYER) (equal height) ---- */
-    var panelW = 252, plh = 8.6;
+    var panelW = 252, plh = 11;
     function panelNeed(items){
       var h = 26;
       items.forEach(function(it){
-        var f = it.bold ? F2 : F1, s = it.bold ? 8 : 7.5;
+        var f = it.bold ? F2 : F1, s = 8;
         var ls = wrapText(it.txt, f, s, panelW - 14);
-        h += (ls.length ? ls.length : 1) * plh + 1;
+        h += (ls.length ? ls.length : 1) * plh + 2;
       });
       return h + 4;
     }
@@ -688,9 +688,9 @@
       var pgT = pages[pages.length - 1];
       pgT.drawRectangle({ x:x, y:curY - H, width:panelW, height:H, borderColor:lgt, borderWidth:0.5 });
       draw(pgT, title, x + 7, curY - 11, 8, F2, blue);
-      var y = curY - 23;
+      var y = curY - 24;
       items.forEach(function(it){
-        var f = it.bold ? F2 : F1, s = it.bold ? 8 : 7.5, col = it.bold ? dk : g;
+        var f = it.bold ? F2 : F1, s = 8, col = dk;
         var ls = wrapText(it.txt, f, s, panelW - 14);
         if(!ls.length) ls = [''];
         ls.forEach(function(sl){ draw(pgT, sl, x + 7, y, s, f, col); y -= plh; });
@@ -714,7 +714,7 @@
     var pH = Math.max(panelNeed(buyerItems), panelNeed(sellerItems));
     drawPanel(ML, 'BILL TO (BUYER)', buyerItems, pH);
     drawPanel(ML + panelW + 5, 'SELLER / FACTORY', sellerItems, pH);
-    curY = curY - pH - 8;
+    curY = curY - pH - 18;
 
     /* ---- item list table with fixed-size photo thumbnails inline ---- */
     var cols = [
@@ -733,7 +733,11 @@
     function tableHeader(){
       var x3 = ML;
       var pgH = pages[pages.length - 1];
-      cols.forEach(function(c){ drawC(pgH, c.t, x3 + c.w/2, curY, 6.5, F2, g); x3 += c.w; });
+      cols.forEach(function(c){
+        if(c.k === 'name' || c.k === 'spec' || c.k === 'model'){ draw(pgH, c.t, x3 + 2, curY, 6.5, F2, g); }
+        else { drawC(pgH, c.t, x3 + c.w/2, curY, 6.5, F2, g); }
+        x3 += c.w;
+      });
       curY -= 3;
       drawHline(pgH, ML, PW-ML, curY);
       curY -= 9;
@@ -754,34 +758,40 @@
       var cMod  = wrapText(r.model || '—', F1, 8, cols[4].w - 4);
       var nLines = Math.max(cName.length, cSpec.length, cMod.length, 1);
       var emb = findEmb(idx);
-      var hRow = Math.max(24, nLines * rowLh + rPad, emb ? 46 : 0);
+      var minH = nLines * rowLh + rPad;
+      var hRow = Math.max(minH, 24, emb ? 46 : 0);
       ensureRow(hRow + 4);
       var pg2 = pages[pages.length - 1];
       var x3 = ML;
-      var base = curY - 1;
+      var rowTop = curY - 1;
+      function cellText(ls, col, left){
+        if(!ls.length) ls = [''];
+        var blockH = ls.length * rowLh;
+        var topGap = Math.max(0, (hRow - blockH) / 2);
+        ls.forEach(function(sl, li){
+          var yy = rowTop - topGap - 2 - li * rowLh;
+          if(left){ draw(pg2, sl, x3 + 2, yy, 8, F1, dk); }
+          else { drawC(pg2, sl, x3 + col.w / 2, yy, 8, F1, dk); }
+        });
+      }
       cols.forEach(function(c){
         if(c.k === 'n'){
-          drawC(pg2, String(idx + 1), x3 + c.w/2, base, 8, F1, dk);
+          cellText([String(idx + 1)], c, false);
         } else if(c.k === 'img'){
-          if(emb){ drawThumb(pg2, emb, x3 + c.w / 2, curY, hRow); }
+          if(emb){ drawThumb(pg2, emb, x3 + c.w / 2, rowTop, hRow); }
+        } else if(c.k === 'name') {
+          cellText(cName, c, true);
+        } else if(c.k === 'spec') {
+          cellText(cSpec, c, true);
+        } else if(c.k === 'model') {
+          cellText(cMod, c, true);
         } else {
           var val = '';
-          if(c.k === 'name') val = r.name;
-          else if(c.k === 'spec') val = r.spec;
-          else if(c.k === 'model') val = r.model || '—';
-          else if(c.k === 'unit') val = r.unit;
+          if(c.k === 'unit') val = r.unit;
           else if(c.k === 'qty') val = String(r.qty);
           else if(c.k === 'price') val = (r.price != null ? '$' + r.price.toFixed(2) : 'TBD');
           else if(c.k === 'total') val = (r.price != null && r.qty > 0) ? '$' + (r.price * r.qty).toFixed(2) : '—';
-          var ctr = (c.k === 'name' || c.k === 'spec' || c.k === 'model') ? false : true;
-          var ls = wrapText(val, F1, 8, c.w - 4);
-          if(!ls.length) ls = [''];
-          var extra = Math.max(0, nLines - ls.length) * rowLh;
-          var cx2 = x3 + c.w / 2;
-          ls.forEach(function(sl, li){
-            if(ctr){ drawC(pg2, sl, cx2, base - extra - li * rowLh, 8, F1, dk); }
-            else { draw(pg2, sl, x3 + 2, base - extra - li * rowLh, 8, F1, dk); }
-          });
+          cellText(wrapText(val, F1, 8, c.w - 4), c, false);
         }
         x3 += c.w;
       });
@@ -853,16 +863,14 @@
       curY -= 6;
     }
 
-    /* ---- signature area (extra breathing room between content and stamp) ---- */
-    ensureRow(104);
-    curY -= 14;
+    /* ---- signature area pinned toward the bottom of the final page ---- */
+    if(curY < 112){ newPage(true); }
     var pg7 = pages[pages.length - 1];
     var sx = PW - ML - 255;
-    draw(pg7, 'For and on behalf of GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD', sx, curY, 8, F1, g);
-    curY -= 24;
-    draw(pg7, '______________________________________', sx, curY, 9, F1, g);
-    curY -= 16;
-    draw(pg7, 'Authorized Signature / Company Stamp            Date: ______________', sx, curY, 8, F1, g);
+    draw(pg7, 'For and on behalf of GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD', sx, 96, 8, F1, g);
+    draw(pg7, '______________________________________', sx, 70, 9, F1, g);
+    draw(pg7, 'Authorized Signature / Company Stamp            Date: ______________', sx, 46, 8, F1, g);
+    curY = 40;
   }
 
   /* embed uploaded product photos only (drawn inline inside item rows as small thumbnails) */
