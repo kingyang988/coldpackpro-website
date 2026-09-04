@@ -654,31 +654,32 @@ window.console = new Proxy(console, {
     document.head.appendChild(s);
   }
 
-  function stampAndOffer(doc, email){
-    var stampText = 'Licensed to ' + email + '  |  Downloaded ' + new Date().toLocaleString('en-GB');
-    return doc.embedFont(PDFLib.StandardFonts.Helvetica).then(function(font){
+    function stampAndOffer(doc, email){
+    var brandText = 'www.coldpackpro.com';
+    var footText = 'ColdPackPro - Cold Chain Packaging & Ice Pack Factory  |  Licensed to ' + email + '  |  ' + new Date().toLocaleString('en-GB');
+    return doc.embedFont(PDFLib.StandardFonts.HelveticaBold).then(function(font){
       var pages = doc.getPages();
       pages.forEach(function(p){
         var w = p.getWidth();
         var h = p.getHeight();
-        var size = Math.max(9, Math.min(w, h) * 0.035);
-        var textW = font.widthOfTextAtSize(stampText, size);
-        p.drawText(stampText, {
+        var size = Math.max(16, Math.min(w, h) * 0.06);
+        var textW = font.widthOfTextAtSize(brandText, size);
+        p.drawText(brandText, {
           x: (w - textW) / 2,
-          y: h * 0.52,
+          y: h * 0.6,
           size: size,
           font: font,
-          color: PDFLib.rgb(0.3, 0.38, 0.5),
-          opacity: 0.25,
+          color: PDFLib.rgb(0.12, 0.45, 0.62),
+          opacity: 0.3,
           rotate: PDFLib.degrees(-30)
         });
-        p.drawText(stampText, {
-          x: 28,
+        p.drawText(footText, {
+          x: 24,
           y: 18,
-          size: Math.max(6, size * 0.32),
+          size: 7,
           font: font,
-          color: PDFLib.rgb(0.42, 0.45, 0.5),
-          opacity: 0.8
+          color: PDFLib.rgb(0.4, 0.45, 0.52),
+          opacity: 0.85
         });
       });
       return doc.save();
@@ -688,10 +689,9 @@ window.console = new Proxy(console, {
       downloadLink.href = url;
       downloadLink.setAttribute('download', 'ColdPackPro-Catalog.pdf');
       downloadLink.classList.remove('hidden');
-      unlockMsg.textContent = 'Your watermarked copy is ready. Your email is printed on every page.';
+      unlockMsg.textContent = 'Your copy is ready - download it below.';
     });
   }
-
   function offerPlain(){
     downloadLink.href = './assets/ColdPackPro-Catalog.pdf';
     downloadLink.classList.remove('hidden');
