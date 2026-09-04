@@ -10,7 +10,12 @@
   .label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#64748b;margin-bottom:.3rem}
   .field{width:100%;border:1px solid #e2e8f0;border-radius:.9rem;padding:.55rem .85rem;font-size:.9rem;color:#0f172a;background:#fff;outline:none}
   .field:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
-  .field.err{border-color:#dc2626;box-shadow:0 0 0 3px rgba(220,38,38,.12)}
+  .field.req{border:1.5px dashed #3b82f6;background:#f5f9ff}
+  .field.req:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.18);background:#fff}
+  .field.err{border-color:#dc2626!important;background:#fef2f2!important;box-shadow:0 0 0 3px rgba(220,38,38,.15)!important}
+  .star{color:#dc2626;font-size:1.05em;font-weight:800;line-height:1}
+  @keyframes flashReq{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,0)}40%{box-shadow:0 0 0 6px rgba(220,38,38,.4)}}
+  .field.flash{animation:flashReq 1s ease 2;border-color:#dc2626!important}
   .ph{color:#94a3b8}
   .seg{display:inline-flex;border:1px solid #e2e8f0;border-radius:.9rem;overflow:hidden}
   .seg button{padding:.45rem .8rem;font-size:.82rem;font-weight:500;color:#475569;background:#fff}
@@ -22,11 +27,45 @@
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased">
 
-<!-- ======= HEADER (same logo as homepage) ======= -->
+<!-- ======= HEADER (logo.svg, same file as homepage) ======= -->
 <header class="sticky top-0 z-40 border-b border-slate-200 bg-white/85 backdrop-blur">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-    <a href="https://coldpackpro.com" aria-label="ColdPackPro Home">
-      <svg width="176" height="46" viewBox="0 0 308 82" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="132" height="78" rx="12" fill="#0f172a"/><text x="16" y="48" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="24" fill="#ffffff">COLD</text><text x="16" y="70" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="24" fill="#ffffff">PACK</text><rect x="142" y="2" width="84" height="78" rx="12" fill="#2563eb"/><text x="156" y="52" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="30" fill="#ffffff">PRO</text><text x="230" y="46" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="15" fill="#334155">Cold Chain</text><text x="230" y="66" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="15" fill="#334155">Solutions</text></svg>
+    <a href="https://coldpackpro.com" aria-label="ColdPackPro Home" class="flex items-center">
+      <svg viewBox="0 0 1024 403" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ColdPackPro - Cold Chain Solutions" style="height:64px;width:auto;display:block">
+        <defs>
+          <linearGradient id="rqProBlockH" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#256FDC"/>
+            <stop offset="52%" stop-color="#3383EE"/>
+            <stop offset="100%" stop-color="#4694F7"/>
+          </linearGradient>
+          <linearGradient id="rqProTextH" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#29F4FF"/>
+            <stop offset="100%" stop-color="#00DCFF"/>
+          </linearGradient>
+          <linearGradient id="rqLineLH" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#94A3B8" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#7B8798" stop-opacity="1"/>
+          </linearGradient>
+          <linearGradient id="rqLineRH" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7B8798" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#94A3B8" stop-opacity="0"/>
+          </linearGradient>
+          <filter id="rqShadowH" x="-10%" y="-20%" width="120%" height="180%">
+            <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#142033" flood-opacity="0.16"/>
+          </filter>
+        </defs>
+        <g filter="url(#rqShadowH)">
+          <path d="M123 106 H622 C645 106 664 124 664 147 V167 C664 190 645 208 622 208 H123 C106 208 92 194 92 177 V137 C92 120 106 106 123 106 Z" fill="#101826"/>
+          <path d="M650 106 H876 C901 106 922 127 922 152 V162 C922 187 901 208 876 208 H650 C665 197 674 180 674 157 C674 134 665 117 650 106 Z" fill="url(#rqProBlockH)"/>
+          <text x="123" y="176" font-family="Eurostile Extended, Microgramma D Extended, Bank Gothic, Arial Black, Helvetica, sans-serif" font-size="66" font-weight="600" letter-spacing="0.35" fill="#FFFFFF" lengthAdjust="spacingAndGlyphs" textLength="491">COLD PACK</text>
+          <text x="686" y="176" font-family="Eurostile Extended, Microgramma D Extended, Bank Gothic, Arial Black, Helvetica, sans-serif" font-size="66" font-weight="600" letter-spacing="0.1" fill="url(#rqProTextH)" lengthAdjust="spacingAndGlyphs" textLength="204">PRO</text>
+        </g>
+        <g>
+          <rect x="106" y="279" width="161" height="3" rx="2" fill="url(#rqLineLH)"/>
+          <rect x="759" y="279" width="161" height="3" rx="2" fill="url(#rqLineRH)"/>
+          <text x="512" y="300" text-anchor="middle" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-size="40" font-weight="500" letter-spacing="0.55" fill="#66768A">Cold Chain Solutions</text>
+        </g>
+      </svg>
     </a>
     <a href="https://coldpackpro.com" class="rounded-2xl bg-slate-950 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-700">← Back to Home</a>
   </div>
@@ -128,6 +167,10 @@
 
     <!-- Actions -->
     <div class="cardbg p-5">
+      <p class="mb-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500">
+        <span class="inline-flex items-center gap-1.5"><span class="star">*</span> Required field</span>
+        <span class="inline-flex items-center gap-1.5"><span class="inline-block h-3 w-7 rounded border border-dashed border-blue-500 bg-blue-50"></span> dashed outline = please fill in</span>
+      </p>
       <div class="flex flex-wrap gap-3">
         <button id="genBtn" class="rounded-2xl bg-blue-700 px-6 py-3 font-semibold text-white hover:bg-blue-800">Generate Proforma Invoice (PDF)</button>
         <button id="emailBtn" class="rounded-2xl bg-slate-950 px-6 py-3 font-semibold text-white hover:bg-blue-700">Email Request to Us</button>
@@ -165,7 +208,7 @@
       <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Seller</h3>
       <p class="mt-2 text-sm font-bold leading-5">GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD</p>
       <p class="mt-1 text-xs leading-5 text-slate-500">Unit 101, No. 4, Lane 4, South of Dening Road, Caohe, Qiaonan Street, Panyu District, Guangzhou, China</p>
-      <p class="mt-2 text-xs text-slate-600">🌐 coldpackpro.com · ✉ info@coldpackpro.com<br>☎ +86-20-39211361 · Atten: Mr. K. Yang<br>WhatsApp / WeChat: +86 13925109703</p>
+      <p class="mt-2 text-xs text-slate-600">🌐 coldpackpro.com · ✉ info@coldpackpro.com<br>☎ +86-20-39211361 · Atten: Mr. Yang<br>WhatsApp / WeChat: +86 13925109703</p>
     </div>
 
     <div class="cardbg p-5">
@@ -191,6 +234,20 @@
   </aside>
 </main>
 
+<!-- ======= VALIDATION ALERT MODAL ======= -->
+<div id="errModal" class="fixed inset-0 z-[70] hidden items-center justify-center bg-slate-900/50 p-4">
+  <div class="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl">
+    <div class="flex items-start gap-3">
+      <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red-100 text-xl font-black text-red-600">!</span>
+      <div>
+        <h3 class="text-base font-bold text-slate-900">Almost there - please complete:</h3>
+        <ul id="errList" class="mt-2 max-h-56 list-disc space-y-1 overflow-y-auto pl-5 text-sm leading-5 text-slate-600"></ul>
+      </div>
+    </div>
+    <button id="errOkBtn" class="mt-5 w-full rounded-2xl bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-700">OK, I will fill them in</button>
+  </div>
+</div>
+
 <!-- ======= EMAIL CONFIRM MODAL ======= -->
 <div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/50 p-4">
   <div class="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl">
@@ -213,11 +270,47 @@
   </div>
 </div>
 
-<!-- ======= FOOTER (same style as homepage) ======= -->
+<!-- ======= FOOTER (logo.svg + style consistent with homepage) ======= -->
 <footer class="border-t border-slate-200 bg-white">
   <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-2">
     <div>
-      <svg width="176" height="46" viewBox="0 0 308 82" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="132" height="78" rx="12" fill="#0f172a"/><text x="16" y="48" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="24" fill="#ffffff">COLD</text><text x="16" y="70" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="24" fill="#ffffff">PACK</text><rect x="142" y="2" width="84" height="78" rx="12" fill="#2563eb"/><text x="156" y="52" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="30" fill="#ffffff">PRO</text><text x="230" y="46" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="15" fill="#334155">Cold Chain</text><text x="230" y="66" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="15" fill="#334155">Solutions</text></svg>
+      <a href="https://coldpackpro.com" class="inline-block" aria-label="ColdPackPro Home">
+      <svg viewBox="0 0 1024 403" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ColdPackPro - Cold Chain Solutions" style="height:60px;width:auto;display:block">
+        <defs>
+          <linearGradient id="rqProBlockF" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#256FDC"/>
+            <stop offset="52%" stop-color="#3383EE"/>
+            <stop offset="100%" stop-color="#4694F7"/>
+          </linearGradient>
+          <linearGradient id="rqProTextF" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#29F4FF"/>
+            <stop offset="100%" stop-color="#00DCFF"/>
+          </linearGradient>
+          <linearGradient id="rqLineLF" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#94A3B8" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#7B8798" stop-opacity="1"/>
+          </linearGradient>
+          <linearGradient id="rqLineRF" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7B8798" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#94A3B8" stop-opacity="0"/>
+          </linearGradient>
+          <filter id="rqShadowF" x="-10%" y="-20%" width="120%" height="180%">
+            <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#142033" flood-opacity="0.16"/>
+          </filter>
+        </defs>
+        <g filter="url(#rqShadowF)">
+          <path d="M123 106 H622 C645 106 664 124 664 147 V167 C664 190 645 208 622 208 H123 C106 208 92 194 92 177 V137 C92 120 106 106 123 106 Z" fill="#101826"/>
+          <path d="M650 106 H876 C901 106 922 127 922 152 V162 C922 187 901 208 876 208 H650 C665 197 674 180 674 157 C674 134 665 117 650 106 Z" fill="url(#rqProBlockF)"/>
+          <text x="123" y="176" font-family="Eurostile Extended, Microgramma D Extended, Bank Gothic, Arial Black, Helvetica, sans-serif" font-size="66" font-weight="600" letter-spacing="0.35" fill="#FFFFFF" lengthAdjust="spacingAndGlyphs" textLength="491">COLD PACK</text>
+          <text x="686" y="176" font-family="Eurostile Extended, Microgramma D Extended, Bank Gothic, Arial Black, Helvetica, sans-serif" font-size="66" font-weight="600" letter-spacing="0.1" fill="url(#rqProTextF)" lengthAdjust="spacingAndGlyphs" textLength="204">PRO</text>
+        </g>
+        <g>
+          <rect x="106" y="279" width="161" height="3" rx="2" fill="url(#rqLineLF)"/>
+          <rect x="759" y="279" width="161" height="3" rx="2" fill="url(#rqLineRF)"/>
+          <text x="512" y="300" text-anchor="middle" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-size="40" font-weight="500" letter-spacing="0.55" fill="#66768A">Cold Chain Solutions</text>
+        </g>
+      </svg>
+      </a>
       <p class="mt-4 max-w-md text-sm leading-6 text-slate-500">GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD — professional cold chain packaging &amp; ice pack manufacturer. Download our catalog and request a PI online anytime.</p>
       <p class="mt-4 text-xs text-slate-400">© 2026 ColdPackPro · GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD · All rights reserved.</p>
     </div>
@@ -290,9 +383,19 @@
     '</div>';
   }
 
-  function addRow(initial){
+  function markReq(input){
+    if(!input) return;
+    input.classList.add('req');
+    var lb = input.previousElementSibling;
+    if(!lb || lb.tagName !== 'LABEL'){ lb = input.parentElement ? input.parentElement.previousElementSibling : null; }
+    if(lb && lb.tagName === 'LABEL' && !lb.querySelector('.star') && lb.textContent.indexOf('*') >= 0){
+      lb.innerHTML = lb.innerHTML.replace('*', '<span class="star">*</span>');
+    }
+  }
+  function addRow(){
     rowsWrap.insertAdjacentHTML('beforeend', productRowHTML());
     var last = rowsWrap.lastElementChild;
+    [last.querySelector('.pName'), last.querySelector('.pSpec'), last.querySelector('.pQty')].forEach(function(inp){ if(inp) markReq(inp); });
     var file = last.querySelector('.pFile');
     file._file = null;
     file.addEventListener('change', function(){
@@ -318,32 +421,40 @@
     if(b){ var wrap = rowsWrap.querySelectorAll('.rounded-2xl'); if(wrap.length<=1){ setMsg('Keep at least one product row.'); return; } b.closest('[data-i]').remove(); recalc(); }
   });
   rowsWrap.addEventListener('input', recalc);
+  ['bCompany','bAddress','bAttn','bEmail'].forEach(function(id){ markReq($(id)); });
 
   function getRows(){
     var out = [];
     rowsWrap.querySelectorAll('[data-i]').forEach(function(el){
-      var name = el.querySelector('.pName').value.trim();
-      var spec = el.querySelector('.pSpec').value.trim();
-      var model = el.querySelector('.pModel').value.trim();
-      var price = parseFloat(el.querySelector('.pPrice').value);
+      if(!el || !el.querySelector) return;
+      var nameEl = el.querySelector('.pName');
+      var specEl = el.querySelector('.pSpec');
+      var modelEl = el.querySelector('.pModel');
+      var priceEl = el.querySelector('.pPrice');
+      var qtyEl = el.querySelector('.pQty');
+      var unitEl = el.querySelector('.pUnit');
+      var fileEl = el.querySelector('.pFile');
+      if(!nameEl || !specEl || !qtyEl) return;
+      var price = parseFloat(priceEl ? priceEl.value : '');
       if(!isFinite(price)) price = null;
-      var qty = parseInt(el.querySelector('.pQty').value,10);
+      var qty = parseInt(qtyEl.value,10);
       if(!isFinite(qty)) qty = 0;
-      var unit = el.querySelector('.pUnit').value;
-      var file = el.querySelector('.pFile');
-      out.push({ el:el, name:name, spec:spec, model:model, price:price, qty:qty, unit:unit, file: (file && file._file) || null });
+      var f = null;
+      try { if(fileEl && fileEl._file) f = fileEl._file; } catch(e2){ f = null; }
+      out.push({ el:el, name:nameEl.value.trim(), spec:specEl.value.trim(), model:(modelEl?modelEl.value.trim():''), price:price, qty:qty, unit:(unitEl?unitEl.value:'piece'), file:f });
     });
     return out;
   }
 
   function recalc(){
     var rows = getRows();
-    var tQty = 0, tAmt = 0, items = 0;
-    rows.forEach(function(r, i){
+    var tQty = 0, tAmt = 0;
+    rows.forEach(function(r){
       var total = (r.price!=null && r.qty>0) ? r.price*r.qty : null;
-      r.el.querySelector('.rowTotal').textContent = total!=null ? money(total) : '—';
+      var rt = r.el.querySelector('.rowTotal');
+      if(rt) rt.textContent = total!=null ? money(total) : '—';
       tQty += (r.qty>0?r.qty:0);
-      if(total!=null){ tAmt += total; items++; }
+      if(total!=null){ tAmt += total; }
     });
     $('sumItems').textContent = rows.length;
     $('sumQty').textContent = tQty;
@@ -371,25 +482,60 @@
   }
   function validate(){
     var ok = true;
+    var missing = [];
+    var names = { bCompany:'Company Name', bAddress:'Address', bAttn:'Attention / Contact Person', bEmail:'Email Address' };
     ['bCompany','bAddress','bAttn','bEmail'].forEach(function(id){
       var el = $(id), v = el.value.trim();
-      var bad = !v;
-      if(id==='bEmail') bad = bad || !emailRe.test(v);
+      var badEmpty = !v;
+      var badMail = (id==='bEmail') && !!v && !emailRe.test(v);
+      var bad = badEmpty || badMail;
       el.classList.toggle('err', bad);
-      if(bad) ok = false;
+      if(bad){ ok = false; missing.push(names[id] + (badMail ? ' (enter a valid email)' : '')); }
     });
     var rows = getRows();
-    if(!rows.length) ok = false;
-    rows.forEach(function(r){
-      var bad = !r.name || !r.spec || r.qty<=0;
-      r.el.querySelector('.pName').classList.toggle('err', !r.name);
-      r.el.querySelector('.pSpec').classList.toggle('err', !r.spec);
-      r.el.querySelector('.pQty').classList.toggle('err', r.qty<=0);
-      if(bad) ok = false;
+    if(!rows.length){ ok = false; missing.push('At least one product row is required'); }
+    rows.forEach(function(r, idx){
+      var badName = !r.name, badSpec = !r.spec, badQty = r.qty<=0;
+      var nEl = r.el.querySelector('.pName'), sEl = r.el.querySelector('.pSpec'), qEl = r.el.querySelector('.pQty');
+      if(nEl) nEl.classList.toggle('err', badName);
+      if(sEl) sEl.classList.toggle('err', badSpec);
+      if(qEl) qEl.classList.toggle('err', badQty);
+      if(badName || badSpec || badQty){
+        ok = false;
+        var parts = [];
+        if(badName) parts.push('Product Name');
+        if(badSpec) parts.push('Specification');
+        if(badQty) parts.push('Quantity');
+        missing.push('Product Row ' + (idx+1) + ': ' + parts.join(', '));
+      }
     });
-    if(!ok) setMsg('Please complete all required fields (company, address, attention, valid email, and each product row: name, spec, quantity).', true);
+    if(!ok){
+      setMsg('Some required fields are missing - please complete the highlighted boxes.', true);
+      var list = $('errList');
+      list.innerHTML = '';
+      missing.forEach(function(m){ var li = document.createElement('li'); li.textContent = m; list.appendChild(li); });
+      $('errModal').classList.remove('hidden');
+      $('errModal').classList.add('flex');
+      var first = document.querySelector('.field.err');
+      if(first){
+        first.scrollIntoView({ behavior:'smooth', block:'center' });
+        first.classList.add('flash');
+        setTimeout(function(){ first.classList.remove('flash'); }, 2400);
+        try{ first.focus({ preventScroll:true }); }catch(e2){}
+      }
+    }
     return ok;
   }
+  $('errOkBtn').addEventListener('click', function(){
+    $('errModal').classList.add('hidden');
+    $('errModal').classList.remove('flex');
+  });
+  document.addEventListener('input', function(ev){
+    if(ev.target && ev.target.classList){
+      ev.target.classList.remove('err');
+      ev.target.classList.remove('flash');
+    }
+  });
   function setMsg(t, isErr){
     var m = $('statusMsg');
     m.textContent = t;
@@ -423,7 +569,6 @@
     return lines.length ? lines : [''];
   }
   function draw(pg, txt, x, y, size, font, color){ pg.drawText(txt, { x:x, y:y, size:size, font:font, color:color }); }
-
   function drawHline(pg, x1, x2, y){
     pg.drawLine({ start:{x:x1,y:y}, end:{x:x2,y:y}, thickness:0.6, color:P.rgb(0.8,0.83,0.88) });
   }
@@ -433,28 +578,29 @@
     var g = P.rgb(0.32,0.36,0.42), dk = P.rgb(0.09,0.11,0.16), blue = P.rgb(0.12,0.34,0.62);
 
     /* ---- title band ---- */
-    draw(pages[pages.length-1], 'PROFORMA INVOICE', ML, curY, 16, F2, blue);
+    var pg = pages[pages.length-1];
+    draw(pg, 'PROFORMA INVOICE', ML, curY, 16, F2, blue);
     curY -= 8;
-    draw(pages[pages.length-1], 'GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD', ML, curY, 9.5, F2, dk); curY -= 12;
-    ['Unit 101, No. 4, Lane 4, South of Dening Road, Caohe, Qiaonan Street,','Panyu District, Guangzhou City, China','Tel: +86-20-39211361   |   Email: info@coldpackpro.com   |   Web: coldpackpro.com','Atten: Mr. K. Yang   |   WhatsApp/WeChat: +86 13925109703'].forEach(function(l){
-      draw(pages[pages.length-1], l, ML, curY, 8, F1, g); curY -= 10.5;
+    draw(pg, 'GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD', ML, curY, 9.5, F2, dk); curY -= 12;
+    ['Unit 101, No. 4, Lane 4, South of Dening Road, Caohe, Qiaonan Street,','Panyu District, Guangzhou City, China','Tel: +86-20-39211361   |   Email: info@coldpackpro.com   |   Web: coldpackpro.com','Atten: Mr. Yang   |   WhatsApp/WeChat: +86 13925109703'].forEach(function(l){
+      draw(pg, l, ML, curY, 8, F1, g); curY -= 10.5;
     });
 
     /* invoice no / date right block */
     var rightX = PW - ML - 190;
-    draw(pages[pages.length-1], 'Invoice No.:  ' + invNo, rightX, PH-86, 9, F2, dk);
-    draw(pages[pages.length-1], 'Issue Date:  ' + fmtDate(d0), rightX, PH-98, 9, F2, dk);
+    draw(pg, 'Invoice No.:  ' + invNo, rightX, PH-86, 9, F2, dk);
+    draw(pg, 'Issue Date:  ' + fmtDate(d0), rightX, PH-98, 9, F2, dk);
 
     /* ---- buyer block ---- */
     curY -= 6;
-    draw(pages[pages.length-1], 'BUYER', ML, curY, 9, F2, blue); curY -= 13;
+    draw(pg, 'BUYER', ML, curY, 9, F2, blue); curY -= 13;
     var bLines = [ b.company, b.address, 'Attention: ' + b.attn, 'Email: ' + b.email ];
     if(b.tel) bLines.push('Tel: ' + b.tel);
     bLines.push('Preferred Contact: ' + b.contact);
     bLines.forEach(function(l){
       var ls = wrapText(l, F1, 8.5, CW);
       need(ls.length*10.5 + 4);
-      ls.forEach(function(sl){ draw(pages[pages.length-1], sl, ML, curY, 8.5, F1, dk); curY -= 10.5; });
+      ls.forEach(function(sl){ var cp = pages[pages.length-1]; draw(cp, sl, ML, curY, 8.5, F1, dk); curY -= 10.5; });
       curY -= 1;
     });
     curY -= 6;
@@ -465,10 +611,9 @@
     var cols = [ {k:'n',t:'#',w:20}, {k:'name',t:'Product Name',w:100}, {k:'model',t:'Model',w:56},
                  {k:'spec',t:'Specification',w:141}, {k:'unit',t:'Unit',w:40}, {k:'qty',t:'Qty',w:38},
                  {k:'price',t:'Unit Price (USD)',w:58}, {k:'total',t:'Total (USD)',w:58} ];
-    var hdrH = 20, rowPad = 8, lh = 10;
+    var rowPad = 8, lh = 10;
     var x = ML;
-    var tableTop = curY;
-    need(hdrH + rows.length*26 + 40);
+    need(20 + rows.length*26 + 40);
     var headY = curY;
     draw(pages[pages.length-1], 'ITEM LIST', ML, headY, 9, F2, blue); headY -= 16;
     curY = headY;
@@ -497,7 +642,7 @@
       Object.keys(lines).forEach(function(k){
         var c = cols.filter(function(cc){ return cc.k===k; })[0];
         var topY = curY + (maxLines - lines[k].length) * lh;
-        lines[k].forEach(function(sl, li){ draw(pages[pages.length-1], sl, x2+2, topY + li*lh, 8.5, k==='name'?F1:F1, dk); });
+        lines[k].forEach(function(sl, li){ draw(pages[pages.length-1], sl, x2+2, topY + li*lh, 8.5, F1, dk); });
         x2 += c.w;
       });
       curY -= maxLines*lh + rowPad - 4;
@@ -554,26 +699,35 @@
     draw(pages[pages.length-1], 'Prepared by ColdPackPro sales team  |  This PI is an offer for quotation, not a commercial invoice.', ML, curY-6, 7.5, F1, g);
   }
 
+  /* embed product images on separate appendix pages - safe version */
   function embedImages(rows){
-    var jobs = rows.filter(function(r){ return r.file; });
+    var jobs = [];
+    rows.forEach(function(r, i){
+      if(r && r.file && r.name){ jobs.push({ row:r, idx:i, file:r.file }); }
+    });
     if(!jobs.length) return Promise.resolve();
-    var reads = jobs.map(function(r){
+    var reads = jobs.map(function(j){
       return new Promise(function(res){
-        var fr = new FileReader();
-        fr.onload = function(){ res({ row:r, data:fr.result }); };
-        fr.readAsArrayBuffer(r.file);
+        try {
+          var fr = new FileReader();
+          fr.onload = function(){ res({ j:j, data:fr.result }); };
+          fr.onerror = function(){ res({ j:j, data:null }); };
+          fr.readAsArrayBuffer(j.file);
+        } catch(e3){ res({ j:j, data:null }); }
       });
     });
     return Promise.all(reads).then(function(imgs){
       var chain = Promise.resolve();
-      imgs.forEach(function(im, k){
+      imgs.forEach(function(im){
+        var j = im.j;
+        if(!im.data) return;
         chain = chain.then(function(){
-          var isPng = /image\/png/.test(jobs[k].row.file.type) || /\.png$/i.test(jobs[k].row.file.name);
+          var isPng = /image\/png/.test(j.file.type) || /\.png$/i.test(j.file.name);
           var embedP = isPng ? doc.embedPng(im.data) : doc.embedJpg(im.data);
           return embedP.catch(function(){ return null; }).then(function(img){
             if(!img) return;
             var pg = newPage();
-            var cap = 'PRODUCT REFERENCE IMAGE  -  Row ' + (k+1) + ': ' + (jobs[k].row.name || '') + (jobs[k].row.model ? '  /  Model ' + jobs[k].row.model : '');
+            var cap = 'PRODUCT REFERENCE IMAGE  -  Row ' + (j.idx+1) + ': ' + (j.row.name || '') + (j.row.model ? '  /  Model ' + j.row.model : '');
             draw(pg, cap, ML, curY, 9, F2, P.rgb(0.09,0.11,0.16));
             curY -= 16;
             var maxW = CW, maxH = curY - 120;
@@ -614,7 +768,11 @@
     setMsg('Building your PDF, a few seconds...');
     try{
       P = window.PDFLib;
-      doc = null; pages = [];
+      if(!P || !P.PDFDocument || !P.PDFDocument.create){
+        setMsg('PDF library failed to load. Please refresh the page and try again.', true);
+        return;
+      }
+      doc = null; pages = []; F1 = null; F2 = null;
       P.PDFDocument.create().then(function(d){
         doc = d;
         return d.embedFont(P.StandardFonts.Helvetica).then(function(f1){
@@ -632,10 +790,11 @@
         setMsg('✓ PDF ready. Check the preview, then click Download. Your copy is watermarked with coldpackpro.com.');
       }).catch(function(err){
         console.error(err);
-        setMsg('PDF generation failed: ' + (err && err.message ? err.message : err) + ' - please try again.', true);
+        var why = (err && err.stack) ? err.stack : (err && err.message ? err.message : String(err));
+        setMsg('PDF generation failed: ' + why + ' - please try again.', true);
       });
     }catch(e){
-      setMsg('PDF generation failed: ' + e.message + ' - please try again.', true);
+      setMsg('PDF generation failed: ' + (e && e.stack ? e.stack : e.message) + ' - please try again.', true);
     }
   }
   $('genBtn').addEventListener('click', generatePdf);
@@ -651,7 +810,7 @@
     L.push('GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD');
     L.push('Unit 101, No.4, Lane 4, South of Dening Road, Caohe, Qiaonan Street, Panyu District, Guangzhou, China');
     L.push('Web: https://coldpackpro.com  |  Tel: +86-20-39211361  |  Email: info@coldpackpro.com');
-    L.push('Atten: Mr. K. Yang  |  WhatsApp/WeChat: +86 13925109703');
+    L.push('Atten: Mr. Yang  |  WhatsApp/WeChat: +86 13925109703');
     L.push('');
     L.push('--- BUYER ---');
     L.push('Company: ' + b.company);
