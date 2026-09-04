@@ -596,5 +596,108 @@ window.console = new Proxy(console, {
   ]
 }
 </script>
+<script>
+(function(){
+  function isValidEmail(v){
+    return typeof v === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+  }
+  var emailInput = document.getElementById('emailInput');
+  var unlockBtn = document.getElementById('unlockBtn');
+  var unlockMsg = document.getElementById('unlockMsg');
+  var downloadLink = document.getElementById('downloadLink');
+  if(!emailInput || !unlockBtn || !unlockMsg || !downloadLink) return;
+
+  emailInput.addEventListener('input', function(){
+    unlockMsg.textContent = emailInput.value.trim()
+      ? 'Click the button below to get the catalog.'
+      : 'Full product range in one PDF, updated 2026.';
+  });
+
+  unlockBtn.addEventListener('click', function(){
+    var email = emailInput.value.trim();
+    if(!isValidEmail(email)){
+      unlockMsg.textContent = 'Please enter a valid email address, e.g. name@example.com.';
+      downloadLink.classList.add('hidden');
+      return;
+    }
+    downloadLink.classList.add('hidden');
+    unlockMsg.textContent = 'Recording your request...';
+    try{
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify({
+          access_key: '96cb4db8-5269-48b0-91e2-69a1f6871723',
+          email: email,
+          subject: 'ColdPackPro Catalog Download',
+          message: 'Visitor requested the catalog.\nEmail: ' + email + '\nTime: ' + new Date().toLocaleString('en-GB')
+        })
+      }).catch(function(){});
+    }catch(e){}
+    prepareCopy(email);
+  });
+
+  function prepareCopy(email){
+    unlockMsg.textContent = 'Preparing your personal watermarked copy, a few seconds...';
+    function generate(){
+      fetch('./assets/ColdPackPro-Catalog.pdf')
+        .then(function(res){ if(!res.ok) throw new Error('load'); return res.arrayBuffer(); })
+        .then(function(buf){ return PDFLib.PDFDocument.load(buf); })
+        .then(function(doc){ return stampAndOffer(doc, email); })
+        .catch(function(){ offerPlain(); });
+    }
+    if(window.PDFLib){ generate(); return; }
+    var s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js';
+    s.onload = generate;
+    s.onerror = offerPlain;
+    document.head.appendChild(s);
+  }
+
+  function stampAndOffer(doc, email){
+    var stampText = 'Licensed to ' + email + '  |  Downloaded ' + new Date().toLocaleString('en-GB');
+    return doc.embedFont(PDFLib.StandardFonts.Helvetica).then(function(font){
+      var pages = doc.getPages();
+      pages.forEach(function(p){
+        var w = p.getWidth();
+        var h = p.getHeight();
+        var size = Math.max(9, Math.min(w, h) * 0.035);
+        var textW = font.widthOfTextAtSize(stampText, size);
+        p.drawText(stampText, {
+          x: (w - textW) / 2,
+          y: h * 0.52,
+          size: size,
+          font: font,
+          color: PDFLib.rgb(0.3, 0.38, 0.5),
+          opacity: 0.25,
+          rotate: PDFLib.degrees(-30)
+        });
+        p.drawText(stampText, {
+          x: 28,
+          y: 18,
+          size: Math.max(6, size * 0.32),
+          font: font,
+          color: PDFLib.rgb(0.42, 0.45, 0.5),
+          opacity: 0.8
+        });
+      });
+      return doc.save();
+    }).then(function(bytes){
+      var blob = new Blob([bytes], {type: 'application/pdf'});
+      var url = URL.createObjectURL(blob);
+      downloadLink.href = url;
+      downloadLink.setAttribute('download', 'ColdPackPro-Catalog.pdf');
+      downloadLink.classList.remove('hidden');
+      unlockMsg.textContent = 'Your watermarked copy is ready. Your email is printed on every page.';
+    });
+  }
+
+  function offerPlain(){
+    downloadLink.href = './assets/ColdPackPro-Catalog.pdf';
+    downloadLink.classList.remove('hidden');
+    unlockMsg.textContent = 'Download ready below.';
+  }
+})();
+</script>  
 </body>
 </html>
