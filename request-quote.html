@@ -526,6 +526,7 @@
 
   /* ---------- PDF engine: formal PI (template style) ---------- */
   var P = null, F1 = null, F2 = null, doc = null;
+  var genBusy = false;
   var cjkOk = false, cjkP = null, cjkBuf = null;
   var CJK_URLS = [
     'https://cdn.jsdelivr.net/gh/notofonts/noto-cjk@main/Sans/SubsetOTF/SC/NotoSansSC-Regular.otf',
@@ -584,7 +585,17 @@
   }
   function draw(pg, txt, x, y, size, font, color){ pg.drawText(safeText(txt), { x:x, y:y, size:size, font:font, color:color }); }
   function drawHline(pg, x1, x2, y){
-    pg.drawLine({ start:{x:x1,y:y}, end:{x:x2,y:y}, thickness:0.35, color:P.rgb(0.78,0.82,0.88), dashArray:[1.6,2.6] });
+    var x = x1, seg = 2.2, gap = 2.2;
+    while(x < x2){
+      var e = Math.min(x + seg, x2);
+      pg.drawLine({ start:{x:x,y:y}, end:{x:e,y:y}, thickness:0.45, color:P.rgb(0.72,0.77,0.85) });
+      x = e + gap;
+    }
+  }
+  function drawC(pg, txt, cx, y, size, font, color){
+    txt = safeText(txt);
+    var w = font.widthOfTextAtSize(txt, size);
+    pg.drawText(txt, { x: cx - w/2, y:y, size:size, font:font, color:color });
   }
   function drawRight(pg, txt, xR, y, size, font, color){
     txt = safeText(txt);
@@ -662,48 +673,48 @@
     drawRight(pg, 'Issue Date:  ' + fmtDate(d0), PW-ML, curY, 10, F2, dk);
     curY -= 18;
 
-    /* ---- two-column panels: SELLER / FACTORY  &  BILL TO (BUYER) ---- */
-    var lw = 252, rw = 252;
-    function panel(x, w, title, rows2){
-      var y = curY - 11, lh2 = 8.4;
-      draw(pg, title, x + 7, y, 8, F2, blue);
-      y -= 12;
-      rows2.forEach(function(r0){
-        if(r0.pair){
-          var L = String(r0.pair[0] || ''), R = String(r0.pair[1] || '');
-          var hl = wrapText(L, F1, 7.5, (w - 16) * 0.60);
-          var hr = wrapText(R, F1, 7.5, (w - 16) * 0.38);
-          var n = Math.max(hl.length, hr.length, 1);
-          hl.forEach(function(sl, ii){ draw(pg, sl, x + 7, y - ii * lh2, 7.5, F1, dk); });
-          hr.forEach(function(sl, ii){ draw(pg, sl, x + 7 + (w - 16) * 0.62, y - ii * lh2, 7.5, F1, dk); });
-          y -= n * lh2;
-        } else {
-          var txt = String(r0[0] || ''), bd = !!r0[1];
-          var sub = wrapText(txt, bd ? F2 : F1, bd ? 8 : 7.5, w - 16);
-          if(!sub.length) sub = [''];
-          sub.forEach(function(sl){ draw(pg, sl, x + 7, y, bd ? 8 : 7.5, bd ? F2 : F1, bd ? dk : g); y -= lh2; });
-        }
+    /* ---- two-column panels: SELLER / FACTORY  &  BILL TO (BUYER) (equal height) ---- */
+    var panelW = 252, plh = 8.6;
+    function panelNeed(items){
+      var h = 26;
+      items.forEach(function(it){
+        var f = it.bold ? F2 : F1, s = it.bold ? 8 : 7.5;
+        var ls = wrapText(it.txt, f, s, panelW - 14);
+        h += (ls.length ? ls.length : 1) * plh + 1;
+      });
+      return h + 4;
+    }
+    function drawPanel(x, title, items, H){
+      var pgT = pages[pages.length - 1];
+      pgT.drawRectangle({ x:x, y:curY - H, width:panelW, height:H, borderColor:lgt, borderWidth:0.5 });
+      draw(pgT, title, x + 7, curY - 11, 8, F2, blue);
+      var y = curY - 23;
+      items.forEach(function(it){
+        var f = it.bold ? F2 : F1, s = it.bold ? 8 : 7.5, col = it.bold ? dk : g;
+        var ls = wrapText(it.txt, f, s, panelW - 14);
+        if(!ls.length) ls = [''];
+        ls.forEach(function(sl){ draw(pgT, sl, x + 7, y, s, f, col); y -= plh; });
         y -= 1;
       });
-      var bottom = y - 4;
-      pg.drawRectangle({ x:x, y:bottom, width:w, height:curY - bottom + 2, borderColor:lgt, borderWidth:0.5 });
-      return bottom;
     }
-    var sellerRows = [
-      ['GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD', true],
-      ['Add: Unit 101, No.4, Lane 4, South of Dening Road, Caohe, Qiaonan Street, Panyu District, Guangzhou City, China.', false],
-      ['Email: info@coldpackpro.com', false],
-      ['Contact: Mr. Yang     WhatsApp / WeChat: +86 13925109703', false]
+    var sellerItems = [
+      { txt:'GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD', bold:true },
+      { txt:'Add: Unit 101, No.4, Lane 4, South of Dening Road, Caohe, Qiaonan Street, Panyu District, Guangzhou City, China.', bold:false },
+      { txt:'Email: info@coldpackpro.com', bold:false },
+      { txt:'Contact: Mr. Yang', bold:false },
+      { txt:'WhatsApp / WeChat: +86 13925109703', bold:false }
     ];
-    var buyerRows = [
-      [b.company, true],
-      ['Add: ' + b.address, false],
-      { pair:['Email: ' + b.email, 'Atten: ' + b.attn] },
-      ['Tel: ' + b.tel, false]
+    var buyerItems = [
+      { txt:b.company, bold:true },
+      { txt:'Add: ' + b.address, bold:false },
+      { txt:'Email: ' + b.email, bold:false },
+      { txt:'Atten: ' + b.attn, bold:false },
+      { txt:'Tel: ' + b.tel, bold:false }
     ];
-    var bb = panel(ML, lw, 'BILL TO (BUYER)', buyerRows);
-    var sb = panel(ML + lw + 5, rw, 'SELLER / FACTORY', sellerRows);
-    curY = Math.min(bb, sb) - 8;
+    var pH = Math.max(panelNeed(buyerItems), panelNeed(sellerItems));
+    drawPanel(ML, 'BILL TO (BUYER)', buyerItems, pH);
+    drawPanel(ML + panelW + 5, 'SELLER / FACTORY', sellerItems, pH);
+    curY = curY - pH - 8;
 
     /* ---- item list table with fixed-size photo thumbnails inline ---- */
     var cols = [
@@ -721,9 +732,10 @@
 
     function tableHeader(){
       var x3 = ML;
-      cols.forEach(function(c){ draw(pages[pages.length-1], c.t, x3, curY, 6.5, F2, g); x3 += c.w; });
+      var pgH = pages[pages.length - 1];
+      cols.forEach(function(c){ drawC(pgH, c.t, x3 + c.w/2, curY, 6.5, F2, g); x3 += c.w; });
       curY -= 3;
-      drawHline(pages[pages.length-1], ML, PW-ML, curY);
+      drawHline(pgH, ML, PW-ML, curY);
       curY -= 9;
     }
     tableHeader();
@@ -749,7 +761,7 @@
       var base = curY - 1;
       cols.forEach(function(c){
         if(c.k === 'n'){
-          draw(pg2, String(idx + 1), x3 + 2, base, 8, F1, dk);
+          drawC(pg2, String(idx + 1), x3 + c.w/2, base, 8, F1, dk);
         } else if(c.k === 'img'){
           if(emb){ drawThumb(pg2, emb, x3 + c.w / 2, curY, hRow); }
         } else {
@@ -761,10 +773,15 @@
           else if(c.k === 'qty') val = String(r.qty);
           else if(c.k === 'price') val = (r.price != null ? '$' + r.price.toFixed(2) : 'TBD');
           else if(c.k === 'total') val = (r.price != null && r.qty > 0) ? '$' + (r.price * r.qty).toFixed(2) : '—';
+          var ctr = (c.k === 'name' || c.k === 'spec' || c.k === 'model') ? false : true;
           var ls = wrapText(val, F1, 8, c.w - 4);
           if(!ls.length) ls = [''];
           var extra = Math.max(0, nLines - ls.length) * rowLh;
-          ls.forEach(function(sl, li){ draw(pg2, sl, x3 + 2, base - extra - li * rowLh, 8, F1, dk); });
+          var cx2 = x3 + c.w / 2;
+          ls.forEach(function(sl, li){
+            if(ctr){ drawC(pg2, sl, cx2, base - extra - li * rowLh, 8, F1, dk); }
+            else { draw(pg2, sl, x3 + 2, base - extra - li * rowLh, 8, F1, dk); }
+          });
         }
         x3 += c.w;
       });
@@ -836,12 +853,16 @@
       curY -= 6;
     }
 
-    /* ---- signature area ---- */
-    ensureRow(56);
+    /* ---- signature area (extra breathing room between content and stamp) ---- */
+    ensureRow(104);
+    curY -= 14;
     var pg7 = pages[pages.length - 1];
-    draw(pg7, 'For and on behalf of GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD', PW - ML - 240, curY, 8, F1, g);
-    draw(pg7, '__________________________________', PW - ML - 240, curY - 16, 8.5, F1, g);
-    draw(pg7, 'Authorized Signature / Company Stamp      Date: ______________', PW - ML - 240, curY - 30, 8, F1, g);
+    var sx = PW - ML - 255;
+    draw(pg7, 'For and on behalf of GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD', sx, curY, 8, F1, g);
+    curY -= 24;
+    draw(pg7, '______________________________________', sx, curY, 9, F1, g);
+    curY -= 16;
+    draw(pg7, 'Authorized Signature / Company Stamp            Date: ______________', sx, curY, 8, F1, g);
   }
 
   /* embed uploaded product photos only (drawn inline inside item rows as small thumbnails) */
@@ -890,12 +911,22 @@
     $('pdfArea').classList.remove('hidden');
   }
 
+  function genBtnBusy(busy){
+    var btn = $('genBtn');
+    btn.disabled = busy;
+    if(busy){ btn.classList.add('opacity-60','cursor-wait'); btn.textContent = 'Generating…'; }
+    else { btn.classList.remove('opacity-60','cursor-wait'); btn.textContent = 'Generate Proforma Invoice (PDF)'; }
+  }
   function generatePdf(){
+    if(genBusy) return;                    /* ignore extra clicks while one is running */
     if(!validate()) return;
-    setMsg('Building your PDF, a few seconds...');
+    genBusy = true;
+    genBtnBusy(true);
+    setMsg('Building your PDF, please wait a moment...');
     try{
       P = window.PDFLib;
       if(!P || !P.PDFDocument || !P.PDFDocument.create){
+        genBusy = false; genBtnBusy(false);
         setMsg('PDF library failed to load. Please refresh the page and try again.', true);
         return;
       }
@@ -939,8 +970,9 @@
         console.error(err);
         var why = (err && err.stack) ? err.stack : (err && err.message ? err.message : String(err));
         setMsg('PDF generation failed: ' + why + ' - please try again.', true);
-      });
+      }).then(function(){ genBusy = false; genBtnBusy(false); });
     }catch(e){
+      genBusy = false; genBtnBusy(false);
       setMsg('PDF generation failed: ' + (e && e.stack ? e.stack : e.message) + ' - please try again.', true);
     }
   }
