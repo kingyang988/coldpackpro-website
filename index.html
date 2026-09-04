@@ -662,7 +662,7 @@ window.console = new Proxy(console, {
       pages.forEach(function(p){
         var w = p.getWidth();
         var h = p.getHeight();
-        var size = Math.max(16, Math.min(w, h) * 0.06);
+        var size = Math.max(11, Math.min(w, h) * 0.032);
         var textW = font.widthOfTextAtSize(brandText, size);
         p.drawText(brandText, {
           x: (w - textW) / 2,
