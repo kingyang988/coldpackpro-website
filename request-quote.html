@@ -528,7 +528,8 @@
   var P = null, F1 = null, F2 = null, doc = null;
   var cjkOk = false, cjkP = null, cjkBuf = null;
   var CJK_URLS = [
-    'https://cdn.jsdelivr.net/npm/@expo-google-fonts/noto-sans-sc@0.2.3/400Regular/NotoSansSC_400Regular.ttf',
+    'https://cdn.jsdelivr.net/gh/notofonts/noto-cjk@main/Sans/SubsetOTF/SC/NotoSansSC-Regular.otf',
+    'https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/SubsetOTF/SC/NotoSansSC-Regular.otf',
     'https://cdn.jsdelivr.net/gh/notofonts/noto-cjk@main/Sans/SubsetTTF/SC/NotoSansSC-Regular.ttf'
   ];
   function loadCjkFont(){
@@ -898,20 +899,38 @@
         setMsg('PDF library failed to load. Please refresh the page and try again.', true);
         return;
       }
-      doc = null; pages = []; F1 = null; F2 = null;
-      loadCjkFont().then(function(){ return P.PDFDocument.create(); }).then(function(d){
+      doc = null; pages = []; F1 = null; F2 = null; pgCount = 0; curY = 0;
+      dk = P.rgb(0.09,0.11,0.16); g = P.rgb(0.32,0.36,0.42); blue = P.rgb(0.12,0.34,0.62); lg = P.rgb(0.8,0.83,0.88);
+      var latinReady = P.PDFDocument.create().then(function(d){
         doc = d;
-        var embed = cjkBuf ? d.embedFont(cjkBuf, { subset:true }).then(function(cf){ F1 = cf; F2 = cf; }).catch(function(){ cjkOk = false; F1 = F2 = null; }) : Promise.resolve();
-        return embed.then(function(){
-          if(!F1 || !F2){ return d.embedFont(P.StandardFonts.Helvetica).then(function(f1){ return d.embedFont(P.StandardFonts.HelveticaBold).then(function(f2){ F1 = f1; F2 = f2; }); }); }
-        }).then(function(){
-          var b = buyer();
-          var rows = getRows();
-          var extras = { mark:$('sMark').value.trim(), delivery:$('sAddr').value.trim(), remarks:$('sRemarks').value.trim() };
-          return embedImages(rows).then(function(embeds){
-            buildPages(b, rows, extras, embeds || []);
-            return d.save();
-          });
+        return d.embedFont(P.StandardFonts.Helvetica).then(function(f1){
+          return d.embedFont(P.StandardFonts.HelveticaBold).then(function(f2){ F1 = f1; F2 = f2; });
+        });
+      });
+      /* only try to upgrade to CJK when user input contains non-latin characters */
+      var needCjk = false;
+      try{
+        var scanTxt = [buyer().company, buyer().address, buyer().attn, buyer().email, buyer().tel, $('sMark').value, $('sAddr').value, $('sRemarks').value].join(' ');
+        getRows().forEach(function(r){ scanTxt += ' ' + r.name + ' ' + r.spec + ' ' + (r.model || ''); });
+        needCjk = /[^\u0000-\u00FF]/.test(scanTxt);
+      }catch(e9){ needCjk = false; }
+      var cjkReady = needCjk ? loadCjkFont().then(function(buf){
+        if(!buf || !doc) return false;
+        return doc.embedFont(buf, { subset:true }).then(function(cf){ return cf; }).catch(function(){ return null; });
+      }).then(function(cf){
+        if(cf){ F1 = cf; F2 = cf; cjkOk = true; return true; }
+        cjkOk = false;
+        return false;
+      }).catch(function(){ cjkOk = false; return false; }) : Promise.resolve(false);
+      latinReady.then(function(){
+        return cjkReady;
+      }).then(function(){
+        var b = buyer();
+        var rows = getRows();
+        var extras = { mark:$('sMark').value.trim(), delivery:$('sAddr').value.trim(), remarks:$('sRemarks').value.trim() };
+        return embedImages(rows).then(function(embeds){
+          buildPages(b, rows, extras, embeds || []);
+          return doc.save();
         });
       }).then(function(bytes){
         showPdf(bytes);
