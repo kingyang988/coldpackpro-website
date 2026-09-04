@@ -3,969 +3,754 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proforma Invoice Request - ColdPackPro</title>
-<meta name="description" content="Build your product list online and generate a Proforma Invoice (PI) request. Download as PDF or send directly to info@coldpackpro.com.">
+<title>Request a Quote - Proforma Invoice | ColdPackPro</title>
+<meta name="description" content="Fill in your product requirements and generate a downloadable Proforma Invoice (PI) online. Email your request to info@coldpackpro.com.">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-  body{font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;}
-  .label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.03em;color:#0f172a;margin-bottom:.35rem;text-transform:uppercase}
-  .req::after{content:" *";color:#dc2626}
-  .field{width:100%;border:1px solid #cbd5e1;border-radius:.8rem;padding:.55rem .8rem;font-size:.9rem;color:#0f172a;background:#fff;outline:none;transition:border .15s, box-shadow .15s}
-  .field:focus{border-color:#1d6fe0;box-shadow:0 0 0 3px rgba(29,111,224,.15)}
-  .field::placeholder{color:#94a3b8;font-style:italic}
-  .hint{font-size:.72rem;color:#64748b;margin-top:.3rem;line-height:1.35}
-  .pill{border:1px solid #cbd5e1;background:#fff;border-radius:999px;padding:.4rem .9rem;font-size:.8rem;font-weight:600;color:#334155;cursor:pointer;transition:all .15s}
-  .pill.on{background:#101826;border-color:#101826;color:#fff}
-  .steptag{display:inline-flex;align-items:center;justify-content:center;width:1.6rem;height:1.6rem;border-radius:999px;background:#101826;color:#fff;font-size:.8rem;font-weight:800;margin-right:.55rem}
-  .delrow{color:#dc2626;font-size:.75rem;font-weight:700;cursor:pointer;border:1px solid #fecaca;border-radius:.6rem;padding:.35rem .6rem;background:#fff;transition:all .15s}
-  .delrow:hover{background:#fef2f2}
-  .imgprev{width:4.5rem;height:4.5rem;object-fit:cover;border-radius:.7rem;border:1px solid #e2e8f0}
+  .label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#64748b;margin-bottom:.3rem}
+  .field{width:100%;border:1px solid #e2e8f0;border-radius:.9rem;padding:.55rem .85rem;font-size:.9rem;color:#0f172a;background:#fff;outline:none}
+  .field:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+  .field.err{border-color:#dc2626;box-shadow:0 0 0 3px rgba(220,38,38,.12)}
+  .ph{color:#94a3b8}
+  .seg{display:inline-flex;border:1px solid #e2e8f0;border-radius:.9rem;overflow:hidden}
+  .seg button{padding:.45rem .8rem;font-size:.82rem;font-weight:500;color:#475569;background:#fff}
+  .seg button.on{background:#2563eb;color:#fff}
+  .cardbg{background:#fff;border:1px solid #e5e7eb;border-radius:1.5rem;box-shadow:0 8px 24px rgba(15,23,42,.06)}
+  .tbl th{font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:#64748b;font-weight:600;text-align:left;padding:.45rem .3rem;border-bottom:1px solid #e2e8f0}
+  .tbl td{font-size:.85rem;padding:.4rem .3rem;border-bottom:1px solid #f1f5f9;vertical-align:top}
 </style>
 </head>
-<body class="bg-slate-100 text-slate-900 antialiased">
+<body class="bg-slate-50 text-slate-900 antialiased">
 
-<header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between gap-4 py-2">
-      <a href="index.html" class="shrink-0" aria-label="ColdPackPro home" style="width:236px;max-width:50vw">
-        <svg viewBox="0 0 1024 403" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="rqLogoTitle rqLogoDesc" style="display:block;width:100%;height:auto">
-          <title id="rqLogoTitle">Cold Pack Pro logo</title>
-          <desc id="rqLogoDesc">ColdPackPro logo - same as the coldpackpro.com homepage header.</desc>
-          <defs>
-            <linearGradient id="proBlockRQ" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#256FDC"/>
-              <stop offset="52%" stop-color="#3383EE"/>
-              <stop offset="100%" stop-color="#4694F7"/>
-            </linearGradient>
-            <linearGradient id="proTextRQ" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#29F4FF"/>
-              <stop offset="100%" stop-color="#00DCFF"/>
-            </linearGradient>
-            <linearGradient id="lineLeftRQ" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#94A3B8" stop-opacity="0"/>
-              <stop offset="100%" stop-color="#7B8798" stop-opacity="1"/>
-            </linearGradient>
-            <linearGradient id="lineRightRQ" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#7B8798" stop-opacity="1"/>
-              <stop offset="100%" stop-color="#94A3B8" stop-opacity="0"/>
-            </linearGradient>
-            <filter id="shadowRQ" x="-10%" y="-20%" width="120%" height="180%">
-              <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#142033" flood-opacity="0.16"/>
-            </filter>
-          </defs>
-          <g filter="url(#shadowRQ)">
-            <path d="M123 106 H622 C645 106 664 124 664 147 V167 C664 190 645 208 622 208 H123 C106 208 92 194 92 177 V137 C92 120 106 106 123 106 Z" fill="#101826"/>
-            <path d="M650 106 H876 C901 106 922 127 922 152 V162 C922 187 901 208 876 208 H650 C665 197 674 180 674 157 C674 134 665 117 650 106 Z" fill="url(#proBlockRQ)"/>
-            <text x="123" y="176" font-family="Eurostile Extended, Microgramma D Extended, Bank Gothic, Arial Black, Helvetica, sans-serif" font-size="66" font-weight="600" letter-spacing="0.35" fill="#FFFFFF" lengthAdjust="spacingAndGlyphs" textLength="491">COLD PACK</text>
-            <text x="686" y="176" font-family="Eurostile Extended, Microgramma D Extended, Bank Gothic, Arial Black, Helvetica, sans-serif" font-size="66" font-weight="600" letter-spacing="0.1" fill="url(#proTextRQ)" lengthAdjust="spacingAndGlyphs" textLength="204">PRO</text>
-          </g>
-          <g>
-            <rect x="106" y="279" width="161" height="3" rx="2" fill="url(#lineLeftRQ)"/>
-            <rect x="759" y="279" width="161" height="3" rx="2" fill="url(#lineRightRQ)"/>
-            <text x="512" y="300" text-anchor="middle" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-size="40" font-weight="500" letter-spacing="0.55" fill="#66768A">Cold Chain Solutions</text>
-          </g>
-        </svg>
-      </a>
-      <a href="index.html" class="shrink-0 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 sm:px-5 sm:text-sm">&#8592; Back to Homepage</a>
-    </div>
+<!-- ======= HEADER (same logo as homepage) ======= -->
+<header class="sticky top-0 z-40 border-b border-slate-200 bg-white/85 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+    <a href="https://coldpackpro.com" aria-label="ColdPackPro Home">
+      <svg width="176" height="46" viewBox="0 0 308 82" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="132" height="78" rx="12" fill="#0f172a"/><text x="16" y="48" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="24" fill="#ffffff">COLD</text><text x="16" y="70" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="24" fill="#ffffff">PACK</text><rect x="142" y="2" width="84" height="78" rx="12" fill="#2563eb"/><text x="156" y="52" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="30" fill="#ffffff">PRO</text><text x="230" y="46" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="15" fill="#334155">Cold Chain</text><text x="230" y="66" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="15" fill="#334155">Solutions</text></svg>
+    </a>
+    <a href="https://coldpackpro.com" class="rounded-2xl bg-slate-950 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-700">← Back to Home</a>
   </div>
 </header>
 
-<section class="bg-gradient-to-br from-[#101826] via-[#16233d] to-[#1d3a6e] text-white">
-  <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-    <div class="kicker text-cyan-300 text-xs font-bold tracking-widest uppercase">Factory direct - Guangzhou, China</div>
-    <h1 class="mt-2 text-3xl sm:text-4xl font-black">Create Your Proforma Invoice Request</h1>
-    <p class="mt-3 max-w-2xl text-sm leading-7 text-slate-300">Fill in your contact details and the products you need. Generate a Proforma Invoice (PI) as PDF, or send the request directly to <span class="text-white font-semibold">info@coldpackpro.com</span>. We will confirm final pricing and lead time by email reply.</p>
-    <div class="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-xs text-slate-300">
-      <span>&#10003; Auto Invoice No. &amp; date</span>
-      <span>&#10003; Auto total calculation</span>
-      <span>&#10003; PDF download</span>
-      <span>&#10003; Direct email to us</span>
-    </div>
-  </div>
+<!-- ======= PAGE TITLE ======= -->
+<section class="mx-auto max-w-6xl px-4 pt-10 pb-2">
+  <h1 class="text-2xl font-extrabold text-slate-900 sm:text-3xl">Online Proforma Invoice (PI) Request</h1>
+  <p class="mt-2 max-w-3xl text-sm leading-6 text-slate-600">Downloaded our catalog? Select your products below and generate a Proforma Invoice PDF, or email your request directly to our sales team at <b>info@coldpackpro.com</b>. We will confirm pricing and reply within one business day.</p>
 </section>
 
-<main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-  <div class="grid gap-6 lg:grid-cols-[1fr_340px]">
+<main class="mx-auto grid max-w-6xl gap-6 px-4 py-6 lg:grid-cols-[1fr_320px]">
 
-    <!-- ============ LEFT: FORM ============ -->
-    <div>
+  <!-- ============ LEFT: FORM ============ -->
+  <div class="space-y-6">
 
-      <!-- STEP 1 BUYER -->
-      <div class="rounded-[1.5rem] bg-white p-5 sm:p-6 shadow-sm border border-slate-200">
-        <div class="flex items-center"><span class="steptag">1</span><h2 class="text-lg font-black">Your Contact Information</h2></div>
-        <div class="mt-5 grid gap-4 sm:grid-cols-2">
-          <div class="sm:col-span-2"><label class="label req" for="fCompany">Company Name</label>
-            <input id="fCompany" class="field" type="text" placeholder="e.g. FreshChain Logistics Ltd." autocomplete="organization"></div>
-          <div class="sm:col-span-2"><label class="label req" for="fAddress">Address</label>
-            <input id="fAddress" class="field" type="text" placeholder="Street, City, Country" autocomplete="street-address"></div>
-          <div><label class="label req" for="fAttn">Attention (Contact Person)</label>
-            <input id="fAttn" class="field" type="text" placeholder="Full name" autocomplete="name"></div>
-          <div><label class="label req" for="fEmail">Email</label>
-            <input id="fEmail" class="field" type="email" placeholder="name@company.com" autocomplete="email">
-            <p class="hint">Quote will be sent back to this address.</p></div>
-          <div><label class="label" for="fTel">Tel (optional)</label>
-            <input id="fTel" class="field" type="text" placeholder="+1 555 000 0000" autocomplete="tel"></div>
-          <div>
-            <label class="label">Contact Channel (optional)</label>
-            <div id="contactPills" class="flex flex-wrap gap-2">
-              <button type="button" class="pill" data-v="WhatsApp">WhatsApp</button>
-              <button type="button" class="pill" data-v="WeChat">WeChat</button>
-              <button type="button" class="pill" data-v="Other">Other</button>
-            </div>
-            <input id="fContact" class="field mt-2" type="text" placeholder="WhatsApp number / WeChat ID ...">
-            <p class="hint">Pick a channel above, then enter your number or ID.</p>
+    <!-- Step 1: Buyer -->
+    <section class="cardbg p-5 sm:p-6">
+      <div class="mb-4 flex items-center gap-2">
+        <span class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-700 text-xs font-bold text-white">1</span>
+        <h2 class="font-bold text-slate-900">Buyer Information</h2>
+        <span class="text-xs text-slate-400">* required</span>
+      </div>
+      <div class="grid gap-3 sm:grid-cols-2">
+        <div class="sm:col-span-2">
+          <label class="label" for="bCompany">Company Name *</label>
+          <input id="bCompany" class="field" placeholder="e.g. ABC Trading Co., Ltd.">
+        </div>
+        <div class="sm:col-span-2">
+          <label class="label" for="bAddress">Address *</label>
+          <input id="bAddress" class="field" placeholder="Street, City, Country">
+        </div>
+        <div>
+          <label class="label" for="bAttn">Attention (Contact Person) *</label>
+          <input id="bAttn" class="field" placeholder="Full name">
+        </div>
+        <div>
+          <label class="label" for="bEmail">Email *</label>
+          <input id="bEmail" type="email" class="field" placeholder="name@company.com">
+        </div>
+        <div>
+          <label class="label" for="bTel">Tel (optional)</label>
+          <input id="bTel" class="field" placeholder="+1 555 000 0000">
+        </div>
+        <div>
+          <label class="label">Preferred Contact (optional)</label>
+          <div class="seg" id="contactSeg">
+            <button type="button" data-v="WhatsApp" class="on">WhatsApp</button>
+            <button type="button" data-v="WeChat">WeChat</button>
+            <button type="button" data-v="Other">Other</button>
           </div>
+          <input type="hidden" id="bContact" value="WhatsApp">
         </div>
       </div>
+    </section>
 
-      <!-- STEP 2 PRODUCTS -->
-      <div class="mt-6 rounded-[1.5rem] bg-white p-5 sm:p-6 shadow-sm border border-slate-200">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center"><span class="steptag">2</span><h2 class="text-lg font-black">Products</h2></div>
-          <button type="button" id="btnAdd" class="rounded-xl bg-blue-700 px-4 py-2 text-sm font-bold text-white hover:bg-blue-800">+ Add Product</button>
-        </div>
-        <p class="mt-2 text-xs text-slate-500 leading-6">Leave the unit price blank if you want us to quote - it will show as "TBD" on the PI. Larger quantities get better prices.</p>
-        <div id="rows" class="mt-4 space-y-4"></div>
-
-        <datalist id="prodList">
-          <option value="Gel Ice Pack"></option>
-          <option value="Self-Absorbing Ice Pack"></option>
-          <option value="Rigid Cold / Freezer Pack"></option>
-          <option value="Cooler Box Ice Pack"></option>
-          <option value="Phase Change Material Pack"></option>
-          <option value="Custom Cold Chain Pack"></option>
-        </datalist>
+    <!-- Step 2: Products -->
+    <section class="cardbg p-5 sm:p-6">
+      <div class="mb-4 flex items-center gap-2">
+        <span class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-700 text-xs font-bold text-white">2</span>
+        <h2 class="font-bold text-slate-900">Products</h2>
+        <span class="text-xs text-slate-400">add one or more rows</span>
       </div>
+      <datalist id="prodSuggest">
+        <option value="Gel Ice Pack"></option>
+        <option value="Self-Absorbing Ice Pack"></option>
+        <option value="Rigid Cold Pack"></option>
+        <option value="Reusable Gel Ice Pack"></option>
+        <option value="Phase Change Material (PCM) Pack"></option>
+        <option value="Coolant Sheet"></option>
+        <option value="Insulated Shipping Box"></option>
+      </datalist>
+      <div id="rowsWrap" class="space-y-4"></div>
+      <button type="button" id="addRowBtn" class="mt-4 rounded-2xl border-2 border-dashed border-blue-300 px-4 py-2.5 text-sm font-semibold text-blue-700 hover:border-blue-600 hover:bg-blue-50">+ Add Product Row</button>
+    </section>
 
-      <!-- STEP 3 SHIPPING -->
-      <div class="mt-6 rounded-[1.5rem] bg-white p-5 sm:p-6 shadow-sm border border-slate-200">
-        <div class="flex items-center"><span class="steptag">3</span><h2 class="text-lg font-black">Shipping &amp; Remarks</h2></div>
-        <div class="mt-5 grid gap-4 sm:grid-cols-2">
-          <div><label class="label" for="fShipMark">Shipping Mark (optional)</label>
-            <input id="fShipMark" class="field" type="text" placeholder="e.g. FCL / ABC-2026 / Guangzhou"></div>
-          <div><label class="label" for="fDeliv">Delivery Address (optional)</label>
-            <input id="fDeliv" class="field" type="text" placeholder="Different from company address?"></div>
-          <div class="sm:col-span-2"><label class="label" for="fRemarks">Remarks / Special Requirements (optional)</label>
-            <textarea id="fRemarks" class="field" rows="3" placeholder="Color, logo printing, packing preference, destination port, target price, samples needed ..."></textarea></div>
+    <!-- Step 3: Shipping & remarks -->
+    <section class="cardbg p-5 sm:p-6">
+      <div class="mb-4 flex items-center gap-2">
+        <span class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-700 text-xs font-bold text-white">3</span>
+        <h2 class="font-bold text-slate-900">Shipping &amp; Remarks</h2>
+        <span class="text-xs text-slate-400">optional</span>
+      </div>
+      <div class="grid gap-3 sm:grid-cols-2">
+        <div>
+          <label class="label" for="sMark">Shipping Mark</label>
+          <input id="sMark" class="field" placeholder="e.g. your logo / mark text">
+        </div>
+        <div>
+          <label class="label" for="sAddr">Delivery Address</label>
+          <input id="sAddr" class="field" placeholder="port / warehouse address">
+        </div>
+        <div class="sm:col-span-2">
+          <label class="label" for="sRemarks">Remarks / special requirements</label>
+          <textarea id="sRemarks" rows="3" class="field" placeholder="Any special requirements, target price, destination port, etc."></textarea>
         </div>
       </div>
+    </section>
 
-      <!-- ACTIONS -->
-      <div class="mt-6 rounded-[1.5rem] bg-white p-5 sm:p-6 shadow-sm border border-slate-200">
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <button type="button" id="btnGen" class="rounded-2xl bg-blue-700 px-6 py-3.5 font-bold text-white hover:bg-blue-800 shadow">Generate Proforma Invoice (PDF)</button>
-          <button type="button" id="btnMail" class="rounded-2xl bg-slate-950 px-6 py-3.5 font-bold text-white hover:bg-blue-700">Email Request to Us</button>
-        </div>
-        <p id="genMsg" class="mt-3 text-sm text-slate-500">Preview and download will appear below after you click "Generate".</p>
+    <!-- Actions -->
+    <div class="cardbg p-5">
+      <div class="flex flex-wrap gap-3">
+        <button id="genBtn" class="rounded-2xl bg-blue-700 px-6 py-3 font-semibold text-white hover:bg-blue-800">Generate Proforma Invoice (PDF)</button>
+        <button id="emailBtn" class="rounded-2xl bg-slate-950 px-6 py-3 font-semibold text-white hover:bg-blue-700">Email Request to Us</button>
       </div>
-
-      <!-- PREVIEW -->
-      <div id="previewWrap" class="mt-6 hidden">
-        <div class="rounded-[1.5rem] bg-white p-5 shadow-sm border border-slate-200">
-          <div class="flex flex-wrap items-center justify-between gap-3">
-            <h2 class="text-lg font-black">Your Proforma Invoice</h2>
-            <button type="button" id="btnDl" class="rounded-xl bg-emerald-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-emerald-700">&#8595; Download PDF</button>
+      <p id="statusMsg" class="mt-3 text-sm text-slate-500">Generate a PDF to preview, or send your request by email.</p>
+      <div id="pdfArea" class="mt-4 hidden">
+        <div class="rounded-2xl border border-slate-200 bg-slate-100 p-3">
+          <div class="mb-2 flex flex-wrap items-center gap-2">
+            <span class="text-sm font-semibold text-slate-700">Your PI is ready:</span>
+            <a id="dlLink" href="#" download="PI.pdf" class="rounded-xl bg-green-600 px-4 py-1.5 text-xs font-bold text-white hover:bg-green-700">⬇ Download PDF</a>
+            <a id="openLink" href="#" target="_blank" class="rounded-xl border border-slate-300 px-4 py-1.5 text-xs font-semibold text-slate-600 hover:bg-white">Open in new tab</a>
           </div>
-          <p class="mt-1 text-xs text-slate-500">Watermarked with coldpackpro.com. Keep it for your records - no obligation.</p>
-          <iframe id="pdfFrame" class="mt-4 w-full rounded-xl border border-slate-200 bg-slate-50" style="height:620px" title="Proforma Invoice preview"></iframe>
+          <iframe id="pdfFrame" class="h-[420px] w-full rounded-xl border border-slate-300 bg-white" title="PI preview"></iframe>
         </div>
       </div>
-
     </div>
 
-    <!-- ============ RIGHT: SUMMARY ============ -->
-    <aside class="space-y-5 lg:sticky lg:top-6 lg:self-start">
-      <div class="rounded-[1.5rem] bg-white p-5 shadow-sm border border-slate-200">
-        <h3 class="text-sm font-black uppercase tracking-wide text-slate-400">PI Summary</h3>
-        <dl class="mt-3 space-y-2 text-sm">
-          <div class="flex justify-between"><dt class="text-slate-500">Invoice No.</dt><dd id="sumNo" class="font-bold text-slate-900">-</dd></div>
-          <div class="flex justify-between"><dt class="text-slate-500">Issue Date</dt><dd id="sumDate" class="font-bold text-slate-900">-</dd></div>
-          <div class="flex justify-between"><dt class="text-slate-500">Products</dt><dd id="sumItems" class="font-bold text-slate-900">0</dd></div>
-          <div class="flex justify-between"><dt class="text-slate-500">Total Qty</dt><dd id="sumQty" class="font-bold text-slate-900">0</dd></div>
-        </dl>
-        <div class="mt-4 border-t border-slate-100 pt-3 flex justify-between items-baseline">
-          <dt class="text-xs text-slate-500 font-semibold">Est. Total (USD)</dt>
-          <dd id="sumTotal" class="text-xl font-black text-slate-900">$0.00</dd>
-        </div>
-        <p id="sumTbd" class="hidden mt-2 text-[11px] leading-4 text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">Some rows are marked TBD - final price confirmed by email.</p>
-      </div>
-
-      <div class="rounded-[1.5rem] bg-white p-5 shadow-sm border border-slate-200 text-sm">
-        <h3 class="text-sm font-black uppercase tracking-wide text-slate-400">Our Standard Terms</h3>
-        <ul class="mt-3 space-y-3 text-[13px] leading-5 text-slate-600">
-          <li><span class="font-bold text-slate-900">Package:</span> Standard export packing, 5-ply corrugated cartons.</li>
-          <li><span class="font-bold text-slate-900">Certification:</span> ISO 9001; SDS; Transport Condition Identification Report (non-dangerous) for sea / air freight.</li>
-          <li><span class="font-bold text-slate-900">Lead Time:</span> Stock items 7-10 days; custom production 15-45 days by type &amp; quantity.</li>
-          <li><span class="font-bold text-slate-900">Payment:</span> T/T - 30% deposit, balance before shipment.</li>
-        </ul>
-      </div>
-
-      <div class="rounded-[1.5rem] bg-white p-5 shadow-sm border border-slate-200 text-sm">
-        <h3 class="text-sm font-black uppercase tracking-wide text-slate-400">Seller</h3>
-        <div class="mt-3 text-[13px] leading-5 text-slate-700">
-          <p class="font-black text-slate-900">GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD</p>
-          <p class="mt-1">Unit 101, No. 4, Lane 4, South of Dening Road, Caohe, Qiaonan Street, Panyu District, Guangzhou City, China.</p>
-          <p class="mt-2">Website: <a class="text-blue-700 font-semibold" href="https://coldpackpro.com">coldpackpro.com</a><br>
-          Tel: +86-20-39211361<br>
-          Email: <a class="text-blue-700 font-semibold" href="mailto:info@coldpackpro.com">info@coldpackpro.com</a><br>
-          Attn: Mr. K. Yang<br>
-          WhatsApp / WeChat: +86 139 2510 9703</p>
-        </div>
-      </div>
-    </aside>
+    <p class="text-xs leading-5 text-slate-400">No spam. Your email is only used to prepare your Proforma Invoice and for our reply. Larger quantities receive better pricing — final quotation is subject to confirmation by our sales team.</p>
   </div>
+
+  <!-- ============ RIGHT: SUMMARY / FIXED INFO ============ -->
+  <aside class="space-y-4">
+    <div class="cardbg p-5">
+      <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Your PI Summary</h3>
+      <dl class="mt-3 space-y-2 text-sm">
+        <div class="flex justify-between"><dt class="text-slate-500">Invoice No.</dt><dd id="piNo" class="font-mono font-semibold">-</dd></div>
+        <div class="flex justify-between"><dt class="text-slate-500">Issue Date</dt><dd id="piDate" class="font-semibold">-</dd></div>
+        <div class="flex justify-between"><dt class="text-slate-500">Items</dt><dd id="sumItems" class="font-semibold">0</dd></div>
+        <div class="flex justify-between"><dt class="text-slate-500">Total Qty</dt><dd id="sumQty" class="font-semibold">0</dd></div>
+        <div class="flex justify-between border-t border-slate-200 pt-2"><dt class="font-semibold text-slate-700">Est. Total (USD)</dt><dd id="sumAmt" class="font-bold text-blue-700">$0.00</dd></div>
+      </dl>
+    </div>
+
+    <div class="cardbg p-5">
+      <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Seller</h3>
+      <p class="mt-2 text-sm font-bold leading-5">GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD</p>
+      <p class="mt-1 text-xs leading-5 text-slate-500">Unit 101, No. 4, Lane 4, South of Dening Road, Caohe, Qiaonan Street, Panyu District, Guangzhou, China</p>
+      <p class="mt-2 text-xs text-slate-600">🌐 coldpackpro.com · ✉ info@coldpackpro.com<br>☎ +86-20-39211361 · Atten: Mr. K. Yang<br>WhatsApp / WeChat: +86 13925109703</p>
+    </div>
+
+    <div class="cardbg p-5">
+      <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Standard Terms</h3>
+      <ul class="mt-2 space-y-2 text-xs leading-5 text-slate-600">
+        <li><b>Package:</b> 5-layer corrugated export cartons</li>
+        <li><b>Certification:</b> ISO 9001, SDS, Non-Dangerous Goods Transport Certificate (suitable for sea / air)</li>
+        <li><b>Lead Time:</b> In-stock 7–10 days; customized 15–45 days by qty &amp; type</li>
+        <li><b>Payment:</b> T/T 30% deposit, balance before shipment</li>
+      </ul>
+    </div>
+
+    <div class="cardbg p-5">
+      <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Banking Information</h3>
+      <p class="mt-2 text-xs leading-5 text-slate-600">
+        <b>Beneficiary:</b> GuangZhou QTOP Cold Chain Sciences Co., Ltd<br>
+        <b>Bank:</b> China Minsheng Banking Corp. Ltd, Guangzhou Branch<br>
+        <b>Address:</b> Minsheng Building, No.68 Liede Avenue, Guangzhou<br>
+        <b>Swift:</b> MSBCCNBJ003<br>
+        <b>Account:</b> 69524 1665
+      </p>
+    </div>
+  </aside>
 </main>
 
-<footer id="contact-details" class="mt-10 border-t border-slate-200 bg-slate-100 text-slate-900">
-  <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-    <div class="grid gap-8 lg:grid-cols-[1.2fr_.8fr] lg:items-center">
-      <div>
-        <h2 class="text-3xl font-black text-slate-900">ColdPackPro</h2>
-        <p class="mt-5 max-w-2xl text-sm leading-7 text-slate-600">Factory direct cold-chain transport solutions for B2B sourcing, OEM projects, and export orders.</p>
-        <a href="index.html" class="mt-4 inline-block" aria-label="ColdPackPro home" style="width:236px;max-width:70vw">
-          <svg viewBox="0 0 1024 403" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="rqfLogoTitle rqfLogoDesc" style="display:block;width:100%;height:auto">
-            <title id="rqfLogoTitle">Cold Pack Pro logo</title>
-            <desc id="rqfLogoDesc">Cold Pack Pro logo matching the coldpackpro.com footer.</desc>
-            <defs>
-              <linearGradient id="proBlockRqf" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#256FDC"/>
-                <stop offset="52%" stop-color="#3383EE"/>
-                <stop offset="100%" stop-color="#4694F7"/>
-              </linearGradient>
-              <linearGradient id="proTextRqf" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#29F4FF"/>
-                <stop offset="100%" stop-color="#00DCFF"/>
-              </linearGradient>
-              <linearGradient id="lineLeftRqf" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#94A3B8" stop-opacity="0"/>
-                <stop offset="100%" stop-color="#7B8798" stop-opacity="1"/>
-              </linearGradient>
-              <linearGradient id="lineRightRqf" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#7B8798" stop-opacity="1"/>
-                <stop offset="100%" stop-color="#94A3B8" stop-opacity="0"/>
-              </linearGradient>
-              <filter id="shadowRqf" x="-10%" y="-20%" width="120%" height="180%">
-                <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#142033" flood-opacity="0.16"/>
-              </filter>
-            </defs>
-            <g filter="url(#shadowRqf)">
-              <path d="M123 106 H622 C645 106 664 124 664 147 V167 C664 190 645 208 622 208 H123 C106 208 92 194 92 177 V137 C92 120 106 106 123 106 Z" fill="#101826"/>
-              <path d="M650 106 H876 C901 106 922 127 922 152 V162 C922 187 901 208 876 208 H650 C665 197 674 180 674 157 C674 134 665 117 650 106 Z" fill="url(#proBlockRqf)"/>
-              <text x="123" y="176" font-family="Eurostile Extended, Microgramma D Extended, Bank Gothic, Arial Black, Helvetica, sans-serif" font-size="66" font-weight="600" letter-spacing="0.35" fill="#FFFFFF" lengthAdjust="spacingAndGlyphs" textLength="491">COLD PACK</text>
-              <text x="686" y="176" font-family="Eurostile Extended, Microgramma D Extended, Bank Gothic, Arial Black, Helvetica, sans-serif" font-size="66" font-weight="600" letter-spacing="0.1" fill="url(#proTextRqf)" lengthAdjust="spacingAndGlyphs" textLength="204">PRO</text>
-            </g>
-            <g>
-              <rect x="106" y="279" width="161" height="3" rx="2" fill="url(#lineLeftRqf)"/>
-              <rect x="759" y="279" width="161" height="3" rx="2" fill="url(#lineRightRqf)"/>
-              <text x="512" y="300" text-anchor="middle" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-size="40" font-weight="500" letter-spacing="0.55" fill="#66768A">Cold Chain Solutions</text>
-            </g>
-          </svg>
-        </a>
-      </div>
-      <div class="rounded-[1.5rem] border border-slate-300 bg-gradient-to-br from-blue-50 to-slate-100 p-5 text-sm text-slate-600 shadow-sm">
-        <p class="font-semibold text-slate-900">Contact Details</p>
-        <div class="mt-4 grid gap-4 sm:grid-cols-2">
-          <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-            <div class="text-sm text-slate-500">WhatsApp</div>
-            <a class="mt-1 block font-semibold text-blue-700" href="https://wa.me/8613925109703">+86 139 2510 9703</a>
-          </div>
-          <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-            <div class="text-sm text-slate-500">Email</div>
-            <a class="mt-1 block font-semibold text-blue-700" href="mailto:info@coldpackpro.com">info@coldpackpro.com</a>
-          </div>
-          <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:col-span-2">
-            <div class="text-sm text-slate-500">Factory Address</div>
-            <div class="mt-1 font-semibold text-slate-900">Caohe Industrial Zone, Panyu District, Guangzhou City, China.</div>
-          </div>
-        </div>
-      </div>
+<!-- ======= EMAIL CONFIRM MODAL ======= -->
+<div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/50 p-4">
+  <div class="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl">
+    <h3 class="text-lg font-bold text-slate-900">Confirm your request</h3>
+    <p class="mt-1 text-xs leading-5 text-slate-500">This sends your full inquiry (as text) to <b>info@coldpackpro.com</b>. Our quote will be sent back to the email below — please check it carefully.</p>
+    <div class="mt-4">
+      <label class="label" for="replyEmail">Send our quotation reply to</label>
+      <input id="replyEmail" type="email" class="field" placeholder="name@company.com">
     </div>
-    <div class="mt-8 flex flex-col gap-4 border-t border-slate-300 pt-6 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between">
-      <div>&#169; 2026 ColdPackPro. All rights reserved.</div>
-      <div class="flex flex-wrap gap-4">
-        <a href="index.html#about-us" class="hover:text-slate-900">About</a>
-        <a href="index.html#products" class="hover:text-slate-900">Products</a>
-        <a href="index.html#faq" class="hover:text-slate-900">FAQ</a>
-        <a href="index.html#blog" class="hover:text-slate-900">Blog</a>
-        <a href="index.html#contact" class="hover:text-slate-900">Contact</a>
-      </div>
+    <div class="mt-3">
+      <label class="label" for="ccEmail">CC (optional — we will include when replying)</label>
+      <input id="ccEmail" class="field" placeholder="other@company.com (comma separated)">
     </div>
-    <div class="mt-6 flex justify-center">
-      <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="inline-flex items-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-100">Back to Top</a>
+    <p class="mt-3 rounded-xl bg-amber-50 px-3 py-2 text-[11px] leading-4 text-amber-700">Note (free plan): the email arrives as complete text, without PDF/photo attachments. Your downloaded PDF above can be forwarded to us anytime.</p>
+    <div class="mt-5 flex gap-3">
+      <button id="cancelBtn" class="flex-1 rounded-2xl border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-50">Cancel</button>
+      <button id="confirmBtn" class="flex-1 rounded-2xl bg-blue-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-800">Confirm &amp; Send</button>
+    </div>
+    <p id="modalMsg" class="mt-3 text-center text-sm font-semibold text-green-600 hidden">✓ Sent! Our team will reply to your email.</p>
+  </div>
+</div>
+
+<!-- ======= FOOTER (same style as homepage) ======= -->
+<footer class="border-t border-slate-200 bg-white">
+  <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-2">
+    <div>
+      <svg width="176" height="46" viewBox="0 0 308 82" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="132" height="78" rx="12" fill="#0f172a"/><text x="16" y="48" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="24" fill="#ffffff">COLD</text><text x="16" y="70" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="24" fill="#ffffff">PACK</text><rect x="142" y="2" width="84" height="78" rx="12" fill="#2563eb"/><text x="156" y="52" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="30" fill="#ffffff">PRO</text><text x="230" y="46" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="15" fill="#334155">Cold Chain</text><text x="230" y="66" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="15" fill="#334155">Solutions</text></svg>
+      <p class="mt-4 max-w-md text-sm leading-6 text-slate-500">GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD — professional cold chain packaging &amp; ice pack manufacturer. Download our catalog and request a PI online anytime.</p>
+      <p class="mt-4 text-xs text-slate-400">© 2026 ColdPackPro · GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD · All rights reserved.</p>
+    </div>
+    <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+      <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Contact Details</h3>
+      <div class="mt-3 space-y-2 text-sm text-slate-600">
+        <p><a class="font-semibold text-blue-700 hover:underline" href="https://wa.me/8613925109703" target="_blank" rel="noopener">WhatsApp: +86 13925109703</a></p>
+        <p>WeChat: +86 13925109703</p>
+        <p>Email: <a class="text-blue-700 hover:underline" href="mailto:info@coldpackpro.com">info@coldpackpro.com</a></p>
+        <p>Tel: +86-20-39211361</p>
+        <p class="text-xs leading-5 text-slate-500">Unit 101, No. 4, Lane 4, South of Dening Road, Caohe, Qiaonan Street, Panyu District, Guangzhou, China</p>
+      </div>
+      <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-slate-500">
+        <a href="https://coldpackpro.com" class="rounded-full bg-white px-3 py-1.5 shadow-sm hover:text-blue-700">Home</a>
+        <a href="https://coldpackpro.com/#products" class="rounded-full bg-white px-3 py-1.5 shadow-sm hover:text-blue-700">Products</a>
+        <a href="https://coldpackpro.com/#faq" class="rounded-full bg-white px-3 py-1.5 shadow-sm hover:text-blue-700">FAQ</a>
+        <a href="https://coldpackpro.com/#contact" class="rounded-full bg-white px-3 py-1.5 shadow-sm hover:text-blue-700">Contact</a>
+        <a href="https://coldpackpro.com" class="rounded-full bg-white px-3 py-1.5 shadow-sm hover:text-blue-700">↑ Back to Top</a>
+      </div>
     </div>
   </div>
 </footer>
 
-<!-- ===== EMAIL CONFIRM MODAL ===== -->
-<div id="mailModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 p-4">
-  <div class="w-full max-w-md rounded-[1.5rem] bg-white p-6 shadow-2xl">
-    <h3 class="text-lg font-black">Send this request to us?</h3>
-    <p class="mt-2 text-sm leading-6 text-slate-500">The full Proforma Invoice details will be emailed to <span class="font-bold text-slate-900">info@coldpackpro.com</span>. We reply by email - please check the reply address below.</p>
-    <div class="mt-4">
-      <label class="label req" for="mailReply">Send our quote reply to</label>
-      <input id="mailReply" class="field" type="email" placeholder="name@company.com">
-    </div>
-    <div class="mt-4">
-      <label class="label" for="mailCc">CC a copy to another email (optional)</label>
-      <input id="mailCc" class="field" type="email" placeholder="colleague@company.com">
-      <p class="hint">We will also CC this address when we reply.</p>
-    </div>
-    <p id="mailMsg" class="mt-3 text-sm font-semibold"></p>
-    <div class="mt-5 flex gap-3 justify-end">
-      <button type="button" id="btnMailCancel" class="rounded-xl border border-slate-300 px-4 py-2.5 text-sm font-bold text-slate-600 hover:bg-slate-50">Cancel</button>
-      <button type="button" id="btnMailSend" class="rounded-xl bg-blue-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-blue-800">Confirm &amp; Send</button>
-    </div>
-  </div>
-</div>
-
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
 <script>
 (function(){
-"use strict";
-/* ================= CONFIG ================= */
-var ACCESS_KEY = "96cb4db8-5269-48b0-91e2-69a1f6871723"; /* Web3Forms key - replace with your PI form key if you create one */
+  var ACCESS_KEY = '96cb4db8-5269-48b0-91e2-69a1f6871723';
 
-var SELLER = [
-  "GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD",
-  "Unit 101, No. 4, Lane 4, South of Dening Road, Caohe, Qiaonan Street,",
-  "Panyu District, Guangzhou City, China.",
-  "Website: https://coldpackpro.com    Tel: +86-20-39211361",
-  "Email: info@coldpackpro.com",
-  "Attn: Mr. K. Yang    WhatsApp / WeChat: +86 139 2510 9703"
-];
-var BANK = [
-  "Beneficiary: GuangZhou QTOP Cold Chain Sciences Co., Ltd",
-  "Bank Name: China Minsheng Banking Corp. Ltd Guangzhou Branch",
-  "Bank Address: Minsheng Building, No.68 Liede Avenue, Guangzhou",
-  "Swift Code: MSBCCNBJ003",
-  "Account No.: 69524 1665"
-];
-var DEF_PACK = "Standard export packing in 5-ply corrugated cartons.";
-var DEF_CERT = "ISO 9001; SDS; Transport Condition Identification Report (non-dangerous goods) for sea/air freight.";
-var DEF_LEAD = "Stock items 7-10 days; custom production 15-45 days depending on type & quantity.";
-var DEF_PAY  = "T/T: 30% deposit, balance before shipment.";
-var WD = 595.28, HT = 841.89, ML = 40, MR = 40, CW = WD - ML - MR, MB = 58, MT = 46;
+  /* ---------- helpers ---------- */
+  function $(id){ return document.getElementById(id); }
+  function fmtDate(d){ return d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}); }
+  function pad(n){ return (n<10?'0':'')+n; }
+  function money(n){ return '$' + (isFinite(n)? Number(n).toFixed(2) : '0.00'); }
+  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-/* ================= HELPERS ================= */
-function $(id){ return document.getElementById(id); }
-function fmtUSD(n){ return "$" + n.toFixed(2); }
-function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
-function pad(n){ return (n<10?"0":"")+n; }
-function todayStr(){ var d=new Date(); return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate()); }
-function emailOk(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v).trim()); }
+  /* invoice number: PI-YYYYMMDD-XXX */
+  var seq = 0;
+  try { seq = parseInt(localStorage.getItem('cp_pi_seq')||'0',10)||0; } catch(e){}
+  var d0 = new Date();
+  var invNo = 'PI-' + d0.getFullYear() + pad(d0.getMonth()+1) + pad(d0.getDate()) + '-' + pad(seq+1);
+  $('piNo').textContent = invNo;
+  $('piDate').textContent = fmtDate(d0);
 
-function pdfLib(){
-  return new Promise(function(res,rej){
-    if(window.PDFLib){ res(window.PDFLib); return; }
-    var s=document.createElement("script");
-    s.src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js";
-    s.onload=function(){ res(window.PDFLib); };
-    s.onerror=function(){ rej(new Error("pdf-lib failed to load")); };
-    document.head.appendChild(s);
-  });
-}
+  /* ---------- product rows ---------- */
+  var rowsWrap = $('rowsWrap');
+  var rowIdx = 0;
 
-/* ================= PRODUCT ROWS ================= */
-var rowsWrap = $("rows");
-var rowCount = 0;
-
-function makeRow(){
-  var id = "r" + (++rowCount);
-  var div = document.createElement("div");
-  div.className = "rounded-2xl border border-slate-200 bg-slate-50 p-4";
-  div.dataset.id = id;
-  div.innerHTML =
-    '<div class="grid gap-3 sm:grid-cols-12">' +
-      '<div class="sm:col-span-12 flex items-center justify-between gap-2">' +
-        '<span class="text-[11px] font-black uppercase tracking-wider text-slate-400">Product ' + rowCount + '</span>' +
-        '<button type="button" class="delrow">Remove</button>' +
-      '</div>' +
-      '<div class="sm:col-span-5"><label class="label req">Product Name</label>' +
-        '<input class="field rname" type="text" list="prodList" placeholder="e.g. Gel Ice Pack"></div>' +
-      '<div class="sm:col-span-7"><label class="label req">Specification</label>' +
-        '<input class="field rspec" type="text" placeholder="Size, capacity, weight, usage - e.g. 15x20cm, 400g, seafood shipping"></div>' +
-      '<div class="sm:col-span-3"><label class="label">Model No. (optional)</label>' +
-        '<input class="field rmodel" type="text" placeholder="Per catalog"></div>' +
-      '<div class="sm:col-span-3"><label class="label">Unit Price (USD)</label>' +
-        '<input class="field rprice" type="number" min="0" step="0.01" placeholder="blank = TBD"></div>' +
-      '<div class="sm:col-span-3"><label class="label req">Quantity</label>' +
-        '<div class="flex gap-1.5">' +
-          '<input class="field rqty" type="number" min="1" step="1" value="1000" style="min-width:0">' +
-          '<select class="field runit" style="width:5.4rem;flex:none"><option value="piece">piece</option><option value="sheet">sheet</option></select>' +
-        '</div></div>' +
-      '<div class="sm:col-span-3"><label class="label">Total Amount (USD)</label>' +
-        '<div class="rtotal rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-bold text-slate-900" style="min-height:2.6rem">$0.00</div></div>' +
-      '<div class="sm:col-span-12 flex items-center gap-3">' +
-        '<label class="cursor-pointer text-xs font-bold text-blue-700 hover:text-blue-900 inline-flex items-center gap-1">&#128206; Add product photo (optional)' +
-          '<input class="rimg hidden" type="file" accept="image/jpeg,image/png"></label>' +
-        '<img class="imgprev hidden" alt="product photo preview">' +
-        '<span class="text-[11px] text-slate-400">JPG / PNG, max 2MB</span>' +
+  function productRowHTML(){
+    rowIdx++;
+    var i = rowIdx;
+    return '' +
+    '<div class="rounded-2xl border border-slate-200 bg-slate-50/60 p-3" data-i="'+i+'">' +
+      '<div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">' +
+        '<div class="sm:col-span-2"><label class="label">Product Name *</label>' +
+          '<input class="field pName" list="prodSuggest" placeholder="Gel Ice Pack / Rigid Cold Pack..."></div>' +
+        '<div><label class="label">Specification *</label><input class="field pSpec" placeholder="e.g. 15x20cm, 500ml, 200g"></div>' +
+        '<div><label class="label">Model No.</label><input class="field pModel" placeholder="per catalog, optional"></div>' +
+        '<div><label class="label">Unit Price (USD)</label><input class="field pPrice" type="number" min="0" step="0.01" placeholder="leave blank = TBD"></div>' +
+        '<div><label class="label">Quantity *</label>' +
+          '<div class="flex gap-1">' +
+            '<input class="field pQty" type="number" min="1" step="1" placeholder="0">' +
+            '<select class="field pUnit" style="width:92px"><option value="piece">piece</option><option value="sheet">sheet</option></select>' +
+          '</div></div>' +
+        '<div><label class="label">Total</label><div class="pt-2 text-sm font-bold text-slate-700 rowTotal">—</div></div>' +
+        '<div><label class="label">Product Image (JPG/PNG ≤2MB)</label>' +
+          '<input class="pFile w-full text-xs text-slate-500 file:mr-2 file:rounded-lg file:border-0 file:bg-slate-200 file:px-3 file:py-1.5 file:text-xs file:font-semibold file:text-slate-700" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png">' +
+          '<div class="pFileInfo mt-1 text-[11px] text-slate-400"></div></div>' +
+        '<div class="flex items-end justify-end"><button type="button" class="delRow rounded-xl px-3 py-1.5 text-xs font-semibold text-red-500 hover:bg-red-50">✕ Remove</button></div>' +
       '</div>' +
     '</div>';
-  rowsWrap.appendChild(div);
-
-  var imgIn = div.querySelector(".rimg");
-  imgIn.addEventListener("change", function(){
-    var f = imgIn.files && imgIn.files[0];
-    var prev = div.querySelector(".imgprev");
-    if(!f){ prev.classList.add("hidden"); div._file = null; return; }
-    var okType = (f.type === "image/jpeg" || f.type === "image/png");
-    if(!okType || f.size > 2*1024*1024){
-      alert("Photo must be JPG or PNG and no larger than 2MB.");
-      imgIn.value = "";
-      prev.classList.add("hidden");
-      div._file = null;
-      return;
-    }
-    var rd = new FileReader();
-    rd.onload = function(){ prev.src = rd.result; prev.classList.remove("hidden"); };
-    rd.readAsDataURL(f);
-    div._file = f;
-  });
-
-  div.querySelector(".delrow").addEventListener("click", function(){
-    if(rowsWrap.children.length <= 1){ alert("At least one product row is required."); return; }
-    div.remove();
-    renumber(); recalc();
-  });
-  ["rprice","rqty"].forEach(function(c){ div.querySelector("."+c).addEventListener("input", recalc); });
-  div.querySelector(".runit").addEventListener("change", recalc);
-  return div;
-}
-function renumber(){
-  Array.prototype.forEach.call(rowsWrap.children, function(el, i){
-    var tag = el.querySelector("span[class*='uppercase']");
-    if(tag){ tag.textContent = "Product " + (i+1); }
-  });
-}
-function rowData(el){
-  var name = el.querySelector(".rname").value.trim();
-  var spec = el.querySelector(".rspec").value.trim();
-  var model = el.querySelector(".rmodel").value.trim();
-  var priceRaw = el.querySelector(".rprice").value.trim();
-  var price = (priceRaw === "") ? null : parseFloat(priceRaw);
-  if(price !== null && isNaN(price)) price = null;
-  var qtyRaw = el.querySelector(".rqty").value.trim();
-  var qty = parseInt(qtyRaw, 10);
-  if(isNaN(qty) || qty < 1) qty = 0;
-  var unit = el.querySelector(".runit").value;
-  var total = (price !== null && qty > 0) ? price * qty : null;
-  return { el:el, name:name, spec:spec, model:model, price:price, priceText:(price===null?"TBD":fmtUSD(price)), qty:qty, unit:unit, total:total };
-}
-function collect(){
-  var out = [];
-  Array.prototype.forEach.call(rowsWrap.children, function(el){ out.push(rowData(el)); });
-  return out;
-}
-function recalc(){
-  var rows = collect();
-  var tbd = 0, qtySum = 0, totalSum = 0;
-  rows.forEach(function(r){
-    r.el.querySelector(".rtotal").textContent = (r.total === null) ? "TBD" : fmtUSD(r.total);
-    qtySum += (r.qty>0?r.qty:0);
-    if(r.total === null){ tbd++; } else { totalSum += r.total; }
-  });
-  $("sumItems").textContent = rows.length;
-  $("sumQty").textContent = qtySum;
-  $("sumTotal").textContent = (tbd>0 && totalSum===0) ? "TBD" : fmtUSD(totalSum);
-  $("sumTbd").classList.toggle("hidden", tbd===0);
-}
-$("btnAdd").addEventListener("click", function(){ makeRow(); });
-makeRow();
-
-/* ================= CONTACT PILLS ================= */
-var contactVal = "WhatsApp";
-function paintPills(){
-  Array.prototype.forEach.call($("contactPills").querySelectorAll(".pill"), function(b){
-    b.classList.toggle("on", b.dataset.v === contactVal);
-  });
-  var ph = { "WhatsApp":"WhatsApp number, e.g. +1 555 000 0000",
-             "WeChat":"WeChat ID",
-             "Other":"Skype / email / other contact" };
-  $("fContact").placeholder = ph[contactVal] || "";
-}
-Array.prototype.forEach.call($("contactPills").querySelectorAll(".pill"), function(b){
-  b.addEventListener("click", function(){ contactVal = b.dataset.v; paintPills(); });
-});
-paintPills();
-
-/* ================= VALIDATION ================= */
-function getForm(showErrs){
-  var errs = [];
-  var b = {
-    company: $("fCompany").value.trim(),
-    address: $("fAddress").value.trim(),
-    attn: $("fAttn").value.trim(),
-    email: $("fEmail").value.trim(),
-    tel: $("fTel").value.trim(),
-    contact: contactVal + ($("fContact").value.trim() ? ": " + $("fContact").value.trim() : "")
-  };
-  if(!b.company) errs.push("Company Name");
-  if(!b.address) errs.push("Address");
-  if(!b.attn) errs.push("Contact Person");
-  if(!emailOk(b.email)) errs.push("a valid Email");
-
-  var rows = collect();
-  if(!rows.length) errs.push("at least one product row");
-  var itemNo = 0;
-  rows.forEach(function(r){
-    itemNo++;
-    if(!r.name) errs.push("Product Name in Product " + itemNo);
-    if(!r.spec) errs.push("Specification in Product " + itemNo);
-    if(r.qty < 1) errs.push("Quantity in Product " + itemNo);
-  });
-
-  if(errs.length){
-    if(showErrs){
-      $("genMsg").textContent = "Please complete: " + errs.join(", ") + ".";
-      $("genMsg").className = "mt-3 text-sm font-semibold text-red-600";
-    }
-    return null;
   }
-  if(showErrs){ $("genMsg").className = "mt-3 text-sm text-slate-500"; }
-  return { buyer:b, rows:rows };
-}
 
-/* ================= PI NUMBER / SUMMARY ================= */
-function issueMeta(){
-  var d = new Date();
-  var ymd = "" + d.getFullYear() + pad(d.getMonth()+1) + pad(d.getDate());
-  var seq = String(d.getHours()*3600 + d.getMinutes()*60 + d.getSeconds()).slice(-4);
-  var no = "PI-" + ymd + "-" + seq;
-  $("sumNo").textContent = no;
-  $("sumDate").textContent = todayStr();
-  return no;
-}
-
-/* ================= PDF BUILDER ================= */
-function wrapLines(text, font, size, maxW){
-  var words = String(text).split(/\s+/);
-  var lines = [], cur = "";
-  words.forEach(function(w){
-    var t = cur ? cur + " " + w : w;
-    if(font.widthOfTextAtSize(t, size) <= maxW){ cur = t; }
-    else { if(cur){ lines.push(cur); } cur = w; }
+  function addRow(initial){
+    rowsWrap.insertAdjacentHTML('beforeend', productRowHTML());
+    var last = rowsWrap.lastElementChild;
+    var file = last.querySelector('.pFile');
+    file._file = null;
+    file.addEventListener('change', function(){
+      var f = file.files && file.files[0];
+      var info = last.querySelector('.pFileInfo');
+      if(!f){ file._file = null; info.textContent=''; return; }
+      if(!/image\/(jpeg|png)/.test(f.type) && !/\.(jpe?g|png)$/i.test(f.name)){
+        info.textContent = 'Only JPG or PNG allowed.'; info.style.color='#dc2626'; file.value=''; file._file=null; return;
+      }
+      if(f.size > 2*1024*1024){
+        info.textContent = 'Image too large — max 2MB.'; info.style.color='#dc2626'; file.value=''; file._file=null; return;
+      }
+      file._file = f;
+      info.style.color='#16a34a';
+      info.textContent = '✓ ' + f.name + ' (' + Math.round(f.size/1024) + ' KB)';
+    });
+    recalc();
+    return last;
+  }
+  $('addRowBtn').addEventListener('click', function(){ addRow(); });
+  rowsWrap.addEventListener('click', function(ev){
+    var b = ev.target.closest('.delRow');
+    if(b){ var wrap = rowsWrap.querySelectorAll('.rounded-2xl'); if(wrap.length<=1){ setMsg('Keep at least one product row.'); return; } b.closest('[data-i]').remove(); recalc(); }
   });
-  if(cur){ lines.push(cur); }
-  if(!lines.length){ lines.push(""); }
-  return lines;
-}
+  rowsWrap.addEventListener('input', recalc);
 
-function buildPdf(d, rows, ship, remarks){
-  var P = PDFLib;
-  return d.create().then(function(doc){
-    return doc.embedFont(P.StandardFonts.Helvetica).then(function(font){
-      return doc.embedFont(P.StandardFonts.HelveticaBold).then(function(fontB){
-        var pages = []; var page = null; var y = 0;
-        function addPage(){
-          page = doc.addPage([WD, HT]);
-          pages.push(page);
-          y = HT - MT;
-          return page;
-        }
-        function fit(need){ if(y - MB < need){ addPage(); } }
-        function tx(t, x, sz, f, col, op){
-          page.drawText(t, { x:x, y:y, size:sz, font:(f||font), color:(col||P.rgb(0.07,0.09,0.14)), opacity:(op===undefined?1:op) });
-        }
-        function tb(t, x, sz, f, col){
-          var w = (f||font).widthOfTextAtSize(t, sz);
-          page.drawText(t, { x:x, y:y, size:sz, font:(f||font), color:(col||P.rgb(0.07,0.09,0.14)) });
-          return w;
-        }
-        function tr(t, x, sz, f, col){ /* right aligned, returns width */
-          var w = (f||font).widthOfTextAtSize(t, sz);
-          page.drawText(t, { x:x - w, y:y, size:sz, font:(f||font), color:(col||P.rgb(0.07,0.09,0.14)) });
-          return w;
-        }
-        function section(label, lines){
-          lines.forEach(function(l){
-            fit(10);
-            var lab = l.label;
-            var val = l.value;
-            var lead = lab ? lab + ": " : "";
-            var lw = fontB.widthOfTextAtSize(lab?lab+":":"", 8);
-            var restW = CW - (lab?lw+6:0);
-            var wrapped = wrapLines(lead + val, font, 8.5, CW);
-            var first = true;
-            wrapped.forEach(function(ln){
-              fit(9);
-              if(first && lab){
-                var rw = tb(lab + ": ", ML, 8.5, fontB);
-                page.drawText(ln.substring(lead.length), { x:ML + rw, y:y, size:8.5, font:font, color:P.rgb(0.07,0.09,0.14) });
-              } else {
-                tx(ln, ML, 8.5);
-              }
-              y -= 11.5;
-              first = false;
-            });
-          });
-        }
-        function watermarkAndFoot(){
-          pages.forEach(function(p){
-            var w = p.getWidth(), h = p.getHeight();
-            var t = "coldpackpro.com";
-            var sz = Math.max(14, Math.min(w, h) * 0.05);
-            var tw = fontB.widthOfTextAtSize(t, sz);
-            p.drawText(t, { x:(w - tw)/2, y:h*0.5, size:sz, font:fontB, color:P.rgb(0.35,0.42,0.55), opacity:0.07, rotate:P.degrees(-30) });
-          });
-        }
-        function drawTableHead(){
-          var cols = [["#",20],["Product",95],["Specification",152],["Model",58],["Unit Price (USD)",64],["Qty",38],["Unit",40],["Total (USD)",48]];
-          var hdr = ML;
-          page.drawRectangle({ x:ML, y:y-13, width:CW, height:13, color:P.rgb(0.10,0.15,0.25) });
-          var yy = y - 9.3;
-          cols.forEach(function(c){
-            page.drawText(c[0], { x:hdr + (c[0]=="#"?0: (c[0].indexOf("USD")>=0? c[1]-font.widthOfTextAtSize(c[0],7): (c[0]=="Model"? (c[1]-font.widthOfTextAtSize(c[0],7))/2 : hdr+1))), y:yy, size:7, font:fontB, color:P.rgb(1,1,1) });
-            hdr += c[1];
-          });
-          y -= 13;
-        }
-        /* -------- begin content -------- */
-        addPage();
-        var piNo = $("sumNo").textContent;
-        /* header */
-        tx("PROFORMA INVOICE / REQUEST FOR QUOTATION", ML, 16, fontB, P.rgb(0.08,0.20,0.42));
-        y -= 22;
-        tx("Invoice No.: " + piNo, ML, 9, fontB);
-        tr("Issue Date: " + todayStr(), WD - MR, 9, fontB);
-        y -= 8;
-        tx("Seller Ref.: ColdPackPro Online Request", ML, 8, font);
-        y -= 16;
-        page.drawLine({ start:{x:ML, y:y}, end:{x:WD-MR, y:y}, thickness:1.2, color:P.rgb(0.12,0.3,0.65) });
-        y -= 14;
+  function getRows(){
+    var out = [];
+    rowsWrap.querySelectorAll('[data-i]').forEach(function(el){
+      var name = el.querySelector('.pName').value.trim();
+      var spec = el.querySelector('.pSpec').value.trim();
+      var model = el.querySelector('.pModel').value.trim();
+      var price = parseFloat(el.querySelector('.pPrice').value);
+      if(!isFinite(price)) price = null;
+      var qty = parseInt(el.querySelector('.pQty').value,10);
+      if(!isFinite(qty)) qty = 0;
+      var unit = el.querySelector('.pUnit').value;
+      var file = el.querySelector('.pFile');
+      out.push({ el:el, name:name, spec:spec, model:model, price:price, qty:qty, unit:unit, file: (file && file._file) || null });
+    });
+    return out;
+  }
 
-        /* seller / buyer boxes (auto-sized to fit content, incl. long addresses) */
-        var boxW = (CW - 12) / 2;
-        var sellerRows = SELLER.map(function(s){ return { lab:null, val:s }; });
-        var buyerRows = [
-          ["Company", b.company], ["Address", b.address], ["Attn", b.attn],
-          ["Email", b.email], ["Tel", b.tel || "N/A"], ["Contact", b.contact || "N/A"]
-        ].map(function(p){ return { lab:p[0], val:p[1] }; });
-        function boxNeeded(rows){
-          var h = 14;
-          rows.forEach(function(r){
-            var prefix = r.lab ? r.lab + ": " : "";
-            var ls = wrapLines(prefix + r.val, font, 7.2, boxW - 26);
-            h += ls.length * 9.6 + 1.4;
-          });
-          return h;
-        }
-        var boxH = Math.max(boxNeeded(sellerRows), boxNeeded(buyerRows)) + 8;
-        var topY = y;
-        if(topY - boxH - 16 < MB){ addPage(); topY = y; }
-        page.drawRectangle({ x:ML, y:topY-boxH, width:boxW, height:boxH, color:P.rgb(0.96,0.97,0.99), borderColor:P.rgb(0.85,0.89,0.94), borderWidth:0.6 });
-        page.drawRectangle({ x:ML+boxW+12, y:topY-boxH, width:boxW, height:boxH, color:P.rgb(0.99,0.98,0.94), borderColor:P.rgb(0.9,0.88,0.8), borderWidth:0.6 });
-        var st = topY - 12;
-        page.drawText("SELLER (FACTORY)", { x:ML+8, y:st, size:7.5, font:fontB, color:P.rgb(0.08,0.2,0.42) });
-        st -= 12;
-        sellerRows.forEach(function(r){
-          wrapLines(r.val, font, 7.2, boxW - 26).forEach(function(ln){
-            page.drawText(ln, { x:ML+8, y:st, size:7.2, font:font, color:P.rgb(0.07,0.09,0.14) });
-            st -= 9.6;
-          });
-          st -= 1.4;
-        });
-        var bt = topY - 12;
-        page.drawText("BUYER", { x:ML+boxW+20, y:bt, size:7.5, font:fontB, color:P.rgb(0.6,0.4,0.1) });
-        bt -= 12;
-        buyerRows.forEach(function(r){
-          var lab = r.lab + ": ";
-          var lines = wrapLines(lab + r.val, font, 7.2, boxW - 26);
-          lines.forEach(function(ln, li){
-            if(li === 0){
-              var lw = fontB.widthOfTextAtSize(lab, 7.2);
-              page.drawText(lab, { x:ML+boxW+20, y:bt, size:7.2, font:fontB, color:P.rgb(0.07,0.09,0.14) });
-              page.drawText(ln.substring(lab.length), { x:ML+boxW+20+lw, y:bt, size:7.2, font:font, color:P.rgb(0.07,0.09,0.14) });
-            } else {
-              page.drawText(ln, { x:ML+boxW+20, y:bt, size:7.2, font:font, color:P.rgb(0.07,0.09,0.14) });
-            }
-            bt -= 9.6;
-          });
-          bt -= 1.4;
-        });
-        y = topY - boxH - 16;
-        fit(14);
+  function recalc(){
+    var rows = getRows();
+    var tQty = 0, tAmt = 0, items = 0;
+    rows.forEach(function(r, i){
+      var total = (r.price!=null && r.qty>0) ? r.price*r.qty : null;
+      r.el.querySelector('.rowTotal').textContent = total!=null ? money(total) : '—';
+      tQty += (r.qty>0?r.qty:0);
+      if(total!=null){ tAmt += total; items++; }
+    });
+    $('sumItems').textContent = rows.length;
+    $('sumQty').textContent = tQty;
+    $('sumAmt').textContent = money(tAmt);
+  }
 
-        /* products table */
-        drawTableHead();
-        var grandTotal = 0, grandQty = 0, anyTbd = false, idx = 0;
-        rows.forEach(function(r){
-          idx++;
-          if(r.total !== null){ grandTotal += r.total; } else { anyTbd = true; }
-          grandQty += (r.qty>0?r.qty:0);
-          var specLines = wrapLines(r.spec || "-", font, 8, 148);
-          var nameLines = wrapLines(r.name || "-", font, 8, 92);
-          var linesN = Math.max(specLines.length, nameLines.length);
-          var rowH = Math.max(16, linesN * 9 + 7);
-          fit(rowH + 2);
-          var ry2 = y;
-          /* zebra */
-          page.drawRectangle({ x:ML, y:y-rowH, width:CW, height:rowH, color:(idx%2? P.rgb(0.985,0.99,1) : P.rgb(0.97,0.975,0.99)) });
-          /* cells */
-          page.drawText(String(idx), { x:ML+4, y:ry2-3, size:8, font:font });
-          nameLines.forEach(function(l, li){ page.drawText(l, { x:ML+24, y:ry2-3 - li*9, size:8, font:font }); });
-          specLines.forEach(function(l, li){ page.drawText(l, { x:ML+119, y:ry2-3 - li*9, size:8, font:font }); });
-          page.drawText(r.model || "-", { x:ML+271+ (58 - font.widthOfTextAtSize(r.model||"-",8))/2, y:ry2-3, size:8, font:font });
-          var pw = fontB.widthOfTextAtSize(r.priceText, 8);
-          page.drawText(r.priceText, { x:ML+329+64-pw, y:ry2-3, size:8, font:(r.price===null?font:fontB), color:(r.price===null?P.rgb(0.8,0.45,0.05):P.rgb(0.07,0.09,0.14)) });
-          page.drawText(String(r.qty), { x:ML+393+38 - font.widthOfTextAtSize(String(r.qty),8), y:ry2-3, size:8, font:font });
-          page.drawText(r.unit, { x:ML+431+1, y:ry2-3, size:8, font:font });
-          var totalTxt = (r.total===null) ? "TBD" : fmtUSD(r.total);
-          var tw = fontB.widthOfTextAtSize(totalTxt, 8);
-          page.drawText(totalTxt, { x:ML+471+48-tw, y:ry2-3, size:8, font:fontB, color:(r.total===null?P.rgb(0.8,0.45,0.05):P.rgb(0.07,0.09,0.14)) });
-          y -= (rowH + 1);
-        });
-        /* total row */
-        fit(20);
-        page.drawRectangle({ x:ML, y:y-17, width:CW, height:17, color:P.rgb(0.10,0.15,0.25) });
-        tb("TOTAL", ML+8, 9, fontB, P.rgb(1,1,1));
-        tr(String(grandQty) + " pcs/sheets", ML+393+38, 9, fontB, P.rgb(1,1,1));
-        var totTxt = anyTbd ? "To be confirmed" : fmtUSD(grandTotal);
-        tr(totTxt, ML+471+48, 9, fontB, P.rgb(1,1,1));
-        y -= 26;
+  /* contact channel seg */
+  $('contactSeg').addEventListener('click', function(ev){
+    var b = ev.target.closest('button'); if(!b) return;
+    this.querySelectorAll('button').forEach(function(x){ x.classList.remove('on'); });
+    b.classList.add('on');
+    $('bContact').value = b.getAttribute('data-v');
+  });
 
-        /* notes */
-        fit(40);
-        tb("TERMS & NOTES", ML, 9.5, fontB, P.rgb(0.08,0.2,0.42));
-        y -= 14;
-        var notes = [
-          {label:"Package", value: ship.pack || DEF_PACK},
-          {label:"Shipping Mark", value: ship.shipMark || "To be advised by buyer"},
-          {label:"Delivery Address", value: ship.deliv || b.address},
-          {label:"Certification", value: DEF_CERT},
-          {label:"Lead Time", value: DEF_LEAD},
-          {label:"Payment Terms", value: DEF_PAY}
-        ];
-        section("", notes);
-        y -= 8;
-        /* banking */
-        fit(70);
-        tb("BANKING INFORMATION", ML, 9.5, fontB, P.rgb(0.08,0.2,0.42));
-        y -= 12;
-        page.drawRectangle({ x:ML, y:y-58, width:CW, height:58, color:P.rgb(0.98,0.985,1), borderColor:P.rgb(0.85,0.9,0.95), borderWidth:0.6 });
-        var by2 = y - 9;
-        BANK.forEach(function(l){ page.drawText(l, { x:ML+10, y:by2, size:8, font:font }); by2 -= 11; });
-        y -= 62;
-        /* remarks */
-        if(remarks){
-          fit(40);
-          tb("REMARKS", ML, 9.5, fontB, P.rgb(0.08,0.2,0.42));
-          y -= 13;
-          wrapLines(remarks, font, 8.5, CW).forEach(function(ln){
-            fit(9); tx(ln, ML, 8.5); y -= 11.5;
-          });
-          y -= 6;
-        }
-        fit(30);
-        tx("This is a request for quotation / proforma invoice generated online by the buyer. Final confirmation of price, packing and lead time will be provided by the seller via email reply.", ML, 7.5, font, P.rgb(0.4,0.45,0.52));
-        y -= 10;
+  /* ---------- validation ---------- */
+  function buyer(){
+    return {
+      company: $('bCompany').value.trim(),
+      address: $('bAddress').value.trim(),
+      attn: $('bAttn').value.trim(),
+      email: $('bEmail').value.trim(),
+      tel: $('bTel').value.trim(),
+      contact: $('bContact').value
+    };
+  }
+  function validate(){
+    var ok = true;
+    ['bCompany','bAddress','bAttn','bEmail'].forEach(function(id){
+      var el = $(id), v = el.value.trim();
+      var bad = !v;
+      if(id==='bEmail') bad = bad || !emailRe.test(v);
+      el.classList.toggle('err', bad);
+      if(bad) ok = false;
+    });
+    var rows = getRows();
+    if(!rows.length) ok = false;
+    rows.forEach(function(r){
+      var bad = !r.name || !r.spec || r.qty<=0;
+      r.el.querySelector('.pName').classList.toggle('err', !r.name);
+      r.el.querySelector('.pSpec').classList.toggle('err', !r.spec);
+      r.el.querySelector('.pQty').classList.toggle('err', r.qty<=0);
+      if(bad) ok = false;
+    });
+    if(!ok) setMsg('Please complete all required fields (company, address, attention, valid email, and each product row: name, spec, quantity).', true);
+    return ok;
+  }
+  function setMsg(t, isErr){
+    var m = $('statusMsg');
+    m.textContent = t;
+    m.className = 'mt-3 text-sm ' + (isErr ? 'font-semibold text-red-600' : 'text-slate-500');
+  }
 
-        watermarkAndFoot();
-        return doc;
+  /* ---------- PDF (built on browser) ---------- */
+  var P = null, F1 = null, F2 = null, doc = null;
+  var PW = 595.28, PH = 841.89, ML = 42, CW = PW - 84;
+  var pages = [], curY = 0;
+
+  function newPage(){
+    var pg = doc.addPage([PW, PH]);
+    pages.push(pg);
+    curY = PH - 58;
+    return pg;
+  }
+  function need(h){
+    if(curY - h < 60){ newPage(); }
+  }
+  function wrapText(txt, font, size, maxW){
+    txt = String(txt==null?'':txt);
+    var words = txt.split(/\s+/), lines = [], cur = '';
+    words.forEach(function(w){
+      if(!w) return;
+      var t = cur ? cur + ' ' + w : w;
+      if(font.widthOfTextAtSize(t, size) <= maxW){ cur = t; }
+      else { if(cur) lines.push(cur); cur = w; }
+    });
+    if(cur) lines.push(cur);
+    return lines.length ? lines : [''];
+  }
+  function draw(pg, txt, x, y, size, font, color){ pg.drawText(txt, { x:x, y:y, size:size, font:font, color:color }); }
+
+  function drawHline(pg, x1, x2, y){
+    pg.drawLine({ start:{x:x1,y:y}, end:{x:x2,y:y}, thickness:0.6, color:P.rgb(0.8,0.83,0.88) });
+  }
+
+  function buildPages(b, rows, extras){
+    newPage();
+    var g = P.rgb(0.32,0.36,0.42), dk = P.rgb(0.09,0.11,0.16), blue = P.rgb(0.12,0.34,0.62);
+
+    /* ---- title band ---- */
+    draw(pages[pages.length-1], 'PROFORMA INVOICE', ML, curY, 16, F2, blue);
+    curY -= 8;
+    draw(pages[pages.length-1], 'GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD', ML, curY, 9.5, F2, dk); curY -= 12;
+    ['Unit 101, No. 4, Lane 4, South of Dening Road, Caohe, Qiaonan Street,','Panyu District, Guangzhou City, China','Tel: +86-20-39211361   |   Email: info@coldpackpro.com   |   Web: coldpackpro.com','Atten: Mr. K. Yang   |   WhatsApp/WeChat: +86 13925109703'].forEach(function(l){
+      draw(pages[pages.length-1], l, ML, curY, 8, F1, g); curY -= 10.5;
+    });
+
+    /* invoice no / date right block */
+    var rightX = PW - ML - 190;
+    draw(pages[pages.length-1], 'Invoice No.:  ' + invNo, rightX, PH-86, 9, F2, dk);
+    draw(pages[pages.length-1], 'Issue Date:  ' + fmtDate(d0), rightX, PH-98, 9, F2, dk);
+
+    /* ---- buyer block ---- */
+    curY -= 6;
+    draw(pages[pages.length-1], 'BUYER', ML, curY, 9, F2, blue); curY -= 13;
+    var bLines = [ b.company, b.address, 'Attention: ' + b.attn, 'Email: ' + b.email ];
+    if(b.tel) bLines.push('Tel: ' + b.tel);
+    bLines.push('Preferred Contact: ' + b.contact);
+    bLines.forEach(function(l){
+      var ls = wrapText(l, F1, 8.5, CW);
+      need(ls.length*10.5 + 4);
+      ls.forEach(function(sl){ draw(pages[pages.length-1], sl, ML, curY, 8.5, F1, dk); curY -= 10.5; });
+      curY -= 1;
+    });
+    curY -= 6;
+    if(extras.mark){ draw(pages[pages.length-1], 'Shipping Mark:  ' + extras.mark, ML, curY, 8.5, F1, g); curY -= 13; }
+    if(extras.delivery){ draw(pages[pages.length-1], 'Delivery Address:  ' + extras.delivery, ML, curY, 8.5, F1, g); curY -= 13; }
+
+    /* ---- items table ---- */
+    var cols = [ {k:'n',t:'#',w:20}, {k:'name',t:'Product Name',w:100}, {k:'model',t:'Model',w:56},
+                 {k:'spec',t:'Specification',w:141}, {k:'unit',t:'Unit',w:40}, {k:'qty',t:'Qty',w:38},
+                 {k:'price',t:'Unit Price (USD)',w:58}, {k:'total',t:'Total (USD)',w:58} ];
+    var hdrH = 20, rowPad = 8, lh = 10;
+    var x = ML;
+    var tableTop = curY;
+    need(hdrH + rows.length*26 + 40);
+    var headY = curY;
+    draw(pages[pages.length-1], 'ITEM LIST', ML, headY, 9, F2, blue); headY -= 16;
+    curY = headY;
+    cols.forEach(function(c){ draw(pages[pages.length-1], c.t, x, curY, 7, F2, g); x += c.w; });
+    curY -= 6; drawHline(pages[pages.length-1], ML, PW-ML, curY); curY -= 8;
+
+    function cellH(r){
+      var nm = wrapText(r.name, F1, 8.5, cols[1].w-4).length;
+      var sp = wrapText(r.spec, F1, 8.5, cols[3].w-4).length;
+      return Math.max(nm, sp) * lh + rowPad;
+    }
+    rows.forEach(function(r, idx){
+      need(cellH(r) + 6);
+      var x2 = ML;
+      var lines = {
+        n: [String(idx+1)],
+        name: wrapText(r.name, F1, 8.5, cols[1].w-4),
+        model: wrapText(r.model||'—', F1, 8.5, cols[2].w-4),
+        spec: wrapText(r.spec, F1, 8.5, cols[3].w-4),
+        unit: [r.unit],
+        qty: [String(r.qty)],
+        price: [r.price!=null ? r.price.toFixed(2) : 'TBD'],
+        total: [r.price!=null && r.qty>0 ? (r.price*r.qty).toFixed(2) : '—']
+      };
+      var maxLines = Math.max.apply(null, Object.keys(lines).map(function(k){ return lines[k].length; }));
+      Object.keys(lines).forEach(function(k){
+        var c = cols.filter(function(cc){ return cc.k===k; })[0];
+        var topY = curY + (maxLines - lines[k].length) * lh;
+        lines[k].forEach(function(sl, li){ draw(pages[pages.length-1], sl, x2+2, topY + li*lh, 8.5, k==='name'?F1:F1, dk); });
+        x2 += c.w;
+      });
+      curY -= maxLines*lh + rowPad - 4;
+      drawHline(pages[pages.length-1], ML, PW-ML, curY);
+      curY -= 6;
+    });
+    curY -= 4;
+    need(80);
+    /* totals */
+    var tAmt = 0, tQty = 0;
+    rows.forEach(function(r){ if(r.qty>0) tQty += r.qty; if(r.price!=null && r.qty>0) tAmt += r.price*r.qty; });
+    draw(pages[pages.length-1], 'Total Quantity: ' + tQty + '  pcs', PW-ML-240, curY, 9, F2, dk); curY -= 14;
+    draw(pages[pages.length-1], 'Total Amount:  ' + money(tAmt) + '  (USD)', PW-ML-240, curY, 10, F2, blue); curY -= 12;
+    draw(pages[pages.length-1], 'Larger quantity = better price. Final quotation subject to confirmation.', PW-ML-240, curY, 7, F1, g); curY -= 18;
+    drawHline(pages[pages.length-1], PW-ML-240, PW-ML, curY);
+
+    /* ---- terms ---- */
+    curY -= 12;
+    var terms = [
+      ['Package:', '5-layer corrugated export cartons (standard)'],
+      ['Certification:', 'ISO 9001, SDS, Non-Dangerous Goods Transport Certificate (suitable for sea/air)'],
+      ['Lead Time:', 'In-stock products 7-10 days; customized production 15-45 days depending on style & quantity'],
+      ['Payment Terms:', 'T/T 30% deposit, balance to be paid before shipment']
+    ];
+    terms.forEach(function(t){
+      var ls = wrapText(t[1], F1, 8, CW-90);
+      need(ls.length*10.5 + 6);
+      draw(pages[pages.length-1], t[0], ML, curY, 8, F2, dk);
+      ls.forEach(function(sl){ draw(pages[pages.length-1], sl, ML+92, curY, 8, F1, g); curY -= 10.5; });
+      curY -= 3;
+    });
+
+    /* bank */
+    var bank = [
+      'Beneficiary:  GuangZhou QTOP Cold Chain Sciences Co., Ltd',
+      'Bank:  China Minsheng Banking Corp. Ltd, Guangzhou Branch',
+      'Bank Address:  Minsheng Building, No.68 Liede Avenue, Guangzhou',
+      'Swift Code:  MSBCCNBJ003        Account No.:  69524 1665'
+    ];
+    need(bank.length*11.5 + 30);
+    draw(pages[pages.length-1], 'BANKING INFORMATION', ML, curY, 8.5, F2, blue); curY -= 13;
+    bank.forEach(function(l){ draw(pages[pages.length-1], l, ML, curY, 8, F1, g); curY -= 11; });
+    curY -= 6;
+
+    /* remarks */
+    if(extras.remarks){
+      var rLines = wrapText(extras.remarks, F1, 8, CW);
+      need(rLines.length*11 + 20);
+      draw(pages[pages.length-1], 'REMARKS', ML, curY, 8.5, F2, blue); curY -= 13;
+      rLines.forEach(function(l){ draw(pages[pages.length-1], l, ML, curY, 8, F1, g); curY -= 11; });
+      curY -= 8;
+    }
+
+    draw(pages[pages.length-1], 'Prepared by ColdPackPro sales team  |  This PI is an offer for quotation, not a commercial invoice.', ML, curY-6, 7.5, F1, g);
+  }
+
+  function embedImages(rows){
+    var jobs = rows.filter(function(r){ return r.file; });
+    if(!jobs.length) return Promise.resolve();
+    var reads = jobs.map(function(r){
+      return new Promise(function(res){
+        var fr = new FileReader();
+        fr.onload = function(){ res({ row:r, data:fr.result }); };
+        fr.readAsArrayBuffer(r.file);
       });
     });
-  });
-}
-
-/* ================= IMAGE APPENDIX ================= */
-function embedImages(d, doc, pagesArr, rows){
-  var P = PDFLib;
-  var fileReads = [];
-  rows.forEach(function(r, i){
-    if(r.el && r.el._file){
-      fileReads.push(new Promise(function(res){
-        var rd = new FileReader();
-        rd.onload = function(){ res({ i:i, name:r.name, model:r.model, bytes:rd.result, type:r.el._file.type || "" }); };
-        rd.readAsArrayBuffer(r.el._file);
-      }));
-    }
-  });
-  return Promise.all(fileReads).then(function(files){
-    if(!files.length){ return Promise.resolve(); }
-    return doc.embedFont(P.StandardFonts.Helvetica).then(function(font){
+    return Promise.all(reads).then(function(imgs){
       var chain = Promise.resolve();
-      files.forEach(function(fo){
+      imgs.forEach(function(im, k){
         chain = chain.then(function(){
-          var isPng = (fo.type === "image/png");
-          function draw(img){
+          var isPng = /image\/png/.test(jobs[k].row.file.type) || /\.png$/i.test(jobs[k].row.file.name);
+          var embedP = isPng ? doc.embedPng(im.data) : doc.embedJpg(im.data);
+          return embedP.catch(function(){ return null; }).then(function(img){
             if(!img) return;
-            var page = doc.addPage([WD, HT]);
-            pagesArr.push(page);
-            var cap = "PRODUCT REFERENCE IMAGE - Row " + (fo.i+1) + ": " + (fo.name || "") + (fo.model ? "  (" + fo.model + ")" : "");
-            page.drawText(cap, { x:ML, y:HT-46, size:9, font:font, color:P.rgb(0.07,0.09,0.14) });
-            var maxW = CW - 60, maxH = HT - 160;
-            var ratio = Math.min(maxW / img.width, maxH / img.height, 1);
-            var dw = img.width * ratio, dh = img.height * ratio;
-            page.drawImage(img, { x:(WD - dw)/2, y:HT - 78 - dh, width:dw, height:dh });
-          }
-          var tryFirst = isPng ? doc.embedPng(fo.bytes) : doc.embedJpg(fo.bytes);
-          return tryFirst.then(function(img){ draw(img); }, function(){
-            var alt = isPng ? doc.embedJpg(fo.bytes) : doc.embedPng(fo.bytes);
-            return alt.then(function(img){ draw(img); }, function(){ /* skip unreadable image */ });
+            var pg = newPage();
+            var cap = 'PRODUCT REFERENCE IMAGE  -  Row ' + (k+1) + ': ' + (jobs[k].row.name || '') + (jobs[k].row.model ? '  /  Model ' + jobs[k].row.model : '');
+            draw(pg, cap, ML, curY, 9, F2, P.rgb(0.09,0.11,0.16));
+            curY -= 16;
+            var maxW = CW, maxH = curY - 120;
+            var ratio = Math.min(maxW/img.width, maxH/img.height, 1);
+            var dw = img.width*ratio, dh = img.height*ratio;
+            pg.drawImage(img, { x:(PW-dw)/2, y:curY-dh-20, width:dw, height:dh });
           });
         });
       });
       return chain;
     });
-  });
-}
-function addFooters(d, doc, no){
-  var P = PDFLib;
-  return doc.embedFont(P.StandardFonts.Helvetica).then(function(font){
-    var pages = doc.getPages();
-    pages.forEach(function(p, idx){
-      p.drawText("GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD", { x:ML, y:24, size:6.5, font:font, color:P.rgb(0.45,0.5,0.58) });
-      var t2 = "coldpackpro.com  |  " + no + "  |  Page " + (idx+1) + " / " + pages.length;
-      var w2 = font.widthOfTextAtSize(t2, 6.5);
-      p.drawText(t2, { x:WD - MR - w2, y:24, size:6.5, font:font, color:P.rgb(0.45,0.5,0.58) });
-    });
-  });
-}
+  }
 
-/* ================= GENERATE PDF ================= */
-var pdfBlobUrl = null;
-function setStatus(msg, ok){
-  var el = $("genMsg");
-  el.textContent = msg;
-  el.className = "mt-3 text-sm " + (ok ? "font-semibold text-emerald-600" : "text-slate-500");
-}
-$("btnGen").addEventListener("click", function(){
-  var form = getForm(true);
-  if(!form){ return; }
-  var no = issueMeta();
-  setStatus("Generating your Proforma Invoice...", true);
-  var ship = { pack:"", shipMark:$("fShipMark").value.trim(), deliv:$("fDeliv").value.trim() };
-  var remarks = $("fRemarks").value.trim();
-  var b = form.buyer;
-  var btn = $("btnGen");
-  btn.disabled = true;
-  pdfLib().then(function(P){
-    return buildPdf(P, form.rows, ship, remarks).then(function(doc){
-      var pagesArr = doc.getPages();
-      return embedImages(P, doc, pagesArr, form.rows).then(function(){ return addFooters(P, doc, no); }).then(function(){ return doc.save(); });
-    }).then(function(bytes){
-      var blob = new Blob([bytes], {type:"application/pdf"});
-      if(pdfBlobUrl){ URL.revokeObjectURL(pdfBlobUrl); }
-      pdfBlobUrl = URL.createObjectURL(blob);
-      $("pdfFrame").src = pdfBlobUrl;
-      $("btnDl").onclick = function(){
-        var a = document.createElement("a");
-        a.href = pdfBlobUrl;
-        a.download = "ColdPackPro-" + no + ".pdf";
-        document.body.appendChild(a); a.click(); a.remove();
-      };
-      $("previewWrap").classList.remove("hidden");
-      $("previewWrap").scrollIntoView({behavior:"smooth", block:"start"});
-      setStatus("Ready! Preview above - download your PDF or send it by email.", true);
+  function watermarkPages(){
+    pages.forEach(function(pg){
+      var t = 'coldpackpro.com';
+      var size = Math.max(11, Math.min(PW,PH)*0.032);
+      var w = F2.widthOfTextAtSize(t, size);
+      pg.drawText(t, { x:(PW-w)/2, y:PH*0.52, size:size, font:F2,
+        color:P.rgb(0.35,0.4,0.5), opacity:0.12, rotate:P.degrees(-30) });
+      pg.drawText('GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD  |  coldpackpro.com  |  Licensed to ' + buyer().email + '  |  ' + fmtDate(d0),
+        { x:24, y:22, size:6.5, font:F1, color:P.rgb(0.4,0.45,0.52), opacity:0.85 });
     });
-  }).catch(function(e){
-    setStatus("PDF generation failed: " + (e && e.message ? e.message : e) + " - please try again.", false);
-  }).then(function(){ btn.disabled = false; });
-});
+  }
 
-/* ================= EMAIL (PLAN B - text only) ================= */
-function buildEmailText(form, no){
-  var b = form.buyer, rows = form.rows;
-  var L = [];
-  L.push("PROFORMA INVOICE REQUEST - submitted via coldpackpro.com");
-  L.push("Invoice No.: " + no);
-  L.push("Issue Date: " + todayStr());
-  L.push("");
-  L.push("--- BUYER ---");
-  L.push("Company: " + b.company);
-  L.push("Address: " + b.address);
-  L.push("Attn: " + b.attn);
-  L.push("Email: " + b.email);
-  if(b.tel){ L.push("Tel: " + b.tel); }
-  if(b.contact){ L.push("Contact: " + b.contact); }
-  L.push("");
-  L.push("--- PRODUCTS ---");
-  var i = 0;
-  rows.forEach(function(r){
-    i++;
-    L.push(i + ". " + r.name + (r.model ? "  [Model: " + r.model + "]" : ""));
-    L.push("   Spec: " + r.spec);
-    L.push("   Unit Price: " + r.priceText + " USD   Qty: " + r.qty + " " + r.unit + "   Total: " + (r.total===null?"TBD":fmtUSD(r.total)) + " USD");
-  });
-  L.push("");
-  L.push("Total Quantity: " + rows.reduce(function(s,r){return s+(r.qty>0?r.qty:0);},0) + "  (unit price blank = awaiting your quote)");
-  L.push("");
-  L.push("--- TERMS ON PI ---");
-  L.push("Package: " + DEF_PACK);
-  L.push("Shipping Mark: " + ($("fShipMark").value.trim() || "TBA by buyer"));
-  L.push("Delivery Address: " + ($("fDeliv").value.trim() || b.address));
-  L.push("Certification: " + DEF_CERT);
-  L.push("Lead Time: " + DEF_LEAD);
-  L.push("Payment Terms: " + DEF_PAY);
-  L.push("");
-  L.push("Banking: " + BANK.join(" | "));
-  L.push("");
-  var rem = $("fRemarks").value.trim();
-  if(rem){ L.push("--- REMARKS ---"); L.push(rem); L.push(""); }
-  var withImg = rows.filter(function(r){ return r.el && r.el._file; }).length;
-  L.push(withImg ? ("Note: buyer attached " + withImg + " product photo(s) to the generated PI PDF - available on request.") : "Note: no product images attached in this request.");
-  L.push("");
-  L.push("Request generated: " + new Date().toLocaleString("en-GB"));
-  return L.join("\n");
-}
-function openMail(){
-  var form = getForm(true);
-  if(!form){ return; }
-  var no = issueMeta();
-  var mailMsg = $("mailMsg");
-  mailMsg.textContent = "";
-  $("mailReply").value = form.buyer.email;
-  $("mailCc").value = "";
-  $("mailMsg").className = "mt-3 text-sm font-semibold";
-  mailModalData = { form:form, no:no };
-  $("mailModal").classList.remove("hidden");
-  $("mailModal").classList.add("flex");
-}
-var mailModalData = null;
-$("btnMail").addEventListener("click", openMail);
-$("btnMailCancel").addEventListener("click", function(){
-  $("mailModal").classList.add("hidden");
-  $("mailModal").classList.remove("flex");
-});
-function closeMail(){ $("btnMailCancel").click(); }
-$("btnMailSend").addEventListener("click", function(){
-  if(!mailModalData){ return; }
-  var reply = $("mailReply").value.trim();
-  var cc = $("mailCc").value.trim();
-  var msgEl = $("mailMsg");
-  if(!emailOk(reply)){ msgEl.textContent = "Please enter a valid reply email."; msgEl.className = "mt-3 text-sm font-semibold text-red-600"; return; }
-  if(cc && !emailOk(cc)){ msgEl.textContent = "The CC email address is not valid."; msgEl.className = "mt-3 text-sm font-semibold text-red-600"; return; }
-  var form = mailModalData.form;
-  var body = buildEmailText(form, mailModalData.no);
-  var btn = $("btnMailSend");
-  btn.disabled = true;
-  msgEl.textContent = "Sending...";
-  msgEl.className = "mt-3 text-sm font-semibold text-slate-500";
-  var payload = {
-    access_key: ACCESS_KEY,
-    subject: "PI Request " + mailModalData.no + " - " + form.buyer.company,
-    from_name: form.buyer.company + " (" + form.buyer.attn + ")",
-    email: reply,
-    message: body + "\n\n(Reply copy requested to: " + (cc || "none") + ")"
-  };
-  fetch("https://api.web3forms.com/submit", {
-    method:"POST",
-    headers:{ "Content-Type":"application/json", "Accept":"application/json" },
-    body: JSON.stringify(payload)
-  }).then(function(res){ return res.json(); }).then(function(data){
-    if(data && data.success){
-      msgEl.textContent = "Sent! Thank you - we will reply to " + reply + " shortly." + (cc ? " CC: " + cc + "." : "");
-      msgEl.className = "mt-3 text-sm font-semibold text-emerald-600";
-      setTimeout(closeMail, 3200);
-    } else {
-      msgEl.textContent = "Sending failed. Please try again, or email us directly at info@coldpackpro.com.";
-      msgEl.className = "mt-3 text-sm font-semibold text-red-600";
+  function showPdf(bytes){
+    var blob = new Blob([bytes], { type:'application/pdf' });
+    var url = URL.createObjectURL(blob);
+    $('dlLink').href = url;
+    $('dlLink').setAttribute('download', invNo + '.pdf');
+    $('openLink').href = url;
+    $('pdfFrame').src = url;
+    $('pdfArea').classList.remove('hidden');
+  }
+
+  function generatePdf(){
+    if(!validate()) return;
+    setMsg('Building your PDF, a few seconds...');
+    try{
+      P = window.PDFLib;
+      doc = null; pages = [];
+      P.PDFDocument.create().then(function(d){
+        doc = d;
+        return d.embedFont(P.StandardFonts.Helvetica).then(function(f1){
+          return d.embedFont(P.StandardFonts.HelveticaBold).then(function(f2){
+            F1 = f1; F2 = f2;
+            var b = buyer();
+            var rows = getRows();
+            var extras = { mark:$('sMark').value.trim(), delivery:$('sAddr').value.trim(), remarks:$('sRemarks').value.trim() };
+            buildPages(b, rows, extras);
+            return embedImages(rows).then(function(){ watermarkPages(); return d.save(); });
+          });
+        });
+      }).then(function(bytes){
+        showPdf(bytes);
+        setMsg('✓ PDF ready. Check the preview, then click Download. Your copy is watermarked with coldpackpro.com.');
+      }).catch(function(err){
+        console.error(err);
+        setMsg('PDF generation failed: ' + (err && err.message ? err.message : err) + ' - please try again.', true);
+      });
+    }catch(e){
+      setMsg('PDF generation failed: ' + e.message + ' - please try again.', true);
     }
-  }).catch(function(){
-    msgEl.textContent = "Network error. Please try again, or email us directly at info@coldpackpro.com.";
-    msgEl.className = "mt-3 text-sm font-semibold text-red-600";
-  }).then(function(){ btn.disabled = false; });
-});
+  }
+  $('genBtn').addEventListener('click', generatePdf);
+
+  /* ---------- email (Web3Forms text plan) ---------- */
+  function buildText(b, rows, extras){
+    var L = [];
+    L.push('=== NEW PI REQUEST FROM WEBSITE ===');
+    L.push('Invoice No.: ' + invNo);
+    L.push('Issue Date: ' + fmtDate(d0));
+    L.push('');
+    L.push('--- SELLER ---');
+    L.push('GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD');
+    L.push('Unit 101, No.4, Lane 4, South of Dening Road, Caohe, Qiaonan Street, Panyu District, Guangzhou, China');
+    L.push('Web: https://coldpackpro.com  |  Tel: +86-20-39211361  |  Email: info@coldpackpro.com');
+    L.push('Atten: Mr. K. Yang  |  WhatsApp/WeChat: +86 13925109703');
+    L.push('');
+    L.push('--- BUYER ---');
+    L.push('Company: ' + b.company);
+    L.push('Address: ' + b.address);
+    L.push('Attention: ' + b.attn);
+    L.push('Email: ' + b.email);
+    if(b.tel) L.push('Tel: ' + b.tel);
+    L.push('Preferred Contact: ' + b.contact);
+    if(extras.mark) L.push('Shipping Mark: ' + extras.mark);
+    if(extras.delivery) L.push('Delivery Address: ' + extras.delivery);
+    L.push('');
+    L.push('--- ITEMS ---');
+    var tAmt = 0, tQty = 0;
+    rows.forEach(function(r, i){
+      var total = (r.price!=null && r.qty>0) ? r.price*r.qty : null;
+      if(r.qty>0) tQty += r.qty;
+      if(total!=null) tAmt += total;
+      L.push((i+1) + '. ' + r.name + (r.model ? '  (Model: ' + r.model + ')' : ''));
+      L.push('   Spec: ' + r.spec);
+      L.push('   Qty: ' + r.qty + ' ' + r.unit + '  |  Unit Price: ' + (r.price!=null ? r.price.toFixed(2)+' USD' : 'TBD (awaiting quote)') + '  |  Total: ' + (total!=null ? money(total) : '—'));
+      if(r.file) L.push('   [Product image uploaded - ' + r.file.name + ', ' + Math.round(r.file.size/1024) + ' KB]');
+    });
+    L.push('');
+    L.push('Total Qty: ' + tQty);
+    L.push('Total Amount: ' + money(tAmt) + ' (USD)');
+    L.push('');
+    L.push('--- STANDARD TERMS ---');
+    L.push('Package: 5-layer corrugated export cartons');
+    L.push('Certification: ISO 9001, SDS, Non-Dangerous Goods Transport Certificate (sea/air)');
+    L.push('Lead Time: In-stock 7-10 days; customized 15-45 days');
+    L.push('Payment: T/T 30% deposit, balance before shipment');
+    L.push('Bank: Beneficiary GuangZhou QTOP Cold Chain Sciences Co., Ltd | China Minsheng Banking Corp. Ltd Guangzhou Branch | Swift MSBCCNBJ003 | Account 69524 1665');
+    L.push('');
+    L.push('--- REMARKS ---');
+    L.push(extras.remarks ? extras.remarks : '—');
+    L.push('');
+    L.push('Sent from coldpackpro.com online PI request. Free plan: text only, no attachments. Product image count: ' + rows.filter(function(r){return r.file;}).length);
+    return L.join('\n');
+  }
+
+  $('emailBtn').addEventListener('click', function(){
+    if(!validate()) return;
+    $('replyEmail').value = $('bEmail').value.trim();
+    $('ccEmail').value = '';
+    $('modalMsg').classList.add('hidden');
+    $('confirmBtn').disabled = false;
+    $('modal').classList.remove('hidden');
+    $('modal').classList.add('flex');
+  });
+  $('cancelBtn').addEventListener('click', function(){
+    $('modal').classList.add('hidden');
+    $('modal').classList.remove('flex');
+  });
+  $('confirmBtn').addEventListener('click', function(){
+    var reply = $('replyEmail').value.trim();
+    var cc = $('ccEmail').value.trim();
+    if(!emailRe.test(reply)){ $('modalMsg').textContent = 'Please enter a valid reply email.'; $('modalMsg').className = 'mt-3 text-center text-sm font-semibold text-red-600'; $('modalMsg').classList.remove('hidden'); return; }
+    var b = buyer();
+    var rows = getRows();
+    var extras = { mark:$('sMark').value.trim(), delivery:$('sAddr').value.trim(), remarks:$('sRemarks').value.trim() };
+    var full = buildText(b, rows, extras);
+    $('confirmBtn').disabled = true;
+    $('modalMsg').textContent = 'Sending...';
+    $('modalMsg').className = 'mt-3 text-center text-sm font-semibold text-slate-500';
+    $('modalMsg').classList.remove('hidden');
+    var payload = {
+      access_key: ACCESS_KEY,
+      email: b.email,
+      subject: 'PI Request ' + invNo + ' from ' + b.company,
+      message: full,
+      _replyto: reply,
+      'CC_Requested': cc || 'none',
+      'Company': b.company,
+      'Invoice_No': invNo
+    };
+    fetch('https://api.web3forms.com/submit', {
+      method:'POST',
+      headers:{ 'Content-Type':'application/json', 'Accept':'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function(r){ return r.json(); }).then(function(j){
+      if(j && j.success){
+        $('modalMsg').textContent = '✓ Sent! We will reply to ' + reply + (cc ? ' (CC: ' + cc + ')' : '') + '.';
+        $('modalMsg').className = 'mt-3 text-center text-sm font-semibold text-green-600';
+        try{ localStorage.setItem('cp_pi_seq', String(seq+1)); }catch(e){}
+      } else {
+        $('modalMsg').textContent = 'Send failed (' + (j && j.message ? j.message : 'network error') + '). Please try again or email us directly.';
+        $('modalMsg').className = 'mt-3 text-center text-sm font-semibold text-red-600';
+        $('confirmBtn').disabled = false;
+      }
+    }).catch(function(err){
+      $('modalMsg').textContent = 'Network error - please try again or email info@coldpackpro.com directly.';
+      $('modalMsg').className = 'mt-3 text-center text-sm font-semibold text-red-600';
+      $('confirmBtn').disabled = false;
+    });
+  });
+
+  /* init */
+  addRow();
+  addRow();
 })();
 </script>
 </body>
