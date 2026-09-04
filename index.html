@@ -655,7 +655,7 @@ window.console = new Proxy(console, {
   }
 
     function stampAndOffer(doc, email){
-    var brandText = 'www.coldpackpro.com';
+    var brandText = 'coldpackpro.com';
     var footText = 'ColdPackPro - Cold Chain Packaging & Ice Pack Factory  |  Licensed to ' + email + '  |  ' + new Date().toLocaleString('en-GB');
     return doc.embedFont(PDFLib.StandardFonts.HelveticaBold).then(function(font){
       var pages = doc.getPages();
