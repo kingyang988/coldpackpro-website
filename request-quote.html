@@ -685,10 +685,12 @@
     /* All other dashed separators stay removed so that converting the PDF to Word
        does not leave unwanted dashed grid cells outside the item list. */
   }
-  /* light dashed rule — used ONLY inside the item list to visually separate products */
+  /* dashed rule — used ONLY inside the ITEM LIST to visually separate each product row
+     (also under the column header). All other sections keep no dashed/solid separators,
+     so converting the PDF to Word does not create unwanted grid cells outside the item list. */
   function drawDashRule(pg, x1, x2, y){
     try{
-      pg.drawLine({ start:{x:x1, y:y}, end:{x:x2, y:y}, thickness:0.7, color:lg, dashArray:[4,3] });
+      pg.drawLine({ start:{x:x1, y:y}, end:{x:x2, y:y}, thickness:0.9, color:P.rgb(0.40,0.45,0.54), dashArray:[3,3] });
     }catch(e4){}
   }
   function drawC(pg, txt, cx, y, size, font, color){
