@@ -151,6 +151,11 @@
           <label class="label" for="sRemarks">Remarks / special requirements</label>
           <textarea id="sRemarks" rows="3" class="field" placeholder="Any special requirements, target price, destination port, etc."></textarea>
         </div>
+        <div class="sm:col-span-2">
+          <label class="label" for="sShip">Shipping &amp; Other Charges (USD) <span class="normal-case font-medium text-slate-400">— optional</span></label>
+          <input id="sShip" type="number" min="0" step="0.01" class="field" placeholder="e.g. 35.00 for freight / handling">
+          <p class="mt-1 text-[11px] text-slate-400">Appears in the total section of your PI (freight, handling, etc.).</p>
+        </div>
       </div>
 
       <div class="mt-5 rounded-2xl border border-blue-200 bg-blue-50/60 p-4">
@@ -212,6 +217,7 @@
         <div class="flex justify-between"><dt class="text-slate-500">Total Qty</dt><dd id="sumQty" class="font-semibold">0</dd></div>
         <div class="flex justify-between"><dt class="text-slate-500">Subtotal (USD)</dt><dd id="sumSub" class="font-semibold">$0.00</dd></div>
         <div id="sumFeeWrap" class="hidden justify-between"><dt class="text-slate-500">PayPal Fee (4.4% + $0.30)</dt><dd id="sumFee" class="font-semibold text-slate-600">$0.00</dd></div>
+        <div id="sumShipWrap" class="hidden justify-between"><dt class="text-slate-500">Shipping &amp; Other Charges (USD)</dt><dd id="sumShip" class="font-semibold text-slate-600">$0.00</dd></div>
         <div class="flex justify-between border-t border-slate-200 pt-2"><dt class="font-semibold text-slate-700">Est. Total (USD)</dt><dd id="sumAmt" class="font-bold text-blue-700">$0.00</dd></div>
       </dl>
       <p id="sumPayNote" class="mt-2 hidden text-[11px] leading-4 text-slate-400">PayPal: paypal.me/kingyang988 · small/sample orders · fee (4.4% + $0.30) added automatically once prices are filled in.</p>
@@ -436,6 +442,8 @@
     if(b){ var wrap = rowsWrap.querySelectorAll('.rounded-2xl'); if(wrap.length<=1){ setMsg('Keep at least one product row.'); return; } b.closest('[data-i]').remove(); recalc(); }
   });
   rowsWrap.addEventListener('input', recalc);
+  var sShipEl = $('sShip');
+  if(sShipEl){ sShipEl.addEventListener('input', recalc); }
   ['bCompany','bAddress','bAttn','bEmail','bTel'].forEach(function(id){ markReq($(id)); });
 
   function getRows(){
@@ -467,11 +475,10 @@
   function paypalFee(amt){ if(!isFinite(amt) || amt <= 0) return 0; return amt * 0.044 + 0.30; }
   function renderPayCard(){
     var isP = payMethod() === 'paypal';
-    $('payCardTitle').textContent = isP ? 'Payment Information (PayPal)' : 'Banking Information';
+    $('payCardTitle').textContent = isP ? 'Payment Information' : 'Banking Information';
     $('payCardBody').innerHTML = isP ?
-      '<b>PayPal (personal, small / sample orders):</b> paypal.me/kingyang988<br>' +
-      '<b>Accept:</b> credit card or PayPal balance (balance saves the most fee)<br>' +
-      '<b>Fee:</b> 4.4% + USD 0.30 per transaction' :
+      '<b>PayPal Account:</b> paypal.me/kingyang988<br>' +
+      '(PayPal fee 4.4% + USD 0.30 per transaction is added to the total.)' :
       '<b>Beneficiary:</b> GuangZhou QTOP Cold Chain Sciences Co., Ltd<br>' +
       '<b>Bank:</b> China Minsheng Banking Corp. Ltd, Guangzhou Branch<br>' +
       '<b>Address:</b> Minsheng Building, No.68 Liede Avenue, Guangzhou<br>' +
@@ -498,14 +505,18 @@
     });
     var isP = payMethod() === 'paypal';
     var fee = isP ? paypalFee(tAmt) : 0;
+    var shipV = parseFloat($('sShip').value); if(!isFinite(shipV) || shipV < 0) shipV = 0;
     $('sumItems').textContent = rows.length;
     $('sumQty').textContent = tQty;
     $('sumSub').textContent = money(tAmt);
     $('sumFee').textContent = money(fee);
     $('sumFeeWrap').classList.toggle('hidden', fee <= 0);
     $('sumFeeWrap').classList.toggle('flex', fee > 0);
+    $('sumShip').textContent = money(shipV);
+    $('sumShipWrap').classList.toggle('hidden', shipV <= 0);
+    $('sumShipWrap').classList.toggle('flex', shipV > 0);
     $('sumPayNote').classList.toggle('hidden', !isP);
-    $('sumAmt').textContent = money(tAmt + fee);
+    $('sumAmt').textContent = money(tAmt + fee + shipV);
   }
 
   /* ---------- validation ---------- */
@@ -866,28 +877,44 @@
       curY -= 5;
     });
 
-    /* ---- totals ---- */
+    /* ---- totals: subtotal / paypal fee / shipping & other / total due ---- */
     var tAmt = 0, tQty = 0;
     rows.forEach(function(r){
       if(r.qty > 0) tQty += r.qty;
       if(r.price != null && r.qty > 0) tAmt += r.price * r.qty;
     });
     curY -= 13;
-    ensureRow(54);
-    var pg3 = pages[pages.length - 1];
+    var unitLbl = (rows[0] && rows[0].unit) ? rows[0].unit + 's' : 'pcs';
     var isPay = payMethod() === 'paypal';
     var payFee = isPay ? paypalFee(tAmt) : 0;
-    var amtDue = tAmt + payFee;
-    draw(pg3, 'Total Quantity:  ' + tQty + '  (' + (rows[0] && rows[0].unit ? rows[0].unit + 's' : 'pcs') + ')', ML, curY, 9.5, F2, dk);
-    drawRight(pg3, 'Total Amount (USD):  ' + money(amtDue), PW-ML, curY, 11, F2, blue);
-    curY -= 12;
-    if(payFee > 0){
-      drawRight(pg3, 'incl. PayPal fee (4.4% + USD 0.30): ' + money(payFee), PW-ML, curY, 7, F1, g);
-      curY -= 8.5;
-    }
-    curY -= 3;
+    var shipV = parseFloat(extras.ship); if(!isFinite(shipV) || shipV < 0) shipV = 0;
+    var amtDue = tAmt + payFee + shipV;
+    var tRows = [
+      { l:'Total Quantity:  ' + tQty + '  (' + unitLbl + ')', v:null, big:true },
+      { l:'Subtotal (USD)', v:money(tAmt), big:false },
+    ];
+    if(payFee > 0){ tRows.push({ l:'PayPal Fee (4.4% + USD 0.30)', v:money(payFee), big:false }); }
+    if(shipV > 0){ tRows.push({ l:'Shipping & Other Charges (USD)', v:money(shipV), big:false }); }
+    tRows.push({ l:'Total Amount (USD)', v:money(amtDue), big:false, fin:true });
+    var stepT = 12.5;
+    var blockH = tRows.length * stepT + 16;
+    ensureRow(blockH + 40);
+    var pg3 = pages[pages.length - 1];
+    tRows.forEach(function(rw){
+      if(rw.l.indexOf('Total Quantity:') === 0){
+        draw(pg3, rw.l, ML, curY, 9.5, F2, dk);
+      } else if(rw.fin){
+        draw(pg3, rw.l, ML, curY, 8.5, F2, dk);
+        drawRight(pg3, rw.v, PW-ML, curY, 11, F2, blue);
+      } else {
+        draw(pg3, rw.l, ML, curY, 8.5, F1, g);
+        drawRight(pg3, rw.v, PW-ML, curY, 9, F1, dk);
+      }
+      curY -= stepT;
+    });
+    curY -= 8;
     drawHline(pg3, ML, PW-ML, curY);
-    curY -= 19;
+    curY -= 14;
 
     /* ---- terms ---- */
     ensureRow(60);
@@ -914,12 +941,10 @@
     /* ---- bank ---- */
     ensureRow(70);
     var pg5 = pages[pages.length - 1];
-    draw(pg5, payMethod() === 'paypal' ? 'PAYMENT INFORMATION (PAYPAL)' : 'BANKING INFORMATION', ML, curY, 9, F2, blue); curY -= 13;
+    draw(pg5, payMethod() === 'paypal' ? 'PAYMENT INFORMATION' : 'BANKING INFORMATION', ML, curY, 9, F2, blue); curY -= 13;
     var bankLines = (payMethod() === 'paypal') ? [
-      'PayPal (personal account - for small / sample orders):',
-      'paypal.me/kingyang988',
-      'Accepts credit card or PayPal balance (balance saves the most fee).',
-      'PayPal fee 4.4% + USD 0.30 per transaction is added to the total.'
+      'PayPal Account:  paypal.me/kingyang988',
+      '(PayPal fee 4.4% + USD 0.30 per transaction is added to the total.)'
     ] : [
       'Beneficiary:  GuangZhou QTOP Cold Chain Sciences Co., Ltd',
       'Bank:  China Minsheng Banking Corp. Ltd, Guangzhou Branch',
@@ -1046,7 +1071,7 @@
       }).then(function(){
         var b = buyer();
         var rows = getRows();
-        var extras = { mark:$('sMark').value.trim(), delivery:$('sAddr').value.trim(), remarks:$('sRemarks').value.trim() };
+        var extras = { mark:$('sMark').value.trim(), delivery:$('sAddr').value.trim(), remarks:$('sRemarks').value.trim(), ship:$('sShip').value.trim() };
         return embedImages(rows).then(function(embeds){
           buildPages(b, rows, extras, embeds || []);
           return doc.save();
@@ -1099,10 +1124,14 @@
       if(r.file) L.push('   [Product image uploaded - ' + r.file.name + ', ' + Math.round(r.file.size/1024) + ' KB]');
     });
     L.push('');
+    var shipV = parseFloat(extras.ship); if(!isFinite(shipV) || shipV < 0) shipV = 0;
     L.push('Total Qty: ' + tQty);
     var isPm = payMethod() === 'paypal';
     var pmFee = isPm ? paypalFee(tAmt) : 0;
-    L.push('Total Amount: ' + money(tAmt) + ' (USD)' + (pmFee > 0 ? '  + PayPal fee ' + money(pmFee) + ' = TOTAL ' + money(tAmt + pmFee) + ' (USD)' : ''));
+    L.push('Subtotal (USD): ' + money(tAmt));
+    if(pmFee > 0) L.push('PayPal Fee (4.4% + USD 0.30): ' + money(pmFee) + ' (USD)');
+    if(shipV > 0) L.push('Shipping & Other Charges: ' + money(shipV) + ' (USD)');
+    L.push('TOTAL DUE (USD): ' + money(tAmt + pmFee + shipV));
     L.push('');
     L.push('--- TERMS & CONDITIONS ---');
     if(extras.mark) L.push('Shipping Mark: ' + extras.mark);
@@ -1114,8 +1143,8 @@
     L.push('Validity: This proforma invoice is valid for 30 days from the issue date');
     if(payMethod() === 'paypal'){
       L.push('Payment Method: PayPal (personal) - small / sample order');
-      L.push('PayPal Account: paypal.me/kingyang988 (accepts credit card or PayPal balance; balance saves the most fee)');
-      L.push('PayPal fee: 4.4% + USD 0.30 per transaction');
+      L.push('PayPal Account: paypal.me/kingyang988');
+      L.push('PayPal fee: 4.4% + USD 0.30 per transaction (added to the total)');
     } else {
       L.push('Bank: Beneficiary GuangZhou QTOP Cold Chain Sciences Co., Ltd | China Minsheng Banking Corp. Ltd Guangzhou Branch');
       L.push('Swift Code: MSBCCNBJ003 | Account No.: 69524 1665');
@@ -1147,7 +1176,7 @@
     if(!emailRe.test(reply)){ $('modalMsg').textContent = 'Please enter a valid reply email.'; $('modalMsg').className = 'mt-3 text-center text-sm font-semibold text-red-600'; $('modalMsg').classList.remove('hidden'); return; }
     var b = buyer();
     var rows = getRows();
-    var extras = { mark:$('sMark').value.trim(), delivery:$('sAddr').value.trim(), remarks:$('sRemarks').value.trim() };
+    var extras = { mark:$('sMark').value.trim(), delivery:$('sAddr').value.trim(), remarks:$('sRemarks').value.trim(), ship:$('sShip').value.trim() };
     var full = buildText(b, rows, extras);
     $('confirmBtn').disabled = true;
     $('modalMsg').textContent = 'Sending...';
