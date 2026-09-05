@@ -227,8 +227,8 @@
         <div class="flex justify-between"><dt class="text-slate-500">Items</dt><dd id="sumItems" class="font-semibold">0</dd></div>
         <div class="flex justify-between"><dt class="text-slate-500">Total Qty</dt><dd id="sumQty" class="font-semibold">0</dd></div>
         <div class="flex justify-between"><dt class="text-slate-500">Subtotal (USD)</dt><dd id="sumSub" class="font-semibold">$0.00</dd></div>
-        <div id="sumFeeWrap" class="hidden justify-between"><dt class="text-slate-500">PayPal Fee</dt><dd id="sumFee" class="font-semibold text-slate-600">$0.00</dd></div>
         <div id="sumShipWrap" class="hidden justify-between"><dt class="text-slate-500">Shipping &amp; Other Charges (USD)</dt><dd id="sumShip" class="font-semibold text-slate-600">$0.00</dd></div>
+        <div id="sumFeeWrap" class="hidden justify-between"><dt class="text-slate-500">PayPal Fee</dt><dd id="sumFee" class="font-semibold text-slate-600">$0.00</dd></div>
         <div class="flex justify-between border-t border-slate-200 pt-2"><dt class="font-semibold text-slate-700">Est. Total (USD)</dt><dd id="sumAmt" class="font-bold text-blue-700">$0.00</dd></div>
       </dl>
       <p id="sumPayNote" class="mt-2 hidden text-[11px] leading-4 text-slate-400">PayPal: paypal.me/kingyang988 · small/sample orders · fee (4.4% + $0.30) added automatically once prices are filled in.</p>
@@ -903,8 +903,8 @@
       { l:'Total Quantity:  ' + tQty + '  (' + unitLbl + ')', v:null, big:true },
       { l:'Subtotal (USD)', v:money(tAmt), big:false },
     ];
-    if(payFee > 0){ tRows.push({ l:'PayPal Fee', v:money(payFee), big:false }); }
     if(shipV > 0){ tRows.push({ l:'Shipping & Other Charges (USD)', v:money(shipV), big:false }); }
+    if(payFee > 0){ tRows.push({ l:'PayPal Fee', v:money(payFee), big:false }); }
     tRows.push({ l:'Total Amount (USD)', v:money(amtDue), big:false, fin:true });
     var stepT = 12.5;
     var blockH = tRows.length * stepT + 16;
