@@ -153,31 +153,24 @@
         </div>
       </div>
 
-      <div class="mt-5 rounded-2xl border border-slate-200 bg-slate-50/60 p-4">
-        <p class="text-xs font-bold uppercase tracking-wider text-slate-600">Terms &amp; Conditions — confirmed with our sales (optional)</p>
-        <p class="mt-1 text-[11px] leading-4 text-slate-400">Each clause below is pre-ticked with our standard wording and will appear in the PI. Untick one to leave it out of the PI, or edit the wording when different terms have been agreed with our sales team.</p>
+      <div class="mt-5 rounded-2xl border border-blue-200 bg-blue-50/60 p-4">
+        <p class="text-xs font-bold uppercase tracking-wider text-blue-800">Payment Method — for this order</p>
+        
         <div class="mt-3 space-y-2">
-          <div class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-2">
-            <input type="checkbox" id="tPkg" checked class="termChk mt-1 h-4 w-4 shrink-0 accent-blue-700">
-            <div class="flex-1">
-              <label for="tPkg" class="block text-[11px] font-bold uppercase tracking-wide text-slate-500">Package</label>
-              <input id="tPkgTxt" class="field mt-1" value="5-layer corrugated export cartons (standard export packing)">
-            </div>
-          </div>
-          <div class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-2">
-            <input type="checkbox" id="tLT" checked class="termChk mt-1 h-4 w-4 shrink-0 accent-blue-700">
-            <div class="flex-1">
-              <label for="tLT" class="block text-[11px] font-bold uppercase tracking-wide text-slate-500">Lead Time</label>
-              <input id="tLTTxt" class="field mt-1" value="In-stock products 7-10 days; customized production 15-45 days depending on style &amp; quantity">
-            </div>
-          </div>
-          <div class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-2">
-            <input type="checkbox" id="tPay" checked class="termChk mt-1 h-4 w-4 shrink-0 accent-blue-700">
-            <div class="flex-1">
-              <label for="tPay" class="block text-[11px] font-bold uppercase tracking-wide text-slate-500">Payment Terms</label>
-              <input id="tPayTxt" class="field mt-1" value="T/T 30% deposit; balance to be paid before shipment">
-            </div>
-          </div>
+          <label class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-2.5 cursor-pointer has-[:checked]:border-blue-600 has-[:checked]:ring-1 has-[:checked]:ring-blue-600">
+            <input type="radio" name="payMethod" id="payBank" value="bank" checked class="mt-0.5 h-4 w-4 shrink-0 accent-blue-700">
+            <span class="flex-1">
+              <span class="block text-sm font-semibold text-slate-800">Bank Transfer (T/T) — for regular / large orders</span>
+              <span class="mt-0.5 block text-[11px] leading-4 text-slate-500">For bulk / production orders — the regular payment method.</span>
+            </span>
+          </label>
+          <label class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-2.5 cursor-pointer has-[:checked]:border-blue-600 has-[:checked]:ring-1 has-[:checked]:ring-blue-600">
+            <input type="radio" name="payMethod" id="payPaypal" value="paypal" class="mt-0.5 h-4 w-4 shrink-0 accent-blue-700">
+            <span class="flex-1">
+              <span class="block text-sm font-semibold text-slate-800">PayPal (personal) — for small / sample orders</span>
+              <span class="mt-0.5 block text-[11px] leading-4 text-slate-500">For small remittances / sample orders only. PayPal account: <b>paypal.me/kingyang988</b> — accepts credit card or your own PayPal balance. A fee of <b>4.4% + USD 0.30 per transaction</b> is added to the total.</span>
+            </span>
+          </label>
         </div>
       </div>
     </section>
@@ -217,8 +210,11 @@
         <div class="flex justify-between"><dt class="text-slate-500">Issue Date</dt><dd id="piDate" class="font-semibold">-</dd></div>
         <div class="flex justify-between"><dt class="text-slate-500">Items</dt><dd id="sumItems" class="font-semibold">0</dd></div>
         <div class="flex justify-between"><dt class="text-slate-500">Total Qty</dt><dd id="sumQty" class="font-semibold">0</dd></div>
+        <div class="flex justify-between"><dt class="text-slate-500">Subtotal (USD)</dt><dd id="sumSub" class="font-semibold">$0.00</dd></div>
+        <div id="sumFeeWrap" class="hidden justify-between"><dt class="text-slate-500">PayPal Fee (4.4% + $0.30)</dt><dd id="sumFee" class="font-semibold text-slate-600">$0.00</dd></div>
         <div class="flex justify-between border-t border-slate-200 pt-2"><dt class="font-semibold text-slate-700">Est. Total (USD)</dt><dd id="sumAmt" class="font-bold text-blue-700">$0.00</dd></div>
       </dl>
+      <p id="sumPayNote" class="mt-2 hidden text-[11px] leading-4 text-slate-400">PayPal: paypal.me/kingyang988 · small/sample orders · fee (4.4% + $0.30) added automatically once prices are filled in.</p>
     </div>
 
     <div class="cardbg p-5">
@@ -234,13 +230,13 @@
         <li><b>Package:</b> 5-layer corrugated export cartons</li>
         <li><b>Certification:</b> ISO 9001, SDS, Non-Dangerous Goods Transport Certificate (suitable for sea / air)</li>
         <li><b>Lead Time:</b> In-stock 7–10 days; customized 15–45 days by qty &amp; type</li>
-        <li><b>Payment:</b> T/T 30% deposit, balance before shipment</li>
+        <li id="stdPayLi"><b>Payment:</b> T/T 30% deposit, balance before shipment</li>
       </ul>
     </div>
 
     <div class="cardbg p-5">
-      <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Banking Information</h3>
-      <p class="mt-2 text-xs leading-5 text-slate-600">
+      <h3 id="payCardTitle" class="text-xs font-bold uppercase tracking-wider text-slate-400">Banking Information</h3>
+      <p id="payCardBody" class="mt-2 text-xs leading-5 text-slate-600">
         <b>Beneficiary:</b> GuangZhou QTOP Cold Chain Sciences Co., Ltd<br>
         <b>Bank:</b> China Minsheng Banking Corp. Ltd, Guangzhou Branch<br>
         <b>Address:</b> Minsheng Building, No.68 Liede Avenue, Guangzhou<br>
@@ -465,6 +461,31 @@
     return out;
   }
 
+  var PAY_TXT_BANK = 'T/T 30% deposit; balance to be paid before shipment';
+  var PAY_TXT_PP = 'Payment via personal PayPal (small/sample orders) - 4.4% + USD 0.30 per-transaction fee applies';
+  function payMethod(){ var el = document.querySelector('input[name="payMethod"]:checked'); return el ? el.value : 'bank'; }
+  function paypalFee(amt){ if(!isFinite(amt) || amt <= 0) return 0; return amt * 0.044 + 0.30; }
+  function renderPayCard(){
+    var isP = payMethod() === 'paypal';
+    $('payCardTitle').textContent = isP ? 'Payment Information (PayPal)' : 'Banking Information';
+    $('payCardBody').innerHTML = isP ?
+      '<b>PayPal (personal, small / sample orders):</b> paypal.me/kingyang988<br>' +
+      '<b>Accept:</b> credit card or PayPal balance (balance saves the most fee)<br>' +
+      '<b>Fee:</b> 4.4% + USD 0.30 per transaction' :
+      '<b>Beneficiary:</b> GuangZhou QTOP Cold Chain Sciences Co., Ltd<br>' +
+      '<b>Bank:</b> China Minsheng Banking Corp. Ltd, Guangzhou Branch<br>' +
+      '<b>Address:</b> Minsheng Building, No.68 Liede Avenue, Guangzhou<br>' +
+      '<b>Swift:</b> MSBCCNBJ003<br>' +
+      '<b>Account:</b> 69524 1665';
+    $('stdPayLi').innerHTML = isP ?
+      '<b>Payment:</b> via personal PayPal (small/sample orders); 4.4% + USD 0.30 fee applies' :
+      '<b>Payment:</b> T/T 30% deposit, balance before shipment';
+    var pt = $('tPayTxt');
+    if(pt){
+      if(isP){ if(pt.value === PAY_TXT_BANK){ pt.value = PAY_TXT_PP; } }
+      else { if(pt.value === PAY_TXT_PP){ pt.value = PAY_TXT_BANK; } }
+    }
+  }
   function recalc(){
     var rows = getRows();
     var tQty = 0, tAmt = 0;
@@ -475,9 +496,16 @@
       tQty += (r.qty>0?r.qty:0);
       if(total!=null){ tAmt += total; }
     });
+    var isP = payMethod() === 'paypal';
+    var fee = isP ? paypalFee(tAmt) : 0;
     $('sumItems').textContent = rows.length;
     $('sumQty').textContent = tQty;
-    $('sumAmt').textContent = money(tAmt);
+    $('sumSub').textContent = money(tAmt);
+    $('sumFee').textContent = money(fee);
+    $('sumFeeWrap').classList.toggle('hidden', fee <= 0);
+    $('sumFeeWrap').classList.toggle('flex', fee > 0);
+    $('sumPayNote').classList.toggle('hidden', !isP);
+    $('sumAmt').textContent = money(tAmt + fee);
   }
 
   /* ---------- validation ---------- */
@@ -844,14 +872,22 @@
       if(r.qty > 0) tQty += r.qty;
       if(r.price != null && r.qty > 0) tAmt += r.price * r.qty;
     });
-    curY -= 6;
-    ensureRow(44);
-    var pg3 = pages[pages.length - 1];
-    draw(pg3, 'Total Quantity:  ' + tQty + '  (' + (rows[0] && rows[0].unit ? rows[0].unit + 's' : 'pcs') + ')', ML, curY, 9.5, F2, dk);
-    drawRight(pg3, 'Total Amount (USD):  ' + money(tAmt), PW-ML, curY, 11, F2, blue);
     curY -= 13;
+    ensureRow(54);
+    var pg3 = pages[pages.length - 1];
+    var isPay = payMethod() === 'paypal';
+    var payFee = isPay ? paypalFee(tAmt) : 0;
+    var amtDue = tAmt + payFee;
+    draw(pg3, 'Total Quantity:  ' + tQty + '  (' + (rows[0] && rows[0].unit ? rows[0].unit + 's' : 'pcs') + ')', ML, curY, 9.5, F2, dk);
+    drawRight(pg3, 'Total Amount (USD):  ' + money(amtDue), PW-ML, curY, 11, F2, blue);
+    curY -= 12;
+    if(payFee > 0){
+      drawRight(pg3, 'incl. PayPal fee (4.4% + USD 0.30): ' + money(payFee), PW-ML, curY, 7, F1, g);
+      curY -= 8.5;
+    }
+    curY -= 3;
     drawHline(pg3, ML, PW-ML, curY);
-    curY -= 26;
+    curY -= 19;
 
     /* ---- terms ---- */
     ensureRow(60);
@@ -860,10 +896,10 @@
     var terms = [];
     if(extras.mark) terms.push(['Shipping Mark:', extras.mark]);
     if(extras.delivery) terms.push(['Delivery Address:', extras.delivery]);
-    if(termOn('tPkg') && termVal('tPkgTxt')) terms.push(['Package:', termVal('tPkgTxt')]);
+    terms.push(['Package:', '5-layer corrugated export cartons (standard export packing)']);
     terms.push(['Certification:', 'ISO 9001, SDS, Non-Dangerous Goods Transport Certificate (suitable for sea/air)']);
-    if(termOn('tLT') && termVal('tLTTxt')) terms.push(['Lead Time:', termVal('tLTTxt')]);
-    if(termOn('tPay') && termVal('tPayTxt')) terms.push(['Payment Terms:', termVal('tPayTxt')]);
+    terms.push(['Lead Time:', 'In-stock products 7-10 days; customized production 15-45 days depending on style & quantity']);
+    terms.push(['Payment Terms:', payMethod() === 'paypal' ? 'Payment via personal PayPal (small/sample orders) - 4.4% + USD 0.30 per-transaction fee applies' : 'T/T 30% deposit; balance to be paid before shipment']);
     terms.push(['Validity:', 'This proforma invoice is valid for 30 days from the issue date']);
     terms.forEach(function(t){
       var ls = wrapText(t[1], F1, 8, CW - 95);
@@ -878,14 +914,20 @@
     /* ---- bank ---- */
     ensureRow(70);
     var pg5 = pages[pages.length - 1];
-    draw(pg5, 'BANKING INFORMATION', ML, curY, 9, F2, blue); curY -= 13;
-    [
+    draw(pg5, payMethod() === 'paypal' ? 'PAYMENT INFORMATION (PAYPAL)' : 'BANKING INFORMATION', ML, curY, 9, F2, blue); curY -= 13;
+    var bankLines = (payMethod() === 'paypal') ? [
+      'PayPal (personal account - for small / sample orders):',
+      'paypal.me/kingyang988',
+      'Accepts credit card or PayPal balance (balance saves the most fee).',
+      'PayPal fee 4.4% + USD 0.30 per transaction is added to the total.'
+    ] : [
       'Beneficiary:  GuangZhou QTOP Cold Chain Sciences Co., Ltd',
       'Bank:  China Minsheng Banking Corp. Ltd, Guangzhou Branch',
       'Bank Address:  Minsheng Building, No.68 Liede Avenue, Guangzhou',
       'Swift Code:  MSBCCNBJ003',
       'Account No.:  69524 1665'
-    ].forEach(function(l){
+    ];
+    bankLines.forEach(function(l){
       draw(pg5, l, ML, curY, 8, F1, g); curY -= 10.5;
     });
     curY -= 8;
@@ -1058,18 +1100,26 @@
     });
     L.push('');
     L.push('Total Qty: ' + tQty);
-    L.push('Total Amount: ' + money(tAmt) + ' (USD)');
+    var isPm = payMethod() === 'paypal';
+    var pmFee = isPm ? paypalFee(tAmt) : 0;
+    L.push('Total Amount: ' + money(tAmt) + ' (USD)' + (pmFee > 0 ? '  + PayPal fee ' + money(pmFee) + ' = TOTAL ' + money(tAmt + pmFee) + ' (USD)' : ''));
     L.push('');
     L.push('--- TERMS & CONDITIONS ---');
     if(extras.mark) L.push('Shipping Mark: ' + extras.mark);
     if(extras.delivery) L.push('Delivery Address: ' + extras.delivery);
-    if(termOn('tPkg') && termVal('tPkgTxt')) L.push('Package: ' + termVal('tPkgTxt'));
-    L.push('Certification: ISO 9001, SDS, Non-Dangerous Goods Transport Certificate (sea/air)');
-    if(termOn('tLT') && termVal('tLTTxt')) L.push('Lead Time: ' + termVal('tLTTxt'));
-    if(termOn('tPay') && termVal('tPayTxt')) L.push('Payment Terms: ' + termVal('tPayTxt'));
+    L.push('Package: 5-layer corrugated export cartons (standard export packing)');
+    L.push('Certification: ISO 9001, SDS, Non-Dangerous Goods Transport Certificate (suitable for sea/air)');
+    L.push('Lead Time: In-stock products 7-10 days; customized production 15-45 days depending on style & quantity');
+    L.push('Payment Terms: ' + (payMethod() === 'paypal' ? 'Payment via personal PayPal (small/sample orders) - 4.4% + USD 0.30 per-transaction fee applies' : 'T/T 30% deposit; balance to be paid before shipment'));
     L.push('Validity: This proforma invoice is valid for 30 days from the issue date');
-    L.push('Bank: Beneficiary GuangZhou QTOP Cold Chain Sciences Co., Ltd | China Minsheng Banking Corp. Ltd Guangzhou Branch');
-    L.push('Swift Code: MSBCCNBJ003 | Account No.: 69524 1665');
+    if(payMethod() === 'paypal'){
+      L.push('Payment Method: PayPal (personal) - small / sample order');
+      L.push('PayPal Account: paypal.me/kingyang988 (accepts credit card or PayPal balance; balance saves the most fee)');
+      L.push('PayPal fee: 4.4% + USD 0.30 per transaction');
+    } else {
+      L.push('Bank: Beneficiary GuangZhou QTOP Cold Chain Sciences Co., Ltd | China Minsheng Banking Corp. Ltd Guangzhou Branch');
+      L.push('Swift Code: MSBCCNBJ003 | Account No.: 69524 1665');
+    }
     L.push('');
     L.push('--- REMARKS ---');
     L.push(extras.remarks ? extras.remarks : '—');
@@ -1134,18 +1184,14 @@
     });
   });
 
-  /* terms checkboxes: grey out the wording box when its clause is unticked */
-  function bindTermToggles(){
-    [['tPkg','tPkgTxt'],['tLT','tLTTxt'],['tPay','tPayTxt']].forEach(function(pair){
-      var c = $(pair[0]), t = $(pair[1]);
-      if(!c || !t) return;
-      function sync(){ t.disabled = !c.checked; t.classList.toggle('opacity-50', !c.checked); }
-      c.addEventListener('change', sync);
-      sync();
-    });
+  /* payment method radios: refresh payment cards + summary on change */
+  var payRadios = document.querySelectorAll('input[name="payMethod"]');
+  for(var ri = 0; ri < payRadios.length; ri++){
+    payRadios[ri].addEventListener('change', function(){ renderPayCard(); recalc(); });
   }
   /* init */
-  bindTermToggles();
+  renderPayCard();
+  recalc();
   addRow();
   addRow();
 })();
