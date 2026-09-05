@@ -682,12 +682,7 @@
   }
   function draw(pg, txt, x, y, size, font, color){ pg.drawText(safeText(txt), { x:x, y:y, size:size, font:font, color:color }); }
   function drawHline(pg, x1, x2, y){
-    var x = x1, seg = 2.2, gap = 2.2;
-    while(x < x2){
-      var e = Math.min(x + seg, x2);
-      pg.drawLine({ start:{x:x,y:y}, end:{x:e,y:y}, thickness:0.45, color:P.rgb(0.72,0.77,0.85) });
-      x = e + gap;
-    }
+    /* Dashed separators removed: converting the PDF to Word produced unwanted grid cells. */
   }
   function drawC(pg, txt, cx, y, size, font, color){
     txt = safeText(txt);
@@ -1013,7 +1008,8 @@
     var sx = PW - ML - 255;
     draw(pg7, 'For and on behalf of GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD', sx, 96, 8, F1, g);
     draw(pg7, '______________________________________', sx, 70, 9, F1, g);
-    draw(pg7, 'Authorized Signature / Company Stamp            Date: ______________', sx, 46, 8, F1, g);
+    draw(pg7, 'Authorized Signature / Company Stamp', sx, 46, 8, F1, g);
+    drawRight(pg7, 'Date:  ' + fmtDate(d0), PW - ML, 46, 8, F1, g);
     curY = 40;
     addPageNumbers();
   }
