@@ -106,9 +106,13 @@
           <label class="label" for="bEmail">Email *</label>
           <input id="bEmail" type="email" class="field" placeholder="name@company.com">
         </div>
-        <div class="sm:col-span-2">
-          <label class="label" for="bTel">Tel / WhatsApp *</label>
+        <div>
+          <label class="label" for="bTel">Tel *</label>
           <input id="bTel" class="field" placeholder="+1 555 000 0000">
+        </div>
+        <div>
+          <label class="label" for="bWa">WhatsApp (optional)</label>
+          <input id="bWa" class="field" placeholder="+1 555 000 0000">
         </div>
       </div>
     </section>
@@ -536,13 +540,14 @@
       address: $('bAddress').value.trim(),
       attn: $('bAttn').value.trim(),
       email: $('bEmail').value.trim(),
-      tel: $('bTel').value.trim()
+      tel: $('bTel').value.trim(),
+      wa: $('bWa') ? $('bWa').value.trim() : ''
     };
   }
   function validate(){
     var ok = true;
     var missing = [];
-    var names = { bCompany:'Company Name', bAddress:'Address', bAttn:'Attention / Contact Person', bEmail:'Email Address', bTel:'Tel' };
+    var names = { bCompany:'Company Name', bAddress:'Address', bAttn:'Attention Person', bEmail:'Email Address', bTel:'Tel' };
     ['bCompany','bAddress','bAttn','bEmail','bTel'].forEach(function(id){
       var el = $(id), v = el.value.trim();
       var badEmpty = !v;
@@ -621,8 +626,25 @@
     cjkP = tryNext(0).then(function(buf){ cjkBuf = buf || null; cjkOk = !!cjkBuf; return buf; });
     return cjkP;
   }
-  function safeText(t){
+  /* normalize full-width & typographic characters so nothing ever renders as '?' */
+  function normText(t){
     t = String(t == null ? '' : t);
+    var o = '', i, c;
+    for(i = 0; i < t.length; i++){
+      c = t.charCodeAt(i);
+      if(c === 0x3000){ o += ' '; }
+      else if(c >= 0xFF01 && c <= 0xFF5E){ o += String.fromCharCode(c - 0xFEE0); }
+      else if(c === 0x2018 || c === 0x2019){ o += "'"; }
+      else if(c === 0x201C || c === 0x201D){ o += '"'; }
+      else if(c === 0x2013 || c === 0x2014){ o += '-'; }
+      else if(c === 0x2026){ o += '...'; }
+      else if(c === 0x00A0){ o += ' '; }
+      else { o += t.charAt(i); }
+    }
+    return o;
+  }
+  function safeText(t){
+    t = normText(t);
     if(cjkOk) return t;
     return t.replace(/[^\u0000-\u00FF]/g, '?');
   }
@@ -762,11 +784,12 @@
 
     /* ---- two-column panels: SELLER / FACTORY  &  BILL TO (BUYER) (equal height) ---- */
     var panelW = 252, plh = 11;
+    function headW(s){ return s ? F1.widthOfTextAtSize(normText(s), 8) : 0; }
     function panelNeed(items){
       var h = 26;
       items.forEach(function(it){
-        var f = it.bold ? F2 : F1, s = 8;
-        var ls = wrapText(it.txt, f, s, panelW - 14);
+        var wH = headW(it.head || '');
+        var ls = wrapText(it.val || '', F1, 8, panelW - 14 - wH);
         h += (ls.length ? ls.length : 1) * plh + 2;
       });
       return h + 4;
@@ -777,27 +800,35 @@
       draw(pgT, title, x + 7, curY - 11, 8, F2, blue);
       var y = curY - 24;
       items.forEach(function(it){
-        var f = it.bold ? F2 : F1, s = 8, col = dk;
-        var ls = wrapText(it.txt, f, s, panelW - 14);
+        var f = it.bold ? F2 : F1;
+        var hd = it.head || '';
+        var wH = headW(hd);
+        var vx = x + 7 + wH;
+        var ls = wrapText(it.val || '', F1, 8, panelW - 14 - wH);
         if(!ls.length) ls = [''];
-        ls.forEach(function(sl){ draw(pgT, sl, x + 7, y, s, f, col); y -= plh; });
+        ls.forEach(function(sl, li){
+          if(li === 0 && hd){ draw(pgT, hd, x + 7, y, 8, F1, dk); }
+          draw(pgT, sl, vx, y, 8, f, dk);
+          y -= plh;
+        });
         y -= 1;
       });
     }
     var sellerItems = [
-      { txt:'GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD', bold:true },
-      { txt:'Add: Unit 101, No.4, Lane 4, South of Dening Road, Caohe, Qiaonan Street, Panyu District, Guangzhou City, China.', bold:false },
-      { txt:'Email: info@coldpackpro.com', bold:false },
-      { txt:'Contact: Mr. Yang', bold:false },
-      { txt:'WhatsApp / WeChat: +86 13925109703', bold:false }
+      { head:'', val:'GUANGZHOU QTOP COLD CHAIN SCIENCES CO.,LTD', bold:true },
+      { head:'Add: ', val:'Unit 101, No.4, Lane 4, South of Dening Road, Caohe, Qiaonan Street, Panyu District, Guangzhou City, China.' },
+      { head:'Email: ', val:'info@coldpackpro.com' },
+      { head:'Contact: ', val:'Mr. Yang' },
+      { head:'WhatsApp / WeChat: ', val:'+86 13925109703' }
     ];
     var buyerItems = [
-      { txt:b.company, bold:true },
-      { txt:'Add: ' + b.address, bold:false },
-      { txt:'Email: ' + b.email, bold:false },
-      { txt:'Atten: ' + b.attn, bold:false },
-      { txt:'Tel: ' + b.tel, bold:false }
+      { head:'', val:b.company, bold:true },
+      { head:'Add: ', val:b.address },
+      { head:'Email: ', val:b.email },
+      { head:'Atten: ', val:b.attn },
+      { head:'Tel: ', val:b.tel }
     ];
+    if(b.wa){ buyerItems.push({ head:'WhatsApp: ', val:b.wa }); }
     var pH = Math.max(panelNeed(buyerItems), panelNeed(sellerItems));
     drawPanel(ML, 'BILL TO (BUYER)', buyerItems, pH);
     drawPanel(ML + panelW + 5, 'SELLER / FACTORY', sellerItems, pH);
@@ -1063,7 +1094,7 @@
       /* only try to upgrade to CJK when user input contains non-latin characters */
       var needCjk = false;
       try{
-        var scanTxt = [buyer().company, buyer().address, buyer().attn, buyer().email, buyer().tel, $('sMark').value, $('sAddr').value, $('sRemarks').value].join(' ');
+        var scanTxt = [buyer().company, buyer().address, buyer().attn, buyer().email, buyer().tel, buyer().wa, $('sMark').value, $('sAddr').value, $('sRemarks').value].join(' ');
         getRows().forEach(function(r){ scanTxt += ' ' + r.name + ' ' + r.spec + ' ' + (r.model || ''); });
         needCjk = /[^\u0000-\u00FF]/.test(scanTxt);
       }catch(e9){ needCjk = false; }
@@ -1118,6 +1149,7 @@
     L.push('Add: ' + b.address);
     L.push('Email: ' + b.email + '    |    Atten: ' + b.attn);
     L.push('Tel: ' + b.tel);
+    if(b.wa) L.push('WhatsApp: ' + b.wa);
     if(extras.mark) L.push('Shipping Mark: ' + extras.mark);
     if(extras.delivery) L.push('Delivery Address: ' + extras.delivery);
     L.push('');
@@ -1138,8 +1170,8 @@
     var isPm = payMethod() === 'paypal';
     var pmFee = isPm ? paypalFee(tAmt + shipV) : 0;
     L.push('Subtotal (USD): ' + money(tAmt));
-    if(pmFee > 0) L.push('PayPal Fee: ' + money(pmFee) + ' (USD)');
     if(shipV > 0) L.push('Shipping & Other Charges: ' + money(shipV) + ' (USD)');
+    if(pmFee > 0) L.push('PayPal Fee: ' + money(pmFee) + ' (USD)');
     L.push('TOTAL DUE (USD): ' + money(tAmt + pmFee + shipV));
     L.push('');
     L.push('--- TERMS & CONDITIONS ---');
