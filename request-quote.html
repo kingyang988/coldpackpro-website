@@ -99,7 +99,7 @@
           <input id="bAddress" class="field" placeholder="Street, City, Country">
         </div>
         <div>
-          <label class="label" for="bAttn">Attention (Contact Person) *</label>
+          <label class="label" for="bAttn">Attention Person *</label>
           <input id="bAttn" class="field" placeholder="Full name">
         </div>
         <div>
@@ -107,7 +107,7 @@
           <input id="bEmail" type="email" class="field" placeholder="name@company.com">
         </div>
         <div class="sm:col-span-2">
-          <label class="label" for="bTel">Tel *</label>
+          <label class="label" for="bTel">Tel / WhatsApp *</label>
           <input id="bTel" class="field" placeholder="+1 555 000 0000">
         </div>
       </div>
@@ -131,10 +131,26 @@
       <button type="button" id="addRowBtn" class="mt-4 rounded-2xl border-2 border-dashed border-blue-300 px-4 py-2.5 text-sm font-semibold text-blue-700 hover:border-blue-600 hover:bg-blue-50">+ Add Product Row</button>
     </section>
 
-    <!-- Step 3: Shipping & remarks -->
+    <!-- Step 3: Shipping & Other Charges -->
     <section class="cardbg p-5 sm:p-6">
       <div class="mb-4 flex items-center gap-2">
         <span class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-700 text-xs font-bold text-white">3</span>
+        <h2 class="font-bold text-slate-900">Shipping &amp; Other Charges (USD)</h2>
+        <span class="text-xs text-slate-400">optional</span>
+      </div>
+      <div class="grid gap-3">
+        <div>
+          <label class="label" for="sShip">Shipping / Freight / Handling Fee</label>
+          <input id="sShip" type="number" min="0" step="0.01" class="field" placeholder="e.g. 35.00">
+          <p class="mt-1 text-[11px] text-slate-400">Appears in the total section of your PI. Fill it in only if a shipping / other charge applies.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 4: Shipping & remarks -->
+    <section class="cardbg p-5 sm:p-6">
+      <div class="mb-4 flex items-center gap-2">
+        <span class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-700 text-xs font-bold text-white">4</span>
         <h2 class="font-bold text-slate-900">Shipping &amp; Remarks</h2>
         <span class="text-xs text-slate-400">optional</span>
       </div>
@@ -150,11 +166,6 @@
         <div class="sm:col-span-2">
           <label class="label" for="sRemarks">Remarks / special requirements</label>
           <textarea id="sRemarks" rows="3" class="field" placeholder="Any special requirements, target price, destination port, etc."></textarea>
-        </div>
-        <div class="sm:col-span-2">
-          <label class="label" for="sShip">Shipping &amp; Other Charges (USD) <span class="normal-case font-medium text-slate-400">— optional</span></label>
-          <input id="sShip" type="number" min="0" step="0.01" class="field" placeholder="e.g. 35.00 for freight / handling">
-          <p class="mt-1 text-[11px] text-slate-400">Appears in the total section of your PI (freight, handling, etc.).</p>
         </div>
       </div>
 
@@ -216,7 +227,7 @@
         <div class="flex justify-between"><dt class="text-slate-500">Items</dt><dd id="sumItems" class="font-semibold">0</dd></div>
         <div class="flex justify-between"><dt class="text-slate-500">Total Qty</dt><dd id="sumQty" class="font-semibold">0</dd></div>
         <div class="flex justify-between"><dt class="text-slate-500">Subtotal (USD)</dt><dd id="sumSub" class="font-semibold">$0.00</dd></div>
-        <div id="sumFeeWrap" class="hidden justify-between"><dt class="text-slate-500">PayPal Fee (4.4% + $0.30)</dt><dd id="sumFee" class="font-semibold text-slate-600">$0.00</dd></div>
+        <div id="sumFeeWrap" class="hidden justify-between"><dt class="text-slate-500">PayPal Fee</dt><dd id="sumFee" class="font-semibold text-slate-600">$0.00</dd></div>
         <div id="sumShipWrap" class="hidden justify-between"><dt class="text-slate-500">Shipping &amp; Other Charges (USD)</dt><dd id="sumShip" class="font-semibold text-slate-600">$0.00</dd></div>
         <div class="flex justify-between border-t border-slate-200 pt-2"><dt class="font-semibold text-slate-700">Est. Total (USD)</dt><dd id="sumAmt" class="font-bold text-blue-700">$0.00</dd></div>
       </dl>
@@ -477,8 +488,7 @@
     var isP = payMethod() === 'paypal';
     $('payCardTitle').textContent = isP ? 'Payment Information' : 'Banking Information';
     $('payCardBody').innerHTML = isP ?
-      '<b>PayPal Account:</b> paypal.me/kingyang988<br>' +
-      '(PayPal fee 4.4% + USD 0.30 per transaction is added to the total.)' :
+      '<b>PayPal Account:</b> paypal.me/kingyang988' :
       '<b>Beneficiary:</b> GuangZhou QTOP Cold Chain Sciences Co., Ltd<br>' +
       '<b>Bank:</b> China Minsheng Banking Corp. Ltd, Guangzhou Branch<br>' +
       '<b>Address:</b> Minsheng Building, No.68 Liede Avenue, Guangzhou<br>' +
@@ -504,8 +514,8 @@
       if(total!=null){ tAmt += total; }
     });
     var isP = payMethod() === 'paypal';
-    var fee = isP ? paypalFee(tAmt) : 0;
     var shipV = parseFloat($('sShip').value); if(!isFinite(shipV) || shipV < 0) shipV = 0;
+    var fee = isP ? paypalFee(tAmt + shipV) : 0;
     $('sumItems').textContent = rows.length;
     $('sumQty').textContent = tQty;
     $('sumSub').textContent = money(tAmt);
@@ -886,14 +896,14 @@
     curY -= 13;
     var unitLbl = (rows[0] && rows[0].unit) ? rows[0].unit + 's' : 'pcs';
     var isPay = payMethod() === 'paypal';
-    var payFee = isPay ? paypalFee(tAmt) : 0;
     var shipV = parseFloat(extras.ship); if(!isFinite(shipV) || shipV < 0) shipV = 0;
-    var amtDue = tAmt + payFee + shipV;
+    var payFee = isPay ? paypalFee(tAmt + shipV) : 0;
+    var amtDue = tAmt + shipV + payFee;
     var tRows = [
       { l:'Total Quantity:  ' + tQty + '  (' + unitLbl + ')', v:null, big:true },
       { l:'Subtotal (USD)', v:money(tAmt), big:false },
     ];
-    if(payFee > 0){ tRows.push({ l:'PayPal Fee (4.4% + USD 0.30)', v:money(payFee), big:false }); }
+    if(payFee > 0){ tRows.push({ l:'PayPal Fee', v:money(payFee), big:false }); }
     if(shipV > 0){ tRows.push({ l:'Shipping & Other Charges (USD)', v:money(shipV), big:false }); }
     tRows.push({ l:'Total Amount (USD)', v:money(amtDue), big:false, fin:true });
     var stepT = 12.5;
@@ -943,8 +953,7 @@
     var pg5 = pages[pages.length - 1];
     draw(pg5, payMethod() === 'paypal' ? 'PAYMENT INFORMATION' : 'BANKING INFORMATION', ML, curY, 9, F2, blue); curY -= 13;
     var bankLines = (payMethod() === 'paypal') ? [
-      'PayPal Account:  paypal.me/kingyang988',
-      '(PayPal fee 4.4% + USD 0.30 per transaction is added to the total.)'
+      'PayPal Account:  paypal.me/kingyang988'
     ] : [
       'Beneficiary:  GuangZhou QTOP Cold Chain Sciences Co., Ltd',
       'Bank:  China Minsheng Banking Corp. Ltd, Guangzhou Branch',
@@ -1127,9 +1136,9 @@
     var shipV = parseFloat(extras.ship); if(!isFinite(shipV) || shipV < 0) shipV = 0;
     L.push('Total Qty: ' + tQty);
     var isPm = payMethod() === 'paypal';
-    var pmFee = isPm ? paypalFee(tAmt) : 0;
+    var pmFee = isPm ? paypalFee(tAmt + shipV) : 0;
     L.push('Subtotal (USD): ' + money(tAmt));
-    if(pmFee > 0) L.push('PayPal Fee (4.4% + USD 0.30): ' + money(pmFee) + ' (USD)');
+    if(pmFee > 0) L.push('PayPal Fee: ' + money(pmFee) + ' (USD)');
     if(shipV > 0) L.push('Shipping & Other Charges: ' + money(shipV) + ' (USD)');
     L.push('TOTAL DUE (USD): ' + money(tAmt + pmFee + shipV));
     L.push('');
@@ -1144,7 +1153,6 @@
     if(payMethod() === 'paypal'){
       L.push('Payment Method: PayPal (personal) - small / sample order');
       L.push('PayPal Account: paypal.me/kingyang988');
-      L.push('PayPal fee: 4.4% + USD 0.30 per transaction (added to the total)');
     } else {
       L.push('Bank: Beneficiary GuangZhou QTOP Cold Chain Sciences Co., Ltd | China Minsheng Banking Corp. Ltd Guangzhou Branch');
       L.push('Swift Code: MSBCCNBJ003 | Account No.: 69524 1665');
