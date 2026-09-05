@@ -682,7 +682,14 @@
   }
   function draw(pg, txt, x, y, size, font, color){ pg.drawText(safeText(txt), { x:x, y:y, size:size, font:font, color:color }); }
   function drawHline(pg, x1, x2, y){
-    /* Dashed separators removed: converting the PDF to Word produced unwanted grid cells. */
+    /* All other dashed separators stay removed so that converting the PDF to Word
+       does not leave unwanted dashed grid cells outside the item list. */
+  }
+  /* light dashed rule — used ONLY inside the item list to visually separate products */
+  function drawDashRule(pg, x1, x2, y){
+    try{
+      pg.drawLine({ start:{x:x1, y:y}, end:{x:x2, y:y}, thickness:0.7, color:lg, dashArray:[4,3] });
+    }catch(e4){}
   }
   function drawC(pg, txt, cx, y, size, font, color){
     txt = safeText(txt);
@@ -852,7 +859,7 @@
         x3 += c.w;
       });
       curY -= 3;
-      drawHline(pgH, ML, PW-ML, curY);
+      drawDashRule(pgH, ML, PW-ML, curY);
       curY -= 9;
     }
     tableHeader();
@@ -909,7 +916,7 @@
         x3 += c.w;
       });
       curY -= hRow + 2;
-      drawHline(pg2, ML, PW-ML, curY);
+      drawDashRule(pg2, ML, PW-ML, curY);
       curY -= 5;
     });
 
