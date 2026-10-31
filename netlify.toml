@@ -1,0 +1,38 @@
+[build]
+  publish = "."
+
+# Route clean URLs to their corresponding HTML files and assets on Netlify
+[[redirects]]
+  from = "/catalog"
+  to = "/catalog.html"
+  status = 200
+
+[[redirects]]
+  from = "/request-quote"
+  to = "/request-quote.html"
+  status = 200
+
+[[redirects]]
+  from = "/download/coldpackpro-full-catalog.xlsx"
+  to = "/assets/ColdPackPro-Full-Product-Catalog.xlsx"
+  status = 200
+
+[[redirects]]
+  from = "/download/coldpackpro-full-catalog.pdf"
+  to = "/assets/ColdPackPro-Full-Product-Catalog.pdf"
+  status = 200
+
+[[redirects]]
+  from = "/download/sub-zero-guide-pdf"
+  to = "/assets/ColdPackPro-SubZero-PCM-Dry-Ice-Alternative-Technical-Whitepaper.pdf"
+  status = 200
+
+[[redirects]]
+  from = "/blog/:slug"
+  to = "/blog/:slug.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/catalog", "destination": "/catalog.html" },
+    { "source": "/request-quote", "destination": "/request-quote.html" },
+    { "source": "/download/coldpackpro-full-catalog.xlsx", "destination": "/assets/ColdPackPro-Full-Product-Catalog.xlsx" },
+    { "source": "/download/coldpackpro-full-catalog.pdf", "destination": "/assets/ColdPackPro-Full-Product-Catalog.pdf" },
+    { "source": "/download/sub-zero-guide-pdf", "destination": "/assets/ColdPackPro-SubZero-PCM-Dry-Ice-Alternative-Technical-Whitepaper.pdf" },
+    { "source": "/blog/:slug", "destination": "/blog/:slug.html" }
+  ]
+}

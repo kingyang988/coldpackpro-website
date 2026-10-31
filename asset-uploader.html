@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ColdPackPro - Asset Manager</title>
+  <link rel="stylesheet" href="/tailwind.css">
+  <meta name="robots" content="noindex, nofollow">
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+  <header class="border-b border-slate-200 bg-white sticky top-0 z-30 shadow-xs">
+    <div class="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="/" class="text-lg font-black text-slate-900 tracking-tight flex items-center gap-2">
+          <span class="rounded-lg bg-blue-600 px-2 py-1 text-xs text-white">ColdPackPro</span>
+          <span>Asset Manager</span>
+        </a>
+      </div>
+      <a href="/" class="text-sm font-semibold text-blue-600 hover:text-blue-800 flex items-center gap-1">
+        <span>← Back to Website</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-5xl px-4 py-8">
+    <div class="rounded-2xl border border-blue-200 bg-blue-50/80 p-5 mb-8">
+      <h1 class="text-xl font-bold text-blue-950">Asset Management & Original Photo Replacement</h1>
+      <p class="mt-2 text-sm text-blue-800 leading-relaxed">
+        Uploaded photos retain <strong>100% original image quality</strong> without AI distortion, written directly to the server to update the site immediately.
+      </p>
+    </div>
+
+    <!-- Factory Image Slot (Featured) -->
+    <div class="rounded-2xl border-2 border-blue-500 bg-white p-6 shadow-sm mb-8">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4 mb-5">
+        <div>
+          <span class="inline-block rounded-full bg-blue-100 px-3 py-0.5 text-xs font-bold text-blue-800">Featured Photo Slot</span>
+          <h2 class="text-lg font-black text-slate-900 mt-1">1. Modern Factory Facility Photo</h2>
+          <p class="text-xs text-slate-500 font-mono">Target Filename: 1.cold-chain-packaging-factory-guangzhou-china.webp</p>
+        </div>
+        <span class="text-xs font-semibold text-slate-400">Displayed on: Homepage Hero Card &amp; About Us "Modern Facility"</span>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 items-start">
+        <!-- Current Live Preview -->
+        <div>
+          <div class="text-xs font-bold text-slate-500 mb-2 uppercase tracking-wider">Current Server Asset</div>
+          <div class="overflow-hidden rounded-xl border border-slate-200 bg-slate-100 relative group aspect-video flex items-center justify-center">
+            <img id="livePreviewFactory" src="/images/1.cold-chain-packaging-factory-guangzhou-china.webp" alt="Current Factory Image" class="w-full h-full object-cover">
+          </div>
+          <div class="mt-2 text-[11px] text-slate-400">Click upload below to replace with your authentic factory photo</div>
+        </div>
+
+        <!-- Upload Dropzone -->
+        <div>
+          <div class="text-xs font-bold text-slate-500 mb-2 uppercase tracking-wider">Upload New Photo to Replace</div>
+          <div 
+            id="dropzoneFactory" 
+            class="flex flex-col items-center justify-center rounded-xl border-2 border-dashed border-blue-300 bg-blue-50/40 p-6 text-center hover:bg-blue-50 transition cursor-pointer aspect-video"
+            onclick="document.getElementById('inputFactory').click()"
+          >
+            <input type="file" id="inputFactory" accept="image/webp, image/jpeg, image/png" class="hidden" onchange="handleFileSelect(this, '1.cold-chain-packaging-factory-guangzhou-china.webp', 'livePreviewFactory', 'statusFactory')">
+            
+            <svg class="h-10 w-10 text-blue-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+            </svg>
+            <div class="text-sm font-bold text-slate-800">Click or drag local image here</div>
+            <div class="text-xs text-slate-500 mt-1">Supports WebP, JPG, PNG formats</div>
+            <button type="button" class="mt-3 rounded-lg bg-blue-600 px-4 py-1.5 text-xs font-bold text-white shadow-xs hover:bg-blue-700">
+              Choose Local File
+            </button>
+          </div>
+          <div id="statusFactory" class="mt-2 text-xs font-semibold text-slate-500"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Other Image Slots -->
+    <h3 class="text-base font-bold text-slate-900 mb-4">Additional Site Image Slots (Optional)</h3>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- 2. Production line -->
+      <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-2xs">
+        <div class="text-xs font-bold text-slate-900">2. Automated Production Line</div>
+        <div class="text-[11px] text-slate-400 font-mono truncate">2.custom-cold-chain-packaging-oem-manufacturer.webp</div>
+        <div class="mt-2 aspect-video rounded-lg overflow-hidden bg-slate-100 border border-slate-200">
+          <img id="prev2" src="/images/2.custom-cold-chain-packaging-oem-manufacturer.webp" class="w-full h-full object-cover">
+        </div>
+        <input type="file" id="in2" accept="image/*" class="hidden" onchange="handleFileSelect(this, '2.custom-cold-chain-packaging-oem-manufacturer.webp', 'prev2', 'st2')">
+        <button onclick="document.getElementById('in2').click()" class="mt-3 w-full rounded-lg border border-slate-300 bg-slate-50 py-1.5 text-xs font-semibold hover:bg-slate-100">Replace Photo</button>
+        <div id="st2" class="mt-1 text-[11px] text-slate-500"></div>
+      </div>
+
+      <!-- 3. CNAS Report -->
+      <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-2xs">
+        <div class="text-xs font-bold text-slate-900">3. Certification Report (CNAS / DGM)</div>
+        <div class="text-[11px] text-slate-400 font-mono truncate">3.cnas-transport-safety-certification-cold-chain-packaging-china.webp</div>
+        <div class="mt-2 aspect-video rounded-lg overflow-hidden bg-white border border-slate-200 flex items-center justify-center p-2">
+          <img id="prev3" src="/images/3.cnas-transport-safety-certification-cold-chain-packaging-china.webp" class="max-h-full max-w-full object-contain">
+        </div>
+        <input type="file" id="in3" accept="image/*" class="hidden" onchange="handleFileSelect(this, '3.cnas-transport-safety-certification-cold-chain-packaging-china.webp', 'prev3', 'st3')">
+        <button onclick="document.getElementById('in3').click()" class="mt-3 w-full rounded-lg border border-slate-300 bg-slate-50 py-1.5 text-xs font-semibold hover:bg-slate-100">Replace Photo</button>
+        <div id="st3" class="mt-1 text-[11px] text-slate-500"></div>
+      </div>
+
+      <!-- 4. Ice bricks -->
+      <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-2xs">
+        <div class="text-xs font-bold text-slate-900">4. Custom PCM Ice Brick</div>
+        <div class="text-[11px] text-slate-400 font-mono truncate">4.custom-cold-chain-packaging-ice-bricks.webp</div>
+        <div class="mt-2 aspect-video rounded-lg overflow-hidden bg-slate-100 border border-slate-200">
+          <img id="prev4" src="/images/4.custom-cold-chain-packaging-ice-bricks.webp" class="w-full h-full object-cover">
+        </div>
+        <input type="file" id="in4" accept="image/*" class="hidden" onchange="handleFileSelect(this, '4.custom-cold-chain-packaging-ice-bricks.webp', 'prev4', 'st4')">
+        <button onclick="document.getElementById('in4').click()" class="mt-3 w-full rounded-lg border border-slate-300 bg-slate-50 py-1.5 text-xs font-semibold hover:bg-slate-100">Replace Photo</button>
+        <div id="st4" class="mt-1 text-[11px] text-slate-500"></div>
+      </div>
+
+      <!-- 5. Rigid series -->
+      <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-2xs">
+        <div class="text-xs font-bold text-slate-900">5. Rigid Ice Pack Family</div>
+        <div class="text-[11px] text-slate-400 font-mono truncate">5.custom-cold-chain-rigid-series-family.webp</div>
+        <div class="mt-2 aspect-video rounded-lg overflow-hidden bg-slate-100 border border-slate-200">
+          <img id="prev5" src="/images/5.custom-cold-chain-rigid-series-family.webp" class="w-full h-full object-cover">
+        </div>
+        <input type="file" id="in5" accept="image/*" class="hidden" onchange="handleFileSelect(this, '5.custom-cold-chain-rigid-series-family.webp', 'prev5', 'st5')">
+        <button onclick="document.getElementById('in5').click()" class="mt-3 w-full rounded-lg border border-slate-300 bg-slate-50 py-1.5 text-xs font-semibold hover:bg-slate-100">Replace Photo</button>
+        <div id="st5" class="mt-1 text-[11px] text-slate-500"></div>
+      </div>
+
+      <!-- 6. Gel series -->
+      <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-2xs">
+        <div class="text-xs font-bold text-slate-900">6. Composite Gel Ice Pack</div>
+        <div class="text-[11px] text-slate-400 font-mono truncate">6.gel-ice-pack-supplier-cold-chain-shipping.webp</div>
+        <div class="mt-2 aspect-video rounded-lg overflow-hidden bg-slate-100 border border-slate-200">
+          <img id="prev6" src="/images/6.gel-ice-pack-supplier-cold-chain-shipping.webp" class="w-full h-full object-cover">
+        </div>
+        <input type="file" id="in6" accept="image/*" class="hidden" onchange="handleFileSelect(this, '6.gel-ice-pack-supplier-cold-chain-shipping.webp', 'prev6', 'st6')">
+        <button onclick="document.getElementById('in6').click()" class="mt-3 w-full rounded-lg border border-slate-300 bg-slate-50 py-1.5 text-xs font-semibold hover:bg-slate-100">Replace Photo</button>
+        <div id="st6" class="mt-1 text-[11px] text-slate-500"></div>
+      </div>
+
+      <!-- 7. Sheet series -->
+      <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-2xs">
+        <div class="text-xs font-bold text-slate-900">7. Water-Activated Cooling Sheet</div>
+        <div class="text-[11px] text-slate-400 font-mono truncate">7.self-absorbing-ice-pack-sheet-manufacturer.webp</div>
+        <div class="mt-2 aspect-video rounded-lg overflow-hidden bg-slate-100 border border-slate-200">
+          <img id="prev7" src="/images/7.self-absorbing-ice-pack-sheet-manufacturer.webp" class="w-full h-full object-cover">
+        </div>
+        <input type="file" id="in7" accept="image/*" class="hidden" onchange="handleFileSelect(this, '7.self-absorbing-ice-pack-sheet-manufacturer.webp', 'prev7', 'st7')">
+        <button onclick="document.getElementById('in7').click()" class="mt-3 w-full rounded-lg border border-slate-300 bg-slate-50 py-1.5 text-xs font-semibold hover:bg-slate-100">Replace Photo</button>
+        <div id="st7" class="mt-1 text-[11px] text-slate-500"></div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Drag and drop setup for Factory zone
+    const dropzone = document.getElementById('dropzoneFactory');
+    ['dragenter', 'dragover'].forEach(eventName => {
+      dropzone.addEventListener(eventName, e => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.add('bg-blue-100/60', 'border-blue-500');
+      }, false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+      dropzone.addEventListener(eventName, e => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.remove('bg-blue-100/60', 'border-blue-500');
+      }, false);
+    });
+
+    dropzone.addEventListener('drop', e => {
+      const dt = e.dataTransfer;
+      const files = dt.files;
+      if (files.length > 0) {
+        uploadFile(files[0], '1.cold-chain-packaging-factory-guangzhou-china.webp', 'livePreviewFactory', 'statusFactory');
+      }
+    });
+
+    function handleFileSelect(input, targetFilename, previewId, statusId) {
+      if (input.files && input.files[0]) {
+        uploadFile(input.files[0], targetFilename, previewId, statusId);
+      }
+    }
+
+    async function uploadFile(file, targetFilename, previewId, statusId) {
+      const statusEl = document.getElementById(statusId);
+      const previewEl = document.getElementById(previewId);
+      if (statusEl) {
+        statusEl.textContent = '⏳ Uploading and updating server file...';
+        statusEl.className = 'mt-2 text-xs font-semibold text-blue-600';
+      }
+
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const base64Data = e.target.result;
+        try {
+          const res = await fetch('/api/upload-asset', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              filename: targetFilename,
+              base64Data: base64Data
+            })
+          });
+
+          const data = await res.json();
+          if (res.ok && data.success) {
+            if (statusEl) {
+              statusEl.textContent = `✓ Upload successful! File saved as ${targetFilename}. Updated sitewide.`;
+              statusEl.className = 'mt-2 text-xs font-semibold text-emerald-600';
+            }
+            if (previewEl) {
+              previewEl.src = data.path;
+            }
+          } else {
+            throw new Error(data.message || 'Upload failed');
+          }
+        } catch (err) {
+          if (statusEl) {
+            statusEl.textContent = '❌ Upload failed: ' + err.message;
+            statusEl.className = 'mt-2 text-xs font-semibold text-red-600';
+          }
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  </script>
+</body>
+</html>

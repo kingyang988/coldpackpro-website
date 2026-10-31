@@ -1,0 +1,6 @@
+{
+  "name": "ColdPackPro",
+  "description": "Guangzhou cold chain packaging factory making rigid cold packs, gel ice packs and Water-Activated Cooling Sheets. OEM/ODM & factory-direct sourcing supported.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

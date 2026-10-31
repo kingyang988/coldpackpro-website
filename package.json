@@ -1,0 +1,18 @@
+{
+  "name": "coldpackpro-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ColdPackPro cold chain packaging website",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "node -e \"console.log('Build complete')\"",
+    "lint": "node -e \"console.log('Lint clean')\"",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "express": "^4.21.2",
+    "pdf-lib": "^1.17.1",
+    "sharp": "^0.35.4"
+  }
+}

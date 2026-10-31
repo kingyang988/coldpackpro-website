@@ -1,0 +1,2197 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Digital Catalog 2026 | Coldpack Pro Cold Chain Solutions</title>
+  <meta name="description" content="Coldpack Pro 2026 Interactive Digital Catalog. Commercial cooler boxes, rotomolded coolers, EPP insulated boxes, rigid PCM bricks, gel ice packs, and water-activated cooling sheets. Direct B2B factory sourcing.">
+  <meta name="keywords" content="cold chain catalog, cooler boxes manufacturer, rotomolded cooler, EPP foam box, PCM ice brick, gel ice packs, water-activated cooling sheets, instant cold packs, B2B cold chain packaging">
+  <meta property="og:title" content="Coldpack Pro 2026 Online Digital Catalog">
+  <meta property="og:description" content="Explore commercial cooler boxes, rigid PCM bricks, gel ice packs, water-activated cooling sheets, and EPP insulated boxes. Factory-direct wholesale & OEM/ODM.">
+  <meta property="og:image" content="https://coldpackpro.com/images/5.custom-cold-chain-rigid-series-family.webp">
+  <link rel="canonical" href="https://coldpackpro.com/catalog.html">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Early global declaration so download buttons respond instantly regardless of load state
+    window.openCatalogDownloadModal = function(e) {
+      if (e && typeof e.preventDefault === 'function') e.preventDefault();
+      var m = document.getElementById('catalogDownloadModal');
+      if (m) {
+        var fs = document.getElementById('catalogDownloadFormState');
+        var ss = document.getElementById('catalogDownloadSuccessState');
+        var err = document.getElementById('dlFormError');
+        if (fs) fs.classList.remove('hidden');
+        if (ss) ss.classList.add('hidden');
+        if (err) err.classList.add('hidden');
+        // Clear all form inputs so client must re-enter details every time
+        ['dlCustomerName', 'dlCustomerEmail', 'dlCustomerCountry', 'dlCustomerCompany', 'dlCustomerPhone'].forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el) el.value = '';
+        });
+        try { localStorage.removeItem('coldpackpro_visitor_contact'); } catch(e) {}
+        m.style.display = 'flex';
+        m.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+    window.closeCatalogDownloadModal = function() {
+      var m = document.getElementById('catalogDownloadModal');
+      if (m) {
+        m.style.display = 'none';
+        m.classList.add('hidden');
+        document.body.style.overflow = '';
+        var fs = document.getElementById('catalogDownloadFormState');
+        var ss = document.getElementById('catalogDownloadSuccessState');
+        var err = document.getElementById('dlFormError');
+        if (fs) fs.classList.remove('hidden');
+        if (ss) ss.classList.add('hidden');
+        if (err) err.classList.add('hidden');
+        ['dlCustomerName', 'dlCustomerEmail', 'dlCustomerCountry', 'dlCustomerCompany', 'dlCustomerPhone'].forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el) el.value = '';
+        });
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #070B12;
+      color: #E2E8F0;
+      overflow-x: hidden;
+    }
+    .font-display {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    /* Subtle grid overlay */
+    .bg-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    /* Glow accents */
+    .glow-cyan {
+      box-shadow: 0 0 40px -10px rgba(0, 220, 255, 0.25);
+    }
+    .glow-blue {
+      box-shadow: 0 0 50px -15px rgba(37, 99, 235, 0.3);
+    }
+    .border-glass {
+      border: 1px solid rgba(255, 255, 255, 0.09);
+    }
+    .border-glass-cyan {
+      border: 1px solid rgba(0, 220, 255, 0.3);
+    }
+    .bg-card-glass {
+      background: linear-gradient(135deg, rgba(17, 24, 39, 0.85) 0%, rgba(11, 17, 29, 0.95) 100%);
+      backdrop-filter: blur(12px);
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #070B12;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1E293B;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #38BDF8;
+    }
+    .filter-pill {
+      white-space: nowrap;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .active-pill {
+      background: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(6, 182, 212, 0.35);
+      border: 1px solid rgba(103, 232, 249, 0.4);
+    }
+    .inactive-pill {
+      background: #0f172a;
+      color: #94a3b8;
+      border: 1px solid #1e293b;
+    }
+    .inactive-pill:hover {
+      background: #1e293b;
+      color: #f8fafc;
+      border-color: #38bdf8;
+    }
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .bg-card-glass {
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+      }
+    }
+  </style>
+</head>
+<body class="selection:bg-cyan-500 selection:text-slate-950">
+
+  <!-- ================= TOP STICKY NAVBAR ================= -->
+  <header class="sticky top-0 z-50 border-b border-slate-800/80 bg-[#070B12]/90 backdrop-blur-md">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      
+      <!-- Logo: Coldpack Pro -->
+      <a href="/" class="group flex items-center gap-3 transition" title="Coldpack Pro Homepage">
+        <span class="inline-block h-10 w-auto">
+          <svg viewBox="0 0 1024 360" class="h-10 w-auto transition-transform group-hover:scale-[1.02]" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="proBlockCat" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#256FDC"/>
+                <stop offset="52%" stop-color="#3383EE"/>
+                <stop offset="100%" stop-color="#4694F7"/>
+              </linearGradient>
+              <linearGradient id="proTextCat" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#29F4FF"/>
+                <stop offset="100%" stop-color="#00DCFF"/>
+              </linearGradient>
+              <linearGradient id="lineLeftCat" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#94A3B8" stop-opacity="0"/>
+                <stop offset="100%" stop-color="#7B8798" stop-opacity="1"/>
+              </linearGradient>
+              <linearGradient id="lineRightCat" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#7B8798" stop-opacity="1"/>
+                <stop offset="100%" stop-color="#94A3B8" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <g>
+              <path d="M123 106 H622 C645 106 664 124 664 147 V167 C664 190 645 208 622 208 H123 C106 208 92 194 92 177 V137 C92 120 106 106 123 106 Z" fill="#0B1323" stroke="#1E293B" stroke-width="3"/>
+              <path d="M650 106 H876 C901 106 922 127 922 152 V162 C922 187 901 208 876 208 H650 C665 197 674 180 674 157 C674 134 665 117 650 106 Z" fill="url(#proBlockCat)"/>
+              <text x="123" y="176" font-family="Arial Black, Helvetica, sans-serif" font-size="66" font-weight="700" letter-spacing="0.35" fill="#FFFFFF">COLD PACK</text>
+              <text x="686" y="176" font-family="Arial Black, Helvetica, sans-serif" font-size="66" font-weight="700" letter-spacing="0.1" fill="url(#proTextCat)">PRO</text>
+            </g>
+            <g>
+              <rect x="106" y="279" width="161" height="3" rx="2" fill="url(#lineLeftCat)"/>
+              <rect x="759" y="279" width="161" height="3" rx="2" fill="url(#lineRightCat)"/>
+              <text x="512" y="300" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="40" font-weight="600" letter-spacing="0.55" fill="#94A3B8">Cold Chain Solutions</text>
+            </g>
+          </svg>
+        </span>
+      </a>
+
+      <!-- Center / Desktop Series Nav: 1. All Categories (Dropdown), 2. Download -->
+      <nav id="desktopCategoryNav" class="hidden items-center gap-2 text-xs font-medium tracking-wide text-slate-300 lg:flex">
+        <!-- 1. All Categories (Dropdown with 6 series in required sequence) -->
+        <div class="relative group" id="allCategoriesDropdownContainer">
+          <button
+            type="button"
+            id="allCategoriesDropdownBtn"
+            aria-haspopup="true"
+            aria-expanded="false"
+            data-nav-cat="all"
+            onclick="toggleCategoriesDropdown(event)"
+            class="nav-cat-item transition text-slate-200 hover:text-cyan-300 px-3.5 py-1.5 rounded-full bg-slate-800/70 hover:bg-slate-800 border border-slate-700/80 hover:border-cyan-500/50 flex items-center gap-2 font-medium shadow-sm"
+          >
+            <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+            </svg>
+            <span id="allCategoriesBtnLabel" data-cat-i18n="nav_all_categories">All Categories</span>
+            <svg class="w-3 h-3 text-slate-400 group-hover:text-cyan-300 transition-transform duration-200 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <!-- Dropdown Menu:
+               1. Gel Ice Packs
+               2. PCM Bricks
+               3. Water-Activated
+               4. Instant Cold Packs
+               5. Cooler Boxes
+               6. EPP Boxes
+          -->
+          <div
+            id="allCategoriesMenu"
+            class="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 transform origin-top-left absolute left-0 top-full mt-2 w-76 rounded-2xl border border-cyan-500/30 bg-[#0B1324]/95 backdrop-blur-xl p-2 shadow-2xl shadow-cyan-950/60 z-50 divide-y divide-slate-800/60"
+          >
+            <div class="px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 flex items-center justify-between">
+              <span data-cat-i18n="nav_dropdown_title">Product Series Directory</span>
+              <span class="text-cyan-400 font-mono text-[9px] bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-500/30">4 Categories</span>
+            </div>
+
+            <div class="py-1 space-y-0.5">
+              <!-- 1. Gel Ice Packs (Consolidated: Gel, Self-Absorbing, Water-Injection, Instant) -->
+              <a href="#gel-packs" data-nav-dropdown-cat="gel-packs" onclick="selectCategoryFromNav('gel-packs', event)" class="nav-dropdown-item flex items-center justify-between px-3 py-2 rounded-xl text-slate-300 hover:text-cyan-300 hover:bg-slate-800/80 transition group/item">
+                <div class="flex items-center gap-2.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 group-hover/item:scale-125 transition-transform shrink-0"></span>
+                  <div>
+                    <div class="font-semibold text-xs text-white group-hover/item:text-cyan-300 flex items-center gap-1.5">
+                      <span data-cat-i18n="nav_gel">Gel Ice Packs</span>
+                      <span class="text-[9px] px-1.5 py-0.2 rounded bg-cyan-950/80 text-cyan-400 border border-cyan-500/30 font-mono">0°C ~ -35°C</span>
+                    </div>
+                    <div class="text-[10px] text-slate-400" data-cat-i18n="nav_gel_sub">43 Models · Standard Gel, Self-Absorbing, Water-Injection &amp; Instant Packs</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-mono text-slate-500 group-hover/item:text-cyan-400 ml-2">43 Models →</span>
+              </a>
+
+              <!-- 2. PCM Bricks -->
+              <a href="#pcm" data-nav-dropdown-cat="pcm" onclick="selectCategoryFromNav('pcm', event)" class="nav-dropdown-item flex items-center justify-between px-3 py-2 rounded-xl text-slate-300 hover:text-cyan-300 hover:bg-slate-800/80 transition group/item">
+                <div class="flex items-center gap-2.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-blue-400 group-hover/item:scale-125 transition-transform shrink-0"></span>
+                  <div>
+                    <div class="font-semibold text-xs text-white group-hover/item:text-cyan-300 flex items-center gap-1.5">
+                      <span data-cat-i18n="nav_pcm">PCM Bricks</span>
+                      <span class="text-[9px] px-1.5 py-0.2 rounded bg-blue-950/80 text-blue-400 border border-blue-500/30 font-mono">-26°C~+22°C</span>
+                    </div>
+                    <div class="text-[10px] text-slate-400" data-cat-i18n="nav_pcm_sub">12 Phase-Change Tech Models</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-mono text-slate-500 group-hover/item:text-cyan-400 ml-2">12 Models →</span>
+              </a>
+
+              <!-- 3. Cooler Boxes -->
+              <a href="#cooler-box-catalog" data-nav-dropdown-cat="cooler-boxes" onclick="selectCategoryFromNav('cooler-boxes', event)" class="nav-dropdown-item flex items-center justify-between px-3 py-2 rounded-xl text-slate-300 hover:text-cyan-300 hover:bg-slate-800/80 transition group/item">
+                <div class="flex items-center gap-2.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 group-hover/item:scale-125 transition-transform shrink-0"></span>
+                  <div>
+                    <div class="font-semibold text-xs text-white group-hover/item:text-cyan-300 flex items-center gap-1.5">
+                      <span data-cat-i18n="nav_coolers">Cooler Boxes</span>
+                      <span class="text-[9px] px-1.5 py-0.2 rounded bg-emerald-950/80 text-emerald-400 border border-emerald-500/30 font-mono">1.7L~300L</span>
+                    </div>
+                    <div class="text-[10px] text-slate-400" data-cat-i18n="nav_coolers_sub">33+ Medical &amp; Heavy-Duty Coolers</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-mono text-slate-500 group-hover/item:text-cyan-400 ml-2">33+ Models →</span>
+              </a>
+
+              <!-- 4. EPP Boxes -->
+              <a href="#epp" data-nav-dropdown-cat="epp" onclick="selectCategoryFromNav('epp', event)" class="nav-dropdown-item flex items-center justify-between px-3 py-2 rounded-xl text-slate-300 hover:text-cyan-300 hover:bg-slate-800/80 transition group/item">
+                <div class="flex items-center gap-2.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-amber-400 group-hover/item:scale-125 transition-transform shrink-0"></span>
+                  <div>
+                    <div class="font-semibold text-xs text-white group-hover/item:text-cyan-300 flex items-center gap-1.5">
+                      <span data-cat-i18n="nav_epp">EPP Boxes</span>
+                      <span class="text-[9px] px-1.5 py-0.2 rounded bg-amber-950/80 text-amber-400 border border-amber-500/30 font-mono">High Density</span>
+                    </div>
+                    <div class="text-[10px] text-slate-400" data-cat-i18n="nav_epp_sub">10 High-Density Shipping Boxes</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-mono text-slate-500 group-hover/item:text-cyan-400 ml-2">10 Models →</span>
+              </a>
+            </div>
+
+            <!-- Bottom: View All Products option -->
+            <div class="pt-1.5 pb-0.5">
+              <a href="#all" data-nav-dropdown-cat="all" onclick="selectCategoryFromNav('all', event)" class="flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-cyan-950/50 hover:bg-cyan-900/60 border border-cyan-500/30 text-cyan-300 text-xs font-semibold transition">
+                <span data-cat-i18n="nav_all_view">View All Products (87+ Models)</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Download Full Catalog Button (Moved from top-right header) -->
+        <button
+          type="button"
+          id="btnNavDownload"
+          onclick="openCatalogDownloadModal(event)"
+          class="btn-open-catalog-download transition text-slate-950 font-bold px-3.5 py-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-sky-400 hover:brightness-110 shadow-md shadow-cyan-400/25 flex items-center gap-1.5 shrink-0 cursor-pointer text-xs"
+          title="Download Full Catalog"
+        >
+          <svg class="h-3.5 w-3.5 text-slate-950" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+          <span class="whitespace-nowrap" data-cat-i18n="nav_download">Download</span>
+        </button>
+
+        <!-- 3. Factory Inquiry Button -->
+        <a
+          href="/?inquiry=1#inquiry-form"
+          id="btnNavInquiry"
+          class="transition text-white font-bold px-4 py-1.5 rounded-full bg-blue-600 hover:bg-blue-500 shadow-md shadow-blue-600/30 flex items-center gap-1.5 shrink-0 cursor-pointer text-xs"
+          title="Send Factory Inquiry"
+          data-cat-i18n="nav_inquiry"
+        >
+          <span>Inquiry</span>
+          <span class="text-xs">↓</span>
+        </a>
+      </nav>
+
+      <!-- Right Action CTAs & Quick Search Input -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Quick Search Input with Predictive Match Popover -->
+        <div class="relative flex items-center" id="quickSearchContainer">
+          <label for="quickSearchInput" class="sr-only">Quick Search Model or Capacity</label>
+          <div class="relative flex items-center group">
+            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-2.5 text-cyan-400">
+              <svg class="h-3.5 w-3.5 transition-transform group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <input
+              id="quickSearchInput"
+              type="text"
+              autocomplete="off"
+              spellcheck="false"
+              data-cat-i18n-ph="search_ph"
+              placeholder="Search model or capacity (e.g. HP-300, 65L)..."
+              class="w-36 sm:w-56 md:w-64 rounded-full border border-cyan-500/40 bg-slate-900/95 pl-8 pr-7 py-1.5 text-xs text-white placeholder-slate-500 hover:border-cyan-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/30 transition shadow-inner focus:w-48 sm:focus:w-72"
+            />
+            <!-- Clear Button -->
+            <button
+              id="quickSearchClearBtn"
+              type="button"
+              onclick="clearQuickSearch()"
+              data-cat-i18n-title="search_clear_title"
+              class="hidden absolute inset-y-0 right-0 items-center pr-2.5 text-slate-500 hover:text-cyan-300 transition"
+              title="Clear search"
+            >
+              <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Predictive Match Results Popover -->
+          <div
+            id="quickSearchResultsPopover"
+            class="hidden absolute right-0 sm:left-0 top-full mt-2 w-80 sm:w-96 md:w-[420px] rounded-2xl border-2 border-cyan-400 bg-[#0A101D] p-2.5 shadow-[0_25px_60px_rgba(0,0,0,0.95),0_0_30px_rgba(6,182,212,0.35)] z-50 max-h-[460px] overflow-y-auto ring-1 ring-cyan-500/40"
+          >
+            <!-- Injected via JavaScript -->
+          </div>
+        </div>
+
+        
+
+        <!-- Back to Home Button (Replaced original Download position in header) -->
+        <a
+          href="/"
+          id="btnHeaderBackHome"
+          class="inline-flex items-center gap-1.5 rounded-full border border-slate-700/80 bg-slate-800/90 px-3.5 sm:px-4 py-2 text-xs font-bold text-slate-200 shadow-sm transition hover:bg-slate-700 hover:text-white hover:border-cyan-500/50 shrink-0 cursor-pointer"
+          title="Back to Home"
+          data-cat-i18n="nav_back_home"
+        >
+          <svg class="h-3.5 w-3.5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span class="whitespace-nowrap">Back to Home</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile Sub-Nav Strip: 1. All Categories (Dropdown), 2. Download, 3. WhatsApp, 4. Inquiry -->
+    <div id="mobileCategoryNav" class="no-print flex items-center justify-start overflow-x-auto gap-2.5 border-t border-slate-800/80 bg-[#0B1324]/95 px-3 py-2 text-xs font-medium text-slate-300 lg:hidden">
+      <!-- 1. All Categories (Dropdown Picker) -->
+      <button
+        type="button"
+        id="mobileAllCategoriesDropdownBtn"
+        data-mobile-cat="all"
+        aria-haspopup="true"
+        aria-expanded="false"
+        onclick="toggleMobileCategoriesDropdown(event)"
+        class="mobile-cat-item whitespace-nowrap text-cyan-300 font-bold bg-slate-800/90 px-3.5 py-1.5 rounded-full border border-cyan-500/50 shrink-0 flex items-center gap-1.5 shadow-sm transition"
+      >
+        <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+        </svg>
+        <span id="mobileAllCategoriesBtnLabel" data-cat-i18n="nav_all_categories">All Categories</span>
+        <svg id="mobileAllCategoriesCaret" class="w-3 h-3 text-cyan-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <!-- 2. Download Full Catalog Button -->
+      <button
+        type="button"
+        id="btnMobileNavDownload"
+        onclick="openCatalogDownloadModal(event)"
+        class="btn-open-catalog-download whitespace-nowrap text-slate-950 font-bold bg-gradient-to-r from-cyan-400 to-sky-400 px-3.5 py-1.5 rounded-full shadow-md shadow-cyan-400/25 shrink-0 flex items-center gap-1.5 text-xs transition hover:brightness-110 cursor-pointer"
+        title="Download Full Catalog"
+      >
+        <svg class="w-3.5 h-3.5 text-slate-950" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+        </svg>
+        <span data-cat-i18n="nav_download">Download</span>
+      </button>
+
+      <!-- 3. Factory Inquiry Button -->
+      <a
+        href="/?inquiry=1#inquiry-form"
+        class="mobile-cat-item whitespace-nowrap text-white font-bold bg-blue-600 hover:bg-blue-500 px-3.5 py-1.5 rounded-full shrink-0 flex items-center gap-1 text-xs shadow-sm transition"
+        title="Go to Factory Inquiry Form"
+        data-cat-i18n="nav_inquiry"
+      >
+        <span>Inquiry</span>
+        <span>↓</span>
+      </a>
+    </div>
+
+    <!-- Mobile All Categories Dropdown: Strict Top-to-Bottom Sequence of 6 Series -->
+    <div id="mobileAllCategoriesMenu" class="hidden no-print border-t border-cyan-500/30 bg-[#0B1324]/98 p-3 shadow-2xl backdrop-blur-xl lg:hidden divide-y divide-slate-800/80">
+      <div class="px-2 pb-2 text-[10px] font-bold uppercase tracking-wider text-slate-400 flex items-center justify-between">
+        <span data-cat-i18n="nav_dropdown_title">Product Series Directory (All Categories)</span>
+        <span class="text-cyan-400 font-mono text-[9px] bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-500/30">6 Categories</span>
+      </div>
+
+      <div class="py-2 space-y-1">
+        <!-- 1. Gel Ice Packs -->
+        <a href="#gel-packs" data-mobile-dropdown-cat="gel-packs" onclick="selectCategoryFromNav('gel-packs', event)" class="nav-dropdown-item flex items-center justify-between px-3 py-2 rounded-xl text-slate-300 hover:text-cyan-300 hover:bg-slate-800/80 transition group/item">
+          <div class="flex items-center gap-2.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 shrink-0"></span>
+            <div>
+              <div class="font-semibold text-xs text-white group-hover/item:text-cyan-300 flex items-center gap-1.5">
+                <span data-cat-i18n="nav_gel">Gel Ice Packs</span>
+                <span class="text-[9px] px-1.5 py-0.2 rounded bg-cyan-950/80 text-cyan-400 border border-cyan-500/30 font-mono">0°C ~ -35°C</span>
+              </div>
+              <div class="text-[10px] text-slate-400" data-cat-i18n="nav_gel_sub">43 Models · Standard Gel, Self-Absorbing, Water-Injection &amp; Instant Packs</div>
+            </div>
+          </div>
+          <span class="text-[10px] font-mono text-slate-500 group-hover/item:text-cyan-400 ml-2">43 Models →</span>
+        </a>
+
+        <!-- 2. PCM Bricks -->
+        <a href="#pcm" data-mobile-dropdown-cat="pcm" onclick="selectCategoryFromNav('pcm', event)" class="nav-dropdown-item flex items-center justify-between px-3 py-2 rounded-xl text-slate-300 hover:text-cyan-300 hover:bg-slate-800/80 transition group/item">
+          <div class="flex items-center gap-2.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-blue-400 shrink-0"></span>
+            <div>
+              <div class="font-semibold text-xs text-white group-hover/item:text-cyan-300 flex items-center gap-1.5">
+                <span data-cat-i18n="nav_pcm">PCM Bricks</span>
+                <span class="text-[9px] px-1.5 py-0.2 rounded bg-blue-950/80 text-blue-400 border border-blue-500/30 font-mono">-26°C~+22°C</span>
+              </div>
+              <div class="text-[10px] text-slate-400" data-cat-i18n="nav_pcm_sub">12 Phase-Change Tech Models</div>
+            </div>
+          </div>
+          <span class="text-[10px] font-mono text-slate-500 group-hover/item:text-cyan-400 ml-2">12 Models →</span>
+        </a>
+
+        <!-- 3. Cooler Boxes -->
+        <a href="#cooler-box-catalog" data-mobile-dropdown-cat="cooler-boxes" onclick="selectCategoryFromNav('cooler-boxes', event)" class="nav-dropdown-item flex items-center justify-between px-3 py-2 rounded-xl text-slate-300 hover:text-cyan-300 hover:bg-slate-800/80 transition group/item">
+          <div class="flex items-center gap-2.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0"></span>
+            <div>
+              <div class="font-semibold text-xs text-white group-hover/item:text-cyan-300 flex items-center gap-1.5">
+                <span data-cat-i18n="nav_coolers">Cooler Boxes</span>
+                <span class="text-[9px] px-1.5 py-0.2 rounded bg-emerald-950/80 text-emerald-400 border border-emerald-500/30 font-mono">1.7L~300L</span>
+              </div>
+              <div class="text-[10px] text-slate-400" data-cat-i18n="nav_coolers_sub">33+ Medical &amp; Heavy-Duty Coolers</div>
+            </div>
+          </div>
+          <span class="text-[10px] font-mono text-slate-500 group-hover/item:text-cyan-400 ml-2">33+ Models →</span>
+        </a>
+
+        <!-- 4. EPP Boxes -->
+        <a href="#epp" data-mobile-dropdown-cat="epp" onclick="selectCategoryFromNav('epp', event)" class="nav-dropdown-item flex items-center justify-between px-3 py-2 rounded-xl text-slate-300 hover:text-cyan-300 hover:bg-slate-800/80 transition group/item">
+          <div class="flex items-center gap-2.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0"></span>
+            <div>
+              <div class="font-semibold text-xs text-white group-hover/item:text-cyan-300 flex items-center gap-1.5">
+                <span data-cat-i18n="nav_epp">EPP Boxes</span>
+                <span class="text-[9px] px-1.5 py-0.2 rounded bg-amber-950/80 text-amber-400 border border-amber-500/30 font-mono">High Density</span>
+              </div>
+              <div class="text-[10px] text-slate-400" data-cat-i18n="nav_epp_sub">10 High-Density Shipping Boxes</div>
+            </div>
+          </div>
+          <span class="text-[10px] font-mono text-slate-500 group-hover/item:text-cyan-400 ml-2">10 Models →</span>
+        </a>
+      </div>
+
+      <!-- Bottom: View All Products option -->
+      <div class="pt-2">
+        <a href="#all" data-mobile-dropdown-cat="all" onclick="selectCategoryFromNav('all', event)" class="flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-cyan-950/50 hover:bg-cyan-900/60 border border-cyan-500/30 text-cyan-300 text-xs font-semibold transition">
+          <span data-cat-i18n="nav_all_view">View All Products (87+ Models)</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= 1. HERO COVER BANNER ================= -->
+  <section class="relative overflow-hidden bg-grid pt-14 pb-20 lg:pt-24 lg:pb-32">
+    <!-- Ambient glowing light cones -->
+    <div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-96 w-[700px] rounded-full bg-cyan-500/15 blur-[120px]"></div>
+    <div class="pointer-events-none absolute top-1/2 right-10 h-72 w-72 rounded-full bg-blue-600/15 blur-[100px]"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      
+      <!-- Meta Pill Badge -->
+      <div class="flex justify-center">
+        <div class="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-950/40 px-4 py-1.5 text-xs font-semibold text-cyan-300 backdrop-blur-md">
+          <span class="h-2 w-2 rounded-full bg-cyan-400 animate-ping"></span>
+          <span data-cat-i18n="hero_pill">COLDPACK PRO · OFFICIAL 2026 DIGITAL CATALOG | Edition v4.2</span>
+        </div>
+      </div>
+
+      <!-- Main Studio Headline -->
+      <div class="mt-8 text-center">
+        <h1 class="font-display text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl" data-cat-i18n-html="hero_title">
+          Engineered for <span class="bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500 bg-clip-text text-transparent">Zero Temperature</span> Deviation.
+        </h1>
+        <p class="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-slate-400 sm:text-lg lg:text-xl" data-cat-i18n="hero_desc">
+          Complete source catalog for pharmaceutical distributors, clinical logistics, and cold chain wholesalers. From heavy-duty rotomolded chests and lightweight EPP boxes to formulated PCM bricks (-25°C to +8°C).
+        </p>
+      </div>
+
+      <!-- Key Engineering Metrics Bar (Apple Style Micro-Grid) -->
+      <div class="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:gap-5">
+        <div class="rounded-2xl border-glass bg-card-glass p-5 text-center">
+          <div class="font-display text-2xl font-bold text-cyan-400 sm:text-3xl" data-cat-i18n="hero_m1_val">14+ Years</div>
+          <div class="mt-1 text-xs uppercase tracking-wider text-slate-400" data-cat-i18n="hero_m1_lbl">Source Factory Expert</div>
+        </div>
+        <div class="rounded-2xl border-glass bg-card-glass p-5 text-center">
+          <div class="font-display text-2xl font-bold text-white sm:text-3xl" data-cat-i18n="hero_m2_val">120h+</div>
+          <div class="mt-1 text-xs uppercase tracking-wider text-slate-400" data-cat-i18n="hero_m2_lbl">Validated Holding Time</div>
+        </div>
+        <div class="rounded-2xl border-glass bg-card-glass p-5 text-center">
+          <div class="font-display text-2xl font-bold text-cyan-400 sm:text-3xl" data-cat-i18n="hero_m3_val">-25°C ～ +8°C</div>
+          <div class="mt-1 text-xs uppercase tracking-wider text-slate-400" data-cat-i18n="hero_m3_lbl">Full Temperature Range</div>
+        </div>
+        <div class="rounded-2xl border-glass bg-card-glass p-5 text-center">
+          <div class="font-display text-2xl font-bold text-white sm:text-3xl" data-cat-i18n="hero_m4_val">ISO / CNAS</div>
+          <div class="mt-1 text-xs uppercase tracking-wider text-slate-400" data-cat-i18n="hero_m4_lbl">Certified International Safe</div>
+        </div>
+      </div>
+
+      <!-- Integrated Compliance & Certification Badges -->
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 text-xs">
+        <span class="rounded-xl border border-slate-800 bg-slate-900/90 px-3.5 py-1.5 font-bold text-slate-200 shadow-sm">ISO 9001:2015</span>
+        <a id="btn-cert-sea" href="/images/cnas-sea-transport-certification-cold-chain-ice-pack.png" target="_blank" onclick="openCertModal('sea', event)" class="cursor-pointer rounded-xl border border-cyan-500/40 bg-cyan-950/70 px-3.5 py-1.5 font-bold text-cyan-300 hover:bg-cyan-900 hover:border-cyan-400 transition inline-flex items-center gap-1.5 shadow-sm" data-cat-i18n="trust_cnas_sea">
+          CNAS Sea Freight Report ↗
+        </a>
+        <a id="btn-cert-air" href="/images/cnas-air-transport-certification-cold-chain-ice-pack.png" target="_blank" onclick="openCertModal('air', event)" class="cursor-pointer rounded-xl border border-blue-500/40 bg-blue-950/70 px-3.5 py-1.5 font-bold text-blue-300 hover:bg-blue-900 hover:border-blue-400 transition inline-flex items-center gap-1.5 shadow-sm" data-cat-i18n="trust_cnas_air">
+          CNAS Air Freight Report ↗
+        </a>
+        <span class="rounded-xl border border-slate-800 bg-slate-900/90 px-3.5 py-1.5 font-bold text-slate-200 shadow-sm">DGM Safe</span>
+      </div>
+
+      <!-- Action Buttons: Download Catalog & Inquiry Now -->
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <button
+          type="button"
+          id="btnHeroDownloadFullCatalog"
+          onclick="openCatalogDownloadModal(event)"
+          class="btn-open-catalog-download inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 to-sky-400 px-6 py-3.5 text-sm font-black text-slate-950 shadow-xl shadow-cyan-400/25 transition hover:brightness-110 cursor-pointer"
+        >
+          <svg class="h-4 w-4 text-slate-950" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          <span data-cat-i18n="hero_btn_download">Download Full Catalog</span>
+        </button>
+        <a href="/?inquiry=1#inquiry-form" class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-600/25 transition hover:bg-blue-500">
+          <svg class="h-4 w-4 text-cyan-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <span data-cat-i18n="hero_btn_inquiry">Inquiry Now</span>
+        </a>
+      </div>
+
+      <!-- Compact Product Series Filter Banner -->
+      <div id="series-directory" class="mt-12 overflow-hidden rounded-2xl border border-slate-800 bg-[#0B111D] p-4 sm:p-5 shadow-xl scroll-mt-24 transition-all duration-300">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3 mb-3">
+          <div class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+            <span class="text-xs font-bold text-white uppercase tracking-wider" data-cat-i18n="dir_title">Quick Series Directory &amp; Technical Sheets</span>
+          </div>
+          <div class="text-[11px] text-slate-400" data-cat-i18n="dir_desc">
+            Click any series to jump directly to models and technical specifications
+          </div>
+        </div>
+        <div id="heroSeriesDirectoryGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+          <!-- 1. Gel Ice Packs -->
+          <a href="#gel-packs" data-dir-cat="gel-packs" onclick="switchCatalogCategory('gel-packs', true, event)" class="dir-cat-item rounded-xl border border-slate-800 bg-slate-900/70 p-3 text-center text-slate-300 hover:border-cyan-500/40 hover:text-white transition" data-cat-i18n="dir_gel">
+            Gel Ice Packs
+          </a>
+          <!-- 2. PCM Bricks -->
+          <a href="#pcm" data-dir-cat="pcm" onclick="switchCatalogCategory('pcm', true, event)" class="dir-cat-item rounded-xl border border-slate-800 bg-slate-900/70 p-3 text-center text-slate-300 hover:border-cyan-500/40 hover:text-white transition" data-cat-i18n="dir_pcm">
+            PCM Bricks
+          </a>
+          <!-- 3. Cooler Boxes -->
+          <a href="#cooler-box-catalog" data-dir-cat="cooler-boxes" onclick="switchCatalogCategory('cooler-boxes', true, event)" class="dir-cat-item rounded-xl border-2 border-cyan-400 bg-cyan-950/70 p-3 text-center text-cyan-300 font-bold shadow-lg shadow-cyan-500/20 scale-[1.02] transition" data-cat-i18n="dir_coolers">
+            Cooler Boxes (33+ Models)
+          </a>
+          <!-- 4. EPP Boxes -->
+          <a href="#epp" data-dir-cat="epp" onclick="switchCatalogCategory('epp', true, event)" class="dir-cat-item rounded-xl border border-slate-800 bg-slate-900/70 p-3 text-center text-slate-300 hover:border-cyan-500/40 hover:text-white transition" data-cat-i18n="dir_epp">
+            EPP Foam Boxes
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CATEGORY ACTIVE INDICATOR & QUICK SWITCH BAR ================= -->
+  <div id="catalogCategoryIndicatorBar" class="sticky top-[61px] sm:top-[69px] z-30 border-b border-cyan-500/30 bg-[#090F1D]/95 backdrop-blur-md px-4 py-2.5 shadow-lg transition-all duration-300">
+    <div class="mx-auto max-w-7xl flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-2.5">
+        <span class="flex h-2.5 w-2.5 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
+        </span>
+        <span class="text-slate-400 font-medium" data-cat-i18n="cat_viewing_label">Current Category:</span>
+        <span id="activeCategoryTitle" class="text-white font-extrabold text-sm font-display tracking-wide">Cooler Boxes</span>
+        <span id="activeCategoryCount" class="rounded-full bg-cyan-950/80 border border-cyan-500/40 px-2.5 py-0.5 text-[11px] font-bold text-cyan-300">33+ Models</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button type="button" onclick="scrollToSeriesDirectory()" class="rounded-lg border border-slate-700 bg-slate-800/80 px-2.5 py-1 text-[11px] font-medium text-slate-300 hover:text-white hover:border-cyan-400 transition" data-cat-i18n="cat_btn_change">
+          Switch Category
+        </button>
+        <button id="catViewAllBtn" type="button" onclick="switchCatalogCategory('all', true, event)" class="rounded-lg border border-slate-700 bg-slate-800/80 px-2.5 py-1 text-[11px] font-medium text-slate-300 hover:text-cyan-300 hover:border-cyan-400 transition" data-cat-i18n="cat_btn_all">
+          View All
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 2.5 COOLER BOX PRODUCT CATALOG (NEW EXPANDED SERIES) ================= -->
+  <section id="cooler-box-catalog" class="py-20 border-b border-cyan-500/20 bg-gradient-to-b from-[#060A13] via-[#091120] to-[#070C16] relative overflow-hidden">
+    <!-- Glowing background accent -->
+    <div class="pointer-events-none absolute -top-40 right-1/4 h-96 w-96 rounded-full bg-cyan-500/10 blur-[120px]"></div>
+    <div class="pointer-events-none absolute bottom-10 left-10 h-80 w-80 rounded-full bg-blue-600/10 blur-[100px]"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Super-Header -->
+      <div class="mb-12 text-center max-w-4xl mx-auto">
+        <div class="inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-950/60 px-4 py-1.5 text-xs font-bold text-cyan-300 backdrop-blur-md shadow-lg shadow-cyan-500/10">
+          <span class="h-2 w-2 rounded-full bg-cyan-400 animate-ping"></span>
+          <span data-cat-i18n="cb_pill">COLDPACKPRO COLD CHAIN TECHNOLOGY · 2026 DIGITAL CATALOG</span>
+        </div>
+        <h2 class="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white" data-cat-i18n="cb_title">
+          Cooler Box Product Catalog
+        </h2>
+        <p class="mt-3 text-base sm:text-lg font-semibold text-cyan-400/90" data-cat-i18n="cb_subtitle">
+          Professional Insulated Solutions for Food, Seafood, Healthcare, Catering, and Temperature-Controlled Logistics
+        </p>
+        <p class="mt-3 text-xs sm:text-sm text-slate-400 max-w-3xl mx-auto leading-relaxed" data-cat-i18n="cb_desc">
+          Engineered for global cold-chain reliability across practical commercial criteria: certified thermal protection, heavy-duty durability, food/pharma hygiene, easy sanitization, secure latch sealing, transport efficiency, and repeated professional use.
+        </p>
+        <!-- Category Action Buttons: Inquiry + Request PI Quote -->
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <a href="/?inquiry=1&category=cooler-boxes&series=Cooler+Box+Product+Catalog#inquiry-form" class="rounded-full bg-cyan-400 px-5 py-2.5 text-xs font-bold text-slate-950 hover:bg-cyan-300 shadow-lg shadow-cyan-400/20 transition" data-cat-i18n="cb_btn_inquiry">
+            Inquiry Cooler Boxes →
+          </a>
+          <a href="/request-quote?category=Cooler+Boxes" class="rounded-full border border-slate-700 bg-slate-900/80 px-4 py-2.5 text-xs font-semibold text-slate-300 hover:text-white hover:border-cyan-400 transition" data-cat-i18n="cb_btn_pi">
+            Request PI Quote
+          </a>
+        </div>
+      </div>
+
+      <!-- Mount Target for Dynamic Interactive Product Catalog -->
+      <div id="coolerCatalogMount">
+        <!-- Rendered dynamically by /js/cooler-catalog.js -->
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= 5. TROLLEY & OUTDOOR MOBILE REFRIGERATED SERIES ================= -->
+  <section id="trolley" class="py-20 border-b border-slate-800/80 bg-[#090E17]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div class="max-w-3xl">
+          <span class="text-xs font-bold uppercase tracking-wider text-cyan-400" data-cat-i18n="trolley_sec">Section 05 · All-Terrain Ergonomics</span>
+          <h2 class="mt-2 font-display text-3xl font-black text-white sm:text-4xl" data-cat-i18n="trolley_title">Trolley &amp; Outdoor Mobile Refrigerated Series</h2>
+          <p class="mt-2 text-sm text-slate-400" data-cat-i18n="trolley_desc">
+            Featuring heavy-duty telescopic aluminum pull rods and high-load wear-resistant rubber puncture-proof wheels. Engineered for mobile immunization teams, field blood drives, and airport tarmac transfers.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <a href="/?inquiry=1&category=cooler-trolley&series=Trolley+Mobile+Series#inquiry-form" class="rounded-full bg-cyan-400 px-5 py-2.5 text-xs font-bold text-slate-950 hover:bg-cyan-300 transition" data-cat-i18n="trolley_btn_inquiry">
+            Inquiry Trolley Coolers →
+          </a>
+          <a href="/request-quote?category=Trolley+Coolers" class="rounded-full border border-slate-700 bg-slate-900/80 px-4 py-2.5 text-xs font-semibold text-slate-300 hover:text-white hover:border-cyan-400 transition" data-cat-i18n="trolley_btn_pi">
+            Request PI Quote
+          </a>
+        </div>
+      </div>
+
+      <!-- Upload Tip Bar -->
+      <div class="mt-8 flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="rounded bg-cyan-950 px-2.5 py-1 text-xs font-mono font-bold text-cyan-300 border border-cyan-500/30" data-cat-i18n="trolley_badge">Trolley Cooler Box</span>
+          <span class="text-xs text-slate-300" data-cat-i18n="trolley_models_sub">All-Terrain Heavy Pull Rod &amp; Puncture-Proof Mobile Wheel Specifications</span>
+        </div>
+        <span class="text-[11px] text-slate-400" data-cat-i18n="epp_slot_tip">Click button on any slot to upload &amp; auto-scale photo</span>
+      </div>
+
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        
+        <!-- (1) HP-28LG -->
+        <div id="product-model-hp-28lg" data-model-name="HP-28LG" style="scroll-margin-top: 100px;" class="rounded-2xl border border-slate-800 bg-[#0B1220] p-5 sm:p-6 flex flex-col justify-between shadow-xl hover:border-cyan-500/40 transition">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded-md bg-cyan-950/80 px-2.5 py-0.5 text-[11px] font-bold text-cyan-400 border border-cyan-500/30" data-cat-i18n="trolley_hp28lg_b">Compact Mobile Trolley</span>
+              <span class="text-xs font-mono font-bold text-cyan-300">28 Litre · 3.8 KG</span>
+            </div>
+            <h3 class="text-xl font-bold text-white font-display" data-cat-i18n="trolley_hp28lg_title">HP-28LG (28 Litre)</h3>
+
+            <!-- Dedicated Image Upload Slot -->
+            <div id="trolleyHP28LGSlotMount" class="w-full my-3.5"></div>
+
+            <!-- Parameters Grid -->
+            <div class="space-y-1.5 rounded-xl border border-slate-800/80 bg-slate-950/60 p-3.5 text-xs font-mono text-slate-300">
+              <div class="flex justify-between items-center">
+                <span class="text-slate-500" data-cat-i18n="trolley_lbl_cap">Capacity:</span>
+                <span class="text-white font-bold">28 Litre</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-500" data-cat-i18n="trolley_lbl_weight">Product Weight:</span>
+                <span class="text-cyan-300 font-bold">3.8 KG</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-500" data-cat-i18n="trolley_lbl_ext">External Dim:</span>
+                <span class="text-white font-bold">440 × 315 × 410 mm</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-500" data-cat-i18n="trolley_lbl_int">Internal Dim:</span>
+                <span class="text-slate-300">350 × 230 × 340 mm</span>
+              </div>
+              <div class="flex justify-between items-start gap-2">
+                <span class="text-slate-500 shrink-0" data-cat-i18n="trolley_lbl_hold">Thermal Duration:</span>
+                <span class="text-emerald-400 font-semibold text-right" data-cat-i18n="trolley_duration_val">Hot 12h | Cold 36–48h</span>
+              </div>
+              <div class="flex justify-between items-start gap-2">
+                <span class="text-slate-500 shrink-0" data-cat-i18n="trolley_lbl_mat">Materials:</span>
+                <span class="text-slate-300 text-right text-[11px]" data-cat-i18n="trolley_mat_val">Outer PE, Inner PP, Insulation PU</span>
+              </div>
+              <div class="flex flex-col gap-0.5 pt-1.5 border-t border-slate-800/60">
+                <span class="text-slate-500" data-cat-i18n="trolley_lbl_color">Color:</span>
+                <span class="text-blue-300 text-[11px]" data-cat-i18n="trolley_color_val">Blue (Custom colors available w/ MOQ)</span>
+              </div>
+            </div>
+
+            <!-- Thermal Duration Remark -->
+            <p class="mt-3 text-[10px] leading-relaxed text-slate-400 italic" data-cat-i18n="trolley_duration_note">
+              *Note: Thermal retention depends on payload cargo, pre-cooling, coolant quantity, opening frequency &amp; ambient temp.
+            </p>
+          </div>
+
+          <div class="mt-5 pt-3.5 border-t border-slate-800/80 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500" data-cat-i18n="trolley_factory_direct">Factory Direct</span>
+            <a href="/?inquiry=1&category=cooler-trolley&series=Trolley+Mobile+Series&model=HP-28LG&capacity=28L&extDim=440x315x410mm&intDim=350x230x340mm&weight=3.8KG&hold=Hot+12h+Cold+36-48h#inquiry-form" class="inline-flex items-center gap-1.5 rounded-lg bg-cyan-400/10 px-3.5 py-1.5 text-xs font-bold text-cyan-300 hover:bg-cyan-400 hover:text-slate-950 border border-cyan-500/30 transition" data-cat-i18n="trolley_inquiry_hp28lg">
+              <span>Inquiry HP-28LG</span>
+              <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- (2) HP-38LG -->
+        <div id="product-model-hp-38lg" data-model-name="HP-38LG" style="scroll-margin-top: 100px;" class="rounded-2xl border border-cyan-500/40 bg-[#0B1220] p-5 sm:p-6 flex flex-col justify-between shadow-xl shadow-cyan-950/20 hover:border-cyan-400 transition">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded-md bg-cyan-950/80 px-2.5 py-0.5 text-[11px] font-bold text-cyan-400 border border-cyan-500/30" data-cat-i18n="trolley_hp38lg_b">Standard Field Station</span>
+              <span class="text-xs font-mono font-bold text-cyan-300">38 Litre · 4.9 KG</span>
+            </div>
+            <h3 class="text-xl font-bold text-white font-display" data-cat-i18n="trolley_hp38lg_title">HP-38LG (38 Litre)</h3>
+
+            <!-- Dedicated Image Upload Slot -->
+            <div id="trolleyHP38LGSlotMount" class="w-full my-3.5"></div>
+
+            <!-- Parameters Grid -->
+            <div class="space-y-1.5 rounded-xl border border-slate-800/80 bg-slate-950/60 p-3.5 text-xs font-mono text-slate-300">
+              <div class="flex justify-between items-center">
+                <span class="text-slate-500" data-cat-i18n="trolley_lbl_cap">Capacity:</span>
+                <span class="text-white font-bold">38 Litre</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-500" data-cat-i18n="trolley_lbl_weight">Product Weight:</span>
+                <span class="text-cyan-300 font-bold">4.9 KG</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-500" data-cat-i18n="trolley_lbl_ext">External Dim:</span>
+                <span class="text-white font-bold">480 × 300 × 460 mm</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-500" data-cat-i18n="trolley_lbl_int">Internal Dim:</span>
+                <span class="text-slate-300">400 × 250 × 380 mm</span>
+              </div>
+              <div class="flex justify-between items-start gap-2">
+                <span class="text-slate-500 shrink-0" data-cat-i18n="trolley_lbl_hold">Thermal Duration:</span>
+                <span class="text-emerald-400 font-semibold text-right" data-cat-i18n="trolley_duration_val">Hot 12h | Cold 36–48h</span>
+              </div>
+              <div class="flex justify-between items-start gap-2">
+                <span class="text-slate-500 shrink-0" data-cat-i18n="trolley_lbl_mat">Materials:</span>
+                <span class="text-slate-300 text-right text-[11px]" data-cat-i18n="trolley_mat_val">Outer PE, Inner PP, Insulation PU</span>
+              </div>
+              <div class="flex flex-col gap-0.5 pt-1.5 border-t border-slate-800/60">
+                <span class="text-slate-500" data-cat-i18n="trolley_lbl_color">Color:</span>
+                <span class="text-blue-300 text-[11px]" data-cat-i18n="trolley_color_val">Blue (Custom colors available w/ MOQ)</span>
+              </div>
+            </div>
+
+            <!-- Thermal Duration Remark -->
+            <p class="mt-3 text-[10px] leading-relaxed text-slate-400 italic" data-cat-i18n="trolley_duration_note">
+              *Note: Thermal retention depends on payload cargo, pre-cooling, coolant quantity, opening frequency &amp; ambient temp.
+            </p>
+          </div>
+
+          <div class="mt-5 pt-3.5 border-t border-slate-800/80 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500" data-cat-i18n="trolley_factory_direct">Factory Direct</span>
+            <a href="/?inquiry=1&category=cooler-trolley&series=Trolley+Mobile+Series&model=HP-38LG&capacity=38L&extDim=480x300x460mm&intDim=400x250x380mm&weight=4.9KG&hold=Hot+12h+Cold+36-48h#inquiry-form" class="inline-flex items-center gap-1.5 rounded-lg bg-cyan-400 px-3.5 py-1.5 text-xs font-bold text-slate-950 hover:bg-cyan-300 transition shadow" data-cat-i18n="trolley_inquiry_hp38lg">
+              <span>Inquiry HP-38LG</span>
+              <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- (3) HP-65LG -->
+        <div id="product-model-hp-65lg" data-model-name="HP-65LG" style="scroll-margin-top: 100px;" class="rounded-2xl border border-slate-800 bg-[#0B1220] p-5 sm:p-6 flex flex-col justify-between shadow-xl hover:border-cyan-500/40 transition">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded-md bg-cyan-950/80 px-2.5 py-0.5 text-[11px] font-bold text-cyan-400 border border-cyan-500/30" data-cat-i18n="trolley_hp65lg_b">Heavy Field Operations</span>
+              <span class="text-xs font-mono font-bold text-cyan-300">65 Litre · 7.4 KG</span>
+            </div>
+            <h3 class="text-xl font-bold text-white font-display" data-cat-i18n="trolley_hp65lg_title">HP-65LG (65 Litre)</h3>
+
+            <!-- Dedicated Image Upload Slot -->
+            <div id="trolleyHP65LGSlotMount" class="w-full my-3.5"></div>
+
+            <!-- Parameters Grid -->
+            <div class="space-y-1.5 rounded-xl border border-slate-800/80 bg-slate-950/60 p-3.5 text-xs font-mono text-slate-300">
+              <div class="flex justify-between items-center">
+                <span class="text-slate-500" data-cat-i18n="trolley_lbl_cap">Capacity:</span>
+                <span class="text-white font-bold">65 Litre</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-500" data-cat-i18n="trolley_lbl_weight">Product Weight:</span>
+                <span class="text-cyan-300 font-bold">7.4 KG</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-500" data-cat-i18n="trolley_lbl_ext">External Dim:</span>
+                <span class="text-white font-bold">490 × 450 × 510 mm</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-500" data-cat-i18n="trolley_lbl_int">Internal Dim:</span>
+                <span class="text-slate-300">420 × 350 × 420 mm</span>
+              </div>
+              <div class="flex justify-between items-start gap-2">
+                <span class="text-slate-500 shrink-0" data-cat-i18n="trolley_lbl_hold">Thermal Duration:</span>
+                <span class="text-emerald-400 font-semibold text-right" data-cat-i18n="trolley_duration_val">Hot 12h | Cold 36–48h</span>
+              </div>
+              <div class="flex justify-between items-start gap-2">
+                <span class="text-slate-500 shrink-0" data-cat-i18n="trolley_lbl_mat">Materials:</span>
+                <span class="text-slate-300 text-right text-[11px]" data-cat-i18n="trolley_mat_val">Outer PE, Inner PP, Insulation PU</span>
+              </div>
+              <div class="flex flex-col gap-0.5 pt-1.5 border-t border-slate-800/60">
+                <span class="text-slate-500" data-cat-i18n="trolley_lbl_color">Color:</span>
+                <span class="text-blue-300 text-[11px]" data-cat-i18n="trolley_color_val">Blue (Custom colors available w/ MOQ)</span>
+              </div>
+            </div>
+
+            <!-- Thermal Duration Remark -->
+            <p class="mt-3 text-[10px] leading-relaxed text-slate-400 italic" data-cat-i18n="trolley_duration_note">
+              *Note: Thermal retention depends on payload cargo, pre-cooling, coolant quantity, opening frequency &amp; ambient temp.
+            </p>
+          </div>
+
+          <div class="mt-5 pt-3.5 border-t border-slate-800/80 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500" data-cat-i18n="trolley_factory_direct">Factory Direct</span>
+            <a href="/?inquiry=1&category=cooler-trolley&series=Trolley+Mobile+Series&model=HP-65LG&capacity=65L&extDim=490x450x510mm&intDim=420x350x420mm&weight=7.4KG&hold=Hot+12h+Cold+36-48h#inquiry-form" class="inline-flex items-center gap-1.5 rounded-lg bg-cyan-400/10 px-3.5 py-1.5 text-xs font-bold text-cyan-300 hover:bg-cyan-400 hover:text-slate-950 border border-cyan-500/30 transition" data-cat-i18n="trolley_inquiry_hp65lg">
+              <span>Inquiry HP-65LG</span>
+              <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 6. EPP FOAM BOX SERIES (EXPANDED POLYPROPYLENE) ================= -->
+  <section id="epp" class="py-20 border-b border-slate-800/80 bg-[#070B12]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-950/60 px-3 py-1 text-xs font-bold text-emerald-400 border border-emerald-500/30">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+            <span data-cat-i18n="epp_pill">LIGHTWEIGHT CIRCULAR LOGISTICS · 100% RECYCLABLE</span>
+          </span>
+          <h2 class="mt-3 font-display text-3xl font-black text-white sm:text-4xl" data-cat-i18n="epp_title">
+            EPP Foam Box Series (Expanded Polypropylene)
+          </h2>
+          <p class="mt-2 text-sm leading-relaxed text-slate-300 max-w-3xl" data-cat-i18n="epp_desc">
+            Features: 1. Lightweight &amp; high-density; 2. Superior thermal retention with ice packs &amp; PCM bricks; 3. Commercial-grade thickened material, multi-year reusable; 4. High impact, drop &amp; crush resistance vs. traditional EPS; 5. 100% non-toxic, odorless, food-safe &amp; eco-friendly recyclable; 6. Multi-tier interlocking stackable design.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <a href="/?inquiry=1&category=cooler-epp&series=EPP+Foam+Box+Series&model=EPP-Series#inquiry-form" class="rounded-full bg-emerald-600 px-5 py-2.5 text-xs font-bold text-white hover:bg-emerald-500 shadow-lg shadow-emerald-900/30 transition" data-cat-i18n="epp_btn_inquiry">
+            Inquiry EPP Boxes →
+          </a>
+          <a href="/request-quote?category=EPP+Foam+Boxes" class="rounded-full border border-slate-700 bg-slate-900/80 px-4 py-2.5 text-xs font-semibold text-slate-300 hover:text-white transition" data-cat-i18n="epp_btn_pi">
+            Request PI Quote
+          </a>
+        </div>
+      </div>
+
+      <!-- Advantages / Key Features Quick Grid (6 Core Features) -->
+      <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-xs">
+        <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-3 flex flex-col justify-between">
+          <div>
+            <div class="font-bold text-emerald-400" data-cat-i18n="epp_f1_t">1. Ultra-Lightweight</div>
+            <div class="text-slate-400 mt-1 text-[11px] leading-snug" data-cat-i18n="epp_f1_d">Cuts tare weight by up to 75%, slashing airline &amp; courier freight costs.</div>
+          </div>
+        </div>
+        <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-3 flex flex-col justify-between">
+          <div>
+            <div class="font-bold text-cyan-400" data-cat-i18n="epp_f2_t">2. Thermal Hold</div>
+            <div class="text-slate-400 mt-1 text-[11px] leading-snug" data-cat-i18n="epp_f2_d">&lambda; &le; 0.035 W/(m&middot;K); pairs with ice packs &amp; PCM bricks for 6&ndash;8h+ hold.</div>
+          </div>
+        </div>
+        <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-3 flex flex-col justify-between">
+          <div>
+            <div class="font-bold text-white" data-cat-i18n="epp_f3_t">3. Commercial Reusable</div>
+            <div class="text-slate-400 mt-1 text-[11px] leading-snug" data-cat-i18n="epp_f3_d">Thickened closed-cell material, washable, chemical-safe, multi-trip circular use.</div>
+          </div>
+        </div>
+        <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-3 flex flex-col justify-between">
+          <div>
+            <div class="font-bold text-emerald-400" data-cat-i18n="epp_f4_t">4. Crush &amp; Drop Proof</div>
+            <div class="text-slate-400 mt-1 text-[11px] leading-snug" data-cat-i18n="epp_f4_d">High structural memory absorbs drop shocks, far superior to fragile EPS.</div>
+          </div>
+        </div>
+        <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-3 flex flex-col justify-between">
+          <div>
+            <div class="font-bold text-white" data-cat-i18n="epp_f5_t">5. Non-Toxic &amp; Eco</div>
+            <div class="text-slate-400 mt-1 text-[11px] leading-snug" data-cat-i18n="epp_f5_d">Food-grade safe material, odorless, zero crumbly debris, 100% recyclable.</div>
+          </div>
+        </div>
+        <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-3 flex flex-col justify-between">
+          <div>
+            <div class="font-bold text-cyan-400" data-cat-i18n="epp_f6_t">6. Multi-Tier Stackable</div>
+            <div class="text-slate-400 mt-1 text-[11px] leading-snug" data-cat-i18n="epp_f6_d">Precision interlocking lugs for slip-free stacking in transit &amp; warehouse.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specific EPP Production Models with Model No. & Dimensions Image Upload Grid -->
+      <div class="mt-12">
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <h3 class="text-xl font-bold text-white font-display" data-cat-i18n="epp_models_title">EPP Series Standard Models &amp; Specifications</h3>
+            <p class="text-xs text-slate-400 mt-1" data-cat-i18n="epp_models_desc">Dedicated product image upload slot for each specific model number, dimensions, and tare weight.</p>
+          </div>
+          <span class="text-xs font-mono font-bold text-emerald-400 px-3 py-1 bg-emerald-950/80 rounded-full border border-emerald-500/30" data-cat-i18n="epp_models_count">
+            21 Production Models
+          </span>
+        </div>
+
+        <div id="eppModelsMount" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 7. PHASE CHANGE ICE PACKS & THERMAL COMPONENTS ================= -->
+  <section id="pcm" class="py-20 border-b border-slate-800/80 bg-[#090E17]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-cyan-400" data-cat-i18n="pcm_sec">Section 07 · Core Cold Engine</span>
+          <h2 class="mt-2 font-display text-3xl font-black text-white sm:text-4xl" data-cat-i18n="pcm_title">Phase Change Ice Packs &amp; Rigid PCM Bricks</h2>
+          <p class="mt-2 text-sm text-slate-400 max-w-2xl" data-cat-i18n="pcm_desc">
+            High-density blow-molded HDPE outer shells ultrasonic-sealed to prevent leaking. Filled with non-toxic, high-latent-heat PCM formulations engineered for strict temperature plateau stabilization.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <a href="/?inquiry=1&category=icepack-brick&series=PCM+Ice+Bricks&model=PCM-Bricks#inquiry-form" class="rounded-full bg-blue-600 px-5 py-2.5 text-xs font-bold text-white hover:bg-blue-500 transition" data-cat-i18n="pcm_btn_inquiry">
+            Inquiry PCM Formulations →
+          </a>
+          <a href="/request-quote?category=PCM+Bricks" class="rounded-full border border-slate-700 bg-slate-900/80 px-4 py-2.5 text-xs font-semibold text-slate-300 hover:text-white hover:border-cyan-400 transition" data-cat-i18n="pcm_btn_pi">
+            Request PI Quote
+          </a>
+        </div>
+      </div>
+
+      <!-- PCM Master Showcase 3 Slots: Master Hero (Large) + Specs (Medium) + Accessories (Medium) -->
+      <div class="mt-8 rounded-2xl border border-slate-800 bg-[#0B1220] p-6 shadow-2xl">
+        <div class="mb-4 flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="rounded bg-blue-950 px-2.5 py-1 text-xs font-mono font-bold text-cyan-300 border border-cyan-500/30" data-cat-i18n="pcm_showcase_pill">PCM SHOWCASE SLOTS</span>
+            <span class="text-xs text-slate-300" data-cat-i18n="pcm_showcase_sub">Rigid HDPE Shells, Phase Plateau Enthalpy Curves &amp; Freezer Inlays</span>
+          </div>
+          <span class="text-[11px] text-slate-400" data-cat-i18n="epp_slot_tip">Click button on any slot to upload &amp; auto-scale photo</span>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-12 items-stretch">
+          <!-- Master Main Photo Slot (Large) -->
+          <div class="lg:col-span-6 flex flex-col justify-between">
+            <div id="pcmHeroSlotMount"></div>
+            <div class="mt-2.5 rounded-xl border border-slate-800/80 bg-slate-950/70 p-2.5 text-center">
+              <span class="text-xs font-bold text-cyan-300" data-cat-i18n="pcm_hero_tag">[Main Product Showcase]</span>
+              <span class="text-xs text-slate-300" data-cat-i18n="pcm_hero_lbl">Ultrasonic Sealed Rigid HDPE Phase Change Ice Brick with Anti-expansion Ribs</span>
+            </div>
+          </div>
+
+          <!-- Specs (Medium) & Accessories (Medium) -->
+          <div class="lg:col-span-6 grid gap-6 sm:grid-cols-2">
+            <!-- Specs Slot -->
+            <div class="flex flex-col justify-between">
+              <div id="pcmSpecsSlotMount"></div>
+              <div class="mt-2.5 rounded-xl border border-slate-800/80 bg-slate-950/70 p-2.5 text-center">
+                <span class="text-xs font-bold text-sky-300" data-cat-i18n="pcm_specs_tag">[Technical Specifications]</span>
+                <span class="text-xs text-slate-300" data-cat-i18n="pcm_specs_lbl">Latent Heat Plateau Enthalpy Curves (-25°C / -21°C / -16°C / +5°C)</span>
+              </div>
+            </div>
+
+            <!-- Accessories Slot -->
+            <div class="flex flex-col justify-between">
+              <div id="pcmAccSlotMount"></div>
+              <div class="mt-2.5 rounded-xl border border-slate-800/80 bg-slate-950/70 p-2.5 text-center">
+                <span class="text-xs font-bold text-emerald-300" data-cat-i18n="pcm_acc_tag">[Modular Accessories]</span>
+                <span class="text-xs text-slate-300" data-cat-i18n="pcm_acc_lbl">Quick-freeze Airflow Racks, Internal Rail Mount Latches &amp; Foam Dividers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specific PCM Production Models with Model No. & Dimensions Image Upload Grid -->
+      <div class="mt-12">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-800">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="rounded bg-cyan-950 px-2.5 py-0.5 text-[11px] font-mono font-bold text-cyan-300 border border-cyan-500/30">SECTION 07 · COMPLETE LINEUP</span>
+              <span class="text-xs font-semibold text-slate-400">Phase Change Ice Packs &amp; Rigid PCM Bricks</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white font-display" data-cat-i18n="pcm_models_title">PCM Series Standard Models &amp; Specifications</h3>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl" data-cat-i18n="pcm_models_desc">All-English technical specifications matrix with dedicated product image upload slot for each specific model number, dimensions, tare weight, and phase plateau.</p>
+          </div>
+          <div class="shrink-0">
+            <span class="inline-flex items-center gap-2 text-xs font-mono font-bold text-cyan-300 px-4 py-2 bg-cyan-950/90 rounded-full border border-cyan-500/40 shadow-sm" data-cat-i18n="pcm_models_count">
+              <span class="h-2 w-2 rounded-full bg-cyan-400 animate-pulse"></span>
+              37 Rigid HDPE Models (18 In-Stock + 19 Custom)
+            </span>
+          </div>
+        </div>
+
+        <!-- Filter Tabs & Feature Badges -->
+        <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#0B1220] p-3 sm:p-4 rounded-2xl border border-slate-800">
+          <!-- Filter Tabs -->
+          <div class="flex flex-wrap items-center gap-2" role="tablist">
+            <button 
+              type="button" 
+              id="pcmTabAll" 
+              onclick="filterPcmModels('all')" 
+              class="px-4 py-2 rounded-xl transition text-xs font-black bg-cyan-400 text-slate-950 shadow-md shadow-cyan-400/20 cursor-pointer"
+              data-cat-i18n="pcm_tab_all"
+            >
+              All 37 Production Models
+            </button>
+            <button 
+              type="button" 
+              id="pcmTabInStock" 
+              onclick="filterPcmModels('instock')" 
+              class="px-4 py-2 rounded-xl transition text-xs font-semibold text-slate-400 hover:text-white cursor-pointer"
+              data-cat-i18n="pcm_tab_instock"
+            >
+              Part 1: In-Stock Ready (#1–18 · Zero Mold)
+            </button>
+            <button 
+              type="button" 
+              id="pcmTabCustom" 
+              onclick="filterPcmModels('custom')" 
+              class="px-4 py-2 rounded-xl transition text-xs font-semibold text-slate-400 hover:text-white cursor-pointer"
+              data-cat-i18n="pcm_tab_custom"
+            >
+              Part 2: Custom Made-to-Order (#19–37 · MOQ)
+            </button>
+          </div>
+
+          <!-- Feature Pills -->
+          <div class="hidden lg:flex items-center gap-2 text-[11px] font-mono text-slate-400">
+            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-emerald-300" data-cat-i18n="pcm_pills_zeromold">Zero Tooling on #1–18</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-cyan-300" data-cat-i18n="pcm_pills_welded">Ultrasonic Sealed Virgin HDPE</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-sky-300" data-cat-i18n="pcm_pills_logo">Custom Private Logo</span>
+          </div>
+        </div>
+
+        <!-- 37 Products Grid Mount: Each product contains dedicated image upload slot, specs matrix & inquiry CTA -->
+        <div id="pcmModelsMount" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
+      </div>
+
+      <!-- PCM Temperature Point Formulations Table -->
+      <div class="mt-8 rounded-2xl border border-slate-800 bg-[#0B111D] p-6">
+        <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400" data-cat-i18n="pcm_chem_title">Proprietary PCM Chemical Formulations</h3>
+        <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 text-xs">
+          <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-3.5">
+            <div class="font-bold text-cyan-300 text-sm" data-cat-i18n="pcm_f1_t">-25°C Ultra-Subzero</div>
+            <div class="text-slate-400 mt-1" data-cat-i18n="pcm_f1_d">Latent heat ~285 kJ/kg. Direct substitute for dangerous dry ice in domestic/air transport.</div>
+          </div>
+          <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-3.5">
+            <div class="font-bold text-sky-300 text-sm" data-cat-i18n="pcm_f2_t">-16°C / -10°C Frozen</div>
+            <div class="text-slate-400 mt-1" data-cat-i18n="pcm_f2_d">Maintains frozen fish, meat, and biological reagents safely below freezing for 72h+.</div>
+          </div>
+          <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-3.5">
+            <div class="font-bold text-emerald-300 text-sm" data-cat-i18n="pcm_f3_t">+2°C ~ +8°C Anti-Freeze</div>
+            <div class="text-slate-400 mt-1" data-cat-i18n="pcm_f3_d">Maintains temperature plateau above 0°C to eliminate freezing damage to vaccine antigens.</div>
+          </div>
+          <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-3.5">
+            <div class="font-bold text-amber-300 text-sm" data-cat-i18n="pcm_f4_t">+18°C ~ +22°C CRT</div>
+            <div class="text-slate-400 mt-1" data-cat-i18n="pcm_f4_d">Controlled Room Temperature buffer for temperature-sensitive oncology &amp; antibody pills.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= 8. GEL ICE PACKS SERIES ================= -->
+  <section id="gel-packs" class="py-20 border-b border-slate-800/80 bg-[#070B12]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <div class="inline-flex items-center gap-1.5 rounded-full bg-cyan-950/60 px-3 py-1 text-xs font-bold text-cyan-400 border border-cyan-500/30">
+            <span data-cat-i18n="gel_pill">HIGH LATENT HEAT · FOOD &amp; PHARMA GRADE</span>
+          </div>
+          <h2 class="mt-3 font-display text-3xl font-black text-white sm:text-4xl" data-cat-i18n="gel_title">Gel Ice Packs (Flexible Multi-Layer Cooling Pouches)</h2>
+          <p class="mt-2 text-sm text-slate-400 max-w-2xl" data-cat-i18n="gel_desc">
+            Puncture-resistant co-extruded Nylon/PE outer barrier pouches filled with high-density non-toxic Super Absorbent Polymer (SAP/CMC) gel. High volumetric latent heat capacity prevents hot-spots during fresh food, seafood, dairy, and cold-chain parcel express delivery.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <a href="/?inquiry=1&category=gel&series=Gel+Ice+Packs&model=Gel-Pack#inquiry-form" class="rounded-full bg-cyan-400 px-5 py-2.5 text-xs font-bold text-slate-950 hover:bg-cyan-300 transition" data-cat-i18n="gel_btn_inquiry">
+            Inquiry Gel Ice Packs →
+          </a>
+          <a href="/request-quote?category=Gel+Ice+Packs" class="rounded-full border border-slate-700 bg-slate-900/80 px-4 py-2.5 text-xs font-semibold text-slate-300 hover:text-white hover:border-cyan-400 transition" data-cat-i18n="gel_btn_pi">
+            Request PI Quote
+          </a>
+        </div>
+      </div>
+
+      <!-- Cold Packs, Self-Absorbing & Water-Injection Product Lineups -->
+      <div class="mt-8">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-800">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="rounded bg-cyan-950 px-2.5 py-0.5 text-[11px] font-mono font-bold text-cyan-300 border border-cyan-500/30">SECTION 08 · COMPLETE LINEUP</span>
+              <span class="text-xs font-semibold text-slate-400">Cold Packs, Self-Absorbing, Water-Injection &amp; Instant Cooling</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white font-display" data-cat-i18n="gel_models_title">Cold Packs, Self-Absorbing, Water-Injection &amp; Instant Cooling Specifications</h3>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl" data-cat-i18n="gel_models_desc">All-English technical specifications matrix across (I) Gel Ice Packs (#1–13 · XLD/NWIP/ZHB), (II) Self-Absorbing Ice Packs (#1–24 · ZXD/SCX), (III) Water-Injection Ice Packs (#1–5 · ZSD), and (IV) Instant Cooling Ice Packs (#1 · SLD-160).</p>
+          </div>
+          <div class="shrink-0">
+            <span class="inline-flex items-center gap-2 text-xs font-mono font-bold text-cyan-300 px-4 py-2 bg-cyan-950/90 rounded-full border border-cyan-500/40 shadow-sm" data-cat-i18n="gel_models_count">
+              <span class="h-2 w-2 rounded-full bg-cyan-400 animate-pulse"></span>
+              43 Production Formats Across 4 Technical Series (XLD · ZXD · ZSD · SLD)
+            </span>
+          </div>
+        </div>
+
+        <!-- Filter Tabs & Feature Badges -->
+        <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#0B1220] p-3 sm:p-4 rounded-2xl border border-slate-800">
+          <!-- Filter Tabs -->
+          <div class="flex flex-wrap items-center gap-2" role="tablist">
+            <button 
+              type="button" 
+              id="gelTabAll" 
+              onclick="filterGelModels('all')" 
+              class="px-4 py-2 rounded-xl transition text-xs font-black bg-cyan-400 text-slate-950 shadow-md shadow-cyan-400/20 cursor-pointer"
+              data-cat-i18n="gel_tab_all"
+            >
+              All 4 Series Combined
+            </button>
+            <button 
+              type="button" 
+              id="gelTabGel" 
+              onclick="filterGelModels('gel')" 
+              class="px-4 py-2 rounded-xl transition text-xs font-semibold text-slate-400 hover:text-white cursor-pointer"
+              data-cat-i18n="gel_tab_gel"
+            >
+              (I) Gel Ice Packs (XLD/NWIP/ZHB · #1–13)
+            </button>
+            <button 
+              type="button" 
+              id="gelTabSelf" 
+              onclick="filterGelModels('self')" 
+              class="px-4 py-2 rounded-xl transition text-xs font-semibold text-slate-400 hover:text-white cursor-pointer"
+              data-cat-i18n="gel_tab_self"
+            >
+              (II) Self-Absorbing (ZXD/SCX · #1–24)
+            </button>
+            <button 
+              type="button" 
+              id="gelTabWater" 
+              onclick="filterGelModels('water')" 
+              class="px-4 py-2 rounded-xl transition text-xs font-semibold text-slate-400 hover:text-white cursor-pointer"
+              data-cat-i18n="gel_tab_water"
+            >
+              (III) Water-Injection (ZSD · #1–5)
+            </button>
+            <button 
+              type="button" 
+              id="gelTabInstant" 
+              onclick="filterGelModels('instant')" 
+              class="px-4 py-2 rounded-xl transition text-xs font-semibold text-slate-400 hover:text-white cursor-pointer"
+              data-cat-i18n="gel_tab_instant"
+            >
+              (IV) Instant Cooling (SLD-160)
+            </button>
+          </div>
+
+          <!-- Feature Pills -->
+          <div class="hidden lg:flex items-center gap-2 text-[11px] font-mono text-slate-400">
+            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-emerald-300" data-cat-i18n="gel_pills_hermetic">Puncture-Proof PA/PE Barrier</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-cyan-300" data-cat-i18n="gel_pills_sap">Food-Grade Non-Toxic SAP Gel</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-sky-300" data-cat-i18n="gel_pills_logo">Custom OEM Rotogravure Branding</span>
+          </div>
+        </div>
+
+        <!-- Mount container for the 3 Series -->
+        <div id="gelModelsMount" class="space-y-12"></div>
+      </div>
+
+      <!-- Real Photo & Spec Details Grid -->
+      <div class="mt-12 grid gap-8 lg:grid-cols-12 lg:items-center">
+        
+        <div class="lg:col-span-5 overflow-hidden rounded-2xl border border-slate-800">
+          <img src="/images/6.gel-ice-pack-supplier-cold-chain-shipping.webp" alt="Gel cold pack supplier and manufacturer" class="h-full w-full object-cover max-h-[380px]">
+        </div>
+
+        <div class="lg:col-span-7 space-y-4">
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
+            <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-3.5">
+              <div class="text-slate-500" data-cat-i18n="gel_spec_outer">Outer Barrier Film</div>
+              <div class="font-bold text-white mt-1" data-cat-i18n="gel_spec_outer_val">Multi-Layer PA / PE Composite</div>
+              <div class="text-[11px] text-cyan-400 mt-0.5" data-cat-i18n="gel_spec_outer_sub">Puncture &amp; leak-resistant</div>
+            </div>
+            <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-3.5">
+              <div class="text-slate-500" data-cat-i18n="gel_spec_medium">Cooling Medium</div>
+              <div class="font-bold text-white mt-1" data-cat-i18n="gel_spec_medium_val">Non-Toxic Food-Grade SAP Gel</div>
+              <div class="text-[11px] text-emerald-400 mt-0.5" data-cat-i18n="gel_spec_medium_sub">High latent thermal capacity</div>
+            </div>
+            <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-3.5">
+              <div class="text-slate-500" data-cat-i18n="gel_spec_temp">Operating Temperature</div>
+              <div class="font-bold text-white mt-1" data-cat-i18n="gel_spec_temp_val">0°C / -10°C / -18°C Formulations</div>
+              <div class="text-[11px] text-amber-400 mt-0.5" data-cat-i18n="gel_spec_temp_sub">Chilled &amp; frozen stability</div>
+            </div>
+            <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-3.5">
+              <div class="text-slate-500" data-cat-i18n="gel_spec_sizes">Standard Sizes</div>
+              <div class="font-bold text-white mt-1" data-cat-i18n="gel_spec_sizes_val">100g, 200g, 250g, 400g, 500g, 1000g</div>
+              <div class="text-[11px] text-slate-400 mt-0.5" data-cat-i18n="gel_spec_sizes_sub">Custom weights available</div>
+            </div>
+            <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-3.5">
+              <div class="text-slate-500" data-cat-i18n="gel_spec_safety">Safety &amp; Compliance</div>
+              <div class="font-bold text-white mt-1" data-cat-i18n="gel_spec_safety_val">ISO9001, SGS, MSDS</div>
+              <div class="text-[11px] text-cyan-400 mt-0.5" data-cat-i18n="gel_spec_safety_sub">Air &amp; sea non-hazardous</div>
+            </div>
+            <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-3.5">
+              <div class="text-slate-500" data-cat-i18n="gel_spec_brand">Custom Branding</div>
+              <div class="font-bold text-white mt-1" data-cat-i18n="gel_spec_brand_val">Custom Gravure Color Printing</div>
+              <div class="text-[11px] text-slate-400 mt-0.5" data-cat-i18n="gel_spec_brand_sub">OEM logo &amp; barcode support</div>
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-slate-800 bg-[#0B111D] p-5">
+            <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2" data-cat-i18n="gel_apps_title">Recommended Cold-Chain Applications</div>
+            <div class="grid sm:grid-cols-2 gap-2 text-xs text-slate-300">
+              <div class="flex items-center gap-2">
+                <span class="h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+                <span data-cat-i18n="gel_app1">Fresh seafood, oysters, salmon &amp; sashimi cargo</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+                <span data-cat-i18n="gel_app2">Chilled beef, premium poultry &amp; prepared meal kits</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+                <span data-cat-i18n="gel_app3">Dairy, cheeses, craft chocolates &amp; pastry shipping</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+                <span data-cat-i18n="gel_app4">Clinical specimens, IVD reagents &amp; veterinary pharmaceuticals</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Legacy Anchor Targets for backward compatibility (Consolidated into Section 08: Gel Ice Packs) -->
+  <div id="water-activated" class="sr-only"></div>
+  <div id="instant-packs" class="sr-only"></div>
+
+
+
+  <!-- ================= CATEGORY SWITCHER FOOTER CARD ================= -->
+  <div id="categoryBottomSwitcher" class="py-10 border-t border-slate-800/80 bg-gradient-to-b from-[#090E17] to-[#070B14]">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="rounded-3xl border border-cyan-500/30 bg-gradient-to-r from-[#0C1527] via-[#0E1A33] to-[#0C1527] p-6 sm:p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <div class="flex items-center gap-2 text-cyan-400 text-xs font-bold uppercase tracking-wider">
+            <svg class="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            <span data-cat-i18n="cat_bottom_done">Finished Viewing This Category?</span>
+          </div>
+          <h4 id="categoryBottomHeadline" class="mt-1 text-lg font-bold text-white font-display">
+            Explore Next Cold-Chain Category
+          </h4>
+          <p class="mt-1 text-xs text-slate-400" data-cat-i18n="cat_bottom_sub">
+            Direct factory manufacturing from Guangzhou Qtop Cold Chain Sciences Co.,Ltd.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 shrink-0">
+          <button id="catBottomPrevBtn" type="button" onclick="navigateAdjacentCategory(-1)" class="rounded-xl border border-slate-700 bg-slate-800/90 px-4 py-2 text-xs font-semibold text-slate-200 hover:bg-slate-700 hover:text-white transition flex items-center gap-1.5 cursor-pointer">
+            <span>←</span>
+            <span id="catBottomPrevLabel">Previous Category</span>
+          </button>
+          <button type="button" onclick="scrollToSeriesDirectory()" class="rounded-xl border border-cyan-500/40 bg-cyan-950/70 px-4 py-2 text-xs font-bold text-cyan-300 hover:bg-cyan-900 transition cursor-pointer">
+            <span data-cat-i18n="cat_bottom_all">Series Directory ↑</span>
+          </button>
+          <button id="catBottomNextBtn" type="button" onclick="navigateAdjacentCategory(1)" class="rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-5 py-2 text-xs font-bold text-white hover:brightness-110 shadow-lg shadow-cyan-500/25 transition flex items-center gap-1.5 cursor-pointer">
+            <span id="catBottomNextLabel">Next: EPP Foam Boxes</span>
+            <span>→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER & WEBSITE CONSISTENCY ================= -->
+  <footer class="bg-[#05080E] text-slate-400 border-t border-slate-800/80 pt-16 pb-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid gap-10 lg:grid-cols-12 pb-12 border-b border-slate-800/80">
+        
+        <!-- Col 1: Brand & Logo -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="inline-block h-10 w-auto">
+              <svg viewBox="0 0 1024 360" class="h-10 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                  <path d="M123 106 H622 C645 106 664 124 664 147 V167 C664 190 645 208 622 208 H123 C106 208 92 194 92 177 V137 C92 120 106 106 123 106 Z" fill="#0B1323" stroke="#1E293B" stroke-width="3"/>
+                  <path d="M650 106 H876 C901 106 922 127 922 152 V162 C922 187 901 208 876 208 H650 C665 197 674 180 674 157 C674 134 665 117 650 106 Z" fill="url(#proBlockCat)"/>
+                  <text x="123" y="176" font-family="Arial Black, Helvetica, sans-serif" font-size="66" font-weight="700" letter-spacing="0.35" fill="#FFFFFF">COLD PACK</text>
+                  <text x="686" y="176" font-family="Arial Black, Helvetica, sans-serif" font-size="66" font-weight="700" letter-spacing="0.1" fill="url(#proTextCat)">PRO</text>
+                </g>
+                <g>
+                  <rect x="106" y="279" width="161" height="3" rx="2" fill="url(#lineLeftCat)"/>
+                  <rect x="759" y="279" width="161" height="3" rx="2" fill="url(#lineRightCat)"/>
+                  <text x="512" y="300" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="40" font-weight="600" letter-spacing="0.55" fill="#94A3B8">Cold Chain Solutions</text>
+                </g>
+              </svg>
+            </span>
+          </div>
+
+          <p class="text-xs leading-relaxed text-slate-400 max-w-sm" data-cat-i18n-html="footer_mfg">
+            GUANGZHOU QTOP COLD CHAIN SCIENCES CO., LTD.<br>
+            China source manufacturer of high-performance cold chain coolers, vaccine carriers, lightweight EPP containers, and PCM ice packs.
+          </p>
+
+          <div class="text-xs font-semibold text-cyan-400">
+            <span data-cat-i18n="footer_official_website">Official Website:</span> <a href="/?lang=en" class="hover:underline font-bold text-white">https://coldpackpro.com</a>
+          </div>
+        </div>
+
+        <!-- Col 2: Direct Factory Details -->
+        <div class="lg:col-span-4 space-y-2 text-xs">
+          <div class="font-bold text-white uppercase tracking-wider text-[11px]" data-cat-i18n="footer_contact_title">Factory Contact &amp; Sales Office</div>
+          <div class="text-slate-300" data-cat-i18n="footer_contact_manager"><b>WhatsApp / WeChat:</b> +86 139 2510 9703 (Mr. Yang)</div>
+          <div class="text-slate-300" data-cat-i18n="footer_contact_tel"><b>Tel:</b> +86-20-39211361</div>
+          <div class="text-slate-300" data-cat-i18n="footer_contact_email"><b>Inquiry Email:</b> info@coldpackpro.com</div>
+          <div class="text-slate-300" data-cat-i18n-html="footer_contact_address">
+            <b>Factory Physical Address:</b><br>
+            Unit 101, No. 4, Lane 4, South of Dening Road, Caohe, Qiaonan Street, Panyu District, Guangzhou, China
+          </div>
+        </div>
+
+        <!-- Col 3: Quick Navigation -->
+        <div class="lg:col-span-3 space-y-2 text-xs">
+          <div class="font-bold text-white uppercase tracking-wider text-[11px]" data-cat-i18n="footer_quick_links">Catalog Quick Links</div>
+          <div><a href="#gel-packs" onclick="switchCatalogCategory('gel-packs', true, event)" class="hover:text-cyan-400 transition cursor-pointer" data-cat-i18n="footer_link_gel">Gel Ice Packs (Gel, Self-Absorbing, Water Injection &amp; Instant)</a></div>
+          <div><a href="#pcm" onclick="switchCatalogCategory('pcm', true, event)" class="hover:text-cyan-400 transition cursor-pointer" data-cat-i18n="footer_link_pcm">Rigid PCM Bricks</a></div>
+          <div><a href="#cooler-box-catalog" onclick="switchCatalogCategory('cooler-boxes', true, event)" class="hover:text-cyan-400 transition cursor-pointer" data-cat-i18n="footer_link_coolers">Cooler Boxes (PU / Rotomolded / Trolley)</a></div>
+          <div><a href="#epp" onclick="switchCatalogCategory('epp', true, event)" class="hover:text-cyan-400 transition cursor-pointer" data-cat-i18n="footer_link_epp">EPP Foam Boxes</a></div>
+          <div><a href="#matrix" onclick="switchCatalogCategory('matrix', true, event)" class="hover:text-cyan-400 transition cursor-pointer" data-cat-i18n="footer_link_matrix">Temperature Zone Matrix</a></div>
+          <div><a href="#oem" onclick="switchCatalogCategory('oem', true, event)" class="hover:text-cyan-400 transition cursor-pointer" data-cat-i18n="footer_link_oem">OEM &amp; Custom Solutions</a></div>
+          <div><a href="/request-quote" class="text-cyan-400 font-bold hover:underline transition" data-cat-i18n="footer_link_pi">Online Proforma Invoice (PI) →</a></div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div data-cat-i18n="footer_copy">&copy; 2026 Coldpack Pro. All Rights Reserved. Guangzhou Qtop Cold Chain Sciences Co., Ltd.</div>
+        <div class="flex items-center gap-4">
+          <a href="/" class="hover:text-slate-300" data-cat-i18n="footer_home">Home</a>
+          <a href="/request-quote" class="hover:text-slate-300" data-cat-i18n="footer_quote">Request Quote</a>
+          <a href="#overview" class="hover:text-slate-300" data-cat-i18n="footer_certs">Certificates</a>
+          <a href="#matrix" class="hover:text-cyan-400" data-cat-i18n="footer_top">Back to Top ↑</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= INTERACTIVE SCRIPTS ================= -->
+  <script>
+    // Unit conversion toggle (Metric <-> Imperial)
+    function toggleUnits(type) {
+      const metricBtn = document.querySelectorAll('.unit-btn')[0];
+      const imperialBtn = document.querySelectorAll('.unit-btn')[1];
+
+      if (type === 'imperial') {
+        imperialBtn.classList.add('active', 'border-cyan-500/40', 'bg-cyan-950/60', 'text-cyan-300', 'font-bold');
+        imperialBtn.classList.remove('border-slate-800', 'bg-slate-900', 'text-slate-400');
+        metricBtn.classList.remove('active', 'border-cyan-500/40', 'bg-cyan-950/60', 'text-cyan-300', 'font-bold');
+        metricBtn.classList.add('border-slate-800', 'bg-slate-900', 'text-slate-400');
+        
+        document.querySelectorAll('[data-imperial]').forEach(el => {
+          el.textContent = el.getAttribute('data-imperial');
+        });
+      } else {
+        metricBtn.classList.add('active', 'border-cyan-500/40', 'bg-cyan-950/60', 'text-cyan-300', 'font-bold');
+        metricBtn.classList.remove('border-slate-800', 'bg-slate-900', 'text-slate-400');
+        imperialBtn.classList.remove('active', 'border-cyan-500/40', 'bg-cyan-950/60', 'text-cyan-300', 'font-bold');
+        imperialBtn.classList.add('border-slate-800', 'bg-slate-900', 'text-slate-400');
+
+        document.querySelectorAll('[data-metric]').forEach(el => {
+          el.textContent = el.getAttribute('data-metric');
+        });
+      }
+    }
+  </script>
+
+  <!-- ================= CNAS CERTIFICATION REPORT LIGHTBOX MODAL ================= -->
+  <div id="cnasCertModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/85 backdrop-blur-md p-3 sm:p-6 flex items-center justify-center transition-all duration-300">
+    <div class="relative w-full max-w-5xl rounded-3xl border border-cyan-500/30 bg-[#090F1D] p-4 sm:p-6 shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
+      <!-- Top Bar: Title & Controls -->
+      <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800/80 pb-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span id="certModalBadge" class="rounded-md border border-cyan-500/40 bg-cyan-950/80 px-2.5 py-0.5 text-xs font-bold text-cyan-300">
+              By Sea · NO.202400690440879
+            </span>
+            <span class="rounded-md border border-emerald-500/40 bg-emerald-950/80 px-2 py-0.5 text-[11px] font-bold text-emerald-300">
+              CNAS IB0071 · SRICI
+            </span>
+          </div>
+          <h3 id="certModalTitle" class="mt-1 text-base sm:text-lg font-bold text-white">
+            CNAS Identification Report for Transport of Goods (Sea Freight · Attachment 2)
+          </h3>
+          <p id="certModalSub" class="text-xs text-slate-400">
+            Shanghai Research Institute of Chemical Industry (SRICI) · Sample: Ice box / Ice pack / Jelly Ice · Non-Restricted Goods
+          </p>
+        </div>
+
+        <!-- Mode Toggle Tabs & Actions -->
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- Tab Buttons -->
+          <div class="inline-flex rounded-xl border border-slate-800 bg-slate-900/90 p-1">
+            <button id="certTabSea" type="button" onclick="switchCertTab('sea')" class="rounded-lg px-3 py-1.5 text-xs font-bold transition border border-cyan-500/40 bg-cyan-950/80 text-cyan-300">
+              Sea Freight
+            </button>
+            <button id="certTabAir" type="button" onclick="switchCertTab('air')" class="rounded-lg px-3 py-1.5 text-xs font-bold transition text-slate-400 hover:text-white">
+              Air Freight
+            </button>
+          </div>
+
+          <!-- Open in New Tab -->
+          <a id="certModalNewTab" href="/images/cnas-sea-transport-certification-cold-chain-ice-pack.png" target="_blank" class="rounded-xl border border-slate-700 bg-slate-800/80 px-3.5 py-1.5 text-xs font-semibold text-slate-200 hover:bg-slate-700 hover:text-white transition inline-flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span id="certModalNewTabLabel">Open in New Tab ↗</span>
+          </a>
+
+          <!-- Close Button -->
+          <button type="button" onclick="closeCertModal()" class="rounded-xl border border-slate-800 bg-slate-900 p-2 text-slate-400 hover:text-white hover:bg-slate-800 transition" aria-label="Close">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Center Image Preview Area -->
+      <div class="mt-4 flex flex-col items-center justify-center bg-slate-950/60 rounded-2xl p-2 sm:p-4 border border-slate-800/60">
+        <div class="relative w-full overflow-auto max-h-[78vh] flex items-center justify-center rounded-xl bg-white p-2 shadow-inner">
+          <img id="certModalImg" src="/images/cnas-sea-transport-certification-cold-chain-ice-pack.png" alt="CNAS Sea Transport Certification Report" class="max-w-full max-h-[74vh] w-auto h-auto object-contain select-none transition-transform duration-200" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentCertType = 'sea';
+    
+    function openCertModal(type, event) {
+      if (event) event.preventDefault();
+      currentCertType = type || 'sea';
+      updateCertModalView(currentCertType);
+      const modal = document.getElementById('cnasCertModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeCertModal() {
+      const modal = document.getElementById('cnasCertModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function switchCertTab(type) {
+      currentCertType = type;
+      updateCertModalView(type);
+    }
+
+    function updateCertModalView(type) {
+      const isSea = type === 'sea';
+      const lang = (window.CATALOG_CURRENT_LANG || localStorage.getItem('coldpackpro_lang') || 'zh').startsWith('zh') ? 'zh' : 'en';
+      
+      const seaImg = '/images/cnas-sea-transport-certification-cold-chain-ice-pack.png';
+      const airImg = '/images/cnas-air-transport-certification-cold-chain-ice-pack.png';
+      
+      const imgSrc = isSea ? seaImg : airImg;
+      const reportNo = isSea ? 'NO.202400690440879' : 'NO.202400890740580';
+      const modeLabel = isSea ? 'By Sea (Ocean Freight)' : 'By Air (Air Freight)';
+      
+      const badgeEl = document.getElementById('certModalBadge');
+      const titleEl = document.getElementById('certModalTitle');
+      const subEl = document.getElementById('certModalSub');
+      const imgEl = document.getElementById('certModalImg');
+      const newTabEl = document.getElementById('certModalNewTab');
+      const downloadEl = document.getElementById('certModalDownload');
+      const tabSea = document.getElementById('certTabSea');
+      const tabAir = document.getElementById('certTabAir');
+      const newTabLabel = document.getElementById('certModalNewTabLabel');
+      const downloadLabel = document.getElementById('certModalDownloadLabel');
+      
+      if (imgEl) {
+        imgEl.src = imgSrc;
+        imgEl.alt = isSea ? 'CNAS Sea Freight Report' : 'CNAS Air Freight Report';
+      }
+      if (badgeEl) {
+        badgeEl.textContent = `${modeLabel} · ${reportNo}`;
+        badgeEl.className = isSea 
+          ? 'rounded-md border border-cyan-500/40 bg-cyan-950/80 px-2.5 py-0.5 text-xs font-bold text-cyan-300'
+          : 'rounded-md border border-blue-500/40 bg-blue-950/80 px-2.5 py-0.5 text-xs font-bold text-blue-300';
+      }
+      if (titleEl) {
+        titleEl.textContent = isSea ? 'CNAS Identification Report for Transport of Goods (Sea Freight · Attachment 2)' : 'CNAS Identification Report for Transport of Goods (Air Freight · Attachment 3)';
+      }
+      if (subEl) {
+        subEl.textContent = `Shanghai Research Institute of Chemical Industry (SRICI) · Report No: ${reportNo} · Sample: Ice box/Ice pack/Jelly Ice · Conclusion: Non-Restricted`;
+      }
+      if (newTabEl) {
+        newTabEl.href = imgSrc;
+      }
+      if (downloadEl) {
+        downloadEl.href = imgSrc;
+        downloadEl.download = isSea ? `CNAS-Sea-Freight-Safety-Report-${reportNo}.png` : `CNAS-Air-Freight-Safety-Report-${reportNo}.png`;
+      }
+      if (newTabLabel) {
+        newTabLabel.textContent = lang === 'zh' ? 'Open in New Tab ↗' : 'Open in New Tab ↗';
+      }
+      if (downloadLabel) {
+        downloadLabel.textContent = 'Download';
+      }
+      
+      if (tabSea && tabAir) {
+        tabSea.textContent = lang === 'zh' ? 'Sea Freight' : 'Sea Freight';
+        tabAir.textContent = lang === 'zh' ? 'Air Freight' : 'Air Freight';
+        if (isSea) {
+          tabSea.className = 'rounded-lg px-3 py-1.5 text-xs font-bold transition border border-cyan-500/40 bg-cyan-950/80 text-cyan-300 shadow-sm';
+          tabAir.className = 'rounded-lg px-3 py-1.5 text-xs font-bold transition text-slate-400 hover:text-white';
+        } else {
+          tabAir.className = 'rounded-lg px-3 py-1.5 text-xs font-bold transition border border-blue-500/40 bg-blue-950/80 text-blue-300 shadow-sm';
+          tabSea.className = 'rounded-lg px-3 py-1.5 text-xs font-bold transition text-slate-400 hover:text-white';
+        }
+      }
+    }
+
+    // Close when clicking modal backdrop
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('cnasCertModal');
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeCertModal();
+        });
+      }
+      // Check URL hash
+      if (window.location.hash === '#cert-sea' || window.location.hash === '#cnas-sea') {
+        openCertModal('sea');
+      } else if (window.location.hash === '#cert-air' || window.location.hash === '#cnas-air') {
+        openCertModal('air');
+      }
+    });
+
+    // ESC key to close modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeCertModal();
+      }
+    });
+  </script>
+
+  <!-- ================= B2B FULL CATALOG DOWNLOAD MODAL ================= -->
+  <div
+    id="catalogDownloadModal"
+    class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/85 backdrop-blur-md p-3 sm:p-6 flex items-center justify-center transition-all duration-300"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="downloadModalTitle"
+  >
+    <div class="relative w-full max-w-lg rounded-3xl border border-cyan-500/40 bg-gradient-to-b from-[#0C1527] via-[#09101D] to-[#070B14] p-6 sm:p-8 shadow-2xl text-slate-200">
+      
+      <!-- Close Button -->
+      <button
+        type="button"
+        onclick="closeCatalogDownloadModal()"
+        class="absolute top-5 right-5 rounded-full border border-slate-700/80 bg-slate-800/80 p-2 text-slate-400 hover:text-white hover:bg-slate-700 transition cursor-pointer"
+        aria-label="Close"
+      >
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Modal State 1: Form Input -->
+      <div id="catalogDownloadFormState">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="rounded bg-cyan-950/90 px-2.5 py-0.5 text-[11px] font-mono font-bold text-cyan-300 border border-cyan-500/30" data-cat-i18n="modal_dl_badge">
+            OFFICIAL 2026 PRODUCT CATALOG
+          </span>
+          <span class="text-[10px] text-emerald-400 font-mono">● Excel &amp; PDF</span>
+        </div>
+        <h3 id="downloadModalTitle" class="text-xl sm:text-2xl font-black text-white font-display" data-cat-i18n="modal_dl_title">
+          Download Full Cold Chain Catalog
+        </h3>
+        <p class="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed" data-cat-i18n="modal_dl_sub">
+          Please enter your business contact details. The complete 2026 multi-page specification spreadsheet (XLSX) will download immediately, and our sales engineering team will receive your inquiry directly at info@coldpackpro.com.
+        </p>
+
+        <form id="catalogDownloadForm" onsubmit="handleCatalogDownloadSubmit(event)" class="mt-5 space-y-3.5" autocomplete="off" novalidate>
+          <!-- 1. Your Name / Title (Required *) -->
+          <div>
+            <label for="dlCustomerName" class="block text-xs font-semibold text-slate-300 mb-1" data-cat-i18n-html="modal_dl_name_lbl">
+              Your Name / Title <span class="text-rose-400 font-bold">*</span>
+            </label>
+            <input
+              type="text"
+              id="dlCustomerName"
+              name="name"
+              required
+              autocomplete="off"
+              placeholder="e.g. Mr. David Smith / Sourcing Manager"
+              data-cat-i18n-ph="modal_dl_name_ph"
+              class="w-full rounded-xl border border-slate-700 bg-slate-900/90 px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition"
+            />
+          </div>
+
+          <!-- 2. Email Address (Required *) -->
+          <div>
+            <label for="dlCustomerEmail" class="block text-xs font-semibold text-slate-300 mb-1" data-cat-i18n-html="modal_dl_email_lbl">
+              Email Address <span class="text-rose-400 font-bold">*</span>
+            </label>
+            <input
+              type="email"
+              id="dlCustomerEmail"
+              name="email"
+              required
+              autocomplete="off"
+              placeholder="e.g. name@example.com (company or personal email)"
+              data-cat-i18n-ph="modal_dl_email_ph"
+              class="w-full rounded-xl border border-slate-700 bg-slate-900/90 px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition"
+            />
+          </div>
+
+          <!-- 3. Country / Region (Required *) -->
+          <div>
+            <label for="dlCustomerCountry" class="block text-xs font-semibold text-slate-300 mb-1" data-cat-i18n-html="modal_dl_country_lbl">
+              Country / Region <span class="text-rose-400 font-bold">*</span>
+            </label>
+            <input
+              type="text"
+              id="dlCustomerCountry"
+              name="country"
+              required
+              autocomplete="off"
+              list="countrySuggestions"
+              placeholder="e.g. United States, Germany, Japan, Singapore..."
+              data-cat-i18n-ph="modal_dl_country_ph"
+              class="w-full rounded-xl border border-slate-700 bg-slate-900/90 px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition"
+            />
+            <datalist id="countrySuggestions">
+              <option value="United States">
+              <option value="United Kingdom">
+              <option value="Germany">
+              <option value="Canada">
+              <option value="Australia">
+              <option value="Japan">
+              <option value="South Korea">
+              <option value="Singapore">
+              <option value="France">
+              <option value="Netherlands">
+              <option value="Italy">
+              <option value="Spain">
+              <option value="United Arab Emirates">
+              <option value="Saudi Arabia">
+              <option value="Mexico">
+              <option value="Brazil">
+              <option value="China">
+              <option value="Hong Kong, China">
+            </datalist>
+          </div>
+
+          <!-- 4. Company Name / Website (Optional) -->
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <label for="dlCustomerCompany" class="block text-xs font-semibold text-slate-300" data-cat-i18n="modal_dl_comp_lbl">
+                Company Name / Website (Optional)
+              </label>
+            </div>
+            <input
+              type="text"
+              id="dlCustomerCompany"
+              name="company"
+              autocomplete="off"
+              placeholder="e.g. BioCold Logistics Ltd. or www.biocold.com"
+              data-cat-i18n-ph="modal_dl_comp_ph"
+              class="w-full rounded-xl border border-slate-700 bg-slate-900/90 px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition"
+            />
+          </div>
+
+          <!-- 5. Phone / WhatsApp / WeChat (Optional) -->
+          <div>
+            <label for="dlCustomerPhone" class="block text-xs font-semibold text-slate-300 mb-1" data-cat-i18n="modal_dl_phone_lbl">
+              Phone / WhatsApp / WeChat (Optional)
+            </label>
+            <input
+              type="tel"
+              id="dlCustomerPhone"
+              name="phone"
+              autocomplete="off"
+              placeholder="e.g. +1 555-019-2834 / WhatsApp (Optional)"
+              data-cat-i18n-ph="modal_dl_phone_ph"
+              class="w-full rounded-xl border border-slate-700 bg-slate-900/90 px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition"
+            />
+          </div>
+
+          <!-- Privacy Notice -->
+          <div class="rounded-xl border border-slate-800 bg-slate-950/70 p-3 text-[11px] leading-relaxed text-slate-400" data-cat-i18n="modal_dl_privacy">
+            🔒 Privacy Assurance: Your details are sent directly to  mailbox (info@coldpackpro.com) solely for factory pricing and technical support. No spam.
+          </div>
+
+          <!-- Prominent Error / Missing Required Field Alert Prompt -->
+          <div id="dlFormError" class="hidden rounded-2xl border border-rose-500/60 bg-gradient-to-r from-rose-950/90 via-red-950/80 to-rose-950/90 p-3.5 text-xs text-rose-200 font-semibold shadow-xl shadow-rose-950/50 flex items-start gap-2.5">
+            <span class="text-base text-rose-400 leading-none shrink-0 mt-0.5">⚠️</span>
+            <div class="flex-1">
+              <span id="dlFormErrorText" class="leading-relaxed"></span>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            id="dlSubmitBtn"
+            class="w-full rounded-full bg-gradient-to-r from-cyan-400 to-sky-400 py-3 px-6 text-sm font-black text-slate-950 shadow-xl shadow-cyan-400/25 transition hover:brightness-110 flex items-center justify-center gap-2 cursor-pointer"
+          >
+            <svg class="h-4 w-4 text-slate-950" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+            </svg>
+            <span id="dlSubmitBtnText" data-cat-i18n="modal_dl_submit">Unlock &amp; Download Catalog (XLSX) →</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Modal State 2: Success State -->
+      <div id="catalogDownloadSuccessState" class="hidden py-4 text-center">
+        <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 mb-4 animate-bounce">
+          <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h3 class="text-xl font-black text-white font-display" data-cat-i18n="modal_dl_success_title">
+          Download Started Successfully!
+        </h3>
+        <p class="mt-2 text-xs sm:text-sm text-slate-300 max-w-sm mx-auto leading-relaxed" data-cat-i18n="modal_dl_success_msg">
+          Thank you! Your information has been received and routed to info@coldpackpro.com. The official 2026 ColdPackPro catalog (XLSX) has started downloading.
+        </p>
+
+        <!-- Direct Re-download Button -->
+        <div class="mt-6">
+          <a
+            id="dlDirectFileLink"
+            href="/download/coldpackpro-full-catalog.xlsx"
+            download="ColdPackPro-Full-Product-Catalog.xlsx"
+            class="inline-flex items-center gap-2 rounded-full bg-cyan-400/10 border border-cyan-500/40 px-5 py-2.5 text-xs font-bold text-cyan-300 hover:bg-cyan-400 hover:text-slate-950 transition"
+          >
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            <span data-cat-i18n="modal_dl_retry_link">If download did not start automatically, click here to download directly.</span>
+          </a>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-slate-800 flex justify-center">
+          <button
+            type="button"
+            onclick="closeCatalogDownloadModal()"
+            class="rounded-xl border border-slate-700 bg-slate-800/80 px-6 py-2 text-xs font-semibold text-slate-300 hover:text-white transition cursor-pointer"
+            data-cat-i18n="modal_dl_close"
+          >
+            Close Window
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function openCatalogDownloadModal(event) {
+      if (event) {
+        if (typeof event.preventDefault === 'function') event.preventDefault();
+        if (typeof event.stopPropagation === 'function') event.stopPropagation();
+      }
+      const modal = document.getElementById('catalogDownloadModal');
+      if (!modal) {
+        console.error('Modal element #catalogDownloadModal not found');
+        return;
+      }
+      
+      const formState = document.getElementById('catalogDownloadFormState');
+      const successState = document.getElementById('catalogDownloadSuccessState');
+      const errorBox = document.getElementById('dlFormError');
+      const errorText = document.getElementById('dlFormErrorText');
+      if (formState) formState.classList.remove('hidden');
+      if (successState) successState.classList.add('hidden');
+      if (errorBox) errorBox.classList.add('hidden');
+      if (errorText) errorText.textContent = '';
+
+      // Reset any prior field error highlights
+      ['dlCustomerName', 'dlCustomerEmail', 'dlCustomerCountry', 'dlCustomerCompany', 'dlCustomerPhone'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.classList.remove('border-rose-500', 'ring-2', 'ring-rose-500/50');
+          // Always reset values to blank so client MUST re-enter their information every time
+          el.value = '';
+        }
+      });
+
+      // Clear any prior persisted contact to ensure client inputs are never bypassed
+      try {
+        localStorage.removeItem('coldpackpro_visitor_contact');
+      } catch(e) {}
+
+      modal.style.display = 'flex';
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+
+      const firstInput = document.getElementById('dlCustomerName');
+      if (firstInput) {
+        setTimeout(() => firstInput.focus(), 150);
+      }
+    }
+
+    function closeCatalogDownloadModal() {
+      const modal = document.getElementById('catalogDownloadModal');
+      if (modal) {
+        modal.style.display = 'none';
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+      // Reset view to form state and blank all inputs so reopening requires fresh entry
+      const formState = document.getElementById('catalogDownloadFormState');
+      const successState = document.getElementById('catalogDownloadSuccessState');
+      const errorBox = document.getElementById('dlFormError');
+      if (formState) formState.classList.remove('hidden');
+      if (successState) successState.classList.add('hidden');
+      if (errorBox) errorBox.classList.add('hidden');
+      ['dlCustomerName', 'dlCustomerEmail', 'dlCustomerCountry', 'dlCustomerCompany', 'dlCustomerPhone'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.classList.remove('border-rose-500', 'ring-2', 'ring-rose-500/50');
+          el.value = '';
+        }
+      });
+    }
+
+    async function handleCatalogDownloadSubmit(event) {
+      if (event && typeof event.preventDefault === 'function') {
+        event.preventDefault();
+      }
+      const errorBox = document.getElementById('dlFormError');
+      const errorText = document.getElementById('dlFormErrorText');
+      const submitBtn = document.getElementById('dlSubmitBtn');
+      const btnText = document.getElementById('dlSubmitBtnText');
+      const isZh = typeof getCatalogLang === 'function' ? getCatalogLang() === 'zh' : (localStorage.getItem('coldpackpro_lang') === 'zh');
+
+      const nameInput = document.getElementById('dlCustomerName');
+      const emailInput = document.getElementById('dlCustomerEmail');
+      const countryInput = document.getElementById('dlCustomerCountry');
+      const compInput = document.getElementById('dlCustomerCompany');
+      const phoneInput = document.getElementById('dlCustomerPhone');
+
+      const name = (nameInput?.value || '').trim();
+      const email = (emailInput?.value || '').trim();
+      const country = (countryInput?.value || '').trim();
+      const company = (compInput?.value || '').trim();
+      const phone = (phoneInput?.value || '').trim();
+
+      // Reset previous error highlights
+      [nameInput, emailInput, countryInput, compInput, phoneInput].forEach(inp => {
+        if (inp) inp.classList.remove('border-rose-500', 'ring-2', 'ring-rose-500/50');
+      });
+      if (errorBox) errorBox.classList.add('hidden');
+      if (errorText) errorText.textContent = '';
+
+      function triggerFieldPrompt(inputEl, msg) {
+        if (errorBox && errorText) {
+          errorText.textContent = msg;
+          errorBox.classList.remove('hidden');
+          errorBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        if (inputEl) {
+          inputEl.classList.add('border-rose-500', 'ring-2', 'ring-rose-500/50');
+          inputEl.focus();
+          inputEl.addEventListener('input', () => {
+            inputEl.classList.remove('border-rose-500', 'ring-2', 'ring-rose-500/50');
+            if (errorBox) errorBox.classList.add('hidden');
+          }, { once: true });
+        }
+      }
+
+      // Check 1: Your Name / Title (Required *)
+      if (!name) {
+        triggerFieldPrompt(
+          nameInput,
+          isZh
+            ? 'Please fill in "Your Name / Title" (* Required) to proceed.'
+            : 'Please fill in "Your Name / Title" (* Required) to proceed.'
+        );
+        return;
+      }
+
+      // Check 2: Email Address (Required *)
+      if (!email) {
+        triggerFieldPrompt(
+          emailInput,
+          isZh
+            ? 'Please fill in "Email Address" (* Required) to proceed.'
+            : 'Please fill in "Email Address" (* Required) to proceed.'
+        );
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        triggerFieldPrompt(
+          emailInput,
+          isZh
+            ? 'Please enter a valid email address (e.g. name@example.com) to proceed.'
+            : 'Please enter a valid email address (e.g. name@example.com) to proceed.'
+        );
+        return;
+      }
+
+      // Check 3: Country / Region (Required *)
+      if (!country) {
+        triggerFieldPrompt(
+          countryInput,
+          isZh
+            ? 'Please fill in "Country / Region" (* Required) to proceed.'
+            : 'Please fill in "Country / Region" (* Required) to proceed.'
+        );
+        return;
+      }
+
+      // All validations passed! Proceed to submit
+      if (submitBtn) submitBtn.disabled = true;
+      if (btnText) btnText.textContent = 'Recording Request & Preparing File...';
+
+      // Ensure no saved contact is kept in localStorage so clients must enter details each time
+      try {
+        localStorage.removeItem('coldpackpro_visitor_contact');
+      } catch(e) {}
+
+      // 1. Direct Web3Forms submission from client browser to guarantee notification email reaches info@coldpackpro.com
+      const emailPayload = {
+        access_key: '96cb4db8-5269-48b0-91e2-69a1f6871723',
+        subject: `[Catalog Download Alert] ${name} (${country}) - ${company || 'Personal Mail'}`,
+        from_name: 'ColdPackPro Lead System',
+        email: email,
+        name: name,
+        country: country,
+        company: company || 'N/A',
+        phone: phone || 'N/A',
+        message: `=====================================================\n` +
+                 `ColdPackPro 2026 Product Catalog Download Notification:\n` +
+                 `=====================================================\n` +
+                 `Customer Name: ${name}\n` +
+                 `Country / Region: ${country}\n` +
+                 `Email Address: ${email}\n` +
+                 `Company Name / Website: ${company || 'N/A'}\n` +
+                 `Phone / WhatsApp: ${phone || 'N/A'}\n` +
+                 `Target File: ColdPackPro-Full-Product-Catalog.xlsx (Multi-Page Excel)\n` +
+                 `Sent to: info@coldpackpro.com\n` +
+                 `Timestamp: ${new Date().toISOString()} (${new Date().toLocaleString()})\n` +
+                 `Source: Online Digital Catalog (catalog.html)\n` +
+                 `=====================================================`
+      };
+
+      try {
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(emailPayload)
+        }).catch(err => console.warn('Direct lead notification error:', err));
+      } catch(e) {}
+
+      // 2. Send lead to backend (persists into catalog-downloads.json and inquiries.json)
+      try {
+        await fetch('/api/send-catalog', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, country, company, phone })
+        });
+      } catch(err) {
+        console.warn('Catalog lead backend transmission warning:', err);
+      }
+
+      // Trigger instant file download
+      const dlLink = document.createElement('a');
+      dlLink.href = '/download/coldpackpro-full-catalog.xlsx';
+      dlLink.download = 'ColdPackPro-Full-Product-Catalog.xlsx';
+      document.body.appendChild(dlLink);
+      dlLink.click();
+      document.body.removeChild(dlLink);
+
+      // Clear the input fields immediately so they don't persist on next open
+      if (nameInput) nameInput.value = '';
+      if (emailInput) emailInput.value = '';
+      if (countryInput) countryInput.value = '';
+      if (compInput) compInput.value = '';
+      if (phoneInput) phoneInput.value = '';
+
+      // Switch to success view
+      const formState = document.getElementById('catalogDownloadFormState');
+      const successState = document.getElementById('catalogDownloadSuccessState');
+      if (formState) formState.classList.add('hidden');
+      if (successState) successState.classList.remove('hidden');
+
+      // Toast feedback
+      const toast = document.getElementById('catalogToast');
+      if (toast) {
+        toast.innerHTML = `<span class="inline-block h-2 w-2 rounded-full bg-emerald-400"></span> Sent to info@coldpackpro.com & Download Started!`;
+        toast.classList.remove('translate-y-20', 'opacity-0');
+        setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 4000);
+      }
+
+      if (submitBtn) submitBtn.disabled = false;
+      if (btnText) btnText.textContent = 'Unlock & Download Catalog (XLSX) →';
+    }
+
+    // Expose globally on window for inline onclick handlers
+    window.openCatalogDownloadModal = openCatalogDownloadModal;
+    window.closeCatalogDownloadModal = closeCatalogDownloadModal;
+    window.handleCatalogDownloadSubmit = handleCatalogDownloadSubmit;
+
+    // Modal backdrop and ESC key listener + explicit button bindings
+    document.addEventListener('DOMContentLoaded', () => {
+      try { localStorage.removeItem('coldpackpro_visitor_contact'); } catch(e) {}
+      const btnNav = document.getElementById('btnNavDownload');
+      if (btnNav) {
+        btnNav.addEventListener('click', (e) => window.openCatalogDownloadModal(e));
+      }
+      const btnHero = document.getElementById('btnHeroDownloadFullCatalog');
+      if (btnHero) {
+        btnHero.addEventListener('click', (e) => window.openCatalogDownloadModal(e));
+      }
+      document.querySelectorAll('.btn-open-catalog-download').forEach(btn => {
+        btn.addEventListener('click', (e) => window.openCatalogDownloadModal(e));
+      });
+
+      const dlModal = document.getElementById('catalogDownloadModal');
+      if (dlModal) {
+        dlModal.addEventListener('click', (e) => {
+          if (e.target === dlModal) window.closeCatalogDownloadModal();
+        });
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          window.closeCatalogDownloadModal();
+        }
+      });
+    });
+  </script>
+
+  <!-- ================= COOLER SPECIFICATION MODAL ================= -->
+  <div id="coolerSpecModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/80 backdrop-blur-md p-4 sm:p-6 flex items-center justify-center">
+    <div class="relative w-full max-w-5xl rounded-3xl border border-cyan-500/30 bg-[#0A1120] p-6 shadow-2xl">
+      <div id="coolerSpecModalContent">
+        <!-- Content injected by openSpecModal() -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FLOATING BUTTON: RETURN TO CATEGORY SELECTION (ATTACHMENT 2) ================= -->
+  <button 
+    id="floatingBackToDir"
+    onclick="scrollToSeriesDirectory()"
+    aria-label="Back to Product Series Directory"
+    title="Return to Product Series Directory"
+    class="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 rounded-full border border-cyan-400/60 bg-[#0B1324]/95 px-4 py-3 text-white shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-cyan-300 hover:bg-[#0E1A33] hover:shadow-cyan-400/40 group cursor-pointer"
+    style="box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.35), 0 8px 10px -6px rgba(0, 0, 0, 0.6);"
+  >
+    <span class="text-2xl leading-none select-none inline-block transform transition-transform group-hover:-translate-y-1">👆</span>
+    <span class="text-xs font-bold text-cyan-300 group-hover:text-white transition tracking-wide" data-cat-i18n="floating_back_btn">
+      Series Directory
+    </span>
+  </button>
+
+  <!-- Toast Notification (positioned above floating button) -->
+  <div id="catalogToast" class="fixed bottom-20 right-6 z-50 flex items-center gap-2 rounded-2xl border border-cyan-500/40 bg-slate-900/95 px-5 py-3 text-xs font-semibold text-white shadow-2xl backdrop-blur-md transition-all duration-300 translate-y-20 opacity-0 pointer-events-none">
+    <!-- Message injected dynamically -->
+  </div>
+
+  <script>
+    function scrollToSeriesDirectory() {
+      const dir = document.getElementById('series-directory');
+      if (!dir) return;
+      const headerOffset = 85;
+      const elementPosition = dir.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      // Flash cyan highlight around category directory for visual orientation
+      dir.classList.add('ring-4', 'ring-cyan-400', 'ring-offset-4', 'ring-offset-[#070B14]');
+      setTimeout(() => {
+        dir.classList.remove('ring-4', 'ring-cyan-400', 'ring-offset-4', 'ring-offset-[#070B14]');
+      }, 2500);
+    }
+
+    // Scroll listener: keep button always smoothly accessible at bottom-right
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('floatingBackToDir');
+      if (!btn) return;
+      if (window.scrollY > 250) {
+        btn.classList.remove('opacity-75');
+        btn.classList.add('opacity-100');
+      } else {
+        btn.classList.remove('opacity-100');
+        btn.classList.add('opacity-75');
+      }
+    }, { passive: true });
+  </script>
+
+  <!-- Catalog Localization Engine -->
+  <script src="/js/catalog-i18n.js"></script>
+  <!-- Isolated Category Navigation Engine -->
+  <script src="/js/category-navigator.js"></script>
+  <!-- Cooler Box Catalog Interactive Engine -->
+  <script src="/js/cooler-catalog.js"></script>
+</body>
+</html>

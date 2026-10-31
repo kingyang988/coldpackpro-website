@@ -1,0 +1,42 @@
+[
+  {
+    "timestamp": "2026-10-18T02:51:11.452Z",
+    "company": "Global BioCold Solutions",
+    "name": "Test Procurement Manager",
+    "email": "client@biocold.com",
+    "phone": "+1 555-888-9999",
+    "source": "Digital Catalog Download (Header / Hero Shortcut)",
+    "targetFile": "ColdPackPro-Full-Product-Catalog.xlsx",
+    "sentTo": "info@coldpackpro.com"
+  },
+  {
+    "timestamp": "2026-10-18T03:09:10.718Z",
+    "company": "BioCold Logistics",
+    "name": "Mr. David Smith",
+    "email": "dsmith@biocold.com",
+    "phone": "+1 555-019-2834",
+    "source": "Digital Catalog Download (Header / Hero Shortcut)",
+    "targetFile": "ColdPackPro-Full-Product-Catalog.xlsx",
+    "sentTo": "info@coldpackpro.com"
+  },
+  {
+    "timestamp": "2026-10-26T14:46:26.671Z",
+    "company": "BioCold Logistics",
+    "name": "Mr. Yang",
+    "email": "kingyang988@gmail.com",
+    "phone": "+86 13925109703",
+    "source": "Digital Catalog Download (Header / Hero Shortcut)",
+    "targetFile": "ColdPackPro-Full-Product-Catalog.xlsx",
+    "sentTo": "info@coldpackpro.com"
+  },
+  {
+    "timestamp": "2026-10-26T15:33:28.386Z",
+    "company": "BioCold Logistics Ltd",
+    "name": "Mr. Yang",
+    "email": "kingyang988@gmail.com",
+    "phone": "+86 13925109703",
+    "source": "Digital Catalog Download (Header / Hero Shortcut)",
+    "targetFile": "ColdPackPro-Full-Product-Catalog.xlsx",
+    "sentTo": "info@coldpackpro.com"
+  }
+]
