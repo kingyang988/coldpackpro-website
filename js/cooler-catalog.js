@@ -526,25 +526,25 @@ async function initCatalogImagePersistence() {
     }
   } catch (e) {}
 
-  // Step 3: Fetch authoritative images permanently stored on server disk (/api/catalog-images)
-  try {
-    const res = await fetch('/api/catalog-images');
-    if (res.ok) {
-      const data = await res.json();
-      if (data && data.success && data.images) {
-        for (const [k, v] of Object.entries(data.images)) {
-          if (v && typeof v === "string") {
-            serverCatalogImages[k] = v;
-            if (!memoryImages[k]) {
-              memoryImages[k] = v;
-            }
+  // Step 3: Load image mappings from the static JSON file
+try {
+  const res = await fetch('/catalog-images.json', { cache: 'no-store' });
+  if (res.ok) {
+    const data = await res.json();
+    if (data && typeof data === 'object' && !Array.isArray(data)) {
+      for (const [k, v] of Object.entries(data)) {
+        if (typeof v === 'string') {
+          serverCatalogImages[k] = v;
+          if (!memoryImages[k]) {
+            memoryImages[k] = v;
           }
         }
       }
     }
-  } catch (err) {
-    console.warn('Failed to load server catalog images:', err);
   }
+} catch (err) {
+  console.warn('Failed to load catalog image mappings:', err);
+}
 
   // Step 4: Full re-render so all restored photos display instantly on screen
   renderCoolerCatalog();
