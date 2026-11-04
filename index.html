@@ -405,7 +405,7 @@
         </article>
 
         <article id="gel-series" class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
-          <div class="media-fit product-card-media product-media-gel"><img src="/images/6.gel-ice-pack-supplier-cold-chain-shipping.webp?v=20260924" alt="Gel ice pack supplier product for cold chain shipping"></div>
+<div class="media-fit product-card-media product-media-gel"><img src="/images/6.gel-ice-pack-supplier-cold-chain-shipping.webp?v=20260924" alt="Gel ice pack supplier product for cold chain shipping" width="540" height="403"></div>        
           <div class="bg-gradient-to-br from-cyan-500 via-blue-600 to-slate-900 p-5 text-white">
             <div class="mb-3 inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em]" data-i18n="prod.gel_badge">Gel Series</div>
             <h3 class="text-2xl font-black" data-i18n="prod.gel_title">Gel Ice Pack</h3>
@@ -1644,8 +1644,13 @@ window.console = new Proxy(console, {
       "@type": "Product",
       "name": "Gel Ice Pack",
       "description": "Flexible cold retention for seafood, meal kits, dairy, and insulated bags.",
-      "image": "https://www.coldpackpro.com/images/6.gel-ice-pack-supplier-cold-chain-shipping.webp",
-      "brand": { "@type": "Brand", "name": "ColdPackPro" },
+"image": {
+  "@type": "ImageObject",
+  "url": "https://www.coldpackpro.com/images/6.gel-ice-pack-supplier-cold-chain-shipping.webp",
+  "width": 540,
+  "height": 403
+}      
+    "brand": { "@type": "Brand", "name": "ColdPackPro" },
       "manufacturer": { "@id": "https://www.coldpackpro.com/#organization" }
     },
     {
