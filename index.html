@@ -425,7 +425,7 @@
         </article>
 
         <article id="sheet-series" class="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
-          <div class="media-fit product-card-media product-media-sheet"><img src="/images/7.self-absorbing-ice-pack-sheet-manufacturer.webp?v=20261028_water_sheets" alt="ColdPackPro Water-Activated Cooling Sheets and dry ice pack rolls manufacturer"></div>
+<div class="media-fit product-card-media product-media-sheet"><img src="/images/7.self-absorbing-ice-pack-sheet-manufacturer.webp?v=20261028_water_sheets" alt="ColdPackPro Water-Activated Cooling Sheets and dry ice pack rolls manufacturer" width="560" height="409"></div>
           <div class="bg-gradient-to-br from-white via-sky-100 to-cyan-200 p-5 text-slate-950">
             <div class="mb-3 inline-flex rounded-full bg-slate-950 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white" data-i18n="prod.sheet_badge">Water-Activated Series</div>
             <h3 class="text-2xl font-black" data-i18n="prod.sheet_title">Water-Activated Cooling Sheets</h3>
@@ -1652,8 +1652,13 @@ window.console = new Proxy(console, {
       "@type": "Product",
       "name": "Water-Activated Cooling Sheets",
       "description": "Flexible sheet format for fast packing, easy cutting, and compact storage.",
-      "image": "https://www.coldpackpro.com/images/7.self-absorbing-ice-pack-sheet-manufacturer.webp",
-      "brand": { "@type": "Brand", "name": "ColdPackPro" },
+"image": {
+  "@type": "ImageObject",
+  "url": "https://www.coldpackpro.com/images/7.self-absorbing-ice-pack-sheet-manufacturer.webp",
+  "width": 560,
+  "height": 409
+}
+    "brand": { "@type": "Brand", "name": "ColdPackPro" },
       "manufacturer": { "@id": "https://www.coldpackpro.com/#organization" }
     }
   ]
