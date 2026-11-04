@@ -1,0 +1,21 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "ColdPackPro",
+    "identifier": "did:web:coldpackpro.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:coldpackpro.com:catalog:products",
+      "displayName": "ColdPackPro Product Catalog",
+      "type": "text/html",
+      "url": "https://www.coldpackpro.com/catalog.html",
+      "description": "Product catalog for ColdPackPro cold-chain packaging and cooling products.",
+      "representativeQueries": [
+        "Find cold-chain packaging for shipping temperature-sensitive products",
+        "Compare reusable ice packs for insulated shipping",
+        "Find insulated packaging products for cold-chain delivery"
+      ]
+    }
+  ]
+}
