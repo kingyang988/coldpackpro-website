@@ -1632,8 +1632,7 @@ window.console = new Proxy(console, {
     }
     return target[prop];
   }
-});
-</script><script type="application/ld+json">
+});<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -1700,7 +1699,32 @@ window.console = new Proxy(console, {
         "offerCount": "1",
         "availability": "https://schema.org/InStock",
         "url": "https://www.coldpackpro.com/#inquiry-form"
-      }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "3"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "James" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+          "reviewBody": "Lightweight and slim, perfect for our outdoor backpacks. Holds temperature for 4-6 hours. King was highly responsive, making the custom logo and sizing process incredibly efficient. Great supplier."
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Matt A." },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+          "reviewBody": "After a few prototypes, we got the exact Pantone match for our dessert trays. Their design tweak—rounding the top edges—brilliantly prevented freeze-cracking. Thanks to King and the tech team for the professional patience."
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Steven" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+          "reviewBody": "Originally wanted custom molds, but their team suggested adjusting our packaging instead. This saved us significant costs! King’s real-time updates, honest communication, and detailed test reports made this a fantastic partnership."
+        }
+      ]
     },
     {
       "@type": "Product",
