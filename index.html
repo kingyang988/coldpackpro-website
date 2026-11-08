@@ -1677,7 +1677,12 @@ window.console = new Proxy(console, {
       "url": "https://www.coldpackpro.com/",
       "name": "ColdPackPro",
       "inLanguage": "en",
-      "publisher": { "@id": "https://www.coldpackpro.com/#organization" }
+      "publisher": { "@id": "https://www.coldpackpro.com/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.coldpackpro.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     },
     {
       "@type": "Product",
