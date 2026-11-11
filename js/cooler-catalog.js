@@ -659,19 +659,7 @@ function getVectorPlaceholder(slotId, label, isLarge = false) {
           ${categoryTitle}
         </div>
 
-        <!-- Management Overlay on Hover -->
-        <div class="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2 p-3 text-center backdrop-blur-[2px]">
-          <div class="flex items-center gap-2">
-            <button type="button" onclick="triggerUpload('${slotId}')" class="cursor-pointer text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-1.5 rounded-lg shadow-md transition flex items-center gap-1">
-              <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
-              <span>Replace Photo</span>
-            </button>
-            <button type="button" onclick="removeStoredImage('${slotId}')" class="cursor-pointer text-xs font-semibold bg-slate-800 hover:bg-red-600/80 text-slate-300 hover:text-white px-3 py-1.5 rounded-lg border border-slate-700 transition">
-              Reset
-            </button>
-          </div>
-        </div>
-        <input type="file" id="fileInput_${slotId}" accept="image/*" class="sr-only" style="display:none" onchange="handleImageFile(this, '${slotId}')" />
+        <!-- Read-only catalog: replace/reset disabled on public page -->
       </div>
     `;
   }
@@ -816,12 +804,7 @@ function getVectorPlaceholder(slotId, label, isLarge = false) {
       </div>
       <p class="relative z-10 text-xs text-slate-400 max-w-[280px] mt-1.5 line-clamp-2">${label}</p>
       
-      <!-- Upload trigger -->
-      <button type="button" onclick="triggerUpload('${slotId}')" class="relative z-10 mt-3 inline-flex items-center gap-1.5 rounded-full bg-slate-800/90 hover:bg-blue-600 px-3.5 py-1.5 text-[11px] font-semibold text-white shadow-md border border-slate-700 hover:border-blue-400 cursor-pointer transition">
-        <svg class="h-3.5 w-3.5 text-cyan-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
-        <span>Upload Photo (Auto-fit &amp; Center)</span>
-      </button>
-      <input type="file" id="fileInput_${slotId}" accept="image/*" class="sr-only" style="display:none" onchange="handleImageFile(this, '${slotId}')" />
+      <!-- Read-only catalog: upload disabled on public page -->
     </div>
   `;
 }
@@ -1028,10 +1011,7 @@ function renderCoolerCatalog(filterId = "all", searchQuery = "") {
           <svg class="absolute left-3 top-2.5 h-4 w-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         </div>
 
-        <!-- Reset photos -->
-        <button onclick="clearAllUploadedImages()" class="rounded-xl border border-slate-700 bg-slate-800/80 px-3 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-700 transition" title="${'Reset custom uploaded images'}">
-          ${"↺ Reset Photos"}
-        </button>
+        <!-- Read-only catalog: reset-all disabled on public page -->
       </div>
     </div>
 
