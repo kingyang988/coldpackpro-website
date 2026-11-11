@@ -7,6 +7,7 @@
     { "source": "/download/coldpackpro-full-catalog.xlsx", "destination": "/assets/ColdPackPro-Full-Product-Catalog.xlsx" },
     { "source": "/download/coldpackpro-full-catalog.pdf", "destination": "/assets/ColdPackPro-Full-Product-Catalog.pdf" },
     { "source": "/download/sub-zero-guide-pdf", "destination": "/assets/ColdPackPro-SubZero-PCM-Dry-Ice-Alternative-Technical-Whitepaper.pdf" },
-    { "source": "/blog/:slug", "destination": "/blog/:slug.html" }
+    { "source": "/blog/:slug", "destination": "/blog/:slug.html" },
+    { "source": "/api/send-inquiry", "destination": "/404.html" }
   ]
 }
