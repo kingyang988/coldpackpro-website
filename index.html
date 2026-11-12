@@ -1319,8 +1319,7 @@ ${msg || '(Direct technical consultation requested)'}
             Business_Email: email,
             Country_Region: country,
             Product_Model: product,
-            Customer_Request: msg || '(Direct technical consultation requested)',
-            Attached_Files: attachmentsSummary
+            Customer_Request: msg || '(Direct technical consultation requested)'
           })
         }).catch(err => console.warn('Browser FormSubmit dispatch warning:', err));
       } catch(fErr) {}
