@@ -1085,13 +1085,22 @@
       }, 500);
     }
 
-    whatsappChatBtn?.addEventListener('click', () => {
-      openContactModal();
-      try {
+        // 独立且健壮的 WhatsApp 点击逻辑
+    const waBtn = document.getElementById('whatsappChatBtn');
+    if (waBtn) {
+      waBtn.addEventListener('click', function(e) {
+        // 阻止默认行为，防止被其他脚本干扰
+        e.preventDefault();
+        
+        // 尝试打开 WhatsApp 网页/App
         window.open('https://wa.me/8613925109703?text=Hello%20ColdPackPro,%20I%20would%20like%20to%20inquire%20about%20your%20cold%20chain%20solutions.', '_blank', 'noopener');
-      } catch (e) {}
-    });
-
+        
+        // 如果浏览器拦截了弹窗，尝试打开你页面里的弹窗组件作为备用
+        if (typeof openContactModal === 'function') {
+          openContactModal();
+        }
+      });
+    }
     closeContactModal?.addEventListener('click', hideContactModal);
     quickContactModal?.addEventListener('click', (e) => {
       if (e.target === quickContactModal) hideContactModal();
