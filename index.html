@@ -1338,13 +1338,7 @@ ${attachmentsSummary}
             email,
             country,
             product,
-            message: msg,
-            attachments: inquiryAttachments.map(a => ({
-              name: a.name,
-              sizeKB: a.sizeKB,
-              type: a.type,
-              dataUrl: a.dataUrl
-            }))
+            message: msg
           })
         });
       } catch (err) {
