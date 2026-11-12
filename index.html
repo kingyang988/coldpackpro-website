@@ -1305,25 +1305,6 @@ ${msg || '(Direct technical consultation requested)'}
         }).catch(err => console.warn('Browser Web3Forms dispatch warning:', err));
       } catch(wErr) {}
 
-      // 2. Redundant browser delivery direct to info@coldpackpro.com via FormSubmit AJAX
-      try {
-        fetch('https://formsubmit.co/ajax/info@coldpackpro.com', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({
-            _subject: `[ColdPackPro Inquiry #${refId}] ${name} (${country}) - ${product}`,
-            _replyto: email,
-            Reference_ID: `#${refId}`,
-            Contact_Name: name,
-            Company_Name: company || 'N/A',
-            Business_Email: email,
-            Country_Region: country,
-            Product_Model: product,
-            Customer_Request: msg || '(Direct technical consultation requested)'
-          })
-        }).catch(err => console.warn('Browser FormSubmit dispatch warning:', err));
-      } catch(fErr) {}
-
       // 3. Save to backend database & disk (/api/send-inquiry logs to inquiries.json and saves uploaded files)
       try {
         await fetch('/api/send-inquiry', {
