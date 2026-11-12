@@ -1273,9 +1273,6 @@ ${data.name}`);
       }
 
       const refId = 'CPP-' + Date.now().toString().slice(-6);
-      const attachmentsSummary = inquiryAttachments.length > 0 
-        ? inquiryAttachments.map(a => `• ${a.name} (${a.sizeKB} KB)`).join('\n') 
-        : 'None';
 
       // 1. Direct Web3Forms submission from the client's browser (bypasses server Cloudflare blocks)
       const web3Payload = {
