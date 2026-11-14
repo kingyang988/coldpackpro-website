@@ -1,1 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Custom Cold Pack MOQ: Tooling & Lead Time | ColdPackPro |</title>
+  
+  <meta name="description" content="B2B guide to custom cold pack MOQ: tooling fees, rotogravure printing, PCM batch minimums, sampling costs, and standard OEM production lead times." />
+  
+  <link rel="canonical" href="https://www.coldpackpro.com/blog/custom-cold-pack-moq-guide.html" />
+  
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <meta name="theme-color" content="#0f2a55" />
 
+  <style>
+ *,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.relative{position:relative}.sticky{position:sticky}.top-0{top:0}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-8{margin-bottom:2rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-2{height:.5rem}.h-auto{height:auto}.min-h-\[108px\]{min-height:108px}.min-h-\[120px\]{min-height:120px}.w-2{width:.5rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-7xl{max-width:80rem}.max-w-xl{max-width:36rem}.shrink-0{flex-shrink:0}.cursor-pointer{cursor:pointer}.list-none{list-style-type:none}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-10{gap:2.5rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.rounded-2xl{border-radius:1rem}.rounded-\[1\.2rem\]{border-radius:1.2rem}.rounded-\[1\.4rem\]{border-radius:1.4rem}.rounded-\[1\.5rem\]{border-radius:1.5rem}.rounded-\[1\.6rem\]{border-radius:1.6rem}.rounded-\[1\.8rem\]{border-radius:1.8rem}.rounded-\[1rem\]{border-radius:1rem}.rounded-\[2rem\]{border-radius:2rem}.rounded-full{border-radius:9999px}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240/var(--tw-border-opacity,1))}.border-slate-200\/70{border-color:rgba(226,232,240,.7)}.border-slate-300{--tw-border-opacity:1;border-color:rgb(203 213 225/var(--tw-border-opacity,1))}.border-white\/25{border-color:hsla(0,0%,100%,.25)}.border-white\/70{border-color:hsla(0,0%,100%,.7)}.bg-blue-700{--tw-bg-opacity:1;background-color:rgb(29 78 216/var(--tw-bg-opacity,1))}.bg-cyan-500{--tw-bg-opacity:1;background-color:rgb(6 182 212/var(--tw-bg-opacity,1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity,1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252/var(--tw-bg-opacity,1))}.bg-slate-950{--tw-bg-opacity:1;background-color:rgb(2 6 23/var(--tw-bg-opacity,1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-white\/10{background-color:hsla(0,0%,100%,.1)}.bg-white\/15{background-color:hsla(0,0%,100%,.15)}.bg-white\/70{background-color:hsla(0,0%,100%,.7)}.bg-white\/80{background-color:hsla(0,0%,100%,.8)}.bg-white\/90{background-color:hsla(0,0%,100%,.9)}.bg-\[linear-gradient\(135deg\2c \#0f2347\2c \#2d63ef\2c \#22d8d2\)\]{background-image:linear-gradient(135deg,#0f2347,#2d63ef,#22d8d2)}.bg-\[linear-gradient\(135deg\2c \#16243f_0\%\2c \#2c73d2_46\%\2c \#22d8d2_100\%\)\]{background-image:linear-gradient(135deg,#16243f,#2c73d2 46%,#22d8d2)}.bg-\[linear-gradient\(135deg\2c rgba\(15\2c 35\2c 71\2c \.96\)\2c rgba\(37\2c 99\2c 235\2c \.94\)\2c rgba\(41\2c 198\2c 220\2c \.88\)\)\]{background-image:linear-gradient(135deg,rgba(15,35,71,.96),rgba(37,99,235,.94),rgba(41,198,220,.88))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}.from-blue-50{--tw-gradient-from:#eff6ff var(--tw-gradient-from-position);--tw-gradient-to:rgba(239,246,255,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-cyan-500{--tw-gradient-from:#06b6d4 var(--tw-gradient-from-position);--tw-gradient-to:rgba(6,182,212,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-slate-900{--tw-gradient-from:#0f172a var(--tw-gradient-from-position);--tw-gradient-to:rgba(15,23,42,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-white{--tw-gradient-from:#fff var(--tw-gradient-from-position);--tw-gradient-to:hsla(0,0%,100%,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.via-blue-600{--tw-gradient-to:rgba(37,99,235,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#2563eb var(--tw-gradient-via-position),var(--tw-gradient-to)}.via-blue-800{--tw-gradient-to:rgba(30,64,175,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#1e40af var(--tw-gradient-via-position),var(--tw-gradient-to)}.via-sky-100{--tw-gradient-to:rgba(224,242,254,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#e0f2fe var(--tw-gradient-via-position),var(--tw-gradient-to)}.to-cyan-200{--tw-gradient-to:#a5f3fc var(--tw-gradient-to-position)}.to-cyan-500{--tw-gradient-to:#06b6d4 var(--tw-gradient-to-position)}.to-slate-100{--tw-gradient-to:#f1f5f9 var(--tw-gradient-to-position)}.to-slate-900{--tw-gradient-to:#0f172a var(--tw-gradient-to-position)}.object-cover{-o-object-fit:cover;object-fit:cover}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-3{padding-bottom:.75rem}.pt-6{padding-top:1.5rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[11px\]{font-size:11px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-6{line-height:1.5rem}.leading-7{line-height:1.75rem}.leading-8{line-height:2rem}.tracking-\[0\.25em\]{letter-spacing:.25em}.tracking-\[0\.35em\]{letter-spacing:.35em}.tracking-tight{letter-spacing:-.025em}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216/var(--tw-text-opacity,1))}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105/var(--tw-text-opacity,1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38/var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85/var(--tw-text-opacity,1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59/var(--tw-text-opacity,1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42/var(--tw-text-opacity,1))}.text-slate-950{--tw-text-opacity:1;color:rgb(2 6 23/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.text-white\/70{color:hsla(0,0%,100%,.7)}.text-white\/75{color:hsla(0,0%,100%,.75)}.text-white\/85{color:hsla(0,0%,100%,.85)}.text-white\/90{color:hsla(0,0%,100%,.9)}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgba(0,0,0,.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color)}.shadow-2xl,.shadow-lg{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgba(0,0,0,.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color)}.shadow-sm,.shadow-xl{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color)}.shadow-blue-700\/20{--tw-shadow-color:rgba(29,78,216,.2);--tw-shadow:var(--tw-shadow-colored)}.ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.ring-slate-200{--tw-ring-opacity:1;--tw-ring-color:rgb(226 232 240/var(--tw-ring-opacity,1))}.ring-white\/15{--tw-ring-color:hsla(0,0%,100%,.15)}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.hover\:-translate-y-1:hover{--tw-translate-y:-0.25rem;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:bg-blue-700:hover{--tw-bg-opacity:1;background-color:rgb(29 78 216/var(--tw-bg-opacity,1))}.hover\:bg-blue-800:hover{--tw-bg-opacity:1;background-color:rgb(30 64 175/var(--tw-bg-opacity,1))}.hover\:bg-slate-100:hover{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity,1))}.hover\:bg-slate-200:hover{--tw-bg-opacity:1;background-color:rgb(226 232 240/var(--tw-bg-opacity,1))}.hover\:bg-slate-50:hover{--tw-bg-opacity:1;background-color:rgb(248 250 252/var(--tw-bg-opacity,1))}.hover\:text-blue-800:hover{--tw-text-opacity:1;color:rgb(30 64 175/var(--tw-text-opacity,1))}.hover\:text-slate-900:hover{--tw-text-opacity:1;color:rgb(15 23 42/var(--tw-text-opacity,1))}@media (min-width:640px){.sm\:col-span-2{grid-column:span 2/span 2}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-end{align-items:flex-end}.sm\:items-center{align-items:center}.sm\:justify-between{justify-content:space-between}.sm\:p-6{padding:1.5rem}.sm\:px-5{padding-left:1.25rem;padding-right:1.25rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-5xl{font-size:3rem;line-height:1}}@media (min-width:768px){.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:grid-cols-\[180px_1fr\]{grid-template-columns:180px 1fr}.md\:border-r{border-right-width:1px}.md\:px-5{padding-left:1.25rem;padding-right:1.25rem}}@media (min-width:1024px){.lg\:col-span-3{grid-column:span 3/span 3}.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:grid-cols-\[\.95fr_1\.05fr\]{grid-template-columns:.95fr 1.05fr}.lg\:grid-cols-\[1\.05fr_\.95fr\]{grid-template-columns:1.05fr .95fr}.lg\:grid-cols-\[1\.2fr_\.8fr\]{grid-template-columns:1.2fr .8fr}.lg\:items-start{align-items:flex-start}.lg\:items-center{align-items:center}.lg\:px-8{padding-left:2rem;padding-right:2rem}.lg\:py-14{padding-top:3.5rem;padding-bottom:3.5rem}.lg\:py-16{padding-top:4rem;padding-bottom:4rem}.lg\:text-6xl{font-size:3.75rem}}
+  </style>
+</head>
+<body class="antialiased bg-slate-50 text-slate-800">
+  
+  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex min-h-[108px] items-center justify-between gap-4 py-3">
+        <a href="/" class="shrink-0" aria-label="ColdPackPro home">
+          <span class="site-logo" aria-hidden="true">
+            <svg viewBox="0 0 1024 403" xmlns="http://www.w3.org/2000/svg" role="img">
+              <defs>
+                <linearGradient id="proBlockHeader" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#256FDC"/><stop offset="52%" stop-color="#3383EE"/><stop offset="100%" stop-color="#4694F7"/></linearGradient>
+                <linearGradient id="proTextHeader" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#29F4FF"/><stop offset="100%" stop-color="#00DCFF"/></linearGradient>
+              </defs>
+              <g>
+                <path d="M123 106 H622 C645 106 664 124 664 147 V167 C664 190 645 208 622 208 H123 C106 208 92 194 92 177 V137 C92 120 106 106 123 106 Z" fill="#101826"/>
+                <path d="M650 106 H876 C901 106 922 127 922 152 V162 C922 187 901 208 876 208 H650 C665 197 674 180 674 157 C674 134 665 117 650 106 Z" fill="url(#proBlockHeader)"/>
+                <text x="123" y="176" font-family="Eurostile Extended, Arial Black, sans-serif" font-size="66" font-weight="600" letter-spacing="0.35" fill="#FFFFFF" lengthAdjust="spacingAndGlyphs" textLength="491">COLD PACK</text>
+                <text x="686" y="176" font-family="Eurostile Extended, Arial Black, sans-serif" font-size="66" font-weight="600" letter-spacing="0.1" fill="url(#proTextHeader)" lengthAdjust="spacingAndGlyphs" textLength="204">PRO</text>
+              </g>
+            </svg>
+          </span>
+        </a>
+
+        <nav class="hidden items-center gap-4 lg:gap-7 text-xs lg:text-sm md:flex">
+          <a class="navlink" href="/#about-us"><span data-i18n="nav.about">About</span></a>
+          <a class="navlink" href="/#products"><span data-i18n="nav.products">Products</span></a>
+          <a class="navlink" href="/#faq"><span data-i18n="nav.faq">FAQ</span></a>
+          <a class="navlink" href="/#blog"><span data-i18n="nav.blog">Blog</span></a>
+          <a class="navlink font-semibold text-blue-700 hover:text-blue-800 flex items-center gap-1.5" href="/catalog?lang=en">
+            <span class="inline-block h-2 w-2 rounded-full bg-cyan-500 animate-pulse"></span>
+            <span data-i18n="nav.catalog">Digital Catalog</span>
+          </a>
+        </nav>
+
+        <div class="flex items-center gap-2 shrink-0">
+          <a href="/#inquiry-form" class="inline-flex items-center gap-1.5 rounded-full bg-blue-700 px-4 py-2 text-xs font-bold text-white shadow-sm hover:bg-blue-800 transition">
+            <span>Inquiry</span><span class="text-xs">↓</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+    <article class="bg-white p-6 sm:p-10 rounded-2xl shadow-sm border border-slate-200">
+      
+      <header class="mb-8 pb-8 border-b border-slate-200">
+        <div class="flex flex-wrap items-center gap-2 text-xs font-semibold text-blue-700 mb-3 tracking-wider uppercase">
+          <span>Cold Chain Procurement</span><span>·</span><span>OEM Manufacturing</span>
+        </div>
+        
+        <h1 class="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight leading-tight mb-4">
+          Custom Cold Pack MOQ: Tooling, Sampling, and Lead Time for B2B Buyers
+        </h1>
+        
+        <p class="text-lg text-slate-600 leading-relaxed">For B2B procurement managers sourcing thermal refrigerants, MOQs are rarely arbitrary sales quotas—they are hard breakeven thresholds driven by blow-mold tooling, rotogravure printing, and chemical batch minimums. Understanding these three factory cost drivers lets you budget tooling CAPEX accurately, avoid sampling delays, and align inventory with cold chain launches. </p>
+      </header>
+
+      <div class="prose prose-slate max-w-none">
+        
+        <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 bg-white text-slate-800 antialiased">
+  <header class="mb-8 pb-8 border-b border-slate-200">
+    <div class="flex flex-wrap items-center gap-2 text-xs font-medium text-slate-500 mb-3">
+      <span>Cold Chain Procurement</span>
+      <span aria-hidden="true">·</span>
+      <span>OEM Manufacturing Benchmarks</span>
+      <span aria-hidden="true">·</span>
+      <span class="tabular-nums">7 min read</span>
+    </div>
+    <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight leading-tight mb-4 [text-wrap:balance]">
+      Custom Cold Pack MOQ: Tooling, Sampling, and Lead Time for B2B Buyers
+    </h1>
+    <p class="text-lg text-slate-600 leading-relaxed">
+      For B2B procurement managers sourcing thermal refrigerants, Minimum Order Quantities (MOQs) reflect real factory economics rather than arbitrary sales quotas. They represent hard breakeven thresholds tied to mold cavitation, rotogravure printing cylinders, and chemical batch minimums. Understanding these three drivers helps buyers budget tooling capital, schedule validation runs, and align delivery with seasonal cold chain launches.
+    </p>
+  </header>
+
+  <img
+    src="https://yourdomain.com/images/blog-image-1.webp"
+    alt="Blow-molded HDPE phase-change bricks and custom-printed flexible gel packs arranged on an OEM cold chain inspection line"
+    class="w-full rounded-xl my-6 shadow-md"
+    referrerpolicy="no-referrer"
+  />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">
+      Why MOQ Exists in OEM Cold Chain Manufacturing
+    </h2>
+    <p class="text-slate-600 leading-relaxed mb-4">
+      In temperature-controlled logistics—whether shipping biologics at 2°C to 8°C or frozen meal kits at -20°C—cold packs must survive compressive pallet loads, sub-zero drop impacts, and repeated freeze-thaw cycling without seam delamination or coolant leakage. Achieving that durability at a competitive unit price requires continuous, high-speed manufacturing equipment: extrusion blow-molding lines for rigid High-Density Polyethylene (HDPE) bricks and vertical form-fill-seal (VFFS) pouching machines for flexible gel packs.
+    </p>
+    <p class="text-slate-600 leading-relaxed">
+      Every time a factory halts a production line to swap molds, mount printing cylinders, purge resin hoppers, or blend a new eutectic chemical batch, it absorbs significant downtime and startup scrap. An MOQ is simply the minimum volume needed to amortize those changeover costs and upstream material minimums. Across standard OEM plants, three manufacturing drivers govern your MOQ, tooling fee, and lead time.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">
+      Driver 1: Tooling, Blow Molds, and Heat-Sealing Dies
+    </h2>
+    <p class="text-slate-600 leading-relaxed mb-4">
+      Physical geometry dictates your highest upfront capital cost and longest pre-production wait. Whether engineering a custom-footprint HDPE brick to lock tightly inside an Insulated Shipping Container (ISC) or specifying a multi-cell flexible mat, production tooling sets the baseline commitment.
+    </p>
+
+    <h3 class="text-lg font-semibold text-slate-800 mt-6 mb-3">
+      Stock Tooling vs. Custom Blow-Mold Economics
+    </h3>
+    <p class="text-slate-600 leading-relaxed mb-4">
+      Rigid HDPE bricks are manufactured via extrusion blow molding using CNC-machined aluminum or P20 steel cavities matching your exact length, width, ribbing, and recessed handle geometry. For standard OEM bricks (300 ml to 2,500 ml), custom blow-mold tooling costs $3,500 to $8,500 depending on brick size and cavity count (2-cavity or 4-cavity molds lower unit cost at higher volume).
+    </p>
+    <p class="text-slate-600 leading-relaxed mb-4">
+      Mounting a custom mold requires four to eight hours of parison temperature and air-pressure calibration before wall thickness stabilizes. To cover startup purge scrap and line time, factories typically enforce an MOQ of 3,000 to 5,000 units per run. Using a factory’s existing stock mold eliminates the $3,500+ tooling outlay and lowers MOQ to 1,000 units.
+    </p>
+
+    <h3 class="text-lg font-semibold text-slate-800 mt-6 mb-3">
+      From 3D Prototypes to T1 Tooling Trials
+    </h3>
+    <p class="text-slate-600 leading-relaxed mb-4">
+      Custom tooling follows three strict engineering gates: CAD sign-off and 3D-printed SLA fit checks inside your cooler box (5–7 business days), CNC mold fabrication (20–30 calendar days), and a T1 mold trial producing 20 to 50 functional bricks for drop, ultrasonic weld, and thermal chamber testing before mass production.
+    </p>
+
+    <img
+      src="https://yourdomain.com/images/blog-image-2.webp"
+      alt="CNC-machined aluminum extrusion blow mold cavities used for manufacturing rigid HDPE phase-change ice bricks"
+      class="w-full rounded-xl my-6 shadow-md"
+      referrerpolicy="no-referrer"
+    />
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">
+      Driver 2: Printing Plates, Rotogravure Cylinders, and Film Conversion
+    </h2>
+    <p class="text-slate-600 leading-relaxed mb-4">
+      For flexible gel packs and non-woven cooling sheets, hardware mold fees are minimal because VFFS machines adjust pouch length digitally. Instead, the primary MOQ bottleneck shifts to multi-layer film conversion and brand printing.
+    </p>
+
+    <h3 class="text-lg font-semibold text-slate-800 mt-6 mb-3">
+      Why Rotogravure Film Commitments Dictate 10,000+ Unit MOQs
+    </h3>
+    <p class="text-slate-600 leading-relaxed mb-4">
+      Cold pack pouches use laminated high-barrier films—commonly Nylon (PA) bonded to Polyethylene (PE)—to prevent puncture and moisture loss in frozen transit. Private-label artwork is printed via rotogravure, requiring one engraved copper-plated cylinder per ink color at $150 to $280 per cylinder. A four-color design plus white backing totals $600 to $1,400 in setup fees.
+    </p>
+    <p class="text-slate-600 leading-relaxed mb-4">
+      Because film converters run continuous jumbo rolls (1,000 to 3,000 linear meters) and consume 150 to 250 meters solely dialing in color registration, standard OEM MOQs for custom-printed gel packs sit between 10,000 and 30,000 units depending on pouch dimensions.
+    </p>
+
+    <h3 class="text-lg font-semibold text-slate-800 mt-6 mb-3">
+      Low-MOQ Branding Alternatives for Market Validation
+    </h3>
+    <p class="text-slate-600 leading-relaxed">
+      Buyers validating new shipping lanes can bypass heavy film commitments through two OEM options: single-color silk-screen printing on stock HDPE bricks (MOQ 1,000–2,000 units; screen fee under $180) or waterproof thermal-transfer labels on clear stock gel pouches (MOQ 2,000–5,000 units; zero cylinder cost). Once annual volume exceeds 50,000 pouches, moving to full rotogravure film reduces unit packaging cost by 12% to 18%.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">
+      Driver 3: Raw Materials, Polymers, and PCM Formulations
+    </h2>
+    <p class="text-slate-600 leading-relaxed mb-4">
+      Even with stock molds and unprinted film, resin color compounding and phase-change coolant chemistry impose strict factory batch minimums.
+    </p>
+
+    <h3 class="text-lg font-semibold text-slate-800 mt-6 mb-3">
+      HDPE Resin Colorants and Eutectic PCM Mixing Tanks
+    </h3>
+    <p class="text-slate-600 leading-relaxed mb-4">
+      Standard blow-molded bricks run in natural white or ice blue from continuous factory resin silos. Ordering a custom Pantone shell color—such as violet for 2°C–8°C pharma or orange for -21°C bricks—requires custom masterbatch compounding (500 kg to 1,000 kg minimum resin batch) plus complete screw-barrel purging, translating into 2,500 to 5,000 bricks per color run.
+    </p>
+    <p class="text-slate-600 leading-relaxed mb-4">
+      Internal coolants follow similar batch thresholds. Standard Super Absorbent Polymer (SAP) water-gel blends mix flexibly in 500 kg tanks, whereas engineered Phase Change Materials (PCMs) calibrated for exact melt plateaus (+5°C, -10°C, -18°C, or -21°C) require 1,000 kg to 2,000 kg reactor batches alongside Differential Scanning Calorimetry (DSC) lab verification.
+    </p>
+
+    <img
+      src="https://yourdomain.com/images/blog-image-3.webp"
+      alt="Automated cold pack filling, ultrasonic sealing, and quality control inspection inside an ISO-certified thermal packaging plant"
+      class="w-full rounded-xl my-6 shadow-md"
+      referrerpolicy="no-referrer"
+    />
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">
+      Standard OEM Benchmarks: Tooling Fees, MOQs, and Lead Times
+    </h2>
+    <p class="text-slate-600 leading-relaxed mb-4">
+      Use the benchmark table below to align launch timelines, tooling budgets, and inventory commitments across standard OEM cold pack manufacturing tiers.
+    </p>
+
+    <div class="overflow-x-auto my-8 rounded-lg border border-slate-200 shadow-md">
+      <table class="w-full text-left border-collapse my-6">
+        <thead>
+          <tr class="bg-slate-50 border-b border-slate-200 text-xs font-semibold uppercase tracking-wider text-slate-700">
+            <th class="py-3.5 px-4">Customization Tier</th>
+            <th class="py-3.5 px-4">Est. Tooling / Plate Fee</th>
+            <th class="py-3.5 px-4">Standard OEM MOQ</th>
+            <th class="py-3.5 px-4">Sampling Lead Time</th>
+            <th class="py-3.5 px-4">Mass Production Lead Time</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-200 text-sm text-slate-600">
+          <tr class="hover:bg-slate-50 transition-colors">
+            <td class="py-4 px-4 font-semibold text-slate-900">
+              Stock HDPE Brick + Silk-Screen Logo
+            </td>
+            <td class="py-4 px-4 tabular-nums">$80 – $180 (Screen setup)</td>
+            <td class="py-4 px-4 tabular-nums">1,000 – 2,000 pcs</td>
+            <td class="py-4 px-4 tabular-nums">5 – 7 days</td>
+            <td class="py-4 px-4 tabular-nums">12 – 15 days</td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition-colors">
+            <td class="py-4 px-4 font-semibold text-slate-900">
+              Custom Blow-Molded HDPE Brick
+            </td>
+            <td class="py-4 px-4 tabular-nums">$3,500 – $8,500 (CNC mold)</td>
+            <td class="py-4 px-4 tabular-nums">3,000 – 5,000 pcs</td>
+            <td class="py-4 px-4 tabular-nums">25 – 35 days</td>
+            <td class="py-4 px-4 tabular-nums">20 – 25 days (post-T1)</td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition-colors">
+            <td class="py-4 px-4 font-semibold text-slate-900">
+              Stock-Film Gel Pack + Waterproof Label
+            </td>
+            <td class="py-4 px-4 tabular-nums">$0 – $120 (Die-cut label)</td>
+            <td class="py-4 px-4 tabular-nums">2,000 – 5,000 pcs</td>
+            <td class="py-4 px-4 tabular-nums">3 – 5 days</td>
+            <td class="py-4 px-4 tabular-nums">10 – 14 days</td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition-colors">
+            <td class="py-4 px-4 font-semibold text-slate-900">
+              Custom Rotogravure Printed Gel Pack
+            </td>
+            <td class="py-4 px-4 tabular-nums">$150 – $280 / color cylinder</td>
+            <td class="py-4 px-4 tabular-nums">10,000 – 30,000 pcs</td>
+            <td class="py-4 px-4 tabular-nums">10 – 15 days</td>
+            <td class="py-4 px-4 tabular-nums">18 – 25 days</td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition-colors">
+            <td class="py-4 px-4 font-semibold text-slate-900">
+              Custom Phase-Change (PCM) Formulation
+            </td>
+            <td class="py-4 px-4 tabular-nums">$500 – $1,500 (DSC calibration)</td>
+            <td class="py-4 px-4 tabular-nums">3,000 – 5,000 pcs (1,000 kg min)</td>
+            <td class="py-4 px-4 tabular-nums">10 – 18 days</td>
+            <td class="py-4 px-4 tabular-nums">22 – 30 days</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="rounded-xl border border-slate-200 bg-slate-50 p-6 my-8">
+      <h3 class="text-lg font-semibold text-slate-900 mb-2">
+        Procurement Note on Total Landed Lead Time
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">
+        Lead times above reflect ex-works (EXW) or FOB factory completion. Ahead of summer peak demand, add 3–5 days for export clearance and 18–35 days for ocean freight—or air-ship initial qualification samples while bulk ocean inventory is in transit.
+      </p>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">
+      How Procurement Teams Can Lower Initial Risk
+    </h2>
+    <ul class="list-disc pl-6 space-y-2.5 text-slate-600 leading-relaxed">
+      <li>
+        <strong class="text-slate-900">Audit Stock Molds First:</strong> Selecting an existing HDPE brick mold within ±5 mm of your target footprint saves $4,000+ in tooling CAPEX and trims 4 weeks from launch timelines.
+      </li>
+      <li>
+        <strong class="text-slate-900">Negotiate Mold Amortization:</strong> Request a written rebate returning 50% to 100% of custom blow-mold fees once cumulative volume crosses 50,000–100,000 units.
+      </li>
+      <li>
+        <strong class="text-slate-900">Standardize Film Web Widths:</strong> Keep pouch width identical across 250 g, 500 g, and 1,000 g SKUs and vary only cut length so multiple sizes run off one film specification.
+      </li>
+      <li>
+        <strong class="text-slate-900">Evaluate Dry-Shipped Formats:</strong> Importing dry self-absorbing sheets or pre-dosed empty pouches eliminates ocean freight surcharges on water weight.
+      </li>
+    </ul>
+  </section>
+
+  <section class="pt-8 border-t border-slate-200">
+    <h2 class="text-2xl font-bold text-slate-900 mt-4 mb-6">
+      Frequently Asked Questions for B2B Cold Pack Buyers
+    </h2>
+
+    <div class="space-y-5">
+      <div class="rounded-xl border border-slate-200 p-5 bg-white">
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">
+          1. Who retains legal ownership of custom blow molds and printing cylinders?
+        </h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          When you pay 100% of a custom CNC mold or rotogravure cylinder invoice, full tooling ownership remains yours. Include a signed NNN (Non-Disclosure, Non-Use, Non-Circumvention) agreement barring the factory from running your tooling for third parties and requiring climate-protected storage between orders.
+        </p>
+      </div>
+
+      <div class="rounded-xl border border-slate-200 p-5 bg-white">
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">
+          2. Are custom tooling and sampling fees refundable on bulk production orders?
+        </h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Pre-production sample fees ($150–$400 plus air courier) are routinely credited toward your first bulk purchase order. Custom blow-mold fees ($3,500–$8,500) are normally billed upfront and amortized once cumulative orders reach 50,000–100,000 units, while engraved printing cylinders are stored free for repeat runs.
+        </p>
+      </div>
+
+      <div class="rounded-xl border border-slate-200 p-5 bg-white">
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">
+          3. Can we split one MOQ across different temperature ratings (e.g., 0°C and -20°C)?
+        </h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Yes, if both variants share the exact same HDPE shell mold and color. Factories can split the run across two coolants provided each PCM fill meets its reactor mixing minimum (typically 1,000–2,000 pcs per temperature rating). Printed gel pouches can share base film and differentiate temperatures via waterproof labels.
+        </p>
+      </div>
+
+      <div class="rounded-xl border border-slate-200 p-5 bg-white">
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">
+          4. How long does factory sampling take, and what QA tests are included?
+        </h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Stock-mold samples ship in 5–7 days; custom-printed gel packs take 10–15 days; and T1 custom blow-mold samples take 25–35 days. Confirm your supplier performs a 72-hour freeze-thaw leak check, a 1.2-meter frozen drop test, and 50–80 kg static compression testing before dispatch.
+        </p>
+      </div>
+
+      <div class="rounded-xl border border-slate-200 p-5 bg-white">
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">
+          5. What is the shelf life if we warehouse 20,000 custom gel packs to meet MOQ?
+        </h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Unused PA/PE laminated gel packs and HDPE bricks store safely at ambient temperatures (10°C–30°C, out of direct sunlight) for 24 to 36 months. Buyers with limited pallet space can also negotiate printing the full film roll upfront while scheduling two staggered filling and shipping batches.
+        </p>
+      </div>
+
+      <div class="rounded-xl border border-slate-200 p-5 bg-white">
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">
+          6. What compliance documents should accompany custom cold pack samples?
+        </h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Request up-to-date Material Safety Data Sheets (MSDS), IATA/IMDG non-hazardous air and ocean transport certificates, and food-contact polymer declarations during sampling. For pharmaceutical lanes, also review the lab’s DSC thermogram verifying latent heat capacity (J/g) and exact phase-change stability.
+        </p>
+
+        
+      </div>
+    </article>
+  </main>
+
+  <footer class="mt-6 border-t border-slate-200 bg-slate-100 text-slate-900">
+    <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <div class="grid gap-8 lg:grid-cols-[1.2fr_.8fr] lg:items-center">
+        <div>
+          <h2 class="text-3xl font-black text-slate-900">ColdPackPro</h2>
+          <p class="mt-5 max-w-2xl text-sm leading-7 text-slate-600">Factory direct cold-chain transport solutions for B2B sourcing, OEM projects, and export orders.</p>
+          <a href="/" class="footer-logo" aria-label="ColdPackPro home">
+            <svg viewBox="0 0 1024 403" xmlns="http://www.w3.org/2000/svg" role="img">
+              <g>
+                <path d="M123 106 H622 C645 106 664 124 664 147 V167 C664 190 645 208 622 208 H123 C106 208 92 194 92 177 V137 C92 120 106 106 123 106 Z" fill="#101826"/>
+                <path d="M650 106 H876 C901 106 922 127 922 152 V162 C922 187 901 208 876 208 H650 C665 197 674 180 674 157 C674 134 665 117 650 106 Z" fill="url(#proBlockHeader)"/>
+                <text x="123" y="176" font-family="Eurostile Extended, Arial Black, sans-serif" font-size="66" font-weight="600" letter-spacing="0.35" fill="#FFFFFF" lengthAdjust="spacingAndGlyphs" textLength="491">COLD PACK</text>
+                <text x="686" y="176" font-family="Eurostile Extended, Arial Black, sans-serif" font-size="66" font-weight="600" letter-spacing="0.1" fill="url(#proTextHeader)" lengthAdjust="spacingAndGlyphs" textLength="204">PRO</text>
+              </g>
+            </svg>
+          </a>
+        </div>
+        <div class="rounded-[1.5rem] border border-slate-300 bg-gradient-to-br from-blue-50 to-slate-100 p-5 text-sm text-slate-600 shadow-sm">
+          <p class="font-semibold text-slate-900">Contact Details</p>
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <div class="text-sm text-slate-500">WhatsApp/Wechat</div>
+              <a class="mt-1 block font-semibold text-blue-700 hover:underline" href="https://wa.me/8613925109703" target="_blank" rel="noopener">+86 139 2510 9703</a>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <div class="text-sm text-slate-500">Email</div>
+              <a class="mt-1 block font-semibold text-blue-700 hover:underline" href="mailto:info@coldpackpro.com">info@coldpackpro.com</a>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <div class="text-sm text-slate-500">Factory Tel / Atten</div>
+              <a class="mt-1 block font-semibold text-blue-700 hover:underline" href="tel:+862039211361">☎ +86-20-39211361 · Atten: Mr. Yang</a>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <div class="text-sm text-slate-500">Official Website</div>
+              <a class="mt-1 block font-semibold text-blue-700 hover:underline" href="https://coldpackpro.com" target="_blank">🌐 coldpackpro.com</a>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:col-span-2">
+              <div class="text-sm text-slate-500">Factory Address</div>
+              <div class="mt-1 font-semibold text-slate-900 leading-relaxed">Unit 101, No. 4, Lane 4, South of Dening Road, Caohe, Qiaonan Street, Panyu District, Guangzhou, China</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 flex flex-col gap-4 border-t border-slate-300 pt-6 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between">
+        <div>© 2026 ColdPackPro. All rights reserved.</div>
+        <div class="flex flex-wrap gap-4">
+          <a href="/#about-us" class="hover:text-slate-900">About</a>
+          <a href="/#products" class="hover:text-slate-900">Products</a>
+          <a href="/#faq" class="hover:text-slate-900">FAQ</a>
+          <a href="/#blog" class="hover:text-slate-900">Blog</a>
+          <a href="/catalog?lang=en" class="font-semibold text-blue-700 hover:text-blue-900 flex items-center gap-1">
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-cyan-500 animate-pulse"></span>
+            <span>Digital Catalog</span>
+          </a>
+        </div>
+      </div>
+      <div class="mt-6 flex justify-center">
+        <a href="/" class="inline-flex items-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-100">Back to Top</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
