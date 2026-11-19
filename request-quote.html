@@ -306,16 +306,15 @@
       <label class="label" for="replyEmail">Send our quotation reply to</label>
       <input id="replyEmail" type="email" class="field" placeholder="name@company.com">
     </div>
-    <div class="mt-3">
-      <label class="label" for="ccEmail">CC (optional — we will include when replying)</label>
-      <input id="ccEmail" class="field" placeholder="other@company.com (comma separated)">
-    </div>
-    <p class="mt-3 rounded-xl bg-amber-50 px-3 py-2 text-[11px] leading-4 text-amber-700">Note (free plan): the email arrives as complete text, without PDF/photo attachments. Your downloaded PDF above can be forwarded to us anytime.</p>
+    <p class="mt-3 rounded-xl bg-amber-50 px-3 py-2 text-[11px] leading-4 text-amber-700">Note: Confirm &amp; Send is a rapid-delivery option. It submits your PI details to our sales team as plain text, without attachments — plain text is faster and more reliable, since quote requests carrying attachments are often delayed or rejected by corporate mail filters. Your PDF is generated in your browser and stays on your device; download it for your records.</p>
     <div class="mt-5 flex gap-3">
       <button id="cancelBtn" class="flex-1 rounded-2xl border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-50">Cancel</button>
       <button id="confirmBtn" class="flex-1 rounded-2xl bg-blue-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-800">Confirm &amp; Send</button>
     </div>
     <p id="modalMsg" class="mt-3 text-center text-sm font-semibold text-green-600 hidden">✓ Sent! Our team will reply to your email.</p>
+    <p class="mt-3 text-center text-xs leading-4 text-slate-500">Prefer a PDF copy in your inbox?
+      <a id="selfMailLink" class="underline font-semibold text-blue-700" href="mailto:info@coldpackpro.com">Email it to us with the PDF attached</a>
+    </p>
   </div>
 </div>
 
@@ -1276,59 +1275,98 @@
     L.push('Sent from coldpackpro.com online PI request. Free plan: text only, no attachments. Product image count: ' + rows.filter(function(r){return r.file;}).length);
     return L.join('\n');
   }
+  
+  /* ---------- submit helpers (Web3Forms direct, no server needed) ---------- */
+  function piExtras(){
+    return { mark:$('sMark').value.trim(), delivery:$('sAddr').value.trim(), remarks:$('sRemarks').value.trim(), ship:$('sShip').value.trim() };
+  }
+  function piFullText(){ return buildText(buyer(), getRows(), piExtras()); }
+  function piMailto(full){
+    var b = buyer();
+    var body = full.length > 1500
+      ? full.slice(0, 1500) + '\n\n[...full PI text is in the downloaded PDF, please attach it...]'
+      : full;
+    return 'mailto:info@coldpackpro.com?subject=' + encodeURIComponent('PI Request ' + invNo + ' - ' + (b.company || '')) + '&body=' + encodeURIComponent(body);
+  }
 
   $('emailBtn').addEventListener('click', function(){
     if(!validate()) return;
     $('replyEmail').value = $('bEmail').value.trim();
-    $('ccEmail').value = '';
-    $('modalMsg').classList.add('hidden');
     $('confirmBtn').disabled = false;
+    $('confirmBtn').textContent = 'Confirm & Send';
+    $('modalMsg').classList.add('hidden');
+    $('selfMailLink').href = piMailto(piFullText());
     $('modal').classList.remove('hidden');
     $('modal').classList.add('flex');
   });
+
   $('cancelBtn').addEventListener('click', function(){
     $('modal').classList.add('hidden');
     $('modal').classList.remove('flex');
   });
+
   $('confirmBtn').addEventListener('click', function(){
+    function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    function showModal(msg, color){
+      $('modalMsg').innerHTML = msg;
+      $('modalMsg').className = 'mt-3 text-center text-sm font-semibold text-' + color + '-600';
+      $('modalMsg').classList.remove('hidden');
+    }
+
     var reply = $('replyEmail').value.trim();
-    var cc = $('ccEmail').value.trim();
-    if(!emailRe.test(reply)){ $('modalMsg').textContent = 'Please enter a valid reply email.'; $('modalMsg').className = 'mt-3 text-center text-sm font-semibold text-red-600'; $('modalMsg').classList.remove('hidden'); return; }
+    if(!emailRe.test(reply)){ showModal('Please enter a valid reply email.', 'red'); return; }
+
     var b = buyer();
-    var rows = getRows();
-    var extras = { mark:$('sMark').value.trim(), delivery:$('sAddr').value.trim(), remarks:$('sRemarks').value.trim(), ship:$('sShip').value.trim() };
-    var full = buildText(b, rows, extras);
+    var full = piFullText();
+
     $('confirmBtn').disabled = true;
-    $('modalMsg').textContent = 'Sending...';
-    $('modalMsg').className = 'mt-3 text-center text-sm font-semibold text-slate-500';
-    $('modalMsg').classList.remove('hidden');
+    $('confirmBtn').textContent = 'Sending...';
+    showModal('Sending your PI to our sales team...', 'slate');
+
     var payload = {
-      email: b.email,
-      subject: 'PI Request ' + invNo + ' from ' + b.company,
+      access_key: '96cb4db8-5269-48b0-91e2-69a1f6871723',
+      subject: 'PI Request ' + invNo + ' - ' + (b.company || b.attn || 'Website'),
+      from_name: 'ColdPackPro PI Request',
+      email: b.email || reply,
+      replyto: reply,
+      company: b.company || 'N/A',
+      invoiceNo: invNo,
       message: full,
-      replyTo: reply,
-      cc: cc || 'none',
-      company: b.company,
-      invoiceNo: invNo
+      botcheck: false
     };
-    fetch('/api/send-pi', {
-      method:'POST',
-      headers:{ 'Content-Type':'application/json', 'Accept':'application/json' },
+
+    function fail(reason){
+      showModal(
+        'Could not send automatically (' + esc(reason) + '). Your PDF is already downloaded — please use one of these:<br>' +
+        '<a class="underline" href="' + piMailto(full) + '">Email the PI to info@coldpackpro.com</a> &nbsp;·&nbsp; ' +
+        '<a class="underline" href="https://wa.me/8613925109703" target="_blank" rel="noopener">WhatsApp</a>',
+        'red'
+      );
+      $('confirmBtn').disabled = false;
+      $('confirmBtn').textContent = 'Try again';
+    }
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(payload)
-    }).then(function(r){ return r.json(); }).then(function(j){
-      if(j && j.success){
-        $('modalMsg').textContent = '✓ Sent! We will reply to ' + reply + (cc ? ' (CC: ' + cc + ')' : '') + '.';
-        $('modalMsg').className = 'mt-3 text-center text-sm font-semibold text-green-600';
-        try{ localStorage.setItem('cp_pi_seq', String(seq+1)); }catch(e){}
+    }).then(function(r){
+      return r.text().then(function(t){
+        var j = null;
+        try { j = JSON.parse(t); } catch(e) {}
+        if (!r.ok || !j) throw new Error('HTTP ' + r.status);
+        return j;
+      });
+    }).then(function(j){
+      if (j.success) {
+        showModal('✓ Sent! Our sales team has your PI details and will reply to ' + esc(reply) + '.', 'green');
+        $('confirmBtn').textContent = 'Sent ✓';
+        try { localStorage.setItem('cp_pi_seq', String(seq+1)); } catch(e) {}
       } else {
-        $('modalMsg').textContent = 'Send failed (' + (j && j.message ? j.message : 'network error') + '). Please try again or email us directly.';
-        $('modalMsg').className = 'mt-3 text-center text-sm font-semibold text-red-600';
-        $('confirmBtn').disabled = false;
+        fail(j.message || 'request rejected');
       }
     }).catch(function(err){
-      $('modalMsg').textContent = 'Network error - please try again or email info@coldpackpro.com directly.';
-      $('modalMsg').className = 'mt-3 text-center text-sm font-semibold text-red-600';
-      $('confirmBtn').disabled = false;
+      fail(err && err.message ? err.message : 'network error');
     });
   });
 
