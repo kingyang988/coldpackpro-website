@@ -2193,5 +2193,22 @@
   <script src="/js/category-navigator.js"></script>
   <!-- Cooler Box Catalog Interactive Engine -->
   <script src="/js/cooler-catalog.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.location.hash === '#self-absorbing') {
+        setTimeout(function() {
+          const headings = document.querySelectorAll('h1, h2, h3, h4, div');
+          for (let el of headings) {
+            if (el.textContent.includes('(II) Self-Absorbing Ice Pack Series')) {
+              el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              break;
+            }
+          }
+        }, 500); 
+      }
+    });
+  </script>
+</body>
+</html>
 </body>
 </html>
