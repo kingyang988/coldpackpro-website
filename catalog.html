@@ -2196,19 +2196,31 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       if (window.location.hash === '#self-absorbing') {
-        setTimeout(function() {
-          const headings = document.querySelectorAll('h1, h2, h3, h4, div');
-          for (let el of headings) {
+        let foundTarget = false;
+        let attempts = 0;
+        
+        const radar = setInterval(function() {
+          const allElements = document.querySelectorAll('h1, h2, h3, h4, div');
+          for (let el of allElements) {
             if (el.textContent.includes('(II) Self-Absorbing Ice Pack Series')) {
-              el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              el.scrollIntoView({ behavior: 'auto', block: 'start' });
+              
+              if (window.location.hash !== '#self-absorbing') {
+                history.replaceState(null, null, '#self-absorbing');
+              }
+              
+              foundTarget = true;
               break;
             }
           }
-        }, 500); 
+          
+          attempts++;
+          if (foundTarget || attempts > 25) {
+            clearInterval(radar);
+          }
+        }, 200);
       }
     });
   </script>
-</body>
-</html>
 </body>
 </html>
