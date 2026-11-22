@@ -2194,82 +2194,60 @@
   <!-- Cooler Box Catalog Interactive Engine -->
   <script src="/js/cooler-catalog.js"></script>
   
-    <!-- 🚨 终极防劫持与高精度定位脚本 -->
+      <!-- 🚨 终极暴力锁定脚本 (强制切换分类 + 无视拦截) -->
   <script>
     (function() {
       const targetHash = '#self-absorbing';
       
       if (window.location.hash === targetHash) {
         
-        // 1. 护盾：防篡改 URL
+        // 1. 防篡改护盾
         window.addEventListener('hashchange', function() {
           if (window.location.hash === '#cooler-box-catalog') {
             history.replaceState(null, null, targetHash);
           }
         });
 
-        // 2. 高精度滚动函数
-        let scrollCount = 0;
-        function locateAndScroll() {
-          const allElements = document.querySelectorAll('h2, h3, h4, div');
-          let targetEl = null;
+        // 2. 核心暴力锁定函数
+        let lockCount = 0;
+        const maxLocks = 20; // 持续锁定 4 秒 (20 * 200ms)
+
+        const forceLock = setInterval(function() {
           
+          // 【关键步骤1】强行调用你底部的 JS 引擎，把分类切到 Gel Ice Packs
+          if (typeof switchCatalogCategory === 'function') {
+            try { 
+              // 传入 true 表示滚动到分类顶部，但由于我们在下面会覆盖滚动，所以无所谓
+              switchCatalogCategory('gel-packs', false); 
+            } catch(e) {}
+          }
+
+          // 【关键步骤2】寻找目标标题
+          const allElements = document.querySelectorAll('h2, h3, h4, div, section');
           for (let el of allElements) {
-            // 精准匹配标题文本
             if (el.textContent.includes('(II) Self-Absorbing Ice Pack Series')) {
-              // 尽量找内层包裹的标题标签（比如h3或特定class），避免滚到最外层的大容器
-              if (el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'H4' || el.className.includes('font-bold')) {
-                targetEl = el;
-                break;
-              }
-            }
-          }
-
-          if (targetEl) {
-            // 强制把 URL 锁死
-            history.replaceState(null, null, targetHash);
-            
-            // 计算精准位置（减去吸顶导航栏的高度，留出 100px 余量）
-            const yOffset = -100; 
-            const y = targetEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
-            
-            // 平滑滚动过去
-            window.scrollTo({ top: y, behavior: 'smooth' });
-            
-            scrollCount++;
-            // 因为页面动态加载可能导致高度变化，我们会在前 2 秒内（执行 4 次）不断校准位置
-            if (scrollCount < 4) {
-              setTimeout(locateAndScroll, 500);
-            }
-          }
-        }
-
-        // 3. 监听 DOM 渲染
-        let hasScrolled = false;
-        const observer = new MutationObserver(function() {
-          if (hasScrolled) return;
-          
-          const isTargetRendered = document.body.textContent.includes('(II) Self-Absorbing Ice Pack Series');
-          
-          if (isTargetRendered) {
-            hasScrolled = true;
-            
-            // 给一点微小的缓冲时间，让页面把该渲染的图片先渲染一部分
-            setTimeout(() => {
-              locateAndScroll();
               
-              // 延迟 1.5 秒后最后强制拉一次，确保一切稳定
-              setTimeout(locateAndScroll, 1500); 
-            }, 100);
-            
-            observer.disconnect();
+              // 强行把网址锁定
+              history.replaceState(null, null, targetHash);
+              
+              // 暴力计算绝对位置：不依赖 scrollIntoView (它容易被第三方插件干扰)
+              const rect = el.getBoundingClientRect();
+              const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+              
+              // 目标位置 = 当前滚动条位置 + 元素相对视口高度 - 吸顶导航栏高度(100px)
+              const targetY = rect.top + scrollTop - 100;
+              
+              // 无视平滑滚动，瞬间跳过去
+              window.scrollTo({ top: targetY, behavior: 'instant' });
+              break;
+            }
           }
-        });
 
-        observer.observe(document.body, {
-          childList: true,
-          subtree: true
-        });
+          lockCount++;
+          if (lockCount > maxLocks) {
+            clearInterval(forceLock);
+          }
+        }, 200); // 每 0.2 秒强制拉一次
       }
     })();
   </script>
