@@ -2194,7 +2194,7 @@
   <!-- Cooler Box Catalog Interactive Engine -->
   <script src="/js/cooler-catalog.js"></script>
   
-      <!-- 🚨 终极暴力锁定脚本 (强制切换分类 + 无视拦截) -->
+        <!-- 🚨 终极动态跟随与精准定位脚本 -->
   <script>
     (function() {
       const targetHash = '#self-absorbing';
@@ -2208,38 +2208,43 @@
           }
         });
 
-        // 2. 核心暴力锁定函数
+        // 2. 强制切换分类并寻找目标
         let lockCount = 0;
-        const maxLocks = 20; // 持续锁定 4 秒 (20 * 200ms)
+        const maxLocks = 30; // 持续锁定 6 秒 (30 * 200ms)
 
         const forceLock = setInterval(function() {
           
-          // 【关键步骤1】强行调用你底部的 JS 引擎，把分类切到 Gel Ice Packs
+          // 强制切换分类
           if (typeof switchCatalogCategory === 'function') {
-            try { 
-              // 传入 true 表示滚动到分类顶部，但由于我们在下面会覆盖滚动，所以无所谓
-              switchCatalogCategory('gel-packs', false); 
-            } catch(e) {}
+            try { switchCatalogCategory('gel-packs', false); } catch(e) {}
           }
 
-          // 【关键步骤2】寻找目标标题
-          const allElements = document.querySelectorAll('h2, h3, h4, div, section');
-          for (let el of allElements) {
-            if (el.textContent.includes('(II) Self-Absorbing Ice Pack Series')) {
-              
-              // 强行把网址锁定
-              history.replaceState(null, null, targetHash);
-              
-              // 暴力计算绝对位置：不依赖 scrollIntoView (它容易被第三方插件干扰)
-              const rect = el.getBoundingClientRect();
-              const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-              
-              // 目标位置 = 当前滚动条位置 + 元素相对视口高度 - 吸顶导航栏高度(100px)
-              const targetY = rect.top + scrollTop - 100;
-              
-              // 无视平滑滚动，瞬间跳过去
-              window.scrollTo({ top: targetY, behavior: 'instant' });
-              break;
+          // 关键：只在动态渲染的容器 #gelModelsMount 中寻找目标，避免找错外层大盒子
+          const mountPoint = document.getElementById('gelModelsMount');
+          if (mountPoint) {
+            // 寻找所有子元素中包含 "(II) Self-Absorbing" 的区块
+            const sections = mountPoint.querySelectorAll('section, div');
+            for (let el of sections) {
+              // 精确匹配：确保是渲染出来的产品区块标题
+              if (el.textContent.includes('(II) Self-Absorbing Ice Pack Series') && el.tagName === 'DIV') {
+                
+                // 强行锁死 URL
+                history.replaceState(null, null, targetHash);
+                
+                // 计算绝对滚动位置（往上留出 100px 给导航栏）
+                const yOffset = -100; 
+                const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                
+                // 瞬间跳过去
+                window.scrollTo({ top: y, behavior: 'instant' });
+
+                // 给目标元素加一个蓝色的闪烁边框，让你肉眼确认位置
+                el.style.transition = 'box-shadow 0.3s';
+                el.style.boxShadow = '0 0 0 4px #06b6d4'; // cyan-500
+                setTimeout(() => { el.style.boxShadow = 'none'; }, 1500);
+
+                break; // 找到了就跳出循环
+              }
             }
           }
 
@@ -2247,7 +2252,7 @@
           if (lockCount > maxLocks) {
             clearInterval(forceLock);
           }
-        }, 200); // 每 0.2 秒强制拉一次
+        }, 200);
       }
     })();
   </script>
