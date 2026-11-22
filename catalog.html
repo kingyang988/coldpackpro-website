@@ -2150,7 +2150,7 @@
     </span>
   </button>
 
-  <!-- Toast Notification (positioned above floating button) -->
+    <!-- Toast Notification (positioned above floating button) -->
   <div id="catalogToast" class="fixed bottom-20 right-6 z-50 flex items-center gap-2 rounded-2xl border border-cyan-500/40 bg-slate-900/95 px-5 py-3 text-xs font-semibold text-white shadow-2xl backdrop-blur-md transition-all duration-300 translate-y-20 opacity-0 pointer-events-none">
     <!-- Message injected dynamically -->
   </div>
@@ -2193,34 +2193,55 @@
   <script src="/js/category-navigator.js"></script>
   <!-- Cooler Box Catalog Interactive Engine -->
   <script src="/js/cooler-catalog.js"></script>
+  
+  <!-- 🚨 终极防劫持与精准定位脚本 (替换旧版) -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (window.location.hash === '#self-absorbing') {
-        let foundTarget = false;
-        let attempts = 0;
+    (function() {
+      const targetHash = '#self-absorbing';
+      
+      if (window.location.hash === targetHash) {
         
-        const radar = setInterval(function() {
-          const allElements = document.querySelectorAll('h1, h2, h3, h4, div');
+        // 护盾：一旦底层脚本把网址改成了 #cooler-box-catalog，瞬间改回来
+        window.addEventListener('hashchange', function(e) {
+          if (window.location.hash === '#cooler-box-catalog') {
+            history.replaceState(null, null, targetHash);
+          }
+        });
+
+        // 监视器：死死盯住 DOM 变化，一旦内容渲染，立刻锁定滚动
+        let hasScrolled = false;
+        const observer = new MutationObserver(function(mutations) {
+          if (hasScrolled) return;
+
+          const allElements = document.querySelectorAll('h1, h2, h3, h4, div, section');
           for (let el of allElements) {
             if (el.textContent.includes('(II) Self-Absorbing Ice Pack Series')) {
+              
+              hasScrolled = true;
+              history.replaceState(null, null, targetHash);
               el.scrollIntoView({ behavior: 'auto', block: 'start' });
-              
-              if (window.location.hash !== '#self-absorbing') {
-                history.replaceState(null, null, '#self-absorbing');
-              }
-              
-              foundTarget = true;
+
+              // 强制锁定滚动位置 1 秒，防止底层 JS 重新拉回顶部
+              let forceCount = 0;
+              const forceInterval = setInterval(() => {
+                history.replaceState(null, null, targetHash);
+                el.scrollIntoView({ behavior: 'auto', block: 'start' });
+                forceCount++;
+                if (forceCount > 10) clearInterval(forceInterval);
+              }, 100);
+
+              observer.disconnect();
               break;
             }
           }
-          
-          attempts++;
-          if (foundTarget || attempts > 25) {
-            clearInterval(radar);
-          }
-        }, 200);
+        });
+
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true
+        });
       }
-    });
+    })();
   </script>
 </body>
 </html>
