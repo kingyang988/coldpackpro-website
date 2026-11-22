@@ -2194,45 +2194,75 @@
   <!-- Cooler Box Catalog Interactive Engine -->
   <script src="/js/cooler-catalog.js"></script>
   
-  <!-- 🚨 终极防劫持与精准定位脚本 (替换旧版) -->
+    <!-- 🚨 终极防劫持与高精度定位脚本 -->
   <script>
     (function() {
       const targetHash = '#self-absorbing';
       
       if (window.location.hash === targetHash) {
         
-        // 护盾：一旦底层脚本把网址改成了 #cooler-box-catalog，瞬间改回来
-        window.addEventListener('hashchange', function(e) {
+        // 1. 护盾：防篡改 URL
+        window.addEventListener('hashchange', function() {
           if (window.location.hash === '#cooler-box-catalog') {
             history.replaceState(null, null, targetHash);
           }
         });
 
-        // 监视器：死死盯住 DOM 变化，一旦内容渲染，立刻锁定滚动
-        let hasScrolled = false;
-        const observer = new MutationObserver(function(mutations) {
-          if (hasScrolled) return;
-
-          const allElements = document.querySelectorAll('h1, h2, h3, h4, div, section');
+        // 2. 高精度滚动函数
+        let scrollCount = 0;
+        function locateAndScroll() {
+          const allElements = document.querySelectorAll('h2, h3, h4, div');
+          let targetEl = null;
+          
           for (let el of allElements) {
+            // 精准匹配标题文本
             if (el.textContent.includes('(II) Self-Absorbing Ice Pack Series')) {
-              
-              hasScrolled = true;
-              history.replaceState(null, null, targetHash);
-              el.scrollIntoView({ behavior: 'auto', block: 'start' });
-
-              // 强制锁定滚动位置 1 秒，防止底层 JS 重新拉回顶部
-              let forceCount = 0;
-              const forceInterval = setInterval(() => {
-                history.replaceState(null, null, targetHash);
-                el.scrollIntoView({ behavior: 'auto', block: 'start' });
-                forceCount++;
-                if (forceCount > 10) clearInterval(forceInterval);
-              }, 100);
-
-              observer.disconnect();
-              break;
+              // 尽量找内层包裹的标题标签（比如h3或特定class），避免滚到最外层的大容器
+              if (el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'H4' || el.className.includes('font-bold')) {
+                targetEl = el;
+                break;
+              }
             }
+          }
+
+          if (targetEl) {
+            // 强制把 URL 锁死
+            history.replaceState(null, null, targetHash);
+            
+            // 计算精准位置（减去吸顶导航栏的高度，留出 100px 余量）
+            const yOffset = -100; 
+            const y = targetEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            
+            // 平滑滚动过去
+            window.scrollTo({ top: y, behavior: 'smooth' });
+            
+            scrollCount++;
+            // 因为页面动态加载可能导致高度变化，我们会在前 2 秒内（执行 4 次）不断校准位置
+            if (scrollCount < 4) {
+              setTimeout(locateAndScroll, 500);
+            }
+          }
+        }
+
+        // 3. 监听 DOM 渲染
+        let hasScrolled = false;
+        const observer = new MutationObserver(function() {
+          if (hasScrolled) return;
+          
+          const isTargetRendered = document.body.textContent.includes('(II) Self-Absorbing Ice Pack Series');
+          
+          if (isTargetRendered) {
+            hasScrolled = true;
+            
+            // 给一点微小的缓冲时间，让页面把该渲染的图片先渲染一部分
+            setTimeout(() => {
+              locateAndScroll();
+              
+              // 延迟 1.5 秒后最后强制拉一次，确保一切稳定
+              setTimeout(locateAndScroll, 1500); 
+            }, 100);
+            
+            observer.disconnect();
           }
         });
 
