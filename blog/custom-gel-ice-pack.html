@@ -116,7 +116,10 @@
     ]
   }
   </script>
+  
+  <!-- 引入 Tailwind 保证样式统一渲染 -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
   <style>
     :root{--header-offset:124px}
     html{scroll-behavior:smooth}
@@ -124,63 +127,39 @@
     section[id],div[id]{scroll-margin-top:var(--header-offset)}
     .shadow-soft{box-shadow:0 20px 60px rgba(13,35,71,.12)}
     .kicker{letter-spacing:.24em;text-transform:uppercase;font-weight:700;font-size:.78rem}
-    .navlink{position:relative;display:inline-flex;align-items:center;color:#334155;font-weight:600;transition:.2s}
+    
+    /* 统一导航栏下划线动效 */
+    .navlink{position:relative;display:inline-flex;align-items:center;color:#334155;font-weight:600;transition:.2s;text-decoration:none}
     .navlink:hover{color:#1d4ed8}
-    .site-logo{display:block;width:280px;max-width:48vw;flex:none}
-    .site-logo svg{display:block;width:100%;height:auto}
+    .navlink::after{content:"";position:absolute;left:0;bottom:-10px;width:0;height:2px;background:#2563eb;transition:width .2s ease}
+    .navlink:hover::after{width:100%}
   </style>
 </head>
 <body class="antialiased">
+
+  <!-- ================= TOP HEADER (统一改造) ================= -->
   <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex min-h-[92px] items-center justify-between gap-4 py-2.5">
-        <a href="/#home" class="shrink-0" aria-label="ColdPackPro home">
-          <span class="site-logo" aria-hidden="true">
-            <svg viewBox="0 0 1024 403" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitleHeader">
-              <title id="logoTitleHeader">Cold Pack Pro logo</title>
-              <defs>
-                <linearGradient id="proBlockHeader" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#256FDC"/>
-                  <stop offset="52%" stop-color="#3383EE"/>
-                  <stop offset="100%" stop-color="#4694F7"/>
-                </linearGradient>
-                <linearGradient id="proTextHeader" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#29F4FF"/>
-                  <stop offset="100%" stop-color="#00DCFF"/>
-                </linearGradient>
-                <linearGradient id="lineLeftHeader" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#94A3B8" stop-opacity="0"/>
-                  <stop offset="100%" stop-color="#7B8798" stop-opacity="1"/>
-                </linearGradient>
-                <linearGradient id="lineRightHeader" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#7B8798" stop-opacity="1"/>
-                  <stop offset="100%" stop-color="#94A3B8" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-              <g>
-                <path d="M123 106 H622 C645 106 664 124 664 147 V167 C664 190 645 208 622 208 H123 C106 208 92 194 92 177 V137 C92 120 106 106 123 106 Z" fill="#101826"/>
-                <path d="M650 106 H876 C901 106 922 127 922 152 V162 C922 187 901 208 876 208 H650 C665 197 674 180 674 157 C674 134 665 117 650 106 Z" fill="url(#proBlockHeader)"/>
-                <text x="123" y="176" font-family="Eurostile Extended, Microgramma D Extended, Bank Gothic, Arial Black, Helvetica, sans-serif" font-size="66" font-weight="600" letter-spacing="0.35" fill="#FFFFFF" lengthAdjust="spacingAndGlyphs" textLength="491">COLD PACK</text>
-                <text x="686" y="176" font-family="Eurostile Extended, Microgramma D Extended, Bank Gothic, Arial Black, Helvetica, sans-serif" font-size="66" font-weight="600" letter-spacing="0.1" fill="url(#proTextHeader)" lengthAdjust="spacingAndGlyphs" textLength="204">PRO</text>
-              </g>
-              <g>
-                <rect x="106" y="279" width="161" height="3" rx="2" fill="url(#lineLeftHeader)"/>
-                <rect x="759" y="279" width="161" height="3" rx="2" fill="url(#lineRightHeader)"/>
-                <text x="512" y="300" text-anchor="middle" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-size="40" font-weight="500" letter-spacing="0.55" fill="#66768A">Cold Chain Solutions</text>
-              </g>
-            </svg>
-          </span>
+      <div class="flex min-h-[108px] items-center justify-between gap-4 py-3">
+        <a href="/" class="shrink-0" aria-label="ColdPackPro home">
+          <img src="/logo.svg" alt="ColdPackPro Logo" style="height: 48px; width: auto; max-width: 100%;">
         </a>
-
-        <nav class="hidden items-center gap-8 text-sm md:flex">
-          <a class="navlink" href="/#about-us">About</a>
-          <a class="navlink" href="/#products">Products</a>
-          <a class="navlink" href="/#faq">FAQ</a>
-          <a class="navlink text-blue-700" href="/blog.html">Blog</a>
-          <a class="navlink" href="/#contact">Contact</a>
+        <nav class="hidden items-center gap-4 lg:gap-7 text-xs lg:text-sm md:flex">
+          <a class="navlink" href="/#about-us"><span>About</span></a>
+          <a class="navlink" href="/#products"><span>Products</span></a>
+          <a class="navlink" href="/#faq"><span>FAQ</span></a>
+          <a class="navlink font-semibold text-blue-700" href="/blog.html"><span>Blog</span></a>
+          <a class="navlink font-semibold text-blue-700 hover:text-blue-800 flex items-center gap-1.5" href="/catalog?lang=en">
+            <span class="inline-block h-2 w-2 rounded-full bg-cyan-500 animate-pulse"></span>
+            <span>Digital Catalog</span>
+          </a>
         </nav>
-
-        <a href="/#inquiry-form" class="shrink-0 rounded-full bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 sm:px-5">Request OEM Quote</a>
+        <div class="flex items-center gap-2 shrink-0">
+          <!-- 强制内联样式保证可见性 -->
+          <a href="/" style="display: inline-flex; align-items: center; gap: 6px; background-color: #0f172a; color: #ffffff; padding: 10px 20px; border-radius: 9999px; font-size: 13px; font-weight: 700; text-decoration: none; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05); transition: all 0.2s;" onmouseover="this.style.backgroundColor='#1e293b'" onmouseout="this.style.backgroundColor='#0f172a'">
+            <span>← Back to Home</span>
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -674,21 +653,25 @@
     </div>
   </main>
 
+  <!-- ================= FOOTER (统一改造) ================= -->
   <footer class="mt-6 border-t border-slate-200 bg-slate-100 text-slate-900">
     <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between text-sm text-slate-600">
-        <div>© 2026 ColdPackPro. Factory-Direct Cold Chain Packaging &amp; OEM Solutions.</div>
-        <div class="flex flex-wrap gap-5 font-medium">
-          <a href="/#about-us" class="hover:text-slate-950">About</a>
-          <a href="/#products" class="hover:text-slate-950">Products</a>
-          <a href="/blog.html" class="hover:text-slate-950">Blog</a>
-          <a href="/#inquiry-form" class="hover:text-slate-950">Inquiry</a>
-        </div>
+      <div class="text-center flex flex-col items-center justify-center">
+        <img src="/logo.svg" alt="ColdPackPro Logo" style="height: 36px; width: auto; margin-bottom: 1rem; opacity: 0.85;">
+        <p class="text-sm text-slate-600">© 2026 ColdPackPro. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
+  <!-- ================= 悬浮 Back to Top (统一改造) ================= -->
+  <button id="backToTopBtn" style="display: none; position: fixed; bottom: 32px; right: 32px; z-index: 99999; align-items: center; gap: 8px; background-color: #0f172a; color: #ffffff; padding: 12px 20px; border-radius: 9999px; font-size: 14px; font-weight: 700; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border: none; cursor: pointer; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#1e293b'" onmouseout="this.style.backgroundColor='#0f172a'">
+    <svg style="width: 20px; height: 20px;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+    <span>Back to Top</span>
+  </button>
+
+  <!-- 统一脚本 -->
   <script>
+    // 复制链接功能
     const copyBtn = document.getElementById('copyCustomGelLinkBtn');
     if (copyBtn) {
       copyBtn.addEventListener('click', () => {
@@ -701,6 +684,23 @@
         }
       });
     }
+
+    // 悬浮 Back to Top 控制
+    document.addEventListener('DOMContentLoaded', () => {
+      const backToTopBtn = document.getElementById('backToTopBtn');
+      
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backToTopBtn.style.display = 'flex';
+        } else {
+          backToTopBtn.style.display = 'none';
+        }
+      });
+
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
   </script>
 </body>
 </html>
