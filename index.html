@@ -113,7 +113,6 @@
 /* ====== HOMEPAGE BLOG + CERTIFICATIONS HELPERS ====== */
 .line-clamp-2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .line-clamp-3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.bg-emerald-50{background-color:#ecfdf5!important}
  </style> 
 <script src="/js/i18n.js"defer></script>
 <script>
@@ -400,8 +399,8 @@
         </div>
         <div class="flex items-center gap-2 rounded-full bg-amber-50 px-4 py-2 border border-amber-200">
           <span class="text-amber-500 text-lg">★★★★★</span>
-          <span class="font-bold text-amber-900 text-sm">5.0 out of 5</span>
-          <span class="text-xs text-amber-700 border-l border-amber-300 pl-2">Based on verified B2B buyers</span>
+          <span class="font-bold text-amber-900 text-sm">4.7 out of 5</span>
+          <span class="text-xs text-amber-700 border-l border-amber-300 pl-2">Based on 3 verified B2B buyer reviews</span>
         </div>
       </div>
 
@@ -433,7 +432,8 @@
         <!-- Review 3: Steven -->
         <div class="rounded-[1.8rem] border border-slate-200 bg-white p-6 shadow-sm">
           <div class="flex items-center gap-1 text-amber-500 mb-3">
-            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            <span>★</span><span>★</span><span>★</span><span>★</span><span class="text-slate-300">★</span>
+            <span class="ml-1.5 text-xs font-semibold text-slate-600">4.0</span>
           </div>
           <p class="text-sm leading-6 text-slate-700 italic">"Originally wanted custom molds, but their team suggested adjusting our packaging instead. This saved us significant costs! King’s real-time updates, honest communication, and detailed test reports made this a fantastic partnership."</p>
           <div class="mt-4 pt-4 border-t border-slate-100">
@@ -452,7 +452,7 @@
           <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950">Certified for Food &amp; Cold Chain Export</h2>
         </div>
         <p class="max-w-2xl text-sm leading-7 text-slate-600">
-          We only display documents we actually hold. Our current reports cover the export requirements for seafood, fresh produce, dairy, ice cream, caviar, beverages, and general food cold chain shipments to the US, EU, and other major markets.
+          Our cold chain packaging products are supported by standard export documentation suitable for a wide range of temperature-sensitive shipments. Original certificates, test reports, and industry-specific certifications can be arranged on request to match your destination market and buyer requirements.
         </p>
       </div>
 
@@ -506,8 +506,15 @@
         </div>
       </div>
 
-      <div class="mt-6 rounded-[1.5rem] border border-amber-200 bg-amber-50 p-5 text-sm leading-7 text-amber-950">
-        <strong class="font-bold">Transparency note:</strong> REACH, RoHS, WHO PQS, ISTA 7D and similar optional certifications are not currently held across every SKU. Where a project requires them, we can arrange testing and certification on request — testing and certification fees are borne by the customer. For standard food, seafood, produce, dairy, ice cream, caviar and beverage cold chain export, our existing MSDS, material declarations, CNAS reports and transport appraisals are sufficient.
+      <div class="mt-6 rounded-[1.5rem] border border-amber-200 bg-amber-50 p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm leading-7 text-amber-950">
+        <div class="max-w-2xl">
+          <strong class="font-bold">Need a specific certificate?</strong> For original documents, buyer-specific test reports, or industry-specific certifications required by your project, please contact our team directly. We will confirm document availability and testing lead time for your order.
+        </div>
+        <div class="flex flex-wrap gap-2 shrink-0">
+          <a href="#inquiry-form" class="inline-flex items-center gap-2 rounded-full bg-blue-700 px-5 py-2.5 text-xs font-bold text-white hover:bg-blue-800 transition whitespace-nowrap">
+            Request Certificate Info →
+          </a>
+        </div>
       </div>
     </section>
 
@@ -518,7 +525,7 @@
           <div class="kicker text-blue-700" data-i18n="blog.kicker">ColdPackPro Engineering Journal</div>
           <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950" data-i18n="blog.title">Cold Chain Insights &amp; Factory Guides</h2>
         </div>
-        <p class="max-w-2xl text-sm leading-7 text-slate-600" data-i18n="blog.desc">Written directly by our Guangzhou thermal engineers and export specialists. Technical data on ISTA-7D testing, phase change materials, zero-sweat packaging, and freight cost reduction for SME shippers and global distributors.</p>
+        <p class="max-w-2xl text-sm leading-7 text-slate-600">Practical insights on cold chain packaging, procurement strategy, and export logistics — curated by our Guangzhou factory team to help B2B buyers source smarter and ship safer.</p>
       </div>
 
       <!-- 3 auto-synced cards: latest + 2 featured, rendered by JS from /blog.html -->
@@ -650,19 +657,36 @@
 
         <div class="grid gap-4 self-start">
           <div class="rounded-[1.6rem] border border-slate-200 bg-white p-6 shadow-sm">
-            <div class="kicker text-blue-700" data-i18n="proc.kicker">Quick Process</div>
+            <div class="kicker text-blue-700">Buyer Support</div>
+            <h3 class="mt-2 text-lg font-black text-slate-950">What You Get Working With Us</h3>
             <div class="mt-4 grid gap-3">
               <div class="rounded-2xl bg-slate-50 p-4">
-                <div class="font-semibold text-slate-950" data-i18n="proc.s1_title">(1) Send requirement</div>
-                <p class="mt-1 text-sm leading-6 text-slate-600" data-i18n="proc.s1_desc">Share product type, size, quantity, and target market.</p>
+                <div class="font-semibold text-slate-950 flex items-center gap-2">
+                  <span class="inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-800 text-xs font-black" style="width:1.5rem;height:1.5rem;flex-shrink:0;">1</span>
+                  Free Thermal Consultation
+                </div>
+                <p class="mt-1.5 text-sm leading-6 text-slate-600">Share your payload size, target temperature, and shipping window — our engineers propose the right coolant mass and packout.</p>
               </div>
               <div class="rounded-2xl bg-slate-50 p-4">
-                <div class="font-semibold text-slate-950" data-i18n="proc.s2_title">(2) Confirm specification</div>
-                <p class="mt-1 text-sm leading-6 text-slate-600" data-i18n="proc.s2_desc">We align on structure, cooling medium, branding, and packaging.</p>
+                <div class="font-semibold text-slate-950 flex items-center gap-2">
+                  <span class="inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-800 text-xs font-black" style="width:1.5rem;height:1.5rem;flex-shrink:0;">2</span>
+                  Sample &amp; Testing Support
+                </div>
+                <p class="mt-1.5 text-sm leading-6 text-slate-600">Physical samples, thermal validation, and document preparation before bulk production.</p>
               </div>
               <div class="rounded-2xl bg-slate-50 p-4">
-                <div class="font-semibold text-slate-950" data-i18n="proc.s3_title">(3) Sampling / mass production</div>
-                <p class="mt-1 text-sm leading-6 text-slate-600" data-i18n="proc.s3_desc">After approval, we arrange sampling or direct production based on your project stage.</p>
+                <div class="font-semibold text-slate-950 flex items-center gap-2">
+                  <span class="inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-800 text-xs font-black" style="width:1.5rem;height:1.5rem;flex-shrink:0;">3</span>
+                  Export Documentation
+                </div>
+                <p class="mt-1.5 text-sm leading-6 text-slate-600">MSDS, material declarations, packing lists, and transport appraisals — prepared to match your customs requirements.</p>
+              </div>
+              <div class="rounded-2xl bg-slate-50 p-4">
+                <div class="font-semibold text-slate-950 flex items-center gap-2">
+                  <span class="inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-800 text-xs font-black" style="width:1.5rem;height:1.5rem;flex-shrink:0;">4</span>
+                  Responsive After-Sales
+                </div>
+                <p class="mt-1.5 text-sm leading-6 text-slate-600">Direct WhatsApp line for order tracking, reorders, and technical questions.</p>
               </div>
             </div>
           </div>
@@ -1294,7 +1318,7 @@ ${msg || '(Direct technical consultation requested)'}
       },
       "aggregateRating": {
         "@type": "AggregateRating",
-        "ratingValue": "5",
+        "ratingValue": "4.7",
         "reviewCount": "3"
       },
       "review": [
@@ -1313,7 +1337,7 @@ ${msg || '(Direct technical consultation requested)'}
         {
           "@type": "Review",
           "author": { "@type": "Person", "name": "Steven" },
-          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "4" },
           "reviewBody": "Originally wanted custom molds, but their team suggested adjusting our packaging instead. This saved us significant costs! King’s real-time updates, honest communication, and detailed test reports made this a fantastic partnership."
         }
       ]
