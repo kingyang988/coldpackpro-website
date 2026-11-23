@@ -232,10 +232,6 @@
           <span class="inline-block h-1.5 w-1.5 rounded-full bg-cyan-500 animate-pulse"></span>
           <span data-i18n="nav.catalog">Digital Catalog</span>
         </a>
-        <a href="#inquiry-form" class="mobile-anchor shrink-0 rounded-full bg-blue-700 px-3.5 py-1.5 font-bold text-white shadow-sm flex items-center gap-1">
-          <span>Inquiry</span>
-          <span>↓</span>
-        </a>
       </div>
     </div>
   </header>
@@ -1156,12 +1152,17 @@ ${msg || '(Direct technical consultation requested)'}
     (function initHomeBlog() {
       const grid = document.getElementById('homeBlogGrid');
       if (!grid) return;
-
+      
       function formatDate(iso) {
         if (!iso) return '';
-        const d = new Date(iso);
-        if (isNaN(d)) return iso;
-        return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        const parts = iso.split('-');
+        if (parts.length === 3) {
+          const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+          const m = parseInt(parts[1], 10) - 1;
+          const d = parseInt(parts[2], 10);
+          return `${months[m]} ${d}, ${parts[0]}`;
+        }
+        return iso;
       }
 
       function escapeHtml(str) {
