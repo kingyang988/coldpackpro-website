@@ -557,10 +557,12 @@
         </div>
       </div>
     </section>
-
+    
     <section id="contact" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-14">
-      <div class="grid gap-6 lg:grid-cols-[1.05fr_.95fr]">
-        <div class="rounded-[1.8rem] border border-slate-200 bg-white p-6 shadow-sm">
+      
+      <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start mb-16">
+        
+        <div class="rounded-[1.8rem] border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
           <div id="inquiry-form">
             <div class="kicker text-blue-700" data-i18n="contact.kicker">Inquiry Form</div>
             <h2 class="mt-2 text-3xl font-black tracking-tight" data-i18n="contact.title">Send an Online Inquiry Directly to Factory</h2>
@@ -595,10 +597,9 @@
                   <input id="countryRegion" class="field" type="text" placeholder="e.g. United States, Germany, Japan..." data-i18n-ph="form.country_ph" required>
                 </div>
 
-                <!-- 5. Message & Specifications with Blank Textarea and File Upload -->
+                <!-- 5. Message & Specifications -->
                 <div class="px-4 py-3 text-sm font-semibold text-slate-700 md:border-r md:px-5" data-i18n="form.msg_label">Message & Specifications</div>
                 <div class="px-4 py-3 md:px-5">
-                  <!-- Customer Reminder Banner (Inquiry Note preserved) -->
                   <div class="mb-3 rounded-xl border border-amber-200 bg-amber-50/90 p-3.5 text-xs text-amber-950 leading-relaxed shadow-2xs">
                     <div class="flex items-start gap-2.5">
                       <span class="text-base leading-none">💡</span>
@@ -608,7 +609,6 @@
                       </div>
                     </div>
                   </div>
-                  <!-- Blank Textarea for free input -->                  
                   <textarea id="message" class="field min-h-[160px] font-sans text-sm leading-relaxed" placeholder="Please share your specific requirements (payload size, target temperature, quantity, destination, etc.)..." data-i18n-ph="form.msg_ph"></textarea>
                 </div>
               </div>
@@ -620,42 +620,6 @@
                 <span id="formNote" class="text-sm text-slate-500"></span>
               </div>
             </form>
-          </div>
-
-          <div id="quick-note" class="mt-6 rounded-[1.5rem] bg-[linear-gradient(135deg,#0f2347,#2d63ef,#22d8d2)] p-5 text-white">
-            <div class="kicker text-white/70" data-i18n="form.quick_note_kicker">Privacy Commitment</div>
-            <p class="mt-2 text-sm leading-7 text-white/90" data-i18n="form.quick_note_text">Commercial privacy strictly protected. We never send spam. Your email is only used for technical consultation and direct quotes.</p>
-          </div>
-
-          <div id="faq" class="mt-6">
-            <div class="kicker text-blue-700" data-i18n="faq.kicker">FAQ</div>
-            <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950" data-i18n="faq.title">Frequently Asked Questions</h2>
-            <div class="mt-4 grid gap-4">
-              <details id="faq-lead-time" class="rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-sm">
-                <summary class="cursor-pointer list-none text-lg font-bold text-slate-950" data-i18n="faq.q1">What is your production lead time?</summary>
-                <p class="mt-3 text-sm leading-7 text-slate-600" data-i18n="faq.a1">Standard orders are usually 10-20 days depending on product type, quantity, and packaging. Custom projects may need extra time for confirmation and sampling.</p>
-              </details>
-              <details id="faq-customization" class="rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-sm">
-                <summary class="cursor-pointer list-none text-lg font-bold text-slate-950" data-i18n="faq.q2">Can you customize the products?</summary>
-                <p class="mt-3 text-sm leading-7 text-slate-600" data-i18n="faq.a2">Yes. We support size, color, logo, material structure, cooling medium, weight, freezing point, and packaging customization.</p>
-              </details>
-              <details id="faq-samples" class="rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-sm">
-                <summary class="cursor-pointer list-none text-lg font-bold text-slate-950" data-i18n="faq.q3">What is the customization cycle and can I get samples?</summary>
-                <p class="mt-3 text-sm leading-7 text-slate-600" data-i18n="faq.a3">Simple logo or packaging changes can be confirmed quickly. New structure or formula development usually takes 7-15 days for sampling and approval. Standard samples can usually be arranged in 3-7 days.</p>
-              </details>
-              <details id="faq-files" class="rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-sm">
-                <summary class="cursor-pointer list-none text-lg font-bold text-slate-950" data-i18n="faq.q4">What files and formats do you need?</summary>
-                <p class="mt-3 text-sm leading-7 text-slate-600" data-i18n="faq.a4">For artwork, AI, PDF, EPS, or SVG is preferred. For dielines or carton design, AI/PDF works best. A clear logo, size reference, and usage description are enough to start.</p>
-              </details>
-              <details id="faq-packaging" class="rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-sm">
-                <summary class="cursor-pointer list-none text-lg font-bold text-slate-950" data-i18n="faq.q5">Do you support mold opening and packaging customization?</summary>
-                <p class="mt-3 text-sm leading-7 text-slate-600" data-i18n="faq.a5">Yes, mold opening is available for projects that need a new shape or special structure. Inner bag, carton, label, master pack, and retail packaging can be customized for your brand and market requirements.</p>
-              </details>
-              <details id="faq-certificates" class="rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-sm">
-                <summary class="cursor-pointer list-none text-lg font-bold text-slate-950" data-i18n="faq.q6">What certificates and MOQ do you offer?</summary>
-                <p class="mt-3 text-sm leading-7 text-slate-600" data-i18n="faq.a6">Available documents may include MSDS, material declarations, food-contact related documents, test reports, and export files. MOQ depends on the model and customization level; contact us for the best quotation.</p>
-              </details>
-            </div>
           </div>
         </div>
 
@@ -694,8 +658,72 @@
               </div>
             </div>
           </div>
+          
+          <div id="quick-note" class="rounded-[1.5rem] bg-[linear-gradient(135deg,#0f2347,#2d63ef,#22d8d2)] p-6 text-white shadow-sm">
+            <div class="kicker text-white/70" data-i18n="form.quick_note_kicker">Privacy Commitment</div>
+            <p class="mt-2 text-sm leading-7 text-white/90" data-i18n="form.quick_note_text">Commercial privacy strictly protected. We never send spam. Your email is only used for technical consultation and direct quotes.</p>
+          </div>
         </div>
       </div>
+
+      <div id="faq" class="border-t border-slate-200 pt-12">
+        <div class="text-center mb-8">
+          <div class="kicker text-blue-700" data-i18n="faq.kicker">FAQ</div>
+          <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950" data-i18n="faq.title">Frequently Asked Questions</h2>
+          <p class="mt-3 text-slate-600 max-w-2xl mx-auto">Everything you need to know about our cold chain manufacturing process, customization capabilities, and export logistics.</p>
+        </div>
+        
+        <div class="grid gap-4 md:grid-cols-2 items-start">
+          <details class="rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-sm group">
+            <summary class="cursor-pointer list-none flex justify-between items-center text-lg font-bold text-slate-950" data-i18n="faq.q1">
+              <span>What is your production lead time?</span>
+              <span class="text-blue-500 group-open:rotate-180 transition-transform">↓</span>
+            </summary>
+            <p class="mt-3 text-sm leading-7 text-slate-600" data-i18n="faq.a1">Standard orders are usually 10-20 days depending on product type, quantity, and packaging. Custom projects may need extra time for confirmation and sampling.</p>
+          </details>
+          
+          <details class="rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-sm group">
+            <summary class="cursor-pointer list-none flex justify-between items-center text-lg font-bold text-slate-950" data-i18n="faq.q2">
+              <span>Can you customize the products?</span>
+              <span class="text-blue-500 group-open:rotate-180 transition-transform">↓</span>
+            </summary>
+            <p class="mt-3 text-sm leading-7 text-slate-600" data-i18n="faq.a2">Yes. We support size, color, logo, material structure, cooling medium, weight, freezing point, and packaging customization.</p>
+          </details>
+
+          <details class="rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-sm group">
+            <summary class="cursor-pointer list-none flex justify-between items-center text-lg font-bold text-slate-950" data-i18n="faq.q3">
+              <span>What is the customization cycle and can I get samples?</span>
+              <span class="text-blue-500 group-open:rotate-180 transition-transform">↓</span>
+            </summary>
+            <p class="mt-3 text-sm leading-7 text-slate-600" data-i18n="faq.a3">Simple logo or packaging changes can be confirmed quickly. New structure or formula development usually takes 7-15 days for sampling and approval. Standard samples can usually be arranged in 3-7 days.</p>
+          </details>
+
+          <details class="rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-sm group">
+            <summary class="cursor-pointer list-none flex justify-between items-center text-lg font-bold text-slate-950" data-i18n="faq.q4">
+              <span>What files and formats do you need?</span>
+              <span class="text-blue-500 group-open:rotate-180 transition-transform">↓</span>
+            </summary>
+            <p class="mt-3 text-sm leading-7 text-slate-600" data-i18n="faq.a4">For artwork, AI, PDF, EPS, or SVG is preferred. For dielines or carton design, AI/PDF works best. A clear logo, size reference, and usage description are enough to start.</p>
+          </details>
+
+          <details class="rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-sm group">
+            <summary class="cursor-pointer list-none flex justify-between items-center text-lg font-bold text-slate-950" data-i18n="faq.q5">
+              <span>Do you support mold opening and packaging customization?</span>
+              <span class="text-blue-500 group-open:rotate-180 transition-transform">↓</span>
+            </summary>
+            <p class="mt-3 text-sm leading-7 text-slate-600" data-i18n="faq.a5">Yes, mold opening is available for projects that need a new shape or special structure. Inner bag, carton, label, master pack, and retail packaging can be customized for your brand and market requirements.</p>
+          </details>
+
+          <details class="rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-sm group">
+            <summary class="cursor-pointer list-none flex justify-between items-center text-lg font-bold text-slate-950" data-i18n="faq.q6">
+              <span>What certificates and MOQ do you offer?</span>
+              <span class="text-blue-500 group-open:rotate-180 transition-transform">↓</span>
+            </summary>
+            <p class="mt-3 text-sm leading-7 text-slate-600" data-i18n="faq.a6">Available documents may include MSDS, material declarations, food-contact related documents, test reports, and export files. MOQ depends on the model and customization level; contact us for the best quotation.</p>
+          </details>
+        </div>
+      </div>
+
     </section>
   </main>
 
