@@ -180,19 +180,25 @@
     </div>
 
   </main>
-
+  
   <footer class="mt-6 border-t border-slate-200 bg-slate-100 text-slate-900">
     <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       
-      <!-- 底部同步显示小号 Logo -->
       <div class="text-center flex flex-col items-center justify-center">
         <img src="/logo.svg" alt="ColdPackPro Logo" style="height: 36px; width: auto; margin-bottom: 1rem; opacity: 0.85;">
+        
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-4 text-sm font-medium">
+          <a href="/privacy-policy.html" class="text-slate-600 hover:text-blue-700 transition">Privacy Policy</a>
+          <a href="/terms-of-service.html" class="text-slate-600 hover:text-blue-700 transition">Terms of Service</a>
+          <a href="/#about-us" class="text-slate-600 hover:text-blue-700 transition">About Us</a>
+          <a href="/#contact" class="text-slate-600 hover:text-blue-700 transition">Contact Us</a>
+        </div>
+
         <p class="text-sm text-slate-600">© 2026 ColdPackPro. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <!-- 强制内联样式保证绝对悬浮在最高层级，不受任何组件影响 -->
   <button id="backToTopBtn" style="display: none; position: fixed; bottom: 32px; right: 32px; z-index: 99999; align-items: center; gap: 8px; background-color: #0f172a; color: #ffffff; padding: 12px 20px; border-radius: 9999px; font-size: 14px; font-weight: 700; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border: none; cursor: pointer; transition: background-color 0.2s, opacity 0.2s;" onmouseover="this.style.backgroundColor='#1e293b'" onmouseout="this.style.backgroundColor='#0f172a'">
     <svg style="width: 20px; height: 20px;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
     <span>Back to Top</span>
